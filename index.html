@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AP DSC 2026 Pro Study Portal</title>
-    <!-- Tailwind CSS -->
+    <title>Target DSC - Pro Study Portal</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body { background-color: #0f172a; color: #f8fafc; }
-        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-    </style>
 </head>
-<body class="font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-orange-500 selection:text-white">
+    
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-orange-500 selection:text-white bg-slate-950 text-slate-100">
 
     <div>
         <!-- Header Section -->
@@ -33,7 +33,7 @@
         <!-- Main Content Container -->
         <main class="max-w-4xl mx-auto p-4 md:p-6">
             
-            <!-- Add-on 1: Quick Search Bar (Appears on Subjects View) -->
+            <!-- Add-on 1: Quick Search Bar -->
             <div id="searchContainer" class="mb-5">
                 <div class="relative">
                     <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400"></i>
@@ -43,7 +43,7 @@
             </div>
 
             <!-- Add-on 2: Motivation / Stats Banner -->
-            <div id="statsBanner" class="glass-card rounded-2xl p-4 mb-5 flex items-center justify-between border-l-4 border-l-orange-500 shadow-lg">
+            <div id="statsBanner" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 mb-5 flex items-center justify-between border-l-4 border-l-orange-500 shadow-lg">
                 <div>
                     <h3 class="text-xs font-semibold text-orange-400 uppercase tracking-wider">Target 2026</h3>
                     <p class="text-sm font-bold text-slate-200 mt-0.5">Consistency is the key to cracking DSC!</p>
@@ -233,21 +233,21 @@
                                 lessons: [
                                     { title: "వనరులు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%201.html" },
                                     { title: "భూమి – నేల – నీరు – వృక్ష సంపద", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%202.html" },
-									{ title: "ఖనిజాలు - శక్తివనరులు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%203.html" },
-									{ title: "వ్యవసాయం", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%204.html" },
-									{ title: "పరిశ్రమలు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%205.html" },
-									{ title: "మానవ వనరులు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%206.html" }, 
+                                    { title: "ఖనిజాలు - శక్తివనరులు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%203.html" },
+                                    { title: "వ్యవసాయం", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%204.html" },
+                                    { title: "పరిశ్రమలు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%205.html" },
+                                    { title: "మానవ వనరులు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%206.html" }
                                 ]
                             },
                             {
                                 sectionName: "History (చరిత్ర)",
                                 lessons: [
                                     { title: "1: ఎలా, ఎప్పుడు - ఎక్కడ", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%201.html" },
-                                    { title: "వాణిజ్యం నుండి సామ్రాజ్య స్థాపన వరకు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%202.html" }
-                                	{ title: "గ్రామీణ ప్రాంతాల పరిపాలన", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%203.html" },
-                                    { title: "4: గిరిజనులు, దికూలు - ఒక స్వర్ణ యుగ వీక్షణ", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%204.html" }
-									{ title: "1857 ప్రజా తిరుగుబాటు - అనంతర పరిణామాలు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%205.html" }
-								]
+                                    { title: "వాణిజ్యం నుండి సామ్రాజ్య స్థాపన వరకు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%202.html" },
+                                    { title: "గ్రామీణ ప్రాంతాల పరిపాలన", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%203.html" },
+                                    { title: "4: గిరిజనులు, దికూలు - ఒక స్వర్ణ యుగ వీక్షణ", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%204.html" },
+                                    { title: "1857 ప్రజా తిరుగుబాటు - అనంతర పరిణామాలు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%205.html" }
+                                ]
                             },
                             {
                                 sectionName: "Civics (పౌరశాస్త్రం)",
@@ -286,7 +286,7 @@
                                 sectionName: "Civics (పౌరశాస్త్రం)",
                                 lessons: [
                                     { title: "సార్వభౌమ మరియు ప్రజాస్వామ్య వ్యవస్థ", githubLink: "#" },
-                                    { title: "ప్రాథమిక హక్కులు - విధుები", githubLink: "#" }
+                                    { title: "ప్రాథమిక హక్కులు - విధులు", githubLink: "#" }
                                 ]
                             },
                             {
@@ -335,7 +335,7 @@
             }
         ];
 
-        let currentView = 'subjects'; // 'subjects', 'classes', 'sections', 'lessons'
+        let currentView = 'subjects'; 
         let selectedSubjectIndex = null;
         let selectedClassIndex = null;
         let selectedSectionIndex = null;
@@ -358,7 +358,7 @@
                 filteredData.forEach((sub) => {
                     let originalIndex = dscData.findIndex(s => s.subjectName === sub.subjectName);
                     html += `
-                        <button onclick="openSubject(${originalIndex})" class="glass-card p-4 rounded-2xl hover:border-orange-500/50 hover:bg-slate-800 transition flex items-center justify-between text-left group shadow-lg">
+                        <button onclick="openSubject(${originalIndex})" class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:border-orange-500/50 hover:bg-slate-800/80 transition flex items-center justify-between text-left group shadow-lg">
                             <div class="flex items-center gap-3.5">
                                 <img src="${sub.icon}" class="w-11 h-11 object-contain drop-shadow">
                                 <span class="font-bold text-slate-100 text-base group-hover:text-orange-400 transition">${sub.subjectName}</span>
@@ -379,7 +379,7 @@
 
                 let sub = dscData[selectedSubjectIndex];
                 let html = `
-                    <div class="glass-card p-4 rounded-2xl mb-4 flex items-center gap-3 border-l-4 border-l-blue-500">
+                    <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mb-4 flex items-center gap-3 border-l-4 border-l-blue-500 shadow-lg">
                         <img src="${sub.icon}" class="w-8 h-8">
                         <h2 class="text-base font-bold text-slate-100">${sub.subjectName} - Select Class</h2>
                     </div>
@@ -388,7 +388,7 @@
                 
                 sub.classes.forEach((cls, index) => {
                     html += `
-                        <button onclick="openClass(${index})" class="w-full glass-card p-4 rounded-2xl hover:border-blue-500/50 hover:bg-slate-800 transition flex items-center justify-between text-left group shadow-lg">
+                        <button onclick="openClass(${index})" class="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:border-blue-500/50 hover:bg-slate-800/80 transition flex items-center justify-between text-left group shadow-lg">
                             <span class="font-semibold text-blue-400 flex items-center gap-2.5">
                                 <i class="fa-solid fa-layer-group text-slate-400 group-hover:text-blue-400"></i>${cls.className}
                             </span>
@@ -409,7 +409,7 @@
                 let sub = dscData[selectedSubjectIndex];
                 let cls = sub.classes[selectedClassIndex];
                 let html = `
-                    <div class="glass-card p-4 rounded-2xl mb-4 border-l-4 border-l-purple-500">
+                    <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mb-4 border-l-4 border-l-purple-500 shadow-lg">
                         <h2 class="text-base font-bold text-slate-100 flex items-center gap-2">
                             <i class="fa-solid fa-folder-open text-purple-400"></i>${cls.className} - Select Section
                         </h2>
@@ -419,7 +419,7 @@
                 
                 cls.sections.forEach((sec, index) => {
                     html += `
-                        <button onclick="openSection(${index})" class="w-full glass-card p-4 rounded-2xl hover:border-purple-500/50 hover:bg-slate-800 transition flex items-center justify-between text-left group shadow-lg">
+                        <button onclick="openSection(${index})" class="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:border-purple-500/50 hover:bg-slate-800/80 transition flex items-center justify-between text-left group shadow-lg">
                             <span class="font-semibold text-purple-300 flex items-center gap-2.5">
                                 <i class="fa-solid fa-book-bookmark text-slate-400 group-hover:text-purple-400"></i>${sec.sectionName}
                             </span>
@@ -441,7 +441,7 @@
                 let cls = sub.classes[selectedClassIndex];
                 let sec = cls.sections[selectedSectionIndex];
                 let html = `
-                    <div class="glass-card p-4 rounded-2xl mb-4 border-l-4 border-l-emerald-500">
+                    <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mb-4 border-l-4 border-l-emerald-500 shadow-lg">
                         <h2 class="text-base font-bold text-slate-100 flex items-center gap-2">
                             <i class="fa-solid fa-book-open text-emerald-400"></i>${sec.sectionName} Lessons
                         </h2>
@@ -451,7 +451,7 @@
                 
                 sec.lessons.forEach(les => {
                     html += `
-                        <a href="${les.githubLink}" target="_blank" class="block glass-card p-4 rounded-2xl hover:bg-slate-800 hover:border-emerald-500/50 transition flex items-center justify-between group shadow-lg">
+                        <a href="${les.githubLink}" target="_blank" class="block bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:bg-slate-800/80 hover:border-emerald-500/50 transition flex items-center justify-between group shadow-lg">
                             <span class="text-sm font-medium text-slate-200 group-hover:text-emerald-300 transition flex items-center gap-2.5">
                                 <i class="fa-solid fa-file-lines text-slate-500 group-hover:text-emerald-400"></i>${les.title}
                             </span>
@@ -519,6 +519,17 @@
             history.replaceState({ view: 'subjects' }, '');
             renderApp();
         };
+    </script>
+
+    <!-- Register Service Worker for Target DSC PWA -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((reg) => console.log('Target DSC Service Worker Registered Successfully', reg))
+                    .catch((err) => console.log('Service Worker Registration Failed', err));
+            });
+        }
     </script>
 </body>
 </html>
