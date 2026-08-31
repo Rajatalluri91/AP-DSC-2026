@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="te">
 <head>
     <meta charset="UTF-8">
@@ -11,578 +12,587 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-    
+
 <body class="font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-orange-500 selection:text-white bg-slate-950 text-slate-100">
 
-    <div>
-        <!-- Header Section -->
-        <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 p-4">
-            <div class="max-w-4xl mx-auto flex items-center justify-between">
-                <div id="backButtonContainer" class="hidden">
-                    <button onclick="goBack()" class="bg-slate-800 hover:bg-slate-700 text-orange-400 px-3 py-1.5 rounded-xl text-sm flex items-center gap-1.5 transition border border-slate-700 shadow">
-                        <i class="fa-solid fa-arrow-left"></i> Back
+<div>
+    <!-- Header Section -->
+    <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 p-4">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div id="backButtonContainer" class="hidden">
+                <button onclick="goBack()" class="bg-slate-800 hover:bg-slate-700 text-orange-400 px-3 py-1.5 rounded-xl text-sm flex items-center gap-1.5 transition border border-slate-700 shadow">
+                    <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+            </div>
+            <h1 class="text-lg md:text-xl font-bold flex items-center gap-2 mx-auto tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-200">
+                <i class="fa-solid fa-graduation-cap text-orange-400"></i> AP DSC 2026 PRO
+            </h1>
+            <div style="width: 60px;"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto p-4 md:p-6">
+        
+        <!-- Add-on 1: Quick Search Bar -->
+        <div id="searchContainer" class="mb-5">
+            <div class="relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400"></i>
+                <input type="text" id="searchInput" onkeyup="filterSubjects()" placeholder="Search subjects or topics..." 
+                    class="w-full bg-slate-800/80 border border-slate-700 rounded-2xl py-3 pl-11 pr-4 text-sm text-slate-200 placeholder-slate-400 focus:outline-none focus:border-orange-500 transition shadow-inner">
+            </div>
+        </div>
+
+        <!-- Add-on 2: Motivation / Stats Banner -->
+        <div id="statsBanner" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 mb-5 flex items-center justify-between border-l-4 border-l-orange-500 shadow-lg">
+            <div>
+                <h3 class="text-xs font-semibold text-orange-400 uppercase tracking-wider">Target 2026</h3>
+                <p class="text-sm font-bold text-slate-200 mt-0.5">Consistency is the key to cracking DSC!</p>
+            </div>
+            <div class="bg-orange-500/20 text-orange-400 p-2.5 rounded-xl border border-orange-500/30">
+                <i class="fa-solid fa-fire text-lg"></i>
+            </div>
+        </div>
+
+        <!-- Dynamic App View -->
+        <div id="appContainer"></div>
+    </main>
+</div>
+
+<!-- Footer -->
+<footer class="text-center py-6 text-slate-500 text-xs border-t border-slate-800/60 mt-10">
+    &copy; 2026 AP DSC Master Portal. Built for Excellence.
+</footer>
+
+<!-- JavaScript Application Logic -->
+<script>
+    const dscData = [
+        {
+            subjectName: "Psychology & Pedagogy",
+            icon: "https://img.icons8.com/color/96/expert.png",
+            classes: [
+                {
+                    className: "Class 6 to 8 (Core Concepts)",
+                    sections: [
+                        {
+                            sectionName: "General Concepts",
+                            lessons: [
+                                { title: "Child Development & Growth", githubLink: "https://your-username.github.io/ap-dsc/pedagogy/child-dev.html" },
+                                { title: "Learning Theories & Applications", githubLink: "https://your-username.github.io/ap-dsc/pedagogy/learning-theories.html" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            subjectName: "Telugu (తెలుగు)",
+            icon: "https://img.icons8.com/color/96/literature.png",
+            classes: [
+                {
+                    className: "Class 3",
+                    sections: [
+                        {
+                            sectionName: "General Lessons",
+                            lessons: [
+                                { title: "Lesson 1: Chettu - Upayogalu", githubLink: "https://your-username.github.io/ap-dsc/telugu/class3-les1.html" },
+                                { title: "Lesson 2: Desha Bhakti", githubLink: "https://your-username.github.io/ap-dsc/telugu/class3-les2.html" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    className: "Class 10",
+                    sections: [
+                        {
+                            sectionName: "General Lessons",
+                            lessons: [
+                                { title: "Lesson 1: Dampatyamu", githubLink: "https://your-username.github.io/ap-dsc/telugu/class10-les1.html" },
+                                { title: "Lesson 2: Nagajuna Sagar", githubLink: "https://your-username.github.io/ap-dsc/telugu/class10-les2.html" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            subjectName: "English",
+            icon: "https://img.icons8.com/color/96/books.png",
+            classes: [
+                {
+                    className: "METHODOLOGY",
+                    sections: [
+                        {
+                            sectionName: "Units",
+                            lessons: [
+                                { title: "1.ASPECTS OF ENGLISH", githubLink: "https://rajatalluri91.github.io/ENGLISH/ENGLISH%20METHODOLOGY/ENG%20Method%201.html?utm_source=chatgpt.com" },
+                                { title: "2.OBJECTIVES OF TEACHING ENGLISH AT PRIMARY LEVEL", githubLink: "https://rajatalluri91.github.io/ENGLISH/ENGLISH%20METHODOLOGY/ENG%20Method%202.html?utm_source=chatgpt.com" },
+								{ title: "3.LANGUAGE SKILLS", githubLink: "https://rajatalluri91.github.io/ENGLISH/ENGLISH%20METHODOLOGY/ENG%20Method%203.html?utm_source=chatgpt.com" },
+								{ title: "4.APPROACHES METHODS AND TECHNIQUES", githubLink: "https://rajatalluri91.github.io/ENGLISH/ENGLISH%20METHODOLOGY/ENG%20Method%204.html?utm_source=chatgpt.com" },
+								{ title: "5.TEACHING OF STRUCTURES AND VOCABULARY", githubLink: "https://rajatalluri91.github.io/ENGLISH/ENGLISH%20METHODOLOGY/ENG%20Method%205.html?utm_source=chatgpt.com" },
+								{ title: "6.TEACHING LEARNING METERIALS", githubLink: "https://rajatalluri91.github.io/ENGLISH/ENGLISH%20METHODOLOGY/ENG%20Method%206.html?utm_source=chatgpt.com" },
+								{ title: "7.PLANNING", githubLink: "https://rajatalluri91.github.io/ENGLISH/ENGLISH%20METHODOLOGY/ENG%20Method%207.html?utm_source=chatgpt.com" },
+								{ title: "8.CURRICULAM AND TEXT BOOKS", githubLink: "https://rajatalluri91.github.io/ENGLISH/ENGLISH%20METHODOLOGY/ENG%20Method%208.html?utm_source=chatgpt.com" },
+								{ title: "9.EVALUATION", githubLink: "https://rajatalluri91.github.io/ENGLISH/ENGLISH%20METHODOLOGY/ENG%20Method%209.html?utm_source=chatgpt.com" }
+                            ]
+                            
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            subjectName: "Mathematics (గణితం)",
+            icon: "https://img.icons8.com/color/96/math.png",
+            classes: [
+                {
+                    className: "Class 8",
+                    sections: [
+                        {
+                            sectionName: "General Math",
+                            lessons: [
+                                { title: "Rational Numbers", githubLink: "https://your-username.github.io/ap-dsc/maths/class8-rational.html" },
+                                { title: "Linear Equations", githubLink: "https://your-username.github.io/ap-dsc/maths/class8-linear.html" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    className: "Class 10",
+                    sections: [
+                        {
+                            sectionName: "Algebra & Numbers",
+                            lessons: [
+                                { title: "Real Numbers & Polynomials", githubLink: "https://your-username.github.io/ap-dsc/maths/class10-realnumbers.html" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            subjectName: "General Science",
+            icon: "https://img.icons8.com/color/96/physics.png",
+            classes: [
+                {
+                    className: "Class 6",
+                    sections: [
+                        {
+                            sectionName: "Science Concepts",
+                            lessons: [
+                                { title: "ఆహారంలోని అంశాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%201.html" },
+                                { title: "పదార్థాలను సమూహాలుగా వర్గీకరించుట", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%202.html" },
+                                { title: "పదార్థాలను వేరు చేయుట", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%203.html" },
+                                { title: "మొక్కల గురించి తెలుసుకోవడం", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%204.html" },
+                                { title: "శరీర కదలికలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%205.html" },
+                                { title: "సజీవులు - లక్షణాలు మరియు ఆవాసాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%206.html" },
+                                { title: "చలనం మరియు దూరాల కొలతలుు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%207.html" },
+                                { title: "కాంతి, నీడలు మరియు పరావర్తనాలుు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%208.html" },
+                                { title: "విద్యుత్ మరియు విద్యుత్ వలయాలుు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%209.html" },
+                                { title: "అయస్కాంతాలతో సరదాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%2010.html" },
+                                { title: "మన చుట్టూ ఉన్న గాలి", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%2011.html" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    className: "Class 7",
+                    sections: [
+                        {
+                            sectionName: "Science Concepts",
+                            lessons: [
+                                { title: "మొక్కలలో పోషణ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%201.html" },
+                                { title: "జంతువులలో పోషణ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%202.html" },
+                                { title: "ఉష్ణం", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%203.html" },
+                                { title: "ఆమ్లాలు, క్షారాలు మరియు లవణాలు", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%204.html" },
+                                { title: "భౌతిక మరియు రసాయన మార్పులు", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%205.html" },
+                                { title: "జీవులలో శ్వాసక్రియ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%206.html" },
+                                { title: "మొక్కలు మరియు జంతువులలో రవాణా", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%207.html" },
+                                { title: "మొక్కలలో ప్రత్యుత్పత్తి", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%208.html" },
+                                { title: "చలనము మరియు కాలము", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%209.html" },
+                                { title: "విద్యుత్ ప్రవాహం మరియు దాని ప్రభావాలు", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%2010.html" },
+                                { title: "కాంతి", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%2011.html" },
+                                { title: "అడవులు: మన జీవనాధారం", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%2012.html" },
+                                { title: "మురుగు నీటి కథ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%2013.html" }
+                                
+                                
+                                ]
+                        }
+                    ]
+                },
+                                    {
+                    className: "Class 8",
+                    sections: [
+                        {
+                            sectionName: "Science Concepts",
+                            lessons: [
+                                { title: "మొక్కలలో పోషణ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%201.html" },
+                                { title: "జంతువులలో పోషణ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%202.html" },
+                                { title: "ఉష్ణం", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%203.html" },
+                                { title: "ఆమ్లాలు, క్షారాలు మరియు లవణాలు", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%204.html" },
+                                { title: "భౌతిక మరియు రసాయన మార్పులు", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%205.html" },
+                                { title: "జీవులలో శ్వాసక్రియ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%206.html" },
+                                { title: "మొక్కలు మరియు జంతువులలో రవాణా", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%207.html" }
+                                
+                                ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            subjectName: "Social Studies",
+            icon: "https://img.icons8.com/color/96/globe.png",
+            classes: [
+                {
+                    className: "Class 6",
+                    sections: [
+                        {
+                            sectionName: "General Social",
+                            lessons: [
+                                { title: "సౌర కుటుంబంలో మన భూమి", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%201ST%20LESSON.html" },
+                                { title: "గ్లోబు - భూమికి నమూనా", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%202ND%20LESSON.html" },
+                                { title: "పటములు - రకాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%203rd%20LESSON.html" },
+                                { title: "ఆంధ్రప్రదేశ్ భూస్వరూపాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%204th%20LESSON.html" },
+                                { title: "సంచార జీవనం నుండి స్థిర జీవనం వరకు", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%205th%20LESSON.html" },
+                                { title: "సామ్రాజ్యాలు,గణతంత్ర ఆవిర్భావం", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%206th%20LESSON.html" },
+                                { title: "రాజ్యాలు మరియు సామ్రాజ్యాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%207th%20LESSON.html" },
+                                { title: "ప్రభుత్వం", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%208th%20LESSON.html" },
+                                { title: "స్థానిక స్వ పరిపాలన", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%209th%20LESSON.html" },
+                                { title: "భారతీయ సంస్కృతి, భాషలు మరియు మతాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%2010th%20LESSON.html" },
+                                { title: "సమానత్వం వైపు", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%2011th%20LESSON.html" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    className: "Class 7",
+                    sections: [
+                        {
+                            sectionName: "General Social",
+                            lessons: [
+                                { title: "విశ్వం - భూమి", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%201st%20Lesson.html" },
+                                { title: "అడవులు", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%202nd%20Lesson.html" },
+                                { title: "పటాల ద్వారా అభ్యసనం", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%203rd%20Lesson.html" },
+                                { title: "భారత రాజ్యాంగం – పరిచయం", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%204th%20Lesson.html" },
+                                { title: "రాష్ట్ర ప్రభుత్వం", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%205th%20Lesson.html" },
+                                { title: "రహదారి భద్రతా విద్య", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%206th%20Lesson.html" },
+                                { title: "మన పరిసరాలలో ఉన్న మార్కెట్లు", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%207th%20Lesson.html" },
+                                { title: "మొఘల్ సామ్రాజ్యం", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%208th%20Lesson.html" },
+                                { title: "భక్తి – సూఫీ", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%209th%20Lesson.html" },
+                                { title: "ఢిల్లీ సుల్తానులు", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%20Lesson%2010.html" },
+                                { title: "కాకతీయ రాజ్యం", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%20Lesson%2011.html" },
+                                { title: "విజయగర సామ్రాజ్యం", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%20Lesson%2012.html" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    className: "Class 8",
+                    sections: [
+                        {
+                            sectionName: "Geography (భూగోళశాస్త్రం)",
+                            lessons: [
+                                { title: "వనరులు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%201.html" },
+                                { title: "భూమి – నేల – నీరు – వృక్ష సంపద", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%202.html" },
+                                { title: "ఖనిజాలు - శక్తివనరులు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%203.html" },
+                                { title: "వ్యవసాయం", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%204.html" },
+                                { title: "పరిశ్రమలు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%205.html" },
+                                { title: "మానవ వనరులు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%206.html" }
+                            ]
+                        },
+                        {
+                            sectionName: "History (చరిత్ర)",
+                            lessons: [
+                                { title: "1: ఎలా, ఎప్పుడు - ఎక్కడ", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%201.html" },
+                                { title: "వాణిజ్యం నుండి సామ్రాజ్య స్థాపన వరకు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%202.html" },
+                                { title: "గ్రామీణ ప్రాంతాల పరిపాలన", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%203.html" },
+                                { title: "4: గిరిజనులు, దికూలు - ఒక స్వర్ణ యుగ వీక్షణ", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%204.html" },
+                                { title: "1857 ప్రజా తిరుగుబాటు - అనంతర పరిణామాలు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%205.html" }
+                            ]
+                        },
+                        {
+                            sectionName: "Civics (పౌరశాస్త్రం)",
+                            lessons: [
+                                { title: "భారత రాజ్యాంగ నిర్మాణం", githubLink: "#" },
+                                { title: "పార్లమెంటరీ ప్రభుత్వ వ్యవస్థ", githubLink: "#" }
+                            ]
+                        },
+                        {
+                            sectionName: "Economics (అర్థశాస్త్రం)",
+                            lessons: [
+                                { title: "ధనము - బ్యాంకింగ్ వ్యవస్థ", githubLink: "#" },
+                                { title: "ప్రభుత్వ బడ్జెట్ మరియు ఆర్థిక వ్యవస్థ", githubLink: "#" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    className: "Class 9",
+                    sections: [
+                        {
+                            sectionName: "Geography (భూగోళశాస్త్రం)",
+                            lessons: [
+                                { title: "భారతదేశం - ఆకారము మరియు స్థానము", githubLink: "#" },
+                                { title: "వాతావరణం మరియు శీతోష్ణస్థితి", githubLink: "#" }
+                            ]
+                        },
+                        {
+                            sectionName: "History (చరిత్ర)",
+                            lessons: [
+                                { title: "ఫ్రెంచ్ విప్లవం", githubLink: "#" },
+                                { title: "యూరోప్‌లో సామ్రాజ్యవాదం మరియు నాజిజం", githubLink: "#" }
+                            ]
+                        },
+                        {
+                            sectionName: "Civics (పౌరశాస్త్రం)",
+                            lessons: [
+                                { title: "సార్వభౌమ మరియు ప్రజాస్వామ్య వ్యవస్థ", githubLink: "#" },
+                                { title: "ప్రాథమిక హక్కులు - విధులు", githubLink: "#" }
+                            ]
+                        },
+                        {
+                            sectionName: "Economics (అర్థశాస్త్రం)",
+                            lessons: [
+                                { title: "ఉత్పత్తి వ్యవస్థ - అర్థశాస్త్రం", githubLink: "#" },
+                                { title: "పేదరికం - ఒక సవాలు", githubLink: "#" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    className: "Class 10",
+                    sections: [
+                        {
+                            sectionName: "Geography (భూగోళశాస్త్రం)",
+                            lessons: [
+                                { title: "భారతదేశ నైసర్గిక స్వరూపాలు", githubLink: "#" },
+                                { title: "భారతదేశంలో ఖనిజాలు మరియు శక్తి వనరులు", githubLink: "#" }
+                            ]
+                        },
+                        {
+                            sectionName: "History (చరిత్ర)",
+                            lessons: [
+                                { title: "ప్రపంచ యుద్ధాలు మరియు స్వాతంత్ర్య ఉద్యమాలు", githubLink: "#" },
+                                { title: "భారతదేశంలో జాతీయ ఉద్యమం", githubLink: "#" }
+                            ]
+                        },
+                        {
+                            sectionName: "Civics (పౌరశాస్త్రం)",
+                            lessons: [
+                                { title: "భారత పార్లమెంటరీ వ్యవస్థ - చట్టాలు", githubLink: "#" },
+                                { title: "భారత విదేశాంగ విధానం", githubLink: "#" }
+                            ]
+                        },
+                        {
+                            sectionName: "Economics (అర్థశాస్త్రం)",
+                            lessons: [
+                                { title: "ప్రపంచీకరణ మరియు అభివృద్ధి", githubLink: "#" },
+                                { title: "భారతదేశంలో వినియోగదారుల హక్కులు", githubLink: "#" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ];
+
+    let currentView = 'subjects'; 
+    let selectedSubjectIndex = null;
+    let selectedClassIndex = null;
+    let selectedSectionIndex = null;
+
+    function renderApp(filteredData = dscData) {
+        const container = document.getElementById('appContainer');
+        const backBtnContainer = document.getElementById('backButtonContainer');
+        const searchContainer = document.getElementById('searchContainer');
+        const statsBanner = document.getElementById('statsBanner');
+        
+        container.innerHTML = "";
+
+        if (currentView === 'subjects') {
+            backBtnContainer.classList.add('hidden');
+            searchContainer.classList.remove('hidden');
+            statsBanner.classList.remove('hidden');
+
+            let html = '<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="subjectsGrid">';
+            
+            filteredData.forEach((sub) => {
+                let originalIndex = dscData.findIndex(s => s.subjectName === sub.subjectName);
+                html += `
+                    <button onclick="openSubject(${originalIndex})" class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:border-orange-500/50 hover:bg-slate-800/80 transition flex items-center justify-between text-left group shadow-lg">
+                        <div class="flex items-center gap-3.5">
+                            <img src="${sub.icon}" class="w-11 h-11 object-contain drop-shadow">
+                            <span class="font-bold text-slate-100 text-base group-hover:text-orange-400 transition">${sub.subjectName}</span>
+                        </div>
+                        <div class="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition">
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </div>
                     </button>
-                </div>
-                <h1 class="text-lg md:text-xl font-bold flex items-center gap-2 mx-auto tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-200">
-                    <i class="fa-solid fa-graduation-cap text-orange-400"></i> AP DSC 2026 PRO
-                </h1>
-                <div style="width: 60px;"></div>
-            </div>
-        </header>
-
-        <!-- Main Content Container -->
-        <main class="max-w-4xl mx-auto p-4 md:p-6">
-            
-            <!-- Add-on 1: Quick Search Bar -->
-            <div id="searchContainer" class="mb-5">
-                <div class="relative">
-                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400"></i>
-                    <input type="text" id="searchInput" onkeyup="filterSubjects()" placeholder="Search subjects or topics..." 
-                        class="w-full bg-slate-800/80 border border-slate-700 rounded-2xl py-3 pl-11 pr-4 text-sm text-slate-200 placeholder-slate-400 focus:outline-none focus:border-orange-500 transition shadow-inner">
-                </div>
-            </div>
-
-            <!-- Add-on 2: Motivation / Stats Banner -->
-            <div id="statsBanner" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 mb-5 flex items-center justify-between border-l-4 border-l-orange-500 shadow-lg">
-                <div>
-                    <h3 class="text-xs font-semibold text-orange-400 uppercase tracking-wider">Target 2026</h3>
-                    <p class="text-sm font-bold text-slate-200 mt-0.5">Consistency is the key to cracking DSC!</p>
-                </div>
-                <div class="bg-orange-500/20 text-orange-400 p-2.5 rounded-xl border border-orange-500/30">
-                    <i class="fa-solid fa-fire text-lg"></i>
-                </div>
-            </div>
-
-            <!-- Dynamic App View -->
-            <div id="appContainer"></div>
-        </main>
-    </div>
-
-    <!-- Footer -->
-    <footer class="text-center py-6 text-slate-500 text-xs border-t border-slate-800/60 mt-10">
-        &copy; 2026 AP DSC Master Portal. Built for Excellence.
-    </footer>
-
-    <!-- JavaScript Application Logic -->
-    <script>
-        const dscData = [
-            {
-                subjectName: "Psychology & Pedagogy",
-                icon: "https://img.icons8.com/color/96/expert.png",
-                classes: [
-                    {
-                        className: "Class 6 to 8 (Core Concepts)",
-                        sections: [
-                            {
-                                sectionName: "General Concepts",
-                                lessons: [
-                                    { title: "Child Development & Growth", githubLink: "https://your-username.github.io/ap-dsc/pedagogy/child-dev.html" },
-                                    { title: "Learning Theories & Applications", githubLink: "https://your-username.github.io/ap-dsc/pedagogy/learning-theories.html" }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                subjectName: "Telugu (తెలుగు)",
-                icon: "https://img.icons8.com/color/96/literature.png",
-                classes: [
-                    {
-                        className: "Class 3",
-                        sections: [
-                            {
-                                sectionName: "General Lessons",
-                                lessons: [
-                                    { title: "Lesson 1: Chettu - Upayogalu", githubLink: "https://your-username.github.io/ap-dsc/telugu/class3-les1.html" },
-                                    { title: "Lesson 2: Desha Bhakti", githubLink: "https://your-username.github.io/ap-dsc/telugu/class3-les2.html" }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        className: "Class 10",
-                        sections: [
-                            {
-                                sectionName: "General Lessons",
-                                lessons: [
-                                    { title: "Lesson 1: Dampatyamu", githubLink: "https://your-username.github.io/ap-dsc/telugu/class10-les1.html" },
-                                    { title: "Lesson 2: Nagajuna Sagar", githubLink: "https://your-username.github.io/ap-dsc/telugu/class10-les2.html" }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                subjectName: "English",
-                icon: "https://img.icons8.com/color/96/books.png",
-                classes: [
-                    {
-                        className: "Class 6",
-                        sections: [
-                            {
-                                sectionName: "Units",
-                                lessons: [
-                                    { title: "Unit 1: Peace and Harmony", githubLink: "https://your-username.github.io/ap-dsc/english/class6-unit1.html" },
-                                    { title: "Unit 2: The Wonderful World", githubLink: "https://your-username.github.io/ap-dsc/english/class6-unit2.html" }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                subjectName: "Mathematics (గణితం)",
-                icon: "https://img.icons8.com/color/96/math.png",
-                classes: [
-                    {
-                        className: "Class 8",
-                        sections: [
-                            {
-                                sectionName: "General Math",
-                                lessons: [
-                                    { title: "Rational Numbers", githubLink: "https://your-username.github.io/ap-dsc/maths/class8-rational.html" },
-                                    { title: "Linear Equations", githubLink: "https://your-username.github.io/ap-dsc/maths/class8-linear.html" }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        className: "Class 10",
-                        sections: [
-                            {
-                                sectionName: "Algebra & Numbers",
-                                lessons: [
-                                    { title: "Real Numbers & Polynomials", githubLink: "https://your-username.github.io/ap-dsc/maths/class10-realnumbers.html" }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                subjectName: "General Science",
-                icon: "https://img.icons8.com/color/96/physics.png",
-                classes: [
-                    {
-                        className: "Class 6",
-                        sections: [
-                            {
-                                sectionName: "Science Concepts",
-                                lessons: [
-                                    { title: "ఆహారంలోని అంశాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%201.html" },
-                                    { title: "పదార్థాలను సమూహాలుగా వర్గీకరించుట", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%202.html" },
-                                    { title: "పదార్థాలను వేరు చేయుట", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%203.html" },
-                                    { title: "మొక్కల గురించి తెలుసుకోవడం", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%204.html" },
-                                    { title: "శరీర కదలికలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%205.html" },
-                                    { title: "సజీవులు - లక్షణాలు మరియు ఆవాసాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%206.html" },
-                                    { title: "చలనం మరియు దూరాల కొలతలుు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%207.html" },
-                                    { title: "కాంతి, నీడలు మరియు పరావర్తనాలుు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%208.html" },
-                                    { title: "విద్యుత్ మరియు విద్యుత్ వలయాలుు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%209.html" },
-                                    { title: "అయస్కాంతాలతో సరదాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%2010.html" },
-                                    { title: "మన చుట్టూ ఉన్న గాలి", githubLink: "https://rajatalluri91.github.io/6th-Class-Science/6th%20Science%2011.html" }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        className: "Class 7",
-                        sections: [
-                            {
-                                sectionName: "Science Concepts",
-                                lessons: [
-                                    { title: "మొక్కలలో పోషణ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%201.html" },
-                                    { title: "జంతువులలో పోషణ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%202.html" },
-                                    { title: "ఉష్ణం", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%203.html" },
-                                    { title: "ఆమ్లాలు, క్షారాలు మరియు లవణాలు", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%204.html" },
-                                    { title: "భౌతిక మరియు రసాయన మార్పులు", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%205.html" },
-                                    { title: "జీవులలో శ్వాసక్రియ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%206.html" },
-                                    { title: "మొక్కలు మరియు జంతువులలో రవాణా", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%207.html" },
-                                    { title: "మొక్కలలో ప్రత్యుత్పత్తి", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%208.html" },
-                                    { title: "చలనము మరియు కాలము", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%209.html" },
-                                    { title: "విద్యుత్ ప్రవాహం మరియు దాని ప్రభావాలు", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%2010.html" },
-                                    { title: "కాంతి", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%2011.html" },
-                                    { title: "అడవులు: మన జీవనాధారం", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%2012.html" },
-                                    { title: "మురుగు నీటి కథ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%2013.html" }
-                                    
-                                    
-                                    ]
-                            }
-                        ]
-                    },
-                                        {
-                        className: "Class 8",
-                        sections: [
-                            {
-                                sectionName: "Science Concepts",
-                                lessons: [
-                                    { title: "మొక్కలలో పోషణ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%201.html" },
-                                    { title: "జంతువులలో పోషణ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%202.html" },
-                                    { title: "ఉష్ణం", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%203.html" },
-                                    { title: "ఆమ్లాలు, క్షారాలు మరియు లవణాలు", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%204.html" },
-                                    { title: "భౌతిక మరియు రసాయన మార్పులు", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%205.html" },
-                                    { title: "జీవులలో శ్వాసక్రియ", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%206.html" },
-                                    { title: "మొక్కలు మరియు జంతువులలో రవాణా", githubLink: "https://rajatalluri91.github.io/7th-Class-Science/7th%20Science%207.html" }
-                                    
-                                    ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                subjectName: "Social Studies",
-                icon: "https://img.icons8.com/color/96/globe.png",
-                classes: [
-                    {
-                        className: "Class 6",
-                        sections: [
-                            {
-                                sectionName: "General Social",
-                                lessons: [
-                                    { title: "సౌర కుటుంబంలో మన భూమి", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%201ST%20LESSON.html" },
-                                    { title: "గ్లోబు - భూమికి నమూనా", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%202ND%20LESSON.html" },
-                                    { title: "పటములు - రకాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%203rd%20LESSON.html" },
-                                    { title: "ఆంధ్రప్రదేశ్ భూస్వరూపాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%204th%20LESSON.html" },
-                                    { title: "సంచార జీవనం నుండి స్థిర జీవనం వరకు", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%205th%20LESSON.html" },
-                                    { title: "సామ్రాజ్యాలు,గణతంత్ర ఆవిర్భావం", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%206th%20LESSON.html" },
-                                    { title: "రాజ్యాలు మరియు సామ్రాజ్యాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%207th%20LESSON.html" },
-                                    { title: "ప్రభుత్వం", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%208th%20LESSON.html" },
-                                    { title: "స్థానిక స్వ పరిపాలన", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%209th%20LESSON.html" },
-                                    { title: "భారతీయ సంస్కృతి, భాషలు మరియు మతాలు", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%2010th%20LESSON.html" },
-                                    { title: "సమానత్వం వైపు", githubLink: "https://rajatalluri91.github.io/6th-Class-Social/6TH%20SOCIAL%2011th%20LESSON.html" }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        className: "Class 7",
-                        sections: [
-                            {
-                                sectionName: "General Social",
-                                lessons: [
-                                    { title: "విశ్వం - భూమి", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%201st%20Lesson.html" },
-                                    { title: "అడవులు", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%202nd%20Lesson.html" },
-                                    { title: "పటాల ద్వారా అభ్యసనం", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%203rd%20Lesson.html" },
-                                    { title: "భారత రాజ్యాంగం – పరిచయం", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%204th%20Lesson.html" },
-                                    { title: "రాష్ట్ర ప్రభుత్వం", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%205th%20Lesson.html" },
-                                    { title: "రహదారి భద్రతా విద్య", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%206th%20Lesson.html" },
-                                    { title: "మన పరిసరాలలో ఉన్న మార్కెట్లు", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%207th%20Lesson.html" },
-                                    { title: "మొఘల్ సామ్రాజ్యం", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%208th%20Lesson.html" },
-                                    { title: "భక్తి – సూఫీ", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%209th%20Lesson.html" },
-                                    { title: "ఢిల్లీ సుల్తానులు", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%20Lesson%2010.html" },
-                                    { title: "కాకతీయ రాజ్యం", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%20Lesson%2011.html" },
-                                    { title: "విజయగర సామ్రాజ్యం", githubLink: "https://rajatalluri91.github.io/7th-Class-Social/7th%20Social%20Lesson%2012.html" }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        className: "Class 8",
-                        sections: [
-                            {
-                                sectionName: "Geography (భూగోళశాస్త్రం)",
-                                lessons: [
-                                    { title: "వనరులు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%201.html" },
-                                    { title: "భూమి – నేల – నీరు – వృక్ష సంపద", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%202.html" },
-                                    { title: "ఖనిజాలు - శక్తివనరులు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%203.html" },
-                                    { title: "వ్యవసాయం", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%204.html" },
-                                    { title: "పరిశ్రమలు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%205.html" },
-                                    { title: "మానవ వనరులు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20Geography%206.html" }
-                                ]
-                            },
-                            {
-                                sectionName: "History (చరిత్ర)",
-                                lessons: [
-                                    { title: "1: ఎలా, ఎప్పుడు - ఎక్కడ", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%201.html" },
-                                    { title: "వాణిజ్యం నుండి సామ్రాజ్య స్థాపన వరకు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%202.html" },
-                                    { title: "గ్రామీణ ప్రాంతాల పరిపాలన", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%203.html" },
-                                    { title: "4: గిరిజనులు, దికూలు - ఒక స్వర్ణ యుగ వీక్షణ", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%204.html" },
-                                    { title: "1857 ప్రజా తిరుగుబాటు - అనంతర పరిణామాలు", githubLink: "https://rajatalluri91.github.io/8th-Class-Social/8th%20History%205.html" }
-                                ]
-                            },
-                            {
-                                sectionName: "Civics (పౌరశాస్త్రం)",
-                                lessons: [
-                                    { title: "భారత రాజ్యాంగ నిర్మాణం", githubLink: "#" },
-                                    { title: "పార్లమెంటరీ ప్రభుత్వ వ్యవస్థ", githubLink: "#" }
-                                ]
-                            },
-                            {
-                                sectionName: "Economics (అర్థశాస్త్రం)",
-                                lessons: [
-                                    { title: "ధనము - బ్యాంకింగ్ వ్యవస్థ", githubLink: "#" },
-                                    { title: "ప్రభుత్వ బడ్జెట్ మరియు ఆర్థిక వ్యవస్థ", githubLink: "#" }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        className: "Class 9",
-                        sections: [
-                            {
-                                sectionName: "Geography (భూగోళశాస్త్రం)",
-                                lessons: [
-                                    { title: "భారతదేశం - ఆకారము మరియు స్థానము", githubLink: "#" },
-                                    { title: "వాతావరణం మరియు శీతోష్ణస్థితి", githubLink: "#" }
-                                ]
-                            },
-                            {
-                                sectionName: "History (చరిత్ర)",
-                                lessons: [
-                                    { title: "ఫ్రెంచ్ విప్లవం", githubLink: "#" },
-                                    { title: "యూరోప్‌లో సామ్రాజ్యవాదం మరియు నాజిజం", githubLink: "#" }
-                                ]
-                            },
-                            {
-                                sectionName: "Civics (పౌరశాస్త్రం)",
-                                lessons: [
-                                    { title: "సార్వభౌమ మరియు ప్రజాస్వామ్య వ్యవస్థ", githubLink: "#" },
-                                    { title: "ప్రాథమిక హక్కులు - విధులు", githubLink: "#" }
-                                ]
-                            },
-                            {
-                                sectionName: "Economics (అర్థశాస్త్రం)",
-                                lessons: [
-                                    { title: "ఉత్పత్తి వ్యవస్థ - అర్థశాస్త్రం", githubLink: "#" },
-                                    { title: "పేదరికం - ఒక సవాలు", githubLink: "#" }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        className: "Class 10",
-                        sections: [
-                            {
-                                sectionName: "Geography (భూగోళశాస్త్రం)",
-                                lessons: [
-                                    { title: "భారతదేశ నైసర్గిక స్వరూపాలు", githubLink: "#" },
-                                    { title: "భారతదేశంలో ఖనిజాలు మరియు శక్తి వనరులు", githubLink: "#" }
-                                ]
-                            },
-                            {
-                                sectionName: "History (చరిత్ర)",
-                                lessons: [
-                                    { title: "ప్రపంచ యుద్ధాలు మరియు స్వాతంత్ర్య ఉద్యమాలు", githubLink: "#" },
-                                    { title: "భారతదేశంలో జాతీయ ఉద్యమం", githubLink: "#" }
-                                ]
-                            },
-                            {
-                                sectionName: "Civics (పౌరశాస్త్రం)",
-                                lessons: [
-                                    { title: "భారత పార్లమెంటరీ వ్యవస్థ - చట్టాలు", githubLink: "#" },
-                                    { title: "భారత విదేశాంగ విధానం", githubLink: "#" }
-                                ]
-                            },
-                            {
-                                sectionName: "Economics (అర్థశాస్త్రం)",
-                                lessons: [
-                                    { title: "ప్రపంచీకరణ మరియు అభివృద్ధి", githubLink: "#" },
-                                    { title: "భారతదేశంలో వినియోగదారుల హక్కులు", githubLink: "#" }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-        ];
-
-        let currentView = 'subjects'; 
-        let selectedSubjectIndex = null;
-        let selectedClassIndex = null;
-        let selectedSectionIndex = null;
-
-        function renderApp(filteredData = dscData) {
-            const container = document.getElementById('appContainer');
-            const backBtnContainer = document.getElementById('backButtonContainer');
-            const searchContainer = document.getElementById('searchContainer');
-            const statsBanner = document.getElementById('statsBanner');
-            
-            container.innerHTML = "";
-
-            if (currentView === 'subjects') {
-                backBtnContainer.classList.add('hidden');
-                searchContainer.classList.remove('hidden');
-                statsBanner.classList.remove('hidden');
-
-                let html = '<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="subjectsGrid">';
-                
-                filteredData.forEach((sub) => {
-                    let originalIndex = dscData.findIndex(s => s.subjectName === sub.subjectName);
-                    html += `
-                        <button onclick="openSubject(${originalIndex})" class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:border-orange-500/50 hover:bg-slate-800/80 transition flex items-center justify-between text-left group shadow-lg">
-                            <div class="flex items-center gap-3.5">
-                                <img src="${sub.icon}" class="w-11 h-11 object-contain drop-shadow">
-                                <span class="font-bold text-slate-100 text-base group-hover:text-orange-400 transition">${sub.subjectName}</span>
-                            </div>
-                            <div class="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition">
-                                <i class="fa-solid fa-chevron-right text-xs"></i>
-                            </div>
-                        </button>
-                    `;
-                });
-                html += '</div>';
-                container.innerHTML = html;
-
-            } else if (currentView === 'classes') {
-                backBtnContainer.classList.remove('hidden');
-                searchContainer.classList.add('hidden');
-                statsBanner.classList.add('hidden');
-
-                let sub = dscData[selectedSubjectIndex];
-                let html = `
-                    <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mb-4 flex items-center gap-3 border-l-4 border-l-blue-500 shadow-lg">
-                        <img src="${sub.icon}" class="w-8 h-8">
-                        <h2 class="text-base font-bold text-slate-100">${sub.subjectName} - Select Class</h2>
-                    </div>
-                    <div class="space-y-3">
                 `;
-                
-                sub.classes.forEach((cls, index) => {
-                    html += `
-                        <button onclick="openClass(${index})" class="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:border-blue-500/50 hover:bg-slate-800/80 transition flex items-center justify-between text-left group shadow-lg">
-                            <span class="font-semibold text-blue-400 flex items-center gap-2.5">
-                                <i class="fa-solid fa-layer-group text-slate-400 group-hover:text-blue-400"></i>${cls.className}
-                            </span>
-                            <div class="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition">
-                                <i class="fa-solid fa-chevron-right text-xs"></i>
-                            </div>
-                        </button>
-                    `;
-                });
-                html += '</div>';
-                container.innerHTML = html;
-
-            } else if (currentView === 'sections') {
-                backBtnContainer.classList.remove('hidden');
-                searchContainer.classList.add('hidden');
-                statsBanner.classList.add('hidden');
-
-                let sub = dscData[selectedSubjectIndex];
-                let cls = sub.classes[selectedClassIndex];
-                let html = `
-                    <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mb-4 border-l-4 border-l-purple-500 shadow-lg">
-                        <h2 class="text-base font-bold text-slate-100 flex items-center gap-2">
-                            <i class="fa-solid fa-folder-open text-purple-400"></i>${cls.className} - Select Section
-                        </h2>
-                    </div>
-                    <div class="space-y-3">
-                `;
-                
-                cls.sections.forEach((sec, index) => {
-                    html += `
-                        <button onclick="openSection(${index})" class="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:border-purple-500/50 hover:bg-slate-800/80 transition flex items-center justify-between text-left group shadow-lg">
-                            <span class="font-semibold text-purple-300 flex items-center gap-2.5">
-                                <i class="fa-solid fa-book-bookmark text-slate-400 group-hover:text-purple-400"></i>${sec.sectionName}
-                            </span>
-                            <div class="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-purple-600 group-hover:text-white transition">
-                                <i class="fa-solid fa-chevron-right text-xs"></i>
-                            </div>
-                        </button>
-                    `;
-                });
-                html += '</div>';
-                container.innerHTML = html;
-
-            } else if (currentView === 'lessons') {
-                backBtnContainer.classList.remove('hidden');
-                searchContainer.classList.add('hidden');
-                statsBanner.classList.add('hidden');
-
-                let sub = dscData[selectedSubjectIndex];
-                let cls = sub.classes[selectedClassIndex];
-                let sec = cls.sections[selectedSectionIndex];
-                let html = `
-                    <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mb-4 border-l-4 border-l-emerald-500 shadow-lg">
-                        <h2 class="text-base font-bold text-slate-100 flex items-center gap-2">
-                            <i class="fa-solid fa-book-open text-emerald-400"></i>${sec.sectionName} Lessons
-                        </h2>
-                    </div>
-                    <div class="space-y-2.5">
-                `;
-                
-                sec.lessons.forEach(les => {
-                    html += `
-                        <a href="${les.githubLink}" target="_blank" class="block bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:bg-slate-800/80 hover:border-emerald-500/50 transition flex items-center justify-between group shadow-lg">
-                            <span class="text-sm font-medium text-slate-200 group-hover:text-emerald-300 transition flex items-center gap-2.5">
-                                <i class="fa-solid fa-file-lines text-slate-500 group-hover:text-emerald-400"></i>${les.title}
-                            </span>
-                            <span class="bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 group-hover:bg-emerald-600 group-hover:text-white transition">
-                                Read Notes <i class="fa-solid fa-external-link-alt text-[10px]"></i>
-                            </span>
-                        </a>
-                    `;
-                });
-                html += '</div>';
-                container.innerHTML = html;
-            }
-        }
-
-        function filterSubjects() {
-            let query = document.getElementById('searchInput').value.toLowerCase();
-            let filtered = dscData.filter(sub => sub.subjectName.toLowerCase().includes(query));
-            renderApp(filtered);
-        }
-
-        function openSubject(index) {
-            selectedSubjectIndex = index;
-            currentView = 'classes';
-            history.pushState({ view: 'classes', sub: index }, '');
-            renderApp();
-            window.scrollTo(0, 0);
-        }
-
-        function openClass(index) {
-            selectedClassIndex = index;
-            currentView = 'sections';
-            history.pushState({ view: 'sections', sub: selectedSubjectIndex, cls: index }, '');
-            renderApp();
-            window.scrollTo(0, 0);
-        }
-
-        function openSection(index) {
-            selectedSectionIndex = index;
-            currentView = 'lessons';
-            history.pushState({ view: 'lessons', sub: selectedSubjectIndex, cls: selectedClassIndex, sec: index }, '');
-            renderApp();
-            window.scrollTo(0, 0);
-        }
-
-        function goBack() {
-            window.history.back();
-        }
-
-        window.onpopstate = function(event) {
-            if (event.state) {
-                currentView = event.state.view;
-                selectedSubjectIndex = event.state.sub !== undefined ? event.state.sub : null;
-                selectedClassIndex = event.state.cls !== undefined ? event.state.cls : null;
-                selectedSectionIndex = event.state.sec !== undefined ? event.state.sec : null;
-            } else {
-                currentView = 'subjects';
-                selectedSubjectIndex = null;
-                selectedClassIndex = null;
-                selectedSectionIndex = null;
-            }
-            renderApp();
-        };
-
-        window.onload = function() {
-            history.replaceState({ view: 'subjects' }, '');
-            renderApp();
-        };
-    </script>
-
-    <!-- Register Service Worker for Target DSC PWA -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then((reg) => console.log('Target DSC Service Worker Registered Successfully', reg))
-                    .catch((err) => console.log('Service Worker Registration Failed', err));
             });
+            html += '</div>';
+            container.innerHTML = html;
+
+        } else if (currentView === 'classes') {
+            backBtnContainer.classList.remove('hidden');
+            searchContainer.classList.add('hidden');
+            statsBanner.classList.add('hidden');
+
+            let sub = dscData[selectedSubjectIndex];
+            let html = `
+                <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mb-4 flex items-center gap-3 border-l-4 border-l-blue-500 shadow-lg">
+                    <img src="${sub.icon}" class="w-8 h-8">
+                    <h2 class="text-base font-bold text-slate-100">${sub.subjectName} - Select Class</h2>
+                </div>
+                <div class="space-y-3">
+            `;
+            
+            sub.classes.forEach((cls, index) => {
+                html += `
+                    <button onclick="openClass(${index})" class="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:border-blue-500/50 hover:bg-slate-800/80 transition flex items-center justify-between text-left group shadow-lg">
+                        <span class="font-semibold text-blue-400 flex items-center gap-2.5">
+                            <i class="fa-solid fa-layer-group text-slate-400 group-hover:text-blue-400"></i>${cls.className}
+                        </span>
+                        <div class="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition">
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </div>
+                    </button>
+                `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+
+        } else if (currentView === 'sections') {
+            backBtnContainer.classList.remove('hidden');
+            searchContainer.classList.add('hidden');
+            statsBanner.classList.add('hidden');
+
+            let sub = dscData[selectedSubjectIndex];
+            let cls = sub.classes[selectedClassIndex];
+            let html = `
+                <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mb-4 border-l-4 border-l-purple-500 shadow-lg">
+                    <h2 class="text-base font-bold text-slate-100 flex items-center gap-2">
+                        <i class="fa-solid fa-folder-open text-purple-400"></i>${cls.className} - Select Section
+                    </h2>
+                </div>
+                <div class="space-y-3">
+            `;
+            
+            cls.sections.forEach((sec, index) => {
+                html += `
+                    <button onclick="openSection(${index})" class="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:border-purple-500/50 hover:bg-slate-800/80 transition flex items-center justify-between text-left group shadow-lg">
+                        <span class="font-semibold text-purple-300 flex items-center gap-2.5">
+                            <i class="fa-solid fa-book-bookmark text-slate-400 group-hover:text-purple-400"></i>${sec.sectionName}
+                        </span>
+                        <div class="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-purple-600 group-hover:text-white transition">
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </div>
+                    </button>
+                `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+
+        } else if (currentView === 'lessons') {
+            backBtnContainer.classList.remove('hidden');
+            searchContainer.classList.add('hidden');
+            statsBanner.classList.add('hidden');
+
+            let sub = dscData[selectedSubjectIndex];
+            let cls = sub.classes[selectedClassIndex];
+            let sec = cls.sections[selectedSectionIndex];
+            let html = `
+                <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mb-4 border-l-4 border-l-emerald-500 shadow-lg">
+                    <h2 class="text-base font-bold text-slate-100 flex items-center gap-2">
+                        <i class="fa-solid fa-book-open text-emerald-400"></i>${sec.sectionName} Lessons
+                    </h2>
+                </div>
+                <div class="space-y-2.5">
+            `;
+            
+            sec.lessons.forEach(les => {
+                html += `
+                    <a href="${les.githubLink}" target="_blank" class="block bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:bg-slate-800/80 hover:border-emerald-500/50 transition flex items-center justify-between group shadow-lg">
+                        <span class="text-sm font-medium text-slate-200 group-hover:text-emerald-300 transition flex items-center gap-2.5">
+                            <i class="fa-solid fa-file-lines text-slate-500 group-hover:text-emerald-400"></i>${les.title}
+                        </span>
+                        <span class="bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 group-hover:bg-emerald-600 group-hover:text-white transition">
+                            Read Notes <i class="fa-solid fa-external-link-alt text-[10px]"></i>
+                        </span>
+                    </a>
+                `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
         }
-    </script>
+    }
+
+    function filterSubjects() {
+        let query = document.getElementById('searchInput').value.toLowerCase();
+        let filtered = dscData.filter(sub => sub.subjectName.toLowerCase().includes(query));
+        renderApp(filtered);
+    }
+
+    function openSubject(index) {
+        selectedSubjectIndex = index;
+        currentView = 'classes';
+        history.pushState({ view: 'classes', sub: index }, '');
+        renderApp();
+        window.scrollTo(0, 0);
+    }
+
+    function openClass(index) {
+        selectedClassIndex = index;
+        currentView = 'sections';
+        history.pushState({ view: 'sections', sub: selectedSubjectIndex, cls: index }, '');
+        renderApp();
+        window.scrollTo(0, 0);
+    }
+
+    function openSection(index) {
+        selectedSectionIndex = index;
+        currentView = 'lessons';
+        history.pushState({ view: 'lessons', sub: selectedSubjectIndex, cls: selectedClassIndex, sec: index }, '');
+        renderApp();
+        window.scrollTo(0, 0);
+    }
+
+    function goBack() {
+        window.history.back();
+    }
+
+    window.onpopstate = function(event) {
+        if (event.state) {
+            currentView = event.state.view;
+            selectedSubjectIndex = event.state.sub !== undefined ? event.state.sub : null;
+            selectedClassIndex = event.state.cls !== undefined ? event.state.cls : null;
+            selectedSectionIndex = event.state.sec !== undefined ? event.state.sec : null;
+        } else {
+            currentView = 'subjects';
+            selectedSubjectIndex = null;
+            selectedClassIndex = null;
+            selectedSectionIndex = null;
+        }
+        renderApp();
+    };
+
+    window.onload = function() {
+        history.replaceState({ view: 'subjects' }, '');
+        renderApp();
+    };
+</script>
+
+<!-- Register Service Worker for Target DSC PWA -->
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then((reg) => console.log('Target DSC Service Worker Registered Successfully', reg))
+                .catch((err) => console.log('Service Worker Registration Failed', err));
+        });
+    }
+</script>
+
 </body>
 </html>
