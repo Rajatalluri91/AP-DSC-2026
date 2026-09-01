@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3వ తరగతి - తెలుగు | సంసిద్ధతా పాఠం & తెలుగు తల్లి</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --text-color: #2c3e50;
+            --card-bg: #ffffff;
+            --header-bg: #2980b9;
+            --header-text: #ffffff;
+            --accent-color: #e67e22;
+            --quote-bg: #ecf0f1;
+            --note-bg: #fef9e7;
+            --note-border: #f39c12;
+            --border-color: #ddd;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --card-bg: #2d2d2d;
+            --header-bg: #03e2ff;
+            --header-text: #ffffff;
+            --accent-color: #f39c12;
+            --quote-bg: #333333;
+            --note-bg: #3a3221;
+            --note-border: #d4ac0d;
+            --border-color: #444444;
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Toggle Switch Styling */
+        .theme-switch-wrapper {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2980b9;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        h1, h2, h3 {
+            color: var(--header-bg);
+            font-family: 'Mandali', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Notes Styling */
+        .note-box {
+            background-color: var(--note-bg);
+            border-left: 5px solid var(--note-border);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .note-box::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Kavi Photo Float Style */
+        .kavi-photo {
+            float: right;
+            width: 140px;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid var(--note-border);
+            margin-left: 20px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 4px;
+        }
+
+        /* Quotes Styling */
+        .quote-box {
+            background-color: var(--quote-bg);
+            border-left: 5px solid var(--header-bg);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        strong {
+            color: var(--accent-color);
+        }
+
+        .image-placeholder {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            background: rgba(0,0,0,0.02);
+        }
+
+        .image-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        /* Table styling for meanings */
+        .meanings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .meanings-table th, .meanings-table td {
+            border: 1px solid var(--border-color);
+            padding: 10px 15px;
+            text-align: left;
+        }
+
+        .meanings-table th {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Day/Dark Toggle Switch -->
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <h1>3వ తరగతి - తెలుగు</h1>
+    
+    <div class="section">
+        <h2>సంసిద్ధతా పాఠం</h2>
+        <div class="note-box">
+            <h3>అభ్యసన ఫలితాలు:</h3>
+            <ul>
+                <li><strong>తెలుగు తల్లి</strong> గేయాన్ని రాగయుక్తంగా అభినయంతో పాడగలరు.</li>
+                <li>గేయ సారాంశాన్ని <strong>సొంతమాటల్లో</strong> చెప్పగలరు.</li>
+                <li>సరళపదాలు, గుణింతపదాలు, వాక్యాలు చదవగలరు, రాయగలరు.</li>
+                <li>ఇచ్చిన గేయ పాదాలను సొంతంగా పొడిగించగలరు.</li>
+                <li>వర్ణమాలలోని <strong>అచ్చులు, హల్లులను</strong> గుర్తించగలరు.</li>
+                <li>గేయంలోని <strong>జంట పదాలను</strong> గుర్తిస్తారు, వివిధ సందర్భాలలో వినియోగిస్తారు.</li>
+            </ul>
+        </div>
+
+        <h3>చిత్రం చూడండి – ఆలోచించి మాట్లాడండి</h3>
+		<div class="image-placeholder">
+            <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.1.1.jpg?raw=true" alt="పాఠశాల మరియు తెలుగు తల్లి దృశ్యం">
+            <p><small>[చిత్రం: పాఠశాలలో విద్యార్థులు బారులు తీరి వెళ్తున్న మరియు తెలుగు తల్లి విగ్రహానికి నమస్కరిస్తున్న దృశ్యాలు]</small></p>
+        </div>
+        <ul>
+            <li>చిత్రంలోని సన్నివేశాల గురించి మాట్లాడండి.</li>
+            <li>పాఠశాలలో ఏం జరుగుతున్నది? ఎవరెవరు ఏం చేస్తున్నారు?</li>
+            <li>మీరెప్పుడైనా పాఠశాలలో జరిగే కార్యక్రమాలలో పాల్గొన్నారా? చెప్పండి.</li>
+            <li>మీరు సెలవు రోజుల్లో ఏఏ పనులు చేస్తారు?</li>
+        </ul>
+        <p><strong>పిల్లలూ!</strong> పై చిత్రం నుండి మీరు రాయగలిగినన్ని పదాలు రాయండి.</p>
+
+        
+    </div>
+
+    <!-- పదాలు - అర్థాలు Section -->
+    <div class="section">
+        <h2>పదాలు - అర్థాలు</h2>
+        <table class="meanings-table">
+            <thead>
+                <tr>
+                    <th>పదం</th>
+                    <th>అర్థం</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>కల్పవల్లి</strong></td><td>కోరిన కోర్కెలు తీర్చేది</td></tr>
+                <tr><td><strong>జాబిలి</strong></td><td>చందమామ</td></tr>
+                <tr><td><strong>తెనుంగు</strong></td><td>తెలుగు</td></tr>
+                <tr><td><strong>చంద్రశాల</strong></td><td>చలువరాతి మేడ</td></tr>
+                <tr><td><strong>కనవోయి</strong></td><td>చూడవోయి</td></tr>
+                <tr><td><strong>రేడు</strong></td><td>రాజు</td></tr>
+                <tr><td><strong>అనుంగు</strong></td><td>ప్రియమైన</td></tr>
+                <tr><td><strong>సుదూరం</strong></td><td>చాలా దూరం</td></tr>
+                <tr><td><strong>చనవోయ్</strong></td><td>వెళ్ళవోయి</td></tr>
+                <tr><td><strong>నవ యుగం</strong></td><td>కొత్త కాలం</td></tr>
+                <tr><td><strong>నిర్భయంగా</strong></td><td>భయం లేకుండా</td></tr>
+                <tr><td><strong>నిశ్చయంగా</strong></td><td>నమ్మకంగా, తప్పునిసరిగా</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- గేయ సారాంశం Section -->
+    <div class="section">
+        <h2>గేయ సారాంశం</h2>
+        <div class="quote-box">
+            <p>మన తెలుగు తల్లి అందమైన నిండు చందమామ వంటిది. మనం కోరిన కోరికలు తీర్చి, ఆనందాలను నిచ్చే మన తెలుగుతల్లి.</p>
+            <p>ఓ తెలుగువాడా! ముందుకు నడు. ఈ తెలుగు నేల అందమైన మేడ వంటిది. ఇది స్వేచ్ఛా, స్వాతంత్ర్యాల నిచ్చే చక్కని నేల. సంతోషాలనిచ్చే చలువరాతి మేడ వంటిది మన తెలుగు నేల. అదే నీ ప్రియమైన నేల.</p>
+            <p>ఈ తెలుగు నేల విశాలమైనది. ఓ తెలుగు వీరుడా! కొత్తలోకం నిర్మించడానికి నడుం బిగించి ముందుకు సాగిపో. భయం లేకుండా ముందుకు వెళ్ళు. నీదే విజయం.</p>
+        </div>
+    </div>
+	
+ <!-- శ్రీశ్రీ కవి పరిచయం Section -->
+    <div class="section">
+        <div class="note-box">
+		<img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.1.2.png?raw=true" alt="శ్రీరంగం శ్రీనివాసరావు చిత్రం" class="kavi-photo">
+		
+            <h3>కవి పరిచయం (శ్రీశ్రీ):</h3>
+            <p><strong>శ్రీరంగం శ్రీనివాసరావు (30.4.1910 - 15.6.1983)</strong></p>
+            <p>‘శ్రీశ్రీ’గా ప్రసిద్ధి చెందిన శ్రీరంగం శ్రీనివాసరావు మహాకవి, అభ్యుదయ యుగకర్త, కథకులు, నాటకకర్త, విమర్శకులు, అనువాదకులు. <strong>‘మహాప్రస్థానం’</strong> తెలుగు కవిత్వాన్ని ఒక మలుపు తిప్పిన రచన. <strong>‘మరో ప్రస్థానం’</strong>, <strong>‘ఖడ్గసృష్టి’</strong>, ఆయన ఇతర రచనలు. <strong>‘అనంతం’</strong> వారి స్వీయ చరిత్ర.</p>
+        </div>
+    </div>
+<!-- ఇవి చేయండి - వినడం, ఆలోచించి మాట్లాడటం Section -->
+    <div class="section">
+        <h2>ఇవి చేయండి</h2>
+        <div class="note-box">
+            <h3>వినడం - ఆలోచించి మాట్లాడటం:</h3>
+            <ul>
+                <li>గేయాన్ని రాగ యుక్తంగా పాడండి. అభినయం చేయండి.</li>
+                <li>ఈ గేయం ఎవరిని గురించి చెబుతుందో చెప్పండి.</li>
+                <li>తెలుగు తల్లిని గూర్చి కవి ఏమని వివరించారో చెప్పండి.</li>
+                <li>తెలుగు తల్లిని అందాల నిండు జాబిలి అన్నారు గదా! నిండు జాబిలిని చూస్తే మీకు ఏమనిపిస్తుందో చెప్పండి.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>ఈ మాసపు పాట: తల్లీ భారతి వందనము</h2>
+        
+        <div class="quote-box">
+            <strong>పల్లవి:</strong><br>
+            తల్లీ భారతి వందనము<br>
+            తల్లీ భారతి తల్లీ భారతి వందనము<br>
+            నీ ఇల్లే మా నందనము<br>
+            మేమంతా నీ పిల్లలమూ<br>
+            నీ చల్లని ఒడిలో మల్లెలమూ
+        </div>
+
+        <div class="quote-box">
+            <strong>చరణం:</strong><br>
+            చదువులు బాగా చదివెదమమ్మా<br>
+            జాతి గౌరవం పెంచెదమమ్మా<br>
+            తల్లిదండ్రులను గురువులను<br>
+            ఎల్లవేళలా కొలిచెదమమ్మా<br>
+            <em>(తల్లీ భారతి)</em>
+        </div>
+
+        <div class="quote-box">
+            <strong>చరణం:</strong><br>
+            కుల మత భేదం మరిచెదము<br>
+            కలతలు మాని మెలిగెదము<br>
+            మానవులంతా సమానమంటూ<br>
+            మమతను సమతను పంచెదము<br>
+            <em>(తల్లీ భారతి)</em>
+        </div>
+
+        <div class="quote-box">
+            <strong>చరణం:</strong><br>
+            తెలుగు జాతికి అభ్యుదయం<br>
+            నవ భారతికి నవోదయం<br>
+            భావి పౌరులం మనం మనం<br>
+            భారత జనులకు జయం జయం<br>
+            <em>(తల్లీ భారతి)</em>
+        </div>
+
+        <div class="note-box">
+            <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.1.3.png?raw=true" alt="దాశరథి కృష్ణమాచార్య చిత్రం" class="kavi-photo">
+            
+            <h3>కవి పరిచయం:</h3>
+            <p><strong>దాశరథి కృష్ణమాచార్య (22.7.1925 – 5.11.1987)</strong></p>
+            <p>నిజాం నిరంకుశత్వం మీద ధిక్కార స్వరం వినిపించిన కవి. నిజాం రాచరికం నుంచి తెలంగాణ విమోచనకు మేలుకొలుపు పాడినవారు. పద్యాన్ని, పాటని కూడా సమానంగా నిర్వహించిన కవి. <strong>'అగ్నిధార'</strong>, <strong>'రుద్రవీణ'</strong>, <strong>'మహాంధ్రోదయం'</strong>, <strong>'తిమిరంతో సమరం'</strong> మొదలైనవి ఆయన రచనలు. <strong>'యాత్రాస్మృతి'</strong> వీరి స్వీయ చరిత్ర. ఆంధ్రప్రదేశ్ రాష్ట్ర ఆస్థాన కవిగా ఉన్నారు.</p>
+        </div>
+    </div>
+
+   
+    <div class="section">
+        <h2>ఈ మాసపు కథ: ఐకమత్యం</h2>
+        
+        <p>రామాపురం అనే గ్రామంలో ఒక <strong>రైతు</strong> ఉండేవాడు. అతనికి ముగ్గురు కొడుకులు. వారు చిన్నప్పుడు కలిసిమెలిసి పెరిగారు. కాని పెద్దవాళ్ళయ్యే కొద్దీ వారిలో వారు కలహించుకోవడం మొదలు పెట్టారు. తండ్రి కలిసిమెలసి ఉండమని వాళ్లకు ఎప్పుడూ చెప్తూ ఉండేవాడు. అయినా వాళ్లలో మార్పురాలేదు. కొడుకులలో మార్పు తేవడం ఎలా అని తండ్రి ఆలోచించాడు. ఒకరోజు వాళ్లతో కొన్ని <strong>పుల్లలు</strong> తెప్పించాడు. వాటిని కట్టగా కట్టమని చెప్పాడు.</p>
+        
+        <p>మొదటి కొడుకును పిలిచాడు. పుల్లల కట్టను విరవమన్నాడు. అతను విరవలేకపోయాడు. రెండవ కొడుకుని పిలిచాడు. పుల్లల కట్టను విరవమన్నాడు. అతను కూడా విరవలేకపోయాడు. చివరిగా మూడవ కొడుకుని పిలిచాడు. పుల్లల కట్టను విరవమన్నాడు. పుల్లలకట్టను విరవడం అతనివల్ల కూడా కాలేదు.</p>
+        
+        <p>తండ్రి ముగ్గురు కొడుకులను దగ్గరకు పిలిచాడు. పుల్లల కట్టను విప్పి విడివిడిగా ఒక్కొక్క పుల్లను విరవమని చెప్పాడు. వాళ్ళు అవలీలగా విరిచేశారు. అప్పుడు తండ్రి కొడుకులవైపు చూసి అడిగాడు, <strong>“మీకు ఏమర్థమైంది?"</strong></p>
+        
+        <div class="quote-box">
+            “నాన్నా! <strong>కలసివుంటే</strong> మమ్మల్ని ఎవ్వరూ ఏమి చేయలేరు. విడిపోతే బలహీనులమైపోతాం. నాన్నా! ఇక కలసి వుంటాం. ఎప్పుడూ కలహించం" అన్నారు కొడుకులు.
+        </div>
+        
+        <p>తండ్రి సంతృప్తి చెందాడు.</p>
+
+        <div class="note-box">
+            <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.1.4.png?raw=true" alt="లియో టాల్స్టాయ్ చిత్రం" class="kavi-photo">
+            
+            <h3>కవి పరిచయం:</h3>
+            <p><strong>(9-9-1828 – 20-11-1910)</strong></p>
+            <p>ఈ కథకు <strong>టాల్స్టాయ్</strong> కథ ఆధారం. లియో టాల్స్టాయ్ ప్రపంచ ప్రసిద్ధి పొందిన రష్యన్ కథకులు, నవలాకారులు. <strong>'యుద్ధం శాంతి'</strong>, <strong>'ఆన్నాకెరినీనా'</strong> వంటి గొప్ప నవలలు రచించారు.</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+        }
+    }
+</script>
+
+</body>
+</html>
