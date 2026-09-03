@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="te" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. మంచి బాలుడు - పాఠ్యపుస్తకం</title>
+    <!-- Telugu Mandali Font Integration (Google Fonts: Mandali) -->
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --container-bg: #ffffff;
+            --text-color: #2c3e50;
+            --heading-color: #1a5276;
+            --border-color: #d5dbdb;
+            --card-bg: #fdfefe;
+            --card-border: #ebedef;
+            --poem-bg: #eefaf6;
+            --summary-bg: #fef9e7;
+            --author-bg: #f4ecf7;
+            --image-desc-bg: #f2f4f4;
+            --image-desc-color: #566573;
+            --highlight-color: #d35400; /* Color for strong/important words */
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --heading-color: #85c1e9;
+            --border-color: #333333;
+            --card-bg: #252525;
+            --card-border: #333333;
+            --poem-bg: #132b22;
+            --summary-bg: #332d12;
+            --author-bg: #2d1a38;
+            --image-desc-bg: #2a2a2a;
+            --image-desc-color: #b2bec3;
+            --highlight-color: #f39c12; /* Color for strong/important words in dark mode */
+        }
+
+        body {
+            font-family: 'Mandali', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Styling to change color of strong / important words */
+        strong, b {
+            color: var(--highlight-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: var(--container-bg);
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        /* Theme Toggle Switch CSS */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #3498db;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .theme-label {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: var(--heading-color);
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--heading-color);
+            border-left: 5px solid #3498db;
+            padding-left: 12px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+            font-size: 1.2em;
+        }
+
+        p, li {
+            font-size: 1.15em;
+            margin-bottom: 12px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+        }
+
+        .poem {
+            background: var(--poem-bg);
+            border-left: 4px solid #2ecc71;
+            padding: 20px 25px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            white-space: pre-line;
+            line-height: 1.9;
+            font-size: 1.2em;
+        }
+
+        .summary-box {
+            background: var(--summary-bg);
+            border-left: 4px solid #f1c40f;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        /* Image Card Flow Styling */
+        .image-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .image-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .image-desc {
+            background: var(--image-desc-bg);
+            color: var(--image-desc-color);
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 1.05em;
+            margin: 10px 0;
+            border: 1px dashed var(--border-color);
+            text-align: left;
+        }
+
+        /* Author Box Layout with Right Flow Photo */
+        .author-box {
+            background: var(--author-bg);
+            border-left: 4px solid #8e44ad;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .author-content {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .author-text {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .author-image-card {
+            width: 200px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            margin: 0 auto;
+        }
+
+        .author-image-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+            font-size: 1.15em;
+        }
+
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Day/Dark Mode Toggle Switch -->
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider"></div>
+        </label>
+       
+    </div>
+
+    <h1><strong>3. మంచి బాలుడు</strong></h1>
+
+    <h2><strong>అభ్యసన ఫలితాలు</strong></h2>
+    <ul>
+        <li>గేయాన్ని <strong>రాగయుక్తంగా, అభినయంతో</strong> పాడగలరు.</li>
+        <li>పాఠం, పాఠ్యేతర అంశాలు చదివి అడిగిన విధంగా <strong>ప్రశ్నలకు సమాధానాలు</strong> చెప్పగలరు, రాయగలరు.</li>
+        <li>గేయ <strong>సారాంశాన్ని</strong> సొంతమాటల్లో చెప్పగలరు.</li>
+        <li>చిత్రాల ఆధారంగా కథను <strong>పొడిగించి</strong> చెప్పగలరు మరియు రాయగలరు.</li>
+        <li><strong>వాక్యాంత బిందువు (.)</strong>, స్వల్ప విరామ చిహ్నం (,) (కామా)ల గురించి తెలుసుకొని వినియోగించగలరు.</li>
+        <li>చిన్న చిన్న గేయ పాదాలను తప్పులు లేకుండా <strong>చదవగలరు, రాయగలరు</strong>.</li>
+    </ul>
+
+    <h2><strong>చిత్రం చూడండి – ఆలోచించి మాట్లాడండి</strong></h2>
+    
+    <!-- Image Card with Link Tag -->
+    <div class="image-card">
+        
+            <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.3.1.png?raw=true" alt="జంతువులు వైద్యశాలకు మోసుకెళ్తున్న దృశ్యం">
+        </a>
+        <div class="image-desc"><strong>చిత్రం:</strong> ఒక రోడ్డుపై జంతువులు (ఎలుగుబంటి, కోతి, పులి, చిరుతపులి, ఏనుగు) కలిసి ఒక స్ట్రెచ్చర్‌పై గాయపడిన పులిని/జంతువును 'వైద్యశాల' వైపు మోసుకెళ్తున్న దృశ్యం.</div>
+    </div>
+
+    <ul>
+        <li>చిత్రంలోని <strong>సన్నివేశాల</strong> గురించి మాట్లాడండి.</li>
+        <li>చిత్రంలో ఏయే <strong>జంతువులు</strong> ఉన్నాయి? ఏం చేస్తున్నాయి?</li>
+        <li>మీరు ఎవరెవరికి ఏవిధంగా <strong>సహాయం</strong> చేస్తారో చెప్పండి.</li>
+    </ul>
+    <p><em>పిల్లలూ! పై చిత్రం నుండి మీరు రాయగలిగినన్ని <strong>పదాలు</strong> రాయండి.</em></p>
+
+    <h2><strong>మంచి బాలుడు (గేయం)</strong></h2>
+    <div class="poem">
+తళతళ మిల మిల మెరుపులు మెరసి
+హోరున, జోరున వర్షం కురిసి
+వీధుల్లో కాల్వలు కట్టాయి
+కాల్వల నిండా నీళ్లొచ్చాయి
+చెప్పులు తడిసీ బట్టలు తడిసీ
+చిందే నీళ్ళకు, బురదకు జడిసీ
+జనులు మెల్లగా పోతున్నారు
+లేకుంటే జారే పడతారు
+ఆ త్రోవను పాపం ఒక ముసలమ్మ
+కాటికి కాళ్ళు చాచినట్లున్నది
+గడగడ వణికీ, తడ బడి తొణికీ
+అడుగులు లెక్కిడుతూ పోతున్నది
+మెదలక ఎవరి త్రోవనే వారు
+పిన్నలు పెద్దలు పోతున్నారు
+వణికే తొణికే ఆ ముసలమ్మకు
+ఎవ్వరు సాయం చేసేవారు?
+ఇంతలోన దగ్గరలో ఒక బడి
+వదలి పెట్టగా పిల్లలు వడి వడి
+కేకలు వేస్తూ పరుగులు తీస్తూ
+వచ్చారెంతో సందడి చేస్తూ
+    </div>
+
+    <!-- Image Card with Link Tag -->
+    <div class="image-card">
+        <a href="YOUR_IMAGE_LINK_HERE" target="_blank">
+            <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.3.3.png?raw=true" alt="బాలుడు ముసలమ్మకు దారి చూపుతున్న దృశ్యం">
+        </a>
+        <div class="image-desc"><strong>చిత్రం:</strong> బడి వదిలిన తర్వాత పిల్లలు వడివడిగా వస్తుండగా, ఒక బాలుడు వణుకుతున్న ముసలమ్మ చెయ్యి పట్టుకుని దారి చూపుతున్న దృశ్యం (పక్కన కుక్క కూడా ఉంది).</div>
+    </div>
+
+    <div class="poem">
+కిలకిలలాడే, ఆడే, పాడే
+బాలుర అడుగులు ఆనవు భూమిని
+వారు అసలు చూచారో, లేదో
+గడగడ వణికే ముదుసలి ఆమెను
+కానీ వారిలో ఒక్క బాలుడా
+ముదుసలి అవ్వను చూచి, జాలిగొని
+చేయి బట్టి కొనిపోయాడామెను
+విడిచి వచ్చినాడామె భవనమున
+తిరిగి వచ్చి తన తోటి వారితో
+అన్నాడాతడు - "స్నేహితులారా!
+ఆ ముసలమ్మ కూడ మరి యొకరికి
+అమ్మే అని ఆలోచించారా?
+మరి మాయమ్మ కూడ ముదుసలియై
+నే దూరానెచటో ఉన్నప్పుడు,
+అవసర మందు ఆదుకొని దయతో
+సాయం చేయొద్దా మరి ఒక్కడు?”
+ఇది విని ప్రతి బాలుడు తన మనమున
+సిగ్గు జెంది అనుకొన్నాడిట్లని
+"దుర్బలులకు సాయం చేయని యెడ
+కొరగా దెందుకు మనుజుని మనుగడ"
+    </div>
+
+    <div class="summary-box">
+        <h2><strong>సారాంశం</strong></h2>
+        <p>ఒకరోజు జోరున వాన కురుస్తున్నది. నేలంతా బురదగా మారింది. ఆ జోరు వానలో ఒక ముసలమ్మ గడగడ వణుకుతూ నడుస్తున్నది. ఆమె అడుగులు తడబడుతున్నాయి. ఆమెను ఎవరూ పట్టించుకోవటం లేదు. ఆ సమయంలో బడి వదిలారు. పిల్లలు సందడి చేస్తూ బయటికి వచ్చారు. ఆనందంగా గెంతులు వేస్తూ వెళ్తున్నారు. ముసలమ్మను చూసిన ఒక పిల్లవాడు నేరుగా ఆమె వద్దకు వెళ్ళాడు. చేయి పట్టుకొని రోడ్డు దాటించాడు. ఆమెను వాళ్ళ ఇంటిదగ్గర దిగబెట్టి వచ్చాడు. అప్పుడు అవ్వ ఆ అబ్బాయిని దీవించింది. ఆ అబ్బాయి స్నేహితుల దగ్గరకు తిరిగి వచ్చాడు. <strong>"అమ్మ ఎవరికైనా అమ్మే"</strong> అన్నాడు. ఏదో ఒకరోజు మా అమ్మకు కూడా ఎవరో ఒకరు సాయం చెయ్యాలి గదా! అన్నాడు. పిల్లలందరికి అతని మాటలు నచ్చాయి. ముసలమ్మకు సాయం చేయనందుకు వారంతా సిగ్గుపడ్డారు. <strong>కష్టాలలో ఉన్నవారికి సాయం చెయ్యని మనిషి జీవితం వ్యర్థం</strong> అని వారు తెలుసుకున్నారు.</p>
+    </div>
+
+    <h2><strong>పదాలు - అర్థాలు</strong></h2>
+    <table>
+        <tr><th>పదం</th><th>అర్థం</th></tr>
+        <tr><td><strong>వీధులు</strong></td><td>బజారులు</td></tr>
+        <tr><td><strong>జాలి</strong></td><td>దయ</td></tr>
+        <tr><td><strong>జడిసి</strong></td><td>భయపడి</td></tr>
+        <tr><td><strong>కొనిపోవు</strong></td><td>తీసుకుపోవు</td></tr>
+        <tr><td><strong>జనులు</strong></td><td>ప్రజలు, జనం</td></tr>
+        <tr><td><strong>మనము</strong></td><td>మనస్సు</td></tr>
+        <tr><td><strong>త్రోవ</strong></td><td>దారి</td></tr>
+        <tr><td><strong>వడి</strong></td><td>వేగం</td></tr>
+        <tr><td><strong>సాయం</strong></td><td>సహాయం</td></tr>
+        <tr><td><strong>దుర్బలులు</strong></td><td>బలం లేనివారు</td></tr>
+        <tr><td><strong>మనుజుడు</strong></td><td>మనిషి</td></tr>
+        <tr><td><strong>మనుగడ</strong></td><td>జీవనం, జీవితం</td></tr>
+        <tr><td><strong>ముదుసలి</strong></td><td>ముసలి</td></tr>
+    </table>
+
+    <!-- Author 1: Alluri Bairagi (With Right Flow Photo Card) -->
+    <div class="author-box">
+        <h2><strong>కవి పరిచయం: ఆలూరి బైరాగి</strong></h2>
+        <div class="author-content">
+            <div class="author-text">
+                <p><strong>ఆలూరి బైరాగి (5.11.1925 - 9.9.1978):</strong></p>
+                <p>20వ శతాబ్దపు అగ్రశ్రేణి తెలుగు కవుల్లో ఒకరు. మానవుడి అస్తిత్వ వేదనని కవిత్వంగా వెలువరించారు. <strong>'చీకటిమేడలు'</strong>, <strong>'నూతిలో గొంతుకలు'</strong>, <strong>'ఆగమగీతి'</strong>, <strong>'దివ్యభవనం'</strong> ఆయన ప్రసిద్ధ రచనలు. బాలల కోసం చక్కటి గేయ కథలు రచించారు. <strong>కేంద్రసాహిత్య అకాడమి పురస్కారం</strong> పొందారు.</p>
+            </div>
+            <div class="author-image-card">
+                
+                    <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.3.4.png?raw=true" alt="ఆలూరి బైరాగి గారి చిత్రం">
+                </a>
+                <div style="font-size: 0.9em; color: var(--image-desc-color);"><strong>ఆలూరి బైరాగి</strong></div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <h2><strong>ఇవి చేయండి</strong></h2>
+
+    <h3><strong>వినడం – ఆలోచించి మాట్లాడటం</strong></h3>
+    <ol>
+        <li>గేయాన్ని అభినయం చేస్తూ పాడండి.</li>
+        <li>గేయ కథలో బాలుడు ముసలమ్మకు సహాయం చేశాడు గదా! మీరెప్పుడైనా ఎవరికైనా అటువంటి సహాయం చేశారా? చెప్పండి.</li>
+        <li>గేయ కథను మీ సొంత మాటల్లో చెప్పండి?</li>
+        <li>పాఠశాలకు వెళ్ళే సమయంలో వర్షం కురిస్తే మీరేమి చేస్తారు?</li>
+    </ol>
+
+    <h3><strong>చదవడం – వ్యక్తపరచడం</strong></h3>
+    <p><strong>అ) కింది వాక్యాలకు సమాన అర్థాన్నిచ్చే గేయ పాదాలను గేయంలో గుర్తించి, గీత గీయండి.</strong></p>
+    <ul>
+        <li>వీధులన్నీ నీళ్ళతో నిండిపోయాయి.</li>
+        <li>పిల్లల పాదాలు నేలపై ఆనడం లేదు.</li>
+        <li>మనుషులు నెమ్మదిగా నడుచుకుంటూ వెళ్తున్నారు.</li>
+        <li>సందడి చేస్తూ వచ్చారు.</li>
+        <li>ఇంటి దగ్గర దిగబెట్టి వచ్చాడు.</li>
+    </ul>
+
+    <p><strong>ఆ) కింది పేరా చదవండి. పేరా ఆధారంగా జతపరచి రాయండి.</strong></p>
+    <p><em>పేరా:</em> జోరున వాన కురిసింది. నేలంతా బురదగా వుంది. ముసలమ్మ వణుకుతూ నడుస్తున్నది. ఒక పిల్లవాడు ఆమెను చేయి పట్టుకొని రోడ్డు దాటించాడు. అందరూ అతడిని అభినందించారు.</p>
+    <ul>
+        <li>జోరున -> వాన కురిసింది</li>
+        <li>నేలంతా -> బురదగా మారింది</li>
+        <li>ముసలమ్మ -> గడగడ వణికింది</li>
+        <li>పిల్లవాడు -> చేయిపట్టుకొని నడిపించాడు</li>
+        <li>అందరూ -> అభినందించారు</li>
+    </ul>
+
+    
+    <p><strong>ఇ) కింది కథ చదవండి. ప్రశ్నలకు సమాధానాలు రాయండి.</strong></p>
+    <div style="background: var(--card-bg); border: 1px solid var(--border-color); padding: 15px; border-radius: 6px;">
+        <p>ఒకరోజు కాకికి దాహం వేసింది. పెరట్లో ఓ నీళ్ళ కుండ కనిపించింది. కాని అందులో నీళ్ళు అడుగున ఉన్నాయి. అవి కాకికి అందడం లేదు. కుండలో కొన్ని గులక రాళ్ళు వేసింది కాకి. అప్పుడు నీళ్ళు పైకి వచ్చాయి. కాకి ఆ నీళ్ళు తాగింది. హాయిగా ఎగిరిపోయింది.</p>
+    <div class="author-image-card">
+                
+                    <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.3.8.png?raw=true" alt="కాకికి దాహం">
+                </a>
+                <div style="font-size: 0.9em; color: var(--image-desc-color);"><strong></strong></div>
+            </div>
+	
+	</div>
+    <ol>
+        <li>కాకికి నీటికుండ ఎక్కడ కనిపించింది? .................</li>
+        <li>కాకికి కుండలోని నీరు ఎందుకు అందలేదు? .................</li>
+        <li>కాకి కుండలోని నీరు పైకి రావడానికి ఏం చేసింది? .................</li>
+    </ol>
+
+    <h2><strong>పదజాలం</strong></h2>
+    <p><strong>అ) పాఠంలోని జంటపదాలను గుర్తించి రాయండి.</strong><br>
+    ఉదా: తళతళ (మరికొన్ని: మిలమిల, గడగడ మొదలైనవి).</p>
+
+    <p><strong>ఆ) కింది మాటలు గమనించండి.</strong><br>
+    మెరుపు - మెరుపులు (ఏకవచనం - బహువచనం).<br>
+    కింది పదాలకు బహువచనాలు రాయండి:</p>
+    <ul>
+        <li>కేక - .................</li>
+        <li>పిల్ల - .................</li>
+        <li>కల - .................</li>
+        <li>అడుగు - .................</li>
+    </ul>
+
+    <h2><strong>స్వీయరచన</strong></h2>
+    <p>కింది పదాల ఆధారంగా <strong>'వర్షం'</strong> కు సంబంధించిన రెండు వాక్యాలు రాయండి. (మెరుపులు, జోరుగ, వీథులు, కాలువలు, బురద)</p>
+    <p>ఉదా॥ వర్షం జోరుగా కురిసింది.</p>
+    <ol>
+        <li>.................</li>
+        <li>.................</li>
+    </ol>
+
+    
+
+    <h2><strong>సృజనాత్మకత</strong></h2>
+    <p>సాయం చేసిన పిల్లవాడికి అవ్వ మూడు బహుమతులు ఇచ్చింది అనుకోండి. ఆ తరువాత ఏం జరిగి ఉంటుందో చిత్రాలు చూసి కథ చెప్పండి. సొంత మాటల్లో రాయండి.</p>
+    <p><em>(ఉదాహరణ వాక్యం: అవ్వ బాలుడికి లడ్డూ, పూలమొక్క, విసనకర్ర ఇచ్చింది).</em></p>
+
+    <h2><strong>ప్రశంస</strong></h2>
+    <p>గేయంలో బాలుడు ముసలమ్మకు సహాయం చేసి మంచి పని చేశాడు కదా! మీరు ఏ యే మంచి పనులు చేస్తారో చెప్పండి.</p>
+
+    <h2><strong>భాషాంశాలు</strong></h2>
+    <p><strong>అ) కింది వాక్యాలు చదవండి.</strong></p>
+    <ul>
+        <li>తేజ బడికి వెళ్ళాడు.</li>
+        <li>నేను రేపు సినిమాకు వెళ్తాను.</li>
+        <li>మా తోట చాలా అందంగా ఉంటుంది.</li>
+    </ul>
+    <p><em>(నేను వాక్యాంత బిందువును. వాక్యం చివరన ఉంటాను).</em></p>
+    <p>పై వాక్యాల చివర చుక్క (.) గుర్తు ఉందికదూ! ఇలా వాక్యం చివరన ఉంచే చుక్క (.) ను <strong>వాక్యాంతబిందువు (పూర్ణ విరామం)</strong> అంటారు. దీన్ని ఆంగ్లంలో 'ఫుల్స్టాప్' అంటారు. ఈ పూర్ణ విరామ బిందువు ఉంటే ఆ వాక్యం అక్కడికి పూర్తి అయింది అని అర్థం.</p>
+
+    <p><strong>ఆ) కింది పేరా చదవండి. పూర్ణవిరామాన్ని సరైన చోట ఉంచండి.</strong></p>
+    <p>ఒక అడవిలో కుందేలు ఉంది అది ఆడుకుంటూ కాలుజారి పడింది కాలికి దెబ్బతగిలింది కదలలేక ఏడ్చింది కోతి వచ్చింది కుందేలును ఆసుపత్రికి తీసుకొని పోయింది.</p>
+
+    <p><strong>ఇ) కింది వాక్యాలను చదవండి. పదాలమధ్య ఉన్న గుర్తును గమనించండి.</strong></p>
+    <ul>
+        <li>తోటలో జామ చెట్లు, సపోట చెట్లు, నారింజ చెట్లు, మామిడిచెట్లు ఉన్నాయి.</li>
+        <li>రాము, అంజి, జగ్గు మంచి స్నేహితులు.</li>
+    </ul>
+    <p><em>(నేను స్వల్ప విరామ బిందువుని. స్వల్ప విరామం ఇచ్చే చోట ఉంటాను).</em></p>
+    <p>పై వాక్యాలు చదివేటపుడు కొన్ని చోట్ల కొద్దిగా ఆపి చదువుతాం కదా! అలా ఆపి చదవటాన్ని స్వల్ప విరామం అంటారు. అలా స్వల్ప విరామం ఇచ్చే చోట గుర్తు ఉంది కదూ! దీన్ని <strong>స్వల్ప విరామచిహ్నం</strong> అంటారు. ఆంగ్లంలో 'కామా' అంటారు.</p>
+
+    <p><strong>ఈ) కింది పేరా చదవండి. స్వల్ప విరామ చిహ్నాన్ని (కామాను) సరైన చోట ఉంచండి.</strong></p>
+    <p>ఒక చెరువులో కప్పలు చేపలు తామరపూలు ఉన్నాయి అక్కడికి జయ జలజ రాకేష్ వెళ్ళారు తామర పూలను చూసి ఆనందించారు.</p>
+
+    <h2><strong>ఈ మాసపు పాట – కలపండి చేయి చేయి</strong></h2>
+    <div class="poem">
+ప|| కలపండి చేయి చేయి కలపండి
+పదిమంది భుజం భుజం కలపండి
+చేయి చేయి కలపండి.
+
+చ|| కొండరాళ్ళు పగులగొట్టి కోన చదును చేద్దాం
+కోన వెంట దారితీసి రాదారులు వేద్దాం
+కొండరాళ్ళు పగులగొట్టి కోన చదును చేద్దాం
+కోన వెంట దారితీసి గోదారులు వేద్దాం
+కొండ కోన లొంగ దీసి కొల్లలు పండిద్దాం
+(కలపండి...)
+
+చ|| పాడుకుంటు పనిచేస్తే పదిమందికి లాహిరి
+ఆడుకుంటు పనిచేస్తే అనిపించదు చాకిరి
+పాడుకుంటు పనిచేస్తే పదిమందికి లాహిరి
+ఆడుకుంటు పనిచేస్తే అనిపించదు చాకిరి
+కలకత్తా కాశ్మీరం కాశీ కన్యాకుమారి
+కలిపేస్తాం రైలుదారి కానకోన రహదారి
+(కలపండి...)
+    </div>
+
+    <!-- Author 2: Devulapalli Krishna Shastri (With Right Flow Photo Card) -->
+    <div class="author-box">
+        <h2><strong>కవి పరిచయం: దేవులపల్లి కృష్ణశాస్త్రి</strong></h2>
+        <div class="author-content">
+            <div class="author-text">
+                <p><strong>దేవులపల్లి కృష్ణశాస్త్రి (1.11.1897 - 24.2.1980):</strong></p>
+                <p>ఆధునిక తెలుగు కవిత్వంలో భావకవిత్వ యుగానికి తలుపులు తెరిచారు. అచ్చమైన తెలుగు కవి. అక్షర రమ్యత, భావనా సౌకుమార్యం, శబ్ద సంస్కారం కృష్ణశాస్త్రి కవిత్వ లక్షణాలు. అందుకనే వారి కవిత్వాన్ని శ్రీశ్రీ ఇక్షు సముద్రంతో పోల్చారు. <strong>'కృష్ణపక్షం'</strong>, <strong>'ఊర్వశి'</strong>, <strong>'ప్రవాసము’</strong> వీరి ప్రసిద్ధ రచనలు. <strong>పద్మభూషణ్</strong> పురస్కారం అందుకున్నారు. 21 / తెలుగు తోట.</p>
+            </div>
+            <div class="author-image-card">
+                
+                    <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.3.6.png?raw=true" alt="దేవులపల్లి కృష్ణశాస్త్రి గారి చిత్రం">
+                </a>
+                <div style="font-size: 0.9em; color: var(--image-desc-color);"><strong>దేవులపల్లి కృష్ణశాస్త్రి</strong></div>
+            </div>
+        </div>
+    </div>
+	
+
+    <h2><strong>ఈ మాసపు కథ – బావిలో నీళ్ళు (అక్బర్ - బీర్బల్ కథ)</strong></h2>
+    <p>అక్బర్ ఆస్థానంలో బీర్బల్ అనే మంత్రి ఉండేవాడు. ఆయన ఏ సమస్యనైనా తన తెలివితేటలతో సులువుగా పరిష్కరించేవాడు.</p>
+    <p>ఆ రాజ్యంలో ఒక జమీందారు ఉన్నాడు. అతను రైతుకి ఒక బావి అమ్మాడు. ఆ రైతు బావిలో నీళ్ళు తోడుకోవడానికి వెళ్ళాడు. అప్పుడు జమీందారు రైతుని ఆపాడు. <strong>"నేను నీకు బావిని అమ్మాను కానీ, అందులోని నీళ్ళు అమ్మలేదు. అవి నావి. ఆ నీళ్ళు కావాలంటే తగిన ధనం ఇచ్చి తోడుకో!”</strong> అన్నాడు.</p>
+    <p>రైతుకి కోపం వచ్చింది. వారిద్దరి మధ్య గొడవ మొదలైంది. న్యాయం కోసం అక్బర్ ఆస్థానానికి వెళ్ళారు. అక్బర్ వారు చెప్పినదంతా విని బీర్బల్ వైపు చూశాడు. సమస్యను పరిష్కరించమన్నాడు.</p>
+    <p>బీర్బల్ కొద్దిసేపు ఆలోచించాడు. జమీందారు వైపు చూసి ఇలా అన్నాడు <strong>“సరే నువ్వు బావి ఒక్కటే అమ్మావు, నీళ్ళు అమ్మలేదు కదా!”</strong> జమీందారు సంతోషంగా <strong>"అవును"</strong> అన్నాడు. బీర్బల్ అడిగాడు <strong>“బావి రైతుదేనా?”</strong> జమీందారు <strong>“అవును”</strong> అన్నాడు.</p>
+    <p><strong>“సరే, రైతు బావిలో నీ నీళ్లు ఉన్నాయి. వెంటనే బావిలోని నీళ్ళన్నీ తోడుకొని వెళ్ళిపో లేదా నీళ్ళు పెట్టుకున్నందుకు రైతుకు అద్దె చెల్లించు"</strong> అని తీర్మానించాడు.</p>
+    <p>జమీందారు ముఖం పాలిపోయింది. చేసిన తప్పుకు తలదించుకున్నాడు. రైతుని మోసం చేయాలనుకున్నందుకు తనను క్షమించమని అక్బర్ పాదుషాని వేడుకున్నాడు. రైతు సంతోషించాడు. అక్బర్ బీర్బల్ని అభినందించాడు.</p>
+<!-- Image Card with Link Tag -->
+    <div class="image-card">
+        
+            <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.3.7.png?raw=true" alt="అక్బర్ - బీర్బల్">
+        </a>
+        <div class="image-desc"><strong>చిత్రం:</strong> అక్బర్ - బీర్బల్</div>
+    </div>
+</div>
+
+<!-- JavaScript for Day/Dark Mode Toggle -->
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+        }
+    }
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+
+</body>
+</html>
