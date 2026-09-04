@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. అమ్మ ఒడి - పాఠ్యభాగం</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9f9fb;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --primary-color: #d97706;
+            --secondary-color: #b45309;
+            --border-color: #e5e7eb;
+            --quote-bg: #fef3c7;
+            --table-header: #fbbf24;
+            --table-text: #78350f;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #111827;
+            --text-color: #f3f4f6;
+            --card-bg: #1f2937;
+            --primary-color: #fbbf24;
+            --secondary-color: #f59e0b;
+            --border-color: #374151;
+            --quote-bg: #374151;
+            --table-header: #92400e;
+            --table-text: #fef3c7;
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Toggle Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Cards and Layouts */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .flex-child {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        /* Writer Info Card Special Layout */
+        .writer-card .flex-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .writer-image-container {
+            text-align: right;
+            flex: 0 0 auto;
+        }
+
+        .writer-image-container img {
+            max-width: 220px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Quotes & Notes */
+        blockquote {
+            background-color: var(--quote-bg);
+            border-left: 5px solid var(--primary-color);
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .note-box {
+            background-color: var(--quote-bg);
+            border: 1px dashed var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: var(--table-header);
+            color: var(--table-text);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .content-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .img-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+<div class="container">
+    <!-- Theme Toggle Switch -->
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" onclick="toggleTheme()" />
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <!-- Main Title -->
+    <h1>1. అమ్మ ఒడి</h1>
+    
+    <!-- వినడం - ఆలోచించి మాట్లాడడం -->
+    <div class="card">
+        <h2>వినడం - ఆలోచించి మాట్లాడడం</h2>
+        <div class="img-center">
+            <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.1.1.png?raw=true" alt="Children talking to mother" class="content-img">
+        </div>
+        <ul>
+            <li><strong>చిత్రంలో ఎవరెవరున్నారు?</strong></li>
+            <li><strong>అమ్మ పిల్లలకు ఏమి చెబుతుంది?</strong></li>
+            <li><strong>అమ్మ పిల్లల కోసం ఏమేమి చేస్తుంది?</strong></li>
+        </ul>
+        <div class="note-box">
+            <strong>గమనిక (ఉద్దేశం):</strong> అమ్మ ప్రేమను, గొప్పతనాన్ని తెలియజేయడం ఈ పాఠం ఉద్దేశం.
+        </div>
+    </div>
+
+    <!-- కవి పరిచయం (Writer Info with Card & Right Flow Image) -->
+    <div class="card writer-card">
+        <h2>కవి పరిచయం</h2>
+        <div class="flex-container">
+            <div class="flex-child">
+                <p><strong>పేరు:</strong> బాడిగ వెంకట నరసింహారావు (15.8.1913 – 6.1.1994)</p>
+                <p><strong>జన్మస్థలం:</strong> కృష్ణా జిల్లాలోని కౌతరం.</p>
+                <p><strong>ప్రముఖ బిరుదు:</strong> <span class="highlight">'బాలబంధు'</span>గా ప్రసిద్ధులు. బాల సాహిత్యాన్ని ఉద్యమ స్ఫూర్తితో వ్యాప్తి చేయడం తన జీవిత ధ్యేయంగా బి.వి. నరసింహారావు పెట్టుకున్నారు.</p>
+                <p><strong>రచనలు:</strong> 'బాలరసాలు', 'పాలబడి పాటలు', 'ఆవు–హరిశ్చంద్ర', 'బాలతనం', 'చిన్నారిలోకం', 'పూలబాలలు', 'ఋతువాణి' వంటి 17 పుస్తకాలు పిల్లల కోసం రాశారు.</p>
+                <p><strong>ప్రత్యేకత:</strong> వింజమూరి లక్ష్మీ నరసింహారావు రాసిన 'అనార్కలి' నాటకంలో అనార్కలి పాత్ర ధరించి, <span class="highlight">'అనార్కలి నరసింహారావు'</span>గా ఖ్యాతి గడించారు.</p>
+                <p><strong>సందర్భం:</strong> ప్రస్తుత పాఠ్యభాగం బాలబంధు బి.వి. నరసింహారావు సంపూర్ణ రచనలు రెండవ సంకలనంలోనిది.</p>
+            </div>
+            <div class="writer-image-container">
+                <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.1.2.png?raw=true" alt="Badiga Venkata Narasimha Rao">
+            </div>
+        </div>
+    </div>
+
+    <!-- అమ్మ ఒడి గేయం -->
+    <div class="card">
+        <h2>అమ్మ ఒడి (గేయం)</h2>
+        <div class="img-center">
+            <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.1.3.png?raw=true" alt="Mother with children" class="content-img">
+        </div>
+        <table>
+            <tr>
+                <td>అమ్మ ఒడి చదువుల బడి మా – యమ్మ ఒడి నా కొక గుడి</td>
+                <td>అమ్మ చూపును ఒరవడి, దై – వమ్ము కంటెను త్వరపడి</td>
+            </tr>
+            <tr>
+                <td>అమ్మ చెప్పిన సుద్దులు, అని – శమ్ము ఒప్పిన బుద్ధులు</td>
+                <td>అమ్మ పెదవుల హాసము ని – త్యమ్ము మాకు వికాసము</td>
+            </tr>
+            <tr>
+                <td>అమ్మ మంజుల భాషణం, శ్రా – వ్యమ్ము వీనుల భూషణం</td>
+                <td>అమ్మ హృది అనురాగము, ది – వ్యమ్ము భవ్యము యోగము</td>
+            </tr>
+            <tr>
+                <td>అమ్మ చల్లని కరములు దా – నమ్మునకు ఆకరములు</td>
+                <td>అమ్మ చరణ తలమ్ములు క్షే – మమ్ము పండు పొలమ్ములు</td>
+            </tr>
+            <tr>
+                <td>అమ్మ కన్నుల కాంతులు లో – కమ్మునకు సుఖశాంతులు</td>
+                <td>అమ్మయే నా సర్వము ధై – ర్యమ్ము బలమూ గర్వము</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- సారాంశం -->
+    <div class="card">
+        <h2>సారాంశం</h2>
+        <p>మా అమ్మ తన ఒడిలోనే నాకు ఎన్నో సంగతులు నేర్పిన నా తొలిగురువు. నన్ను ఎల్లప్పుడూ కాపాడుతూ బాగోగులు చూసే నా ప్రత్యక్ష దైవం.</p>
+        <p>అందుకే మా అమ్మఒడి నాకు బడి, గుడి. దేవునికంటే ముందే త్వరపడుతూ నా భవితకు ఒరవడి చూపిస్తుంది. అమ్మ చెప్పే మంచిమాటలు ఎల్లప్పుడూ ప్రకాశించే తెలివితేటలు.</p>
+        <p>అమ్మ పెదవులపై చిరునవ్వు మాకు నిరంతరం సంతోషాన్నిస్తుంది. అమ్మ అందమైన మాటలు వినడం మా చెవులకే అలంకారం. అమ్మ మనస్సులోని ప్రేమ ఉత్తమమైనది, శుభకరమైనది, అన్నిటినీ సమకూర్చేది.</p>
+        <p>అమ్మ చల్లని (మేలైన) చేతులు దానధర్మాలకు నిలయాలు. అమ్మ పాదాలు తాకిన నేల శుభాలు పండించే పొలం వంటిది.</p>
+        <p>అమ్మ కళ్ళలోని కాంతులు లోకానికి సుఖాన్ని, శాంతిని ఇస్తాయి. అమ్మే నా ధైర్యం, బలం, గర్వం, సర్వస్వం.</p>
+    </div>
+
+    <!-- ఇవి చేయండి - అభ్యాసాలు -->
+    <div class="card">
+        <h2>ఇవి చేయండి</h2>
+        <h3>1. ఉక్తలేఖనం (Dictation Words)</h3>
+        <p>చదువు, వికాసం, భాషణం, సుఖశాంతులు, యోగం, అమ్మ, బుద్ధులు, ధైర్యం, గర్వం, కన్నులకాంతులు, అనురాగం, ఒరవడి.</p>
+        
+        <h3>2. అవగాహన - ప్రతిస్పందన</h3>
+        <ul>
+            <li>అమ్మ ఒడి గేయాన్ని భావంతో, రాగంతో పాడండి.</li>
+            <li><span class="highlight">“అమ్మ ప్రేమ ఉత్తమమైనది"</span>. దీనిని సమర్థిస్తూ చర్చించండి.</li>
+        </ul>
+
+        <h3>3. జతపరచండి</h3>
+        <table>
+            <tr>
+                <th>వాక్యాలు</th>
+                <th>జవాబులు</th>
+            </tr>
+            <tr>
+                <td>అమ్మ చెప్పే మంచిమాటలు ( ... )</td>
+                <td>ఇ) ఎల్లప్పుడూ ప్రకాశించే తెలివితేటలు</td>
+            </tr>
+            <tr>
+                <td>అమ్మ పెదవులపై చిరునవ్వు ( ... )</td>
+                <td>అ) నిరంతరం సంతోషాన్నిస్తుంది</td>
+            </tr>
+            <tr>
+                <td>దానధర్మాలకు నిలయాలు. ( ... )</td>
+                <td>ఆ) అమ్మ చల్లని చేతులు</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- పద్యం / కవిత విశ్లేషణ -->
+    <div class="card">
+        <h2>కవిత చదవండి - ప్రశ్నలకు జవాబులు రాయండి</h2>
+        <blockquote>
+            <strong>నాన్నంటే?</strong><br>
+            సంద్రమంత గాంభీర్యం,<br>
+            కొండంత ధైర్యం,<br>
+            నా పాలిట కల్పవృక్షం!
+        </blockquote>
+        <ul>
+            <li><strong>(అ) కొండంత ధైర్యం ఇచ్చేది ఎవరు?</strong></li>
+            <li><strong>(ఆ) నాన్న గాంభీర్యం ఎలాంటిది?</strong></li>
+            <li><strong>(ఇ) కల్పవృక్షంతో నాన్నను ఎందుకు పోల్చారు?</strong></li>
+            <li><strong>(ఈ) ఈ కవితకు తగిన 'శీర్షిక' రాయండి.</strong></li>
+        </ul>
+    </div>
+
+    <!-- వ్యక్తీకరణ - సృజనాత్మకత -->
+    <div class="card">
+        <h2>వ్యక్తీకరణ - సృజనాత్మకత</h2>
+        <h3>చిన్న ప్రశ్నలు (నాలుగైదు వాక్యాలలో)</h3>
+        <ul>
+            <li>'అమ్మ ఒడి' గేయం కవి గురించి రాయండి.</li>
+            <li>'అమ్మ ఒడి – చదువుల బడి' అని కవి ఎందుకన్నారు?</li>
+            <li>అమ్మ మాటలు పిల్లలకు ఎలా ఉపకరిస్తాయి?</li>
+        </ul>
+
+        <h3>పెద్ద ప్రశ్నలు (8 నుండి 10 వాక్యాలలో)</h3>
+        <ul>
+            <li>అమ్మ గొప్పతనాన్ని పాఠం ఆధారంగా సొంతమాటల్లో రాయండి.</li>
+            <li>అమ్మ ఒడి గేయం ద్వారా అమ్మ గొప్పతనం తెలుసుకున్నారుకదా! నాన్న / సంరక్షకుని గొప్పతనం రాయండి.</li>
+            <li>మీ పాఠశాల గొప్పతనం తెలిసేలా కింది గేయాన్ని పొడిగించండి:<br>
+                <em>అందమైనది మా బడి</em><br>
+                <em>తెలివి నేర్పే మా గుడి</em>
+            </li>
+        </ul>
+    </div>
+
+    <!-- భాషాంశాలు -->
+    <div class="card">
+        <h2>భాషాంశాలు</h2>
+        <p><strong>వర్ణమాల గుర్తింపు:</strong> (అ ఆ ఇ ఈ ఉ ఊ ఋ ౠ ఎ ఏ ఐ ఒ ఓ ఔ అం అః / క ఖ గ ఘ ఙ / చ ఛ జ ఝ ఞ / ట ఠ డ ఢ ణ / త థ ద ధ న / ప ఫ బ భ మ / య ర ల వ శ ష స హ ళ క్ష ఱ)</p>
+        <p><strong>పదాలు:</strong> ఆశ, కళ, ఈక, ఊయల, ఘనత, అచట, సహజ, ఔషధం మొదలైనవి.</p>
+        
+        <h3>సున్న (O) ఉపయోగించి పదాలను గుర్తించడం</h3>
+        <table>
+            <tr>
+                <th>తేడా గమనించండి</th>
+            </tr>
+            <tr>
+                <td>జంగం - జగం | పడగ - పండగ | జలం - జాలం</td>
+            </tr>
+            <tr>
+                <td>కలం - కండం | జయం - గండం | జట - జంట | వందన - వందనం</td>
+            </tr>
+        </table>
+        
+        <p><strong>పదబంధాలు / వాక్యాల నిర్మాణం (పట్టిక ఆధారంగా):</strong></p>
+        
+        <p><em>ఉదాహరణ:</em> శంఖం ఊదగలం. (అమల, శనగ, మర, శంఖం, హంస, పడవ, దశరథ, శనగల, ఘనతగల, మంగళకర + పంట, పలక, గంప, పడవ, వంశం, మండపం, ఊదగలం, పయనం, నడక, తనయ).</p>
+    </div>
+
+    <!-- నేనివి చేయగలనా? -->
+    <div class="card">
+        <h2>నేనివి చేయగలనా?</h2>
+        <ul>
+            <li>వర్ణమాలను చదవగలను, రాయగలను. (ఔను / కాదు)</li>
+            <li>సరళపదాలు, వాక్యాలు చదవగలను, రాయగలను. (ఔను / కాదు)</li>
+            <li>అమ్మఒడి గేయం భావంతో, రాగంతో పాడగలను. (ఔను / కాదు)</li>
+            <li>అమ్మ, నాన్న / సంరక్షకుల సేవలను సొంతమాటల్లో చెప్పగలను, రాయగలను. (ఔను / కాదు)</li>
+        </ul>
+    </div>
+
+    <!-- చదవండి - ఆనందించండి -->
+    <div class="card">
+        <h2>చదవండి - ఆనందించండి</h2>
+        <h3>మాతృదేవో భవ, పితృదేవో భవ</h3>
+        <div class="img-center">
+            <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.1.4.png?raw=true" alt="Lord Ganesha circling parents" class="content-img">
+        </div>
+        <p>పిల్లలూ! <span class="highlight">'మాతృదేవో భవ'</span>, <span class="highlight">'పితృదేవో భవ'</span> అంటారు పెద్దలు. అంటే మొట్టమొదట పూజించదగినవాళ్లు తల్లిదండ్రులు. ఇందుకు సంబంధించిన చిన్నచిన్న కథలు పురాణాల్లో ఉన్నాయి.</p>
+        <p>మనం ప్రతి సంవత్సరం వినాయకచవితి పూజ చేసుకుంటున్నాం. భూమండలాన్ని ముందుగా చుట్టివచ్చిన వాళ్ళకు గణాధిపత్యం ఇస్తానని పరమశివుడు ప్రకటిస్తాడు. కుమారస్వామి నెమలివాహనంపై బయలుదేరతాడు. వినాయకుడు తల్లిదండ్రులైన పార్వతీపరమేశ్వరులకు ప్రదక్షిణాలు చేసి నమస్కరిస్తాడు.</p>
+        <p>మాతాపితరులకు ప్రదక్షిణాలు చేయడం అంటే భూమండలాన్ని చుట్టిరావడమేనని గ్రహించి వినాయకుడికి గణాధిపత్యం దక్కుతుంది. తల్లిదండ్రుల్ని మించిన దైవాలు లేరు. సోదరుల మధ్య ఎలాంటి విరోధభావాలు ఉండకూడదనే విషయాన్ని వినాయక కుమారస్వాముల సోదరత్వం ద్వారా గ్రహించాలి.</p>
+    </div>
+
+</div>
+
+<script>
+    function toggleTheme() {
+        const body = document.body;
+        if (body.getAttribute("data-theme") === "light") {
+            body.setAttribute("data-theme", "dark");
+        } else {
+            body.setAttribute("data-theme", "light");
+        }
+    }
+</script>
+
+</body>
+</html>
