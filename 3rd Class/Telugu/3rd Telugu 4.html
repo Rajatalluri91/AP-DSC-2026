@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3వ తరగతి తెలుగు - 4. నా బాల్యం</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --heading-color: #8e44ad;
+            --subheading-color: #2980b9;
+            --border-color: #dcdde1;
+            --accent-color: #e67e22;
+            --highlight-bg: #fffef5;
+            --table-header: #3498db;
+            --table-text: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-color: #f1f1f1;
+            --heading-color: #bb86fc;
+            --subheading-color: #03dac6;
+            --border-color: #444444;
+            --accent-color: #ffb74d;
+            --highlight-bg: #332910;
+            --table-header: #bb86fc;
+            --table-text: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 10px;
+            transition: background 0.3s, color 0.3s;
+            line-height: 1.8;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .theme-switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #8e44ad;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        h1, h2, h3 {
+            color: var(--heading-color);
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.8rem;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--subheading-color);
+        }
+
+        .card {
+            background: var(--highlight-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        /* Image Float Right Layout */
+        .content-with-image {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+            margin: 20px 0;
+        }
+
+        .text-side {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .image-side {
+            flex: 0 0 320px;
+            text-align: center;
+            padding: 10px;
+            border: 2px dashed var(--border-color);
+            border-radius: 10px;
+            background: var(--card-bg);
+        }
+
+        .image-side img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .image-caption {
+            font-size: 0.95rem;
+            color: var(--subheading-color);
+            margin-top: 6px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 14px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--table-header);
+            color: var(--table-text);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        blockquote {
+            border-left: 5px solid var(--accent-color);
+            margin: 20px 0;
+            padding: 15px 20px;
+            background: var(--card-bg);
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        strong {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Day/Night Toggle Switch -->
+    <div class="theme-switch-wrapper">
+        <span style="margin-right: 10px; font-weight: bold; margin-bottom:0;"></span>
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider"></div>
+        </label>
+    </div>
+<h1>4. నా బాల్యం</h1>
+    <!-- అభ్యసన ఫలితాలు -->
+    <div class="card">
+        <h2>అభ్యసన ఫలితాలు</h2>
+        <ul>
+            <li><strong>'నాజర్'</strong> యొక్క గొప్పదనం తెలుసుకొని చెప్పగలరు, రాయగలరు.</li>
+            <li>పాఠం ఆధారంగా ఇచ్చిన అంశాలను చదవగలరు. అడిగిన ప్రశ్నలకు సమాధానాలు రాయగలరు. చెప్పగలరు.</li>
+            <li>పదాలకు అర్థాలతోపాటు, వివిధ <strong>మాండలికాలను</strong> గురించి తెలుసుకొని వాటిని వినియోగించగలరు.</li>
+            <li>వివిధ కళారూపాలతోపాటుగా <strong>బుర్రకథ</strong> ప్రాశస్థ్యాన్ని తెలుసుకొని, అభినయంతో ప్రదర్శించగలరు.</li>
+            <li><strong>ప్రశ్నార్థకం (?)</strong>, <strong>ఆశ్చర్యార్థకాలను (!)</strong> తెలుసుకొని వినియోగించగలరు.</li>
+            <li>పిల్లలు తమకు ఇష్టమయిన పనుల గురించి సొంత మాటలలో చెప్పగలరు, రాయగలరు.</li>
+        </ul>
+    </div>
+
+    <!-- చిత్రం చూడండి ఆలోచించి మాట్లాడండి (Image on Right Flow) -->
+    <div class="card">
+        <h2>చిత్రం చూడండి - ఆలోచించి మాట్లాడండి</h2>
+        <div class="content-with-image">
+            <div class="text-side">
+                <ul>
+                    <li>చిత్రంలో ఎవరెవరు ఉన్నారు. ఏమేం చేస్తున్నారు?</li>
+                    <li>చిత్రంలోని సన్నివేశాల గురించి మాట్లాడండి.</li>
+                    <li>మీరు ఇలాంటి సన్నివేశాలు ఎప్పుడైనా చూశారా! దాని గురించి మాట్లాడండి.</li>
+                    <li>పిల్లలూ! పై చిత్రం నుండి మీరు రాయగలిగినన్ని పదాలు రాయండి.</li>
+                </ul>
+            </div>
+            <div class="image-side">
+                <a href="image_link_placeholder_chitrAM.jpg" target="_blank">
+                    <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.4.1.png?raw=true" alt="చిత్రం చూడండి">
+                </a>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- పాఠ్యభాగం -->
+    <div class="card">
+        <h2>నా బాల్యం (పాఠ్యభాగం)</h2>
+        <p>పొన్నెకల్లు తూర్పు వీథిలో <strong>ముసల్మానుల పందిరిగుంజ</strong> కూడా పాట పాడుతుందని పేరు. నేను ఆ పందిరి కింద పుట్టాను.</p>
+        <p>నేను పుట్టగానే <strong>“అబ్దుల్ అజీజ్”</strong> అని పిలిచారట మా గారపాడు తాత. మా నాన్నకు ఆ పేరు నచ్చలేదు. <strong>“నాజర్”</strong> అని పిలవాలని ఆయన ఆశ.</p>
+        <p>మా గారపాడు మామలూ, అత్తలూ నన్ను <strong>“అబ్దుల్ అజీజ్”</strong> అనీ, పొన్నెకల్లు పెదనాన్నలు, చిన్నాన్నలు, అమ్మలూ, అక్కలూ <strong>“నాజరూ”</strong> అని పిలుస్తూ వచ్చారు.</p>
+        
+        <blockquote>
+            "నేను తప్పటడుగులు వేస్తూనే వచ్చీరాని మాటలతో...<br>
+            <strong>"హ... అదిగో లేడీ పరిగెడుతోంది</strong><br>
+            <strong>లేడి బోయెరా</strong><br>
+            <strong>హ... బాణమేయరా”</strong> అని పాడుతూ ఎగిరి గంతులేసేవాడినట. గేదె, దున్న తోక వెంట్రుకలు పీక్కొచ్చి, గడ్డాలూ, మీసాలు, బొట్లు పెట్టి...<br>
+            <strong>"నేనే బ్రహ్మనురా</strong><br>
+            <strong>పామరులారా</strong><br>
+            <strong>ఓ జనులారా</strong><br>
+            <strong>నేనే బ్రహ్మనురా"</strong> అని కూనిరాగాలు తీస్తుండే వాడిని."
+        </blockquote>
+
+        <p>అమ్మా నాన్న <strong>ఆరుగాలం</strong> ఎండనకా, వాననకా, అలుపు సొలుపు లేకుండా కష్టపడేవారు. మా అమ్మ చారెడు గింజలు దంచి, వండి నాకూ మాచెల్లికీ పెట్టడం, మళ్ళీ అంతా పనులకు పోవడం <strong>దినచర్య</strong>గా జరుగుతుండేది.</p>
+        <p>నాకు బడిలో వేసే వయసు వచ్చింది. ఎలాగో శ్రమపడి కొత్తలాగూ, కొత్తచొక్కా కుట్టించాడు మా నాన్న.</p>
+        <p>చదువు <strong>మూడోనేత్రమనీ</strong> కొబ్బరికాయ, ఆకులూ, వక్కలూ పావలా <strong>గురుదక్షిణ</strong> గురువుగారికిచ్చి నన్ను వీథి బడిలో అప్పగించాడు మా నాన్న.</p>
+        <p>మధ్యాహ్నం బడినుండి ఇంటికి వెళ్ళగానే <em>"గింజలు తీసుకొని యింకా మీ నాన్న యింటికి రాలేదు నాయనా! ఇంకా వండలేదు. సాయంకాలం పంతులు గార్ని అడిగి పెందలకడ రా అయ్యా!"</em> అని అమ్మ పాలో, పెరుగో, చల్లో తాగడానికి ఇచ్చేది.</p>
+        <p>నేను తాగి మూతి తుడుచుకొని <strong>"సజ్జ జొన్నలు లేవు గానీ చల్ల తాగీ చదువుకోరా”</strong> అని పాడుకుంటూ పోయేవాణ్ణి.</p>
+        
+        <p>హార్మోనిస్టు ఖాదర్ ఒకరోజు మా ఇంటికొచ్చి, <em>"మస్తాన్ గారూ మన కుర్రోడు మంచి తెలివి కలవాడు. శ్రుతి, లయ, గానం, మంచి కంఠం కలవాడు. నాతో పంపండి. చదువు, సంగీతం నేర్పించి గొప్పవాణ్ణి చేస్తానని"</em> అన్నాడు. మా నాన్న సరేనన్నాడు.</p>
+        <p>గోగుపుల్ల గొట్టంతో నీళ్ళ చెంబులో వూదిస్తూ, శ్రుతి గుక్క నేర్పించేవాడు. ఏడ్వడం, నవ్వడం, కోపంగా మాట్లాడడం, చూడడం, మూతి ముడవడం, కళ్ళురమడం లాంటివి నేర్పేవాడు. కళ్ళలో కొబ్బరి నూనె వేసి, లైటు వంక చూసి, నీరు కారుతుంటే ఏడుపు డైలాగులు చెప్పించేవాడు.</p>
+        
+        <p>పాఠశాల వార్షికోత్సవం వచ్చింది. <strong>“ద్రోణ విజయం"</strong> అనే చిన్న నాటిక ఆడాము. నేను ద్రోణాచార్యులుగా పద్యాలు, పాటలు పాడాను. మా పంతులు గారు నా వీపు తడుతూ బాగా చదువుకోరా మంచి గాయకుడవూ నటుడవూ అవుతావని, ఐదు రూపాయలు, పుస్తకం, పెన్సిలు బహుమతిగా ఇచ్చారు. అలా నా బాల్యం ఆకలితో ఆటలతో పాటలతో గడిచిపోయింది.</p>
+    </div>
+
+    <!-- నాజర్ జీవిత విశేషాలు (Image on Right Flow) -->
+    <div class="card">
+        <h2>నాజర్ జీవిత విశేషాలు</h2>
+        <div class="content-with-image">
+            <div class="text-side">
+                <ul>
+                    <li><strong>జననం:</strong> <strong>షేక్ నాజర్</strong> నిరుపేద ముస్లిం కుటుంబంలో గుంటూరు జిల్లా పొన్నెకల్లు గ్రామంలో <strong>1920 ఫిబ్రవరి 5వ తేదీన</strong> జన్మించారు.</li>
+                    <li><strong>తల్లిదండ్రులు:</strong> తండ్రి <strong>షేక్ మస్తాన్</strong>, తల్లి <strong>బీనాబీ</strong>.</li>
+                    <li><strong>కళారూపం:</strong> తల్లిదండ్రుల, గురువుల ప్రోత్సాహంతో ప్రాచీన జానపద కళారూపమైన <strong>బుర్రకథ</strong> ప్రక్రియకు నాజర్ కొత్త మెరుగులు దిద్దారు.</li>
+                    <li><strong>ప్రధాన ఇతివృత్తాలు:</strong> పల్నాటి యుద్ధం, వీరాభిమన్యు, బొబ్బిలి యుద్ధం, అల్లూరి సీతారామరాజు, బెంగాల్ కరువు వంటి ఇతి వృత్తాలలో సమకాలీన అంశాలు జతచేసి నాజర్ బుర్రకథలు రూపొందించారు.</li>
+                    <li><strong>పురస్కారం:</strong> నాజర్ చేసిన కృషిని గుర్తించి భారత ప్రభుత్వం <strong>1986లో పద్మశ్రీ</strong> పురస్కారంతో సత్కరించింది.</li>
+                    <li><strong>మరణం:</strong> నాజర్ <strong>1997 ఫిబ్రవరి 22వ తేదీన</strong> మరణించారు.</li>
+                </ul>
+            </div>
+            <div class="image-side">
+                <a href="image_link_placeholder_nazar.jpg" target="_blank">
+                    <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.4.2.png?raw=true" alt="షేక్ నాజర్ చిత్రం">
+                </a>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- పదాలు - అర్థాలు -->
+    <h2>పదాలు - అర్థాలు</h2>
+    <table>
+        <tr>
+            <th>పదం</th>
+            <th>అర్థం</th>
+        </tr>
+        <tr><td><strong>ఆశ</strong></td><td>కోరిక</td></tr>
+        <tr><td><strong>ఆరుగాలం</strong></td><td>ఏడాది అంతా</td></tr>
+        <tr><td><strong>దినచర్య</strong></td><td>ప్రతిరోజూ చేసే పనులు</td></tr>
+        <tr><td><strong>గుంజ</strong></td><td>రాట</td></tr>
+        <tr><td><strong>గురుదక్షిణ</strong></td><td>గురువులకు ఇచ్చే కానుక</td></tr>
+        <tr><td><strong>వార్షికోత్సవం</strong></td><td>సంవత్సరం చివరన జరుపుకునే వేడుక</td></tr>
+        <tr><td><strong>పామరులు</strong></td><td>చదువుకోనివారు</td></tr>
+    </table>
+
+    <!-- కవి పరిచయం -->
+    <div class="card">
+        <h2>కవి పరిచయం ('పింజారి')</h2>
+        <p><strong>షేక్ నాజర్</strong> తన జీవితకథను తానే చెప్పుకున్నట్లుగా <strong>అంగడాల రమణమూర్తి</strong> అక్షరీకరించారు. స్వీయ చరిత్రాత్మకమైన ఈ కథకు <strong>'పింజారి'</strong> అని పేరు పెట్టారు.</p>
+    </div>
+
+    <!-- వినడం ఆలోచించి మాట్లాడటం -->
+    <div class="card">
+        <h2>వినడం - ఆలోచించి మాట్లాడటం</h2>
+        <ul>
+            <li>నాజర్ ఏ కళాకారునిగా పేరు పొందాడు?</li>
+            <li>పాఠశాల వార్షికోత్సవంలో మీరు ఏయే ప్రదర్శనలు చేస్తారు?</li>
+            <li>నాజర్ గురించి మీకు తెలిసిన విషయాలు చెప్పండి.</li>
+        </ul>
+    </div>
+
+    <!-- చదవడం - వ్యక్తపరచడం -->
+    <div class="card">
+        <h2>చదవడం - వ్యక్తపరచడం</h2>
+        <h3>అ) పట్టిక పూరించండి</h3>
+        <p>పాఠం ఆధారంగా నాజర్ను ఎవరు ఎలా పిలిచేవారో తెలుపుతూ వాక్యాలు రాయండి:</p>
+        <table>
+            <tr><th>ఎవరు</th><th>ఎలా పిలిచేవారు</th></tr>
+            <tr><td>గారపాడు తాత</td><td>అబ్దుల్ అజీజ్ అని</td></tr>
+            <tr><td>పెదనాన్నలు, చిన్నాన్నలు</td><td>నాజర్ అనీ</td></tr>
+            <tr><td>మామలు, అత్తలు</td><td>అబ్దుల్ అజీజ్</td></tr>
+            <tr><td>నాన్నగారు</td><td>నాజర్</td></tr>
+        </table>
+
+        <h3>ఆ) పేరా ఆధారంగా ప్రశ్నలు</h3>
+        <p><em>"హార్మోనిస్టు ఖాదర్ ఒక రోజు మా ఇంటికొచ్చి, మస్తాన్గారూ మన కుర్రోడు మంచి తెలివిగలవాడు. శ్రుతి, లయ, గానం, మంచి కంఠం కలవాడు. నాతో పంపండి. చదువు, సంగీతం నేర్పించి గొప్పవాడ్ని చేస్తాను అన్నాడు."</em></p>
+        
+        <h3>ఇ) కింది ప్రశ్నలకు జవాబులు రాయండి:</h3>
+        <ul>
+            <li>నాజర్ నాన్న పేరేమిటి?</li>
+            <li>“నాతో పంపండి” ఈ మాటలు ఎవరు ఎవరితో అన్నారు?</li>
+            <li>నాజర్ గురించి ఖాదర్ ఏమన్నాడు?</li>
+        </ul>
+
+        <h3>ఈ) ఒప్పు (✓) - తప్పు (X)</h3>
+        <ul>
+            <li>అజీజ్ నాజర్కు చదువు, సంగీతం నేర్పుతానన్నాడు. ( <strong>X</strong> )</li>
+            <li>మస్తాన్ కుమారుడు నాజర్. ( <strong>✓</strong> )</li>
+            <li>ఖాదర్ వయొలిన్ విద్వాంసుడు. ( <strong>X</strong> )</li>
+            <li>నాజర్ మంచి తెలివిగలవాడు. ( <strong>✓</strong> )</li>
+        </ul>
+
+        <!-- కొండపల్లి బొమ్మల ఆత్మకథ (Image on Right Flow) -->
+        <h3>ఉ) కొండపల్లి బొమ్మల ఆత్మకథ</h3>
+        <div class="content-with-image">
+            <div class="text-side">
+                <p>పిల్లలూ! నేను మీ కొండపల్లి బొమ్మను. రంగురంగుల్లో అందంగా ఉంటానని అందరూ నన్ను దాచుకుంటారు. నేను ఏనుగు అంబారీ, దశావతారాలు, తాటిచెట్టు వంటి రూపాలలో ఉంటాను. నన్ను <strong>పొణికి కర్రతో</strong> తయారుచేస్తారని మీకు తెలుసా! కర్రను బొమ్మగా మలచడంలో ఎంతో కష్టం ఉంటుంది. మా పూర్వికులు రాజస్థాన్ నుండి వచ్చారట. ప్రస్తుతం మేము మన రాష్ట్రంలోని కృష్ణా జిల్లా, <strong>కొండపల్లిలో</strong> స్థిరపడిపోయాం.</p>
+                <ul>
+                    <li>కొండపల్లి బొమ్మలు చేసేవారి పూర్వికులు ఎక్కడి నుండి వచ్చారు?</li>
+                    <li>కొండపల్లి ఏ జిల్లాలో ఉంది?</li>
+                    <li>కొండపల్లి బొమ్మలను ఏ కర్రతో తయారు చేస్తారు?</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- పదజాలం -->
+    <div class="card">
+        <h2>పదజాలం</h2>
+        <h3>అ) వస్తువులు - తయారీ పదార్థాలు జతపరచండి:</h3>
+        <table>
+            <tr><th>వస్తువు</th><th>తయారుచేసే పదార్థం</th></tr>
+            <tr><td>కుండ</td><td>మట్టి (ఉదా: కుండ మట్టితో తయారు చేస్తారు)</td></tr>
+            <tr><td>అద్దం</td><td>గాజు</td></tr>
+            <tr><td>బుట్ట</td><td>వెదురు</td></tr>
+            <tr><td>గునపం</td><td>ఇనుము</td></tr>
+        </table>
+
+        <h3>వివిధ మాండలిక పదాలు:</h3>
+        <ul>
+            <li><strong>గుంజ :</strong> రాట, నిట్టాడు, స్తంభం</li>
+            <li><strong>చిన్నాన్న :</strong> బాబాయి, పినతండ్రి, చిన్నబ్బ, చిన్నాయన</li>
+            <li><strong>బువ్వ :</strong> అన్నం, కూడు, మెతుకులు</li>
+        </ul>
+    </div>
+
+    <!-- స్వీయరచన -->
+    <div class="card">
+        <h2>స్వీయరచన</h2>
+        <ul>
+            <li>'నాజర్'ను ఎవరెవరు ఎలా పిలుస్తారో తెలుసుకున్నారు గదా! మిమ్మల్ని ఎవరెవరు ఎలా పిలుస్తారో రాయండి.</li>
+            <li>నాజర్ తన అమ్మా, నాన్నల గురించి ఏం చెప్పారో రాయండి.</li>
+            <li>ఖాదర్, నాజర్కు సంగీతం ఎలా నేర్పించాడో రాయండి.</li>
+        </ul>
+    </div>
+
+    <!-- సృజనాత్మకత - బుర్రకథ -->
+    <div class="card">
+        <h2>సృజనాత్మకత (బుర్రకథ)</h2>
+        <p><strong>పల్లవి:</strong><br>
+        వినరా భారత వీరకుమార<br>
+        విజయం మనదేరా తందాన తాన<br>
+        వినరా వీరకుమార<br>
+        ఝాన్సీలక్ష్మీ కథనూ - తందాన తాన</p>
+        
+        <p><strong>చరణం:</strong><br>
+        చదువులు చక్కగ నేర్చెరా - సై<br>
+        యుద్ధ విద్యలే నేర్చెరా - సై<br>
+        శత్రు మూకనే చీల్చెరా - సై<br>
+        ప్రజలను ప్రేమగ చూసిందా...<br>
+        వీరనారిగా వెలిసిందా...<br>
+        భళానంటి భాయి తమ్ముడా<br>
+        మేల్ భళానోయ్ తందానా...<br>
+        తరిగిట ఝంతరి తోం</p>
+    </div>
+
+    <!-- భాషాంశాలు -->
+    <div class="card">
+        <h2>భాషాంశాలు</h2>
+        <h3>అ) ప్రశ్నార్థకం (?)</h3>
+        <p>బాబూ! నీ పేరేమిటి? | గీతా! మీ ఊరు ఏది? | నీవు ఏ తరగతి చదువుతున్నావు? | లతా! నీవు ఎక్కడికి వెళ్తున్నావు?</p>
+        <p>పై వాక్యాల చివర <strong>'?'</strong> గుర్తు ఉందికదా! దీనిని <strong>'ప్రశ్నార్థకం'</strong> అంటారు. ఈ '?' గుర్తు ఉన్న వాక్యాలను <strong>'ప్రశ్నార్థక వాక్యాలు'</strong> అంటారు.</p>
+        <p><strong>ఎప్పుడు, ఎక్కడ, ఎందుకు, ఏమిటి, ఎలా, ఎవరు</strong> ఇలాంటి పదాలను <strong>‘ప్రశ్నార్థక పదాలు'</strong> అంటారు.</p>
+
+        <h3>ఆ, ఇ) ఆశ్చర్యార్థకం (!)</h3>
+        <p><em>"అబ్బో! జూ ఎంత అందంగా ఉందో! అందులో జిరాఫీ ఎంత ఎత్తుగా ఉందో! అమ్మో! సింహాన్ని చూడగానే ఎంత భయమేసిందో! అలాగే పక్షులను చూడగానే ఎంత ముచ్చట వేసిందో!"</em></p>
+        <p>పై పేరాలో <strong>' ! '</strong> గుర్తును గమనించారు కదూ! ఇది ఆశ్చర్యాన్ని తెలిపేది. ఈ గుర్తునే <strong>'ఆశ్చర్యార్థకం'</strong> అంటారు.</p>
+    </div>
+
+    <!-- ఈ మాసపు పాట -->
+    <div class="card">
+        <h2>ఈ మాసపు పాట: బంగారు పాపాయి</h2>
+        <p><strong>పల్లవి:</strong><br>
+        బంగారు పాపాయి బహుమతులు పొందాలి<br>
+        పాపాయి చదవాలి మా మంచి చదువు ॥</p>
+        <p><strong>చరణం:</strong><br>
+        పలుసీమలకు పోయి, తెలివిగల పాపాయి<br>
+        కళలన్ని చూపించి ఘనకీర్తి పొందాలి<br>
+        ఘనకీర్తి పొందాలి ఘనకీర్తి తేవాలి - బంగారు॥</p>
+        <p><strong>చరణం:</strong><br>
+        మా పాప పలికితే మధువులే కురియాలి<br>
+        పాపాయి పాడితే పాములే ఆడాలి<br>
+        ఏ దేశమేజాతి ఎవరింటిదీ పాప?<br>
+        ఎవ్వరీ పాపాయి అని ఎల్లరడగాలి - బంగారు॥</p>
+        <p>తెనుగుదేశము నాది, తెనుగుపాపను నేను<br>
+        అని పాప జగమంతా చాటి వెలయించాలి<br>
+        మా నోములపుడు మా బాగా ఫలియించాలి - బంగారు॥</p>
+        <p><strong>కవి పరిచయం:</strong> మంచాళ జగన్నాథరావు (1921-1985) కవి, సంగీత విద్వాంసులు. ప్రసిద్ధ వాగ్గేయకారుల కృతులకు స్వర రచన చేసారు.</p>
+    </div>
+
+    <!-- ఈ మాసపు కథ (Image on Right Flow) -->
+    <div class="card">
+        <h2>ఈ మాసపు కథ: బంగారు మొలక</h2>
+        <div class="content-with-image">
+            <div class="text-side">
+                <p>అనగనగా ఒక రాజు. ఆ రాజు ప్రజలను చక్కగా పరిపాలించేవాడు. సమయం దొరికినప్పుడల్లా రాజ్యంలో పర్యటించేవాడు. ప్రజల కష్టసుఖాలను తెలుసుకొనేవాడు. ఎప్పటిలానే ఒకరోజు రాజు పర్యటనకు బయలుదేరాడు.</p>
+                <p>ఒక గ్రామం పొలిమేరలో రాజుకి మామిడి మొక్కతో ఒక ముసలివాడు కనిపించాడు. రాజు ఆ వృద్ధుడిని గమనిస్తున్నాడు. అతను మామిడి మొక్కను నాటి, దానికి నీరు పోయసాగాడు.</p>
+                <p>రాజు మనసులో ఒక ఆలోచన మెదిలింది. ఈ మొక్క ఎప్పుడు చెట్టవుతుంది? కాయలు కాస్తుంది? ఈ ముసలివాడు ఎప్పుడు వాటిని తింటాడు? రాజుకు నవ్వు కూడా వచ్చింది. తాతను అడిగాడు.</p>
+            </div>
+            <div class="image-side">
+                <a href="image_link_placeholder_story.jpg" target="_blank">
+                    <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.4.4.png?raw=true" alt="బంగారు మొలక కథ చిత్రం">
+                </a>
+                
+            </div>
+        </div>
+        <p><em>"తాతా నీవు ఎంత అమాయకుడివి. ఇప్పుడు మామిడిమొక్క నాటుతున్నావు. ఇది పెరగాలి. పెద్దదవ్వాలి. దానికి కాయలు కాయాలి. ఇది ఎప్పటికి జరిగే పని? అప్పటిదాకా నీవు బతికిఉంటావా?”</em></p>
+        <p>రాజు మాటలు విని ముసలివాడు బోసినోటితో నవ్వాడు. <em>“రాజా! ఈ మొక్క నాటేది నాకోసం కాదు. అప్పటివరకు బతికి ఉండనని నాకు తెలుసు. ఇది పెద్దదయి కాయలు కాస్తే నా కొడుకు తింటుంది. నా కూతురు తింటుంది. నా మనుమలు తింటారు. వారి పిల్లలు తింటారు. జనం తింటారు.”</em></p>
+        <p><em>"ఎన్నడో మన తాతలు నాటిన మొక్కలే ఇప్పటికి చెట్లయి ఫలాలు ఇస్తున్నాయి. వాటినే మనం తింటున్నామకదా! ఏపని అయినా మనకోసమే చేయవలసిన పనిలేదు. రేపటి కోసం కూడా చేయాలి. ఎవరికోసం వారు ఆలోచించుకుంటే ఈ లోకం ఇంత దూరం వచ్చేదా! ఇంత అభివృద్ధి ఉండేదా!”</em> అన్నాడు ముసలివాడు.</p>
+        <p>"తాత మంచిమాట చెప్పాడు. తాత మనసు చాలా మంచిది” అనుకుని రాజు ముసలివాడికి పాతిక బంగారు నాణేలు అందించాడు. తాత ముఖం ఆనందంతో వికసించింది.</p>
+        <p>“చూశావా! రాజా! ఈ మొక్క నాటినరోజే బంగారు కాసులు కాసింది" అంటూ తాత సంబరపడిపోయాడు. అతని సంబరం చూసి రాజు కూడా ఆనందించాడు.</p>
+    </div>
+
+</div>
+
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }    
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+        }
+    }
+</script>
+
+</body>
+</html>
