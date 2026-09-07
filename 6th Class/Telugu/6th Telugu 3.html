@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="te" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. మాకొద్దీ తెల్ల దొరతనం - 6వ తరగతి తెలుగు</title>
+    <!-- Importing Google Fonts for Telugu (Mandali / Suranna) -->
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&family=Suranna&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9f9fb;
+            --text-color: #2c3e50;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --primary-color: #1a5276;
+            --accent-color: #c0392b;
+            --highlight-bg: #fdfefe;
+            --quote-bg: #ebf5fb;
+            --quote-border: #3498db;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --card-border: #2c2c2c;
+            --primary-color: #5dade2;
+            --accent-color: #ec7063;
+            --highlight-bg: #252525;
+            --quote-bg: #1a2634;
+            --quote-border: #5dade2;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 10px auto;
+            padding: 10px;
+        }
+
+        /* Theme Toggle Button */
+        .theme-switch-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            color: var(--text-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Mandali', sans-serif;
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--card-border);
+        }
+
+        h1 {
+            font-family: 'Suranna', serif;
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: 'Suranna', serif;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: var(--accent-color);
+        }
+
+        /* Cards & Layout */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        /* Writer Section Layout (Right Flow Image) */
+        .writer-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .writer-info {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .writer-img-container {
+            flex: 0 0 180px;
+            text-align: center;
+        }
+
+        .writer-img-container img {
+            width: 100%;
+            max-width: 160px;
+            border-radius: 8px;
+            border: 3px solid var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        /* Important Words Highlighting with Distinct Colors & Strong Styling */
+        .highlight-strong {
+            color: #b03a2e;
+            font-weight: bold;
+            
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        [data-theme="dark"] .highlight-strong {
+            color: #f1948a;
+            
+        }
+
+        .key-term {
+            color: #2471a3;
+            font-weight: bold;
+            
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        [data-theme="dark"] .key-term {
+            color: #85c1e9;
+            background-color: rgba(133, 193, 233, 0.15);
+        }
+
+        .exam-term {
+            color: #d68910;
+            font-weight: bold;
+            background-color: rgba(214, 137, 16, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        [data-theme="dark"] .exam-term {
+            color: #f39c12;
+            background-color: rgba(243, 156, 18, 0.15);
+        }
+
+        /* Notes & Quotes Styles */
+        .note-box {
+            background: var(--highlight-bg);
+            border-left: 5px solid var(--accent-color);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote-box {
+            background: var(--quote-bg);
+            border-left: 5px solid var(--quote-border);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        /* Image Cards & Links */
+        .image-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .image-card a {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .image-card a:hover {
+            opacity: 0.85;
+        }
+
+        /* Lists & Stanzas */
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .stanza {
+            background: var(--highlight-bg);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 1px dashed var(--card-border);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Day/Dark Toggle Switch -->
+    <div class="theme-switch-wrapper">
+        <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()">🌙 డార్క్ మోడ్</button>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <h1>3. మాకొద్దీ తెల్ల దొరతనం</h1>
+    </header>
+ <div class="card">
+        <h2>వినడం - ఆలోచించి మాట్లాడటం</h2>
+    <!-- Image Card Link Tag -->
+    <div class="image-card">
+        <img src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80" alt="స్వాతంత్ర్య ఉద్యమ దృశ్యం">
+        <p><strong>చిత్రం చూడండి. చిత్రం గురించి మాట్లాడండి</strong></p>
+        
+    </div>
+
+    <!-- పాఠం ఉద్దేశం -->
+    <div class="card">
+        <h2>ఉద్దేశం</h2>
+        <div class="note-box">
+            <p>ఆంగ్లేయుల ప్రభుత్వంలో భారతీయులు ఎన్నో <span class="highlight-strong">శారీరక, మానసిక బాధల్ని</span> అనుభవించారు. <span class="key-term">స్వేచ్ఛను, స్వాతంత్ర్యాన్ని</span> కోల్పోయారు. <span class="exam-term">స్వాతంత్ర్యంకోసం</span> ఆనాటి ప్రజలు పడిన కష్టాల్ని, ఆంగ్లేయుల అధికారానికి వ్యతిరేకంగా చేసిన <span class="highlight-strong">ఉద్యమాన్ని</span> తెలియజేయడమే ఈ పాఠం ఉద్దేశం.</p>
+        </div>
+    </div>
+
+    <!-- కవి పరిచయం -->
+    <div class="card">
+        <h2>కవి పరిచయం</h2>
+        <div class="writer-section">
+            <div class="writer-info">
+                <p><strong>పేరు:</strong> <span class="highlight-strong">గరిమెళ్ల సత్యనారాయణ</span></p>
+                <p><strong>కాలం:</strong> <span class="exam-term">14.7.1893 - 18.12.1952</span></p>
+                <p><strong>జననం:</strong> శ్రీకాకుళం జిల్లా నరసన్నపేట తాలూకా <span class="key-term">గోనెపాడు</span>లో జన్మించారు.</p>
+                <p><strong>వృత్తి / గుర్తింపు:</strong> <span class="highlight-strong">స్వాతంత్ర్య సమరయోధులు</span>, కవి, రచయిత.</p>
+                <p><strong>ప్రధాన రచనలు:</strong> 1921లో <span class="key-term">'స్వరాజ్య గీతములు'</span>, 1923లో <span class="key-term">'హరిజనుల పాటలు'</span>, 1926లో ఖండ కావ్యాలు, భక్తి గీతాలు, బాల గీతాలు రాశారు.</p>
+                <p><strong>ప్రత్యేకత:</strong> “దండాలండోయ్‌ మేముండలేమండෝయ్‌ బాబు”, <span class="highlight-strong">‘మాకొద్దీ తెల్లదొరతనము’</span> అనే గేయాలతో సామాన్య ప్రజల్లో సైతం స్వాతంత్ర్య ఉద్యమ <span class="key-term">ఉత్తేజాన్ని, చైతన్్యాన్ని</span> కలిగించిన జాతీయ కవి. దేశభక్తి కవితలు రాసి <span class="highlight-strong">జైలు శిక్ష</span> అనుభవించిన వారిలో మొదటివారు గరిమెళ్ల.</p>
+            </div>
+            <div class="writer-img-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Garimella_Satyanarayana.jpg" alt="గరిమెళ్ల సత్యనారాయణ చిత్రపటం">
+                <p style="font-size: 0.9rem; margin-top: 5px;"><strong>గరిమెళ్ల సత్యనారాయణ</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- గేయం -->
+    <div class="card">
+        <h2>మాకొద్దీ తెల్లదొరతనము (గేయం)</h2>
+        
+        <div class="stanza">
+            <p>1. మాకొద్దీ <span class="highlight-strong">తెల్ల దొరతనము</span>, దేవ<br>
+            మాకొద్దీ తెల్ల దొరతనము<br>
+            మా <span class="key-term">ప్రాణాలపై</span> పొంచి<br>
+            మానాలు హరియించే<br>
+            ||మాకొద్దీ||</p>
+        </div>
+
+        <div class="stanza">
+            <p>2. పన్నెండు దేశాలు పండుచున్నాగాని<br>
+            <span class="highlight-strong">పట్టెడన్నమై</span> లోపమందీ<br>
+            ఉప్పుముట్టుకుంటే <span class="highlight-strong">దోషమందీ</span><br>
+            నోట మట్టిగొట్టి పోతాదందీ<br>
+            అయ్యో! కుక్కలతో పోరాడీ కూడూ తినమంటాడు<br>
+            ||మాకొద్దీ||</p>
+        </div>
+
+        <div class="stanza">
+            <p>3. ధనము కోసము వాడు దారి చేసికోని<br>
+            కల్లు <span class="key-term">సారాయమమ్ముతాడు</span><br>
+            మాడు మూటాముల్లెలు దోచినాಡು<br>
+            అలి మొళ్ల్రో <span class="highlight-strong">పుస్తెలు తెంచుతాడు</span><br>
+            మాడు కళ్ల్రో దుమ్మేసి కాటికి దరిచేసాಡು<br>
+            ||మాకొద్దీ||</p>
+        </div>
+
+        <div class="stanza">
+            <p>4. <span class="key-term">గాంధీ టోపీ</span> పెట్టి పాఠశాలకు పోవ<br>
+            రావద్దు రావద్దంటాడు<br>
+            <span class="highlight-strong">రాట్నం బడిలో</span> పెట్టవద్దంటాడు<br>
+            టోపీ తీసి వీపులు బాదుతాడు<br>
+            అయ్యో! <span class="highlight-strong">రాజద్రోహమంత</span> రాట్నంలో ఉన్నదంట<br>
+            ||మాకొద్దీ||</p>
+        </div>
+
+        <div class="stanza">
+            <p>5. <span class="highlight-strong">నూటనలుబదినాల్గు</span> నోటికి తగిలించి<br>
+            మాటలాడ వద్దంటాడు<br>
+            మమ్ము పాట పాడ వద్దంటాడు<br>
+            తనసు దాటీ వెళ్లవద్దంటాడు<br>
+            అయ్యో! చేటు తెచ్చుక మమ్ము <span class="highlight-strong">చెడిపోవమంటాడు</span><br>
+            ||మాకొద్దీ||</p>
+        </div>
+
+        <div class="stanza">
+            <p>6. వాడి తాతగారి ముల్లె దాచిపెట్టినట్లు<br>
+            ధాటీ చేస్తాడీ దేశమున<br>
+            <span class="highlight-strong">పోరాటమాడుతాడు</span> పైన<br>
+            మోమాటము పడడు సుంతైన<br>
+            వాడి పాటు పాడైపోను మాటచెపితే వినడు<br>
+            ||మాకొద్దీ||</p>
+        </div>
+    </div>
+
+    <!-- సారాంశం -->
+    <div class="card">
+        <h2>సారాంశం</h2>
+        <p>ఓ దేవా! భారతీయులమైన మా <span class="highlight-strong">మానాప్రాణాలను</span> తీయడానికై అదనుకోసం చూసే తెల్లవారి (<span class="key-term">ఆంగ్లేయుల</span>) ప్రభుత్వం మాకు వద్దే వద్దు.</p>
+        <p>పలు దేశాలలో పంటలు పండుతున్నాయి. కాని <span class="highlight-strong">పట్టెడన్నానికి</span> నోచుకోలేకపోతున్నాం. ఉప్పును ముట్టుకుంటే పరిహారం విధించి మా నోట్లో మట్టిగొడుతున్నారు. కుక్కలకు వేసే అన్నం కోసం వాటితో పోరాడి ఆకలి తీర్చుకోమంటున్నారు.</p>
+        <p>ధన సంపాదన కోసం కల్లు, సారాయి అమ్ముతున్నారు. ఆ నెపంతో దాచుకున్న డబ్బును దోచుకుంటున్నారు. భార్యల మెడలలో <span class="highlight-strong">తాళిబొట్లు</span> ఉండనీయడం లేదు. మా కళ్లుగప్పి ప్రాణాలకే ముప్పు తెస్తున్నారు.</p>
+        <p>గాంధీ టోపీ పెట్టుకొని పాఠశాలకు రావద్దంటున్నారు. బడిలో <span class="highlight-strong">రాట్నం</span> పెట్టవద్దంటున్నారు. తలపై టోపీ తీసివేసి వీపులపై బాదుతున్నారు. రాట్నం ఉపయోగించిన వారిని <span class="highlight-strong">రాజద్రోహులుగా</span> జమకడుతున్నారు.</p>
+        <p>నూట నలభై నాలుగవ సెక్షన్ చీటీని నోటికి తగిలించి మాట్లాడవద్దంటున్నారు. స్వాతంత్ర్యోద్యమ గీతాలు పాడవద్దంటున్నారు. వారి అనుమతి లేకుండా ముందుకు వెళ్లవద్దంటున్నారు. భారతీయులను <span class="highlight-strong">బానిసలుగానే</span> బతకమంటున్నారు.</p>
+        <p>వారి తాతలు సంపాదించిన ధనం మూట ఈ దేశంలో దాచిపెట్టినట్లు ఆంగ్లేయులు స్వదేశీయులమైన మామీద దాడి చేస్తున్నారు. అనవసరమైన జగడాలు పెట్టుకుంటున్నారు. ఏమాత్రం జంకు లేకుండా ఉన్నారు. మా మాట వినకుండా ఏకపక్షంగా అధికారం చెలాయించే వీరి <span class="highlight-strong">అఘాయిత్యాలు</span> ఆగిపోవాలి.</p>
+    </div>
+
+    <!-- ఇవి చేయండి & అభ్యాసాలు -->
+    <div class="card">
+        <h2>ఇవి చేయండి</h2>
+        <h3>ఉక్తలేఖనం (Dictation words):</h3>
+        <p><span class="exam-term">ప్రాణం, హరియించు, పట్టెడన్నం, మూటాముల్లే, పుస్తెలు, పాఠశాల, ద్రోహం, రాట్నం, ధాటి, దేశం, పోరాటం, మోమాటం, సుంతైన</span>.</p>
+
+        <h3>అవగాహన - ప్రతిస్పందన</h3>
+        <ol>
+            <li>ఈ గేయాన్ని <span class="key-term">రాగయుక్తంగా</span> పాడండి, అభినయించండి.</li>
+            <li>కింది వాక్యాలను చదవండి. వీటికి సంబంధించిన పంక్తులు గేయంలో ఎక్కడ ఉన్నాయో గుర్తించండి, రాయండి:
+                <ul>
+                    <li>( &nbsp; ) మా ధనం మూటలు దోచుకున్నాడు.</li>
+                    <li>( &nbsp; ) కీడుతో మమ్మల్ని చెడిపోమంటున్నాడు.</li>
+                    <li>( &nbsp; ) ఈ దేశం మీద దాడి చేస్తున్నాడు.</li>
+                    <li>(ఈ) ఉప్పు తాకితే తప్పంట.</li>
+                </ul>
+            </li>
+            <li>కింది ఖాళీలను సరైన గేయ భాగంతో పూరించండి:
+                <ul>
+                    <li>గాంధీ టోపీ పెట్టి ... రావద్దు</li>
+                    <li>రాట్నం బడిలో ... అయ్యో!</li>
+                    <li>వీపులు బాదుతాడు.</li>
+                    <li>రాట్నంలో ఉన్నదంట.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <!-- Quotes / Poetry Box -->
+        <div class="quote-box">
+            <p><strong>ఈ కింది కవితను చదవండి. ప్రశ్నలకు జవాబులు రాయండి:</strong></p>
+            <p>
+                ఏమి మహిమంబు గలదొ నీనామమందు<br>
+                'బాపు' అనిపేరు వీనులబడిన యంత<br>
+                నిలువునను నాదు మేనెల్ల పులకరించు<br>
+                జల్లుమని నాదు హృదయంబు జలదరించు<br>
+                సర్వసారస్వత ప్రపంచంబు నందు<br>
+                గాంధి యనియెడి వర్ణయుగంబు తోడ<br>
+                సాటి వచ్చెడు వేరొక్కమాట గలదె<br>
+                — <strong>నాళం కృష్ణారావు</strong>
+            </p>
+            <ul>
+                <li>(అ) ఎవరి నామం వినడం వలన మేను పులకరిస్తుందని కవి అంటున్నారు?</li>
+                <li>(ఆ) ఈ కవిత ఎవరిని గురించి తెలుపుతుంది?</li>
+                <li>(ఇ) ఈ కవితలో "అక్షరాల జంట” అని అర్థం వచ్చే పదబంధం ఏది?</li>
+                <li>(ఈ) పై కవిత ఆధారంగా ఒక ప్రశ్న తయారుచేయండి.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- వ్యక్తీకరణ - సృజనాత్మకత -->
+    <div class="card">
+        <h2>వ్యక్తీకరణ - సృజనాత్మకత</h2>
+        <h3>అ) కింది ప్రశ్నలకు నాలుగైదు వాక్యాల్లో జవాబులు రాయండి:</h3>
+        <ol>
+            <li>భారతీయులు <span class="highlight-strong">పట్టెడన్నం</span> కోసం ఎటువంటి పాట్లు పడ్డారు?</li>
+            <li>ఆంగ్లేయులు భారతీయులపై దాడి చేయడం <span class="highlight-strong">అమానుషమని</span> ఎలా చెప్పగలరు?</li>
+            <li>బడిలో చదువుకున్న ఆనాటి పిల్లల పరిస్థితి ఎలా ఉండేది? ఈనాటి పరిస్థితి ఎలా ఉంది? మీరు గమనించిన <span class="key-term">తేడాలు</span> ఏమిటి?</li>
+        </ol>
+
+        <h3>ఆ) కింది ప్రశ్నలకు 8 నుండి 10 వాక్యాలలో జవాబులు రాయండి:</h3>
+        <ol>
+            <li>ఆంగ్లేయుల ప్రభుత్వాన్ని భారతీయులు వద్దనడానికి గల కారణాలను గేయం ఆధారంగా వివరించండి.</li>
+            <li><span class="highlight-strong">బానిసతనం</span> అంటే ఎవరూ ఇష్టపడరు. అందరూ స్వేచ్చనే కోరుకుంటారు. ఎందుకు?</li>
+            <li>ఆంగ్లేయుల ప్రభుత్వంలో మగ్గిన సగటు భారతీయుని ఆవేదనను <span class="key-term">ఏకపాత్రగా</span> రాయండి. ప్రదర్శించండి.</li>
+        </ol>
+    </div>
+
+    <!-- భాషాంశాలు & వ్యాకరణాంశాలు -->
+    <div class="card">
+        <h2>భాషాంశాలు</h2>
+        <h3>అ) కింది వాక్యాల్లో గీత గీసిన పదాలకు అర్థాలు రాయండి. వాటితో సొంత వాక్యాలు రాయండి:</h3>
+        <p>ఉదా|| విదేశీయుల <u>దొరతనం</u>లో స్వేచ్ఛ ఉండదు. <br>
+        <strong>దొరతనం = ప్రభుత్వం</strong><br>
+        <em>సొంత వాక్యం:</em> ప్రజల <span class="key-term">శాంతి భద్రతలను</span> ప్రభుత్వం పట్టించుకోవాలి.</p>
+        <ol>
+            <li>కూడు లేని పేదలను ఆదరించాలి.</li>
+            <li>సొంత లాభం సుంతైన మానుకొని పొరుగువారికి తోడుపడాలి.</li>
+            <li>ముల్లె సంపాదించినంత మాత్రాన గొప్పవాళ్లం కాము.</li>
+        </ol>
+
+        <h3>ఆ) కింది వాక్యాలలో సమానార్థక పదాలు (పర్యాయపదాలు) గుర్తించి రాయండి:</h3>
+        <ol>
+            <li>చేటు కలిగించే పనులు చేయకూడదు. అవి జీవితానికి ఎంతో <span class="highlight-strong">కీడు</span> చేస్తాయి.</li>
+            <li>విజయనగర రాజు కృష్ణదేవరాయలు. ఆ <span class="key-term">ప్రభువు</span> తెలుగుభాషను ఎంతగానో ఆదరించాడు.</li>
+            <li>అధికారం కోసం పోరాటం, ఆస్తుల కోసం <span class="highlight-strong">యుద్ధం</span> చేయడం మంచిది కాదు.</li>
+        </ol>
+
+        <h3>ఇ) కింది పదాలను సరైన వ్యతిరేకార్థక పదాలతో జతపరచండి:</h3>
+        <ul>
+            <li>1. కావాలి &nbsp;—&nbsp; ( &nbsp; ) &nbsp;—&nbsp; అ) చెడు</li>
+            <li>2. మంచి &nbsp;&nbsp;&nbsp;—&nbsp; ( &nbsp; ) &nbsp;—&nbsp; ఆ) వినడు</li>
+            <li>3. వింటాడు &nbsp;—&nbsp; ( &nbsp; ) &nbsp;—&nbsp; ఇ) వద్దు</li>
+        </ul>
+
+        <h2>వ్యాకరణాంశాలు: అక్షర విభాగం</h2>
+        <p>తెలుగు భాషలో <span class="highlight-strong">56 అక్షరాలున్నాయి</span>. ఇవి అచ్చులు, హల్లులు, ఉభయాక్షరాలని మూడు విధాలు.</p>
+        <ul>
+            <li><strong>అచ్చులు (16):</strong> అ, ఆ, ఇ, ఈ, ఉ, ఊ, ఋ, ౠ, ఌ, ୡ, ఎ, ఏ, ఐ, ఒ, ఓ, ఔ.</li>
+            <li><strong>హల్లులు (37):</strong> క, ఖ, గ, ఘ, ఙ, చ, ఛ, జ, ఝ, ఞ, ట, ఠ, డ, ఢ, ణ, త, థ, ద, ధ, న, ప, ఫ, బ, భ, మ, య, ర, ఱ, ల, ళ, వ, శ, ష, స, హ.</li>
+            <li><strong>ఉభయాక్షరాలు (3):</strong> ం (సున్న), ఁ (అరసున్న), ః (విసర్గ).</li>
+        </ul>
+
+        <h3>ఉ) కింది ప్రశ్నలకు సమాధానాలు రాయండి:</h3>
+        <ol>
+            <li>కింది పదాలలో ఒక వర్గపు అక్షరాలు దాగిఉన్నాయి. వాటిని గుర్తించండి: వింత, పథం, వందనం, విధం, మనం.</li>
+            <li>కింది వాక్యంలో <span class="highlight-strong">పరుషాలను</span> గుర్తించండి: కలిసి చరించనిట హితము తెలుప.</li>
+            <li>కింది వాక్యంలో <span class="highlight-strong">సరళాలను</span> గుర్తించండి: తగవు జరుగు నెడల నాదరి నిలబడరాదు.</li>
+            <li>కింది పదాల్లో <span class="highlight-strong">ఊష్మాలు</span> గుర్తించండి: దేశం, ఝషం, గ్రాసం, లోహం.</li>
+        </ol>
+
+        <p><strong>ప్రాజెక్టు పని (ఇది రెండవ నిర్మాణాత్మక మూల్యాంకనం కోసం):</strong> స్వాతంత్ర్యోద్యమ గీతాలను సేకరించండి. వాటిని చార్టుమీద రాసి ప్రదర్శించండి.</p>
+
+        <!-- చమత్కార పద్యం -->
+        <div class="note-box">
+            <h3>చమత్కార పద్యం</h3>
+            <p>
+                కరయుగంబు గలదు చరణంబు లా లేవు<br>
+                కడుపు, నడుము వీపు మెడయుగలవు<br>
+                శిరము లేదుగాని నరులబట్టుక మ్రింగి<br>
+                సొగసు గూర్చు దీని సొగసు గనుడి
+            </p>
+        </div>
+    </div>
+
+    <!-- మహాత్మా గాంధీ కోట్ -->
+    <div class="quote-box" style="text-align: center; margin-top: 30px;">
+        <p style="font-size: 1.1rem; font-weight: bold; color: var(--accent-color);">
+            “ఈ దేశం నాకేమిచ్చింది అని బాధపడడంకన్నా, దేశానికి నేనేమి చేయగలుగుతున్నాను అని ఆలోచించేవాడే నిజమైన దేశభక్తుడు.”
+        </p>
+        <p>— <strong>గాంధీ</strong></p>
+    </div>
+
+    <!-- సమయపాలన - జీవనవిద్య -->
+    <div class="card">
+        <h2>చదవండి - ఆనందించండి: సమయపాలన (జీవనవిద్య)</h2>
+        <p>సమావేశానికి గాంధీగారంతటి వ్యక్తి నిరాడంబరంగా, సరైన సమయానికి సైకిల్మీద రావడం చూసిన అందరూ ఆశ్చర్యపోయారు. ఆయన ఒక్క క్షణం కూడా ఆలస్యం కాకుండా సభాస్థలికి చేరుకున్నారు. గాంధీజీ విలువల్ని పాటించే వ్యక్తి. ప్రాణం పోయినా <span class="highlight-strong">సమయ పాలనను</span> విడిచిపెట్టేవారు కాదు. ఏ పనైనా అది ఏ సమయానికి జరగాలో ఆ సమయానికి ఆరు నూరైనా, నూరు ఆరైనా జరిపేవారు. ఆఖరుకి జైలులో ఉన్న సమయంలో కూడా కచ్చితమైన సమయపాలన చేసేవారు గాంధీజీ.</p>
+        <!-- Image Card Link Tag -->
+    <div class="image-card">
+        <img src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80" alt="స్వాతంత్ర్య ఉద్యమ దృశ్యం">
+        <p><strong>చిత్రం చూడండి. చిత్రం గురించి మాట్లాడండి</strong></p>
+        
+    </div>
+        <p>దక్షిణాఫ్రికాలో ఉన్నప్పుడు, ప్రతిరోజూ ఉదయం పళ్ళు తోముకునే సమయాన్ని వృథా చేయకుండా ఉండేందుకు, అంతకు ముందురోజే కొన్ని భగవద్గీత శ్లోకాలను కాగితం మీద రాసి గోడమీద అతికించుకుని, పళ్ళు తోముకునే సమయంలో వాటిని <span class="key-term">బట్టీపట్టేవారు</span>. ఆవిధంగా భగవద్గీతలోని చాలా అధ్యాయాలను గాంధీగారు కంఠస్థం చేశారు. అంత చక్కగా సమయాన్ని వినియోగించుకునే వారు గాంధీజీ.</p>
+
+        <div class="note-box">
+            <p>విలువైన గడియారం ధరించి సమయపాలన చేయకపోవడం కంటే, సమయపాలన కోసం గడియారాన్ని మరిచిపోయినా ఫరవాలేదు కదా! అదే మనమైతే నిజంగా సమయం ఉన్నా లేదని చెప్పి, టీవీ చూస్తూనో, కబుర్లు చెబుతూనో కాలక్షేపం చేసి ఎంతో సమయాన్ని పాడుచేస్తూ ఉంటాం. కానీ చేయాల్సిన పనిని మాత్రం సమయానికి పూర్తిచేయక, తర్వాత జరిగిన నష్టానికి మనమే బాధపడుతూ ఉంటాం.</p>
+        </div>
+
+        <p>అందుకే అందరూ బాల్యం నుండే <span class="highlight-strong">సమయపాలన</span> అలవాటు చేసుకోవాలి. ఎటువంటి పరిస్థితులలోనైనా సమయాన్ని తప్పకుండా, జాగ్రత్తగా ప్రణాళికాయుతంగా సద్వినియోగం చేసుకోవాలి.</p>
+        <p style="text-align: center; font-weight: bold; color: var(--primary-color);">మరి అందరం అదే బాటలో పయనిద్దామా!</p>
+    </div>
+
+</div>
+
+<script>
+    function toggleTheme() {
+        const html = document.documentElement;
+        const btn = document.getElementById('themeToggleBtn');
+        if (html.getAttribute('data-theme') === 'dark') {
+            html.setAttribute('data-theme', 'light');
+            btn.textContent = '🌙 డార్క్ మోడ్';
+        } else {
+            html.setAttribute('data-theme', 'dark');
+            btn.textContent = '☀️ లైట్ మోడ్';
+        }
+    }
+</script>
+
+</body>
+</html>
