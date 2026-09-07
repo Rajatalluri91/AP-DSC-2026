@@ -2,42 +2,79 @@
 <html lang="te">
 <head>
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>5. పొడుపు – విడుపు</title>
     <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #fdfbf7;
+            --text-color: #333333;
+            --container-bg: #ffffff;
+            --heading-color: #8b4513;
+            --highlight-color: #b22222;
+            --note-bg: #f4efe6;
+            --note-border: #8b4513;
+            --blockquote-bg: #faf5ed;
+            --blockquote-border: #deb887;
+            --th-bg: #8b4513;
+            --th-color: #fff;
+            --td-border: #ddd;
+            --writer-bg: #faf5ed;
+            --writer-border: #8b4513;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --container-bg: #1e1e1e;
+            --heading-color: #d2b48c;
+            --highlight-color: #ff6b6b;
+            --note-bg: #2d2621;
+            --note-border: #d2b48c;
+            --blockquote-bg: #25221d;
+            --blockquote-border: #a0825c;
+            --th-bg: #5c3a21;
+            --th-color: #ffffff;
+            --td-border: #444444;
+            --writer-bg: #25221d;
+            --writer-border: #d2b48c;
+        }
+
         body {
             font-family: 'Mandali', sans-serif;
-            background-color: #fdfbf7;
-            color: #333333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
-            padding: 10px;
+            padding: 5px;
+            transition: background-color 0.3s, color 0.3s;
         }
         .container {
             max-width: 800px;
             margin: auto;
-            background: #ffffff;
+            background: var(--container-bg);
             padding: 10px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
         }
         h1, h2, h3 {
-            color: #8b4513;
+            color: var(--heading-color);
         }
         .highlight {
-            color: #b22222;
-            font-weight: bold;+
+            color: var(--highlight-color);
+            font-weight: bold;
         }
         .note {
-            background: #f4efe6;
-            border-left: 5px solid #8b4513;
+            background: var(--note-bg);
+            border-left: 5px solid var(--note-border);
             padding: 10px;
             margin: 15px 0;
             border-radius: 4px;
-			text-align:center;
+            text-align: center;
         }
         blockquote {
-            background: #faf5ed;
-            border-left: 5px solid #deb887;
+            background: var(--blockquote-bg);
+            border-left: 5px solid var(--blockquote-border);
             padding: 15px;
             margin: 15px 0;
             font-style: italic;
@@ -49,19 +86,19 @@
             margin: 20px 0;
         }
         th, td {
-            border: 1px solid #ddd;
+            border: 1px solid var(--td-border);
             padding: 10px;
             text-align: center;
         }
         th {
-            background: #8b4513;
-            color: #fff;
+            background: var(--th-bg);
+            color: var(--th-color);
         }
         .writer-box {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: #faf5ed;
+            background: var(--writer-bg);
             padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
@@ -75,7 +112,7 @@
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #8b4513;
+            border: 3px solid var(--writer-border);
         }
         ul {
             padding-left: 20px;
@@ -83,13 +120,72 @@
         li {
             margin-bottom: 8px;
         }
-		p{
-			font-size:20px;
-			}
+        p {
+            font-size: 20px;
+        }
+        /* Toggle Switch Styles */
+        .theme-switch-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+        .theme-switch {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+        }
+        .theme-switch input {
+            display: none;
+        }
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            background-color: #fff;
+            bottom: 4px;
+            content: "";
+            height: 26px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 26px;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #8b4513;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .slider-icons {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 8px;
+            font-size: 16px;
+            line-height: 24px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider">
+                    <div class="slider-icons"></div>
+                </div>
+            </label>
+        </div>
+
         <h1>5. పొడుపు – విడుపు</h1>
         <div class="note">
             <h3>అభ్యసన ఫలితాలు</h3>
@@ -104,9 +200,8 @@
 
         <h2>చిత్రం చూడండి – ఆలోచించి మాట్లాడండి.</h2>
 		<div class="note">
-    <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.5.1.png?raw=true" alt="అడవిలో చెట్టు కొమ్మలపై పాములు, కొమ్మకు వేలాడుతున్న కోతి, ఏనుగు, కుందేలు మరియు పులి ఉన్న చిత్రం">
-  
-</div>
+            <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.5.1.png?raw=true" alt="అడవిలో చెట్టు కొమ్మలపై పాములు, కొమ్మకు వేలాడుతున్న కోతి, ఏనుగు, కుందేలు మరియు పులి ఉన్న చిత్రం">
+        </div>
         <p>చిత్రంలో ఏయే జంతువులు ఉన్నాయి? ఏం చేస్తున్నాయి?</p>
         <p>చిత్రంలోని సన్నివేశం గురించి మాట్లాడండి.</p>
         <p>కుందేలు ప్రశ్నకు మీరైతే ఏం జవాబు చెబుతారు?</p>
@@ -114,8 +209,8 @@
 
         <h2>పొడుపు - విడుపు</h2>
 		<div class="note">
-    <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.5.2.png?raw=true" alt="పొడుపు - విడుపు">
-</div>
+            <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.5.2.png?raw=true" alt="పొడుపు - విడుపు">
+        </div>
         <p>వేసవి సెలవుల్లో గిరి, సూరి వాళ్ళ మామయ్య గారి ఊరు వెళ్ళారు. రోజంతా సీతి, వెంకిలతో తోటలో సరదాగా గడిపారు. దీపాలు పెట్టే సమయానికి ఇంటికి వచ్చారు. అందరూ కలిసి భోజనం చేశారు. మామయ్య కుర్చీలో కూర్చొని దినపత్రిక చదవసాగాడు. సూరి అన్నయ్య గిరి వసారాలో చందమామ కథల పుస్తకాన్ని చదువుకుంటున్నాడు. సూరి, సీతి, వెంకి నడవలోని మంచం మీద పడుకున్నారు. వాళ్ళకు నిద్ర పట్టలేదు. వాళ్ళు ఇలా మాట్లాడుకోసాగారు.</p>
         
         <p><span class="highlight">సూరి</span> : సీతి, వెంకి నేనొక కథ చెబుతాను వింటారా!</p>
@@ -322,7 +417,6 @@
                 <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.5.4.png?raw=true" alt="కవి గారు">
             </div>
         </div>
-		
         
         <h2>ఈ మాసపు కథ: వికటకవి తెనాలి రామకృష్ణ కథలు</h2>
         <p>కృష్ణాతీరంలో గార్లపాడు అనే ఊరు ఉంది. ఆ ఊరిలో రామయ్య మంత్రి అనే పండితుడున్నాడు. అతని భార్య లక్ష్మమ్మ. వారి కుమారుడు రామకృష్ణుడు. చిన్నతనంలో రామకృష్ణుని తండ్రి మరణించాడు. మేనమామ అతన్ని తెనాలికి తీసుకొని వచ్చాడు. రామకృష్ణుని బడిలో వేశాడు.</p>
@@ -335,9 +429,33 @@
         <p>కాళికాదేవికి కోపం వచ్చింది. "ఇదేం పని? నీవు <span class="highlight">వికటకవివి</span> అవుతావు పొ" అంది.</p>
         <p>రామకృష్ణుడు దేవి కాళ్లపై బడ్డాడు. క్షమించమన్నాడు. ధనం లేని పాండిత్యం, పాండిత్యం లేని ధనం రెండూ వ్యర్థమే. అందుకే రెండూ కావాలన్నాడు. తల్లీ! దయ చూపించమని వేడుకున్నాడు.</p>
         <p>కాళికాదేవికి దయ కలిగింది. ఆశీర్వదించింది. ఈ తెనాలి రామకృష్ణుడే <span class="highlight">వికటకవిగా</span> ప్రసిద్ధుడు. వికటకవి తిరగవేసి చదవండి. మళ్లీ వికటకవి అవుతుంది. రామకృష్ణుడు రాయల వారి ఆస్థానంలో చేరాడు. అష్ట దిగ్గజాలలో ఒకడయ్యాడు. గొప్ప కావ్యాలు రాశాడు. తెనాలి రామకృష్ణుడన్నా రామలింగడన్నా ఒకరే. అతన్ని గురించి ఎన్నో కథలున్నాయి. తెలుసుకోండి.</p>
-		<div>
-    <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.5.5.png?raw=true" alt="కాళికాదేవి మరియు తెనాలి రామకృష్ణుడు ఉన్న చిత్రం">
-</div>
+		<div class="note">
+            <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/3rd%20Class/Telugu/3.5.5.png?raw=true" alt="కాళికాదేవి మరియు తెనాలి రామకృష్ణుడు ఉన్న చిత్రం">
+        </div>
     </div>
+
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }    
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+
+        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+    </script>
 </body>
 </html>
