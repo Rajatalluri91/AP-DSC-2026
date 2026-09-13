@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5. సుభాషితాలు (పద్యభాగం)</title>
+  <!-- Mandali Telugu Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #f4f7f6;
+      --card-bg: #ffffff;
+      --text-color: #2c3e50;
+      --primary-color: #008080;
+      --secondary-color: #d9534f;
+      --highlight-color: #e67e22;
+      --poem-bg: #fff8e7;
+      --border-color: #e0e0e0;
+      --table-header: #008080;
+      --table-header-text: #ffffff;
+      --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #1a1a1a;
+      --card-bg: #2d2d2d;
+      --text-color: #e0e0e0;
+      --primary-color: #4db6ac;
+      --secondary-color: #ff7675;
+      --highlight-color: #f39c12;
+      --poem-bg: #36352e;
+      --border-color: #444444;
+      --table-header: #004d4d;
+      --table-header-text: #ffffff;
+      --shadow: 0 4px 6px rgba(0,0,0,0.5);
+    }
+
+    body {
+      font-family: 'Mandali', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 10px;
+      line-height: 1.8;
+      transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Toggle Switch */
+    .theme-switch-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .theme-switch {
+      display: inline-block;
+      height: 34px;
+      position: relative;
+      width: 60px;
+    }
+
+    .theme-switch input {
+      display:none;
+    }
+
+    .slider {
+      background-color: #ccc;
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      background-color: #fff;
+      bottom: 4px;
+      content: "";
+      height: 26px;
+      left: 4px;
+      position: absolute;
+      transition: .4s;
+      width: 26px;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary-color);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    /* Typography & Design Elements */
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 10px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 25px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    .poem-box {
+      background-color: var(--poem-bg);
+      border-left: 5px solid var(--secondary-color);
+      padding: 15px 20px;
+      margin: 15px 0;
+      border-radius: 0 8px 8px 0;
+      font-weight: bold;
+    }
+
+    strong {
+      color: var(--highlight-color);
+    }
+
+    .important-word {
+      color: var(--secondary-color);
+      font-weight: bold;
+    }
+
+    /* Image Card Styling */
+    .img-card {
+      text-align: center;
+      margin: 20px 0;
+      background: var(--card-bg);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .img-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 2px solid var(--border-color);
+    }
+
+    .img-caption {
+      margin-top: 10px;
+      font-style: italic;
+      color: var(--primary-color);
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--table-header);
+      color: var(--table-header-text);
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    /* Q&A / Lists */
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .footer-page {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Theme Toggle -->
+  <div class="theme-switch-wrapper">
+    <span style="margin-right: 10px; font-weight: bold;"></span>
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider round"></div>
+    </label>
+  </div>
+
+  <!-- Header -->
+  <div class="card">
+    <h1>6. సుభాషితాలు (పద్యభాగం)</h1>
+    <h2>వినడం – ఆలోచించి మాట్లాడడం</h2>
+
+    <!-- GitHub Image Tag 1 -->
+    <div class="img-card">
+      <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.6.1.png?raw=true" alt="గురువుగారు శిష్యులకు పద్యాలు బోధించడం">
+      
+    </div>
+
+    <div class="poem-box">
+      కష్టపెట్టబోకు <strong class="important-word">కన్నతల్లి</strong> మనస్సు<br>
+      నష్టపెట్టబోకు <strong class="important-word">నాన్న</strong> పనులు<br>
+      తల్లిదండ్రులన్న <strong class="important-word">దైవ సన్నిభులురా</strong><br>
+      లలిత సుగుణజాల <strong class="important-word">తెలుగుబాల!</strong>
+    </div>
+
+    <h4>ప్రశ్నలు:</h4>
+    <ol>
+      <li>చిత్రంలో ఎవరున్నారు?</li>
+      <li>గురువుగారు శిష్యులకు ఎటువంటి పద్యాలు చెబుతున్నారు?</li>
+      <li>ఇలాంటి నీతి పద్యాలు మీకు తెలిసినవి చెప్పండి.</li>
+    </ol>
+
+    <p><strong>ఉద్దేశం:</strong> విద్యార్థుల్లో <strong class="important-word">నైతిక విలువలు</strong> పెంపొందించడం, వారిని <strong class="important-word">ఉత్తమ పౌరులుగా</strong> తీర్చిదిద్దడం ఈ పాఠ్యభాగ ఉద్దేశం.</p>
+    
+  </div>
+
+  <!-- Kavi Parichayam Table -->
+  <div class="card">
+    <h2>కవుల పరిచయం</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>క్రమ సంఖ్య</th>
+          <th>కవి</th>
+          <th>కాలం</th>
+          <th>శతకం</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1.</td><td><strong>నార్ల చిరంజీవి</strong></td><td>20వ శతాబ్దం</td><td>తెలుగుపూలు</td></tr>
+        <tr><td>2.</td><td><strong>వేమన</strong></td><td>17వ శతాబ్దం</td><td>వేమన శతకం</td></tr>
+        <tr><td>3.</td><td><strong>కరుణశ్రీ</strong></td><td>20వ శతాబ్దం</td><td>తెలుగుబాల శతకం</td></tr>
+        <tr><td>4.</td><td><strong>తిక్కన</strong></td><td>13వ శతాబ్దం</td><td>ఆంధ్రమహాభారతం</td></tr>
+        <tr><td>5.</td><td><strong>పక్కి అప్పల నరసింహం</strong></td><td>17వ శతాబ్దం</td><td>కుమార, కుమారీ శతకాలు</td></tr>
+        <tr><td>6.</td><td><strong>పోతులూరి వీరబ్రహ్మం</strong></td><td>17వ శతాబ్దం</td><td>కాళికాంబా సప్తశతి</td></tr>
+        <tr><td>7.</td><td><strong>మారద వెంకయ్య</strong></td><td>16వ శతాబ్దం</td><td>భాస్కర శతకం</td></tr>
+        <tr><td>8.</td><td><strong>కంచర్ల గోపన్న</strong></td><td>17వ శతాబ్దం</td><td>దాశరథి శతకం</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Poems Part 1 -->
+  <div class="card">
+    <h2>సుభాషితాలు - పద్యాలు</h2>
+<div class="poem-box">
+    <!-- GitHub Image Tag 2 -->
+    <div class="img-card">
+      <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.6.2.png?raw=true" alt="కాలం విలువ">
+      
+    </div>
+    
+      <strong>ఆ.వె.</strong><br>
+      కడచి పోయి నట్టి <strong class="important-word">క్షణము తిరిగిరాదు</strong><br>
+      కాలమూర కెపుడు గడపఁబోకు<br>
+      దీపమున్న యపుడె దిద్దుకోవలె నిల్లు<br>
+      విలువ దెలిసి చదువు <strong class="important-word">తెలుగుబిడ్డ!</strong> (1)
+    </div>
+<div class="poem-box">
+    <!-- GitHub Image Tag 3 -->
+    <div class="img-card">
+      <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.6.3.png?raw=true" alt="భూమి నాది">
+      <div class="img-caption">(2) భూగోళంపై సంతోషంగా ఉన్న బాలుడు</div>
+    </div>
+    
+      <strong>ఆ.వె.</strong><br>
+      భూమి నాది యన్న <strong class="important-word">భూమి పక్కున నవ్వు</strong><br>
+      దానహీనుఁజూచి <strong class="important-word">ధనము నవ్వు</strong><br>
+      కదన భీతుఁజూచి <strong class="important-word">కాలుండు నవ్వును</strong><br>
+      విశ్వదాభిరామ వినుర వేమ! (2)
+    </div>
+<div class="poem-box">
+    <!-- GitHub Image Tag 4 -->
+    <div class="img-card">
+      <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.6.4.png?raw=true" alt="విద్యా ధనము">
+      <div class="img-caption">(3) జ్ఞానాన్ని బోధిస్తున్న వ్యక్తి</div>
+    </div>
+    
+      <strong>ఆ.వె.</strong><br>
+      దొరలు దోచలేరు, దొంగ లెత్తుక పోరు<br>
+      భ్రాతృజనము వచ్చి పంచుకోరు<br>
+      విశ్వవర్ధనంబు <strong class="important-word">విద్యాధనంబురా</strong><br>
+      లలిత సుగుణజాల తెలుగుబాలా! (3)
+    </div>
+<div class="poem-box">
+    <!-- GitHub Image Tag 5 -->
+    <div class="img-card">
+      <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.6.5.png?raw=true" alt="కఠిన మాటలు">
+      <div class="img-caption">(4) కోపంగా మాట్లాడుతున్న వ్యక్తి</div>
+    </div>
+    
+      <strong>కం.</strong><br>
+      తనువున విరిగిన యలుఁగుల<br>
+      ననువునఁబుచ్చంగవచ్చు నతినిష్ఠురతన్<br>
+      మనమున నాటిన <strong class="important-word">మాటలు</strong><br>
+      వినుమెన్ని యుపాయములను వెడలునె యధిపా (4)
+    </div>
+   
+  </div>
+
+  <!-- Poems Part 2 -->
+  <div class="card">
+  <div class="poem-box">
+    <!-- GitHub Image Tag 6 -->
+    <div class="img-card">
+      <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.6.6.png?raw=true" alt="కోపం-నష్టం">
+      <div class="img-caption">(5) విరిగిపోయిన బొమ్మను చూసి బాధపడుతున్న బాలుడు</div>
+    </div>
+    
+      <strong>కం.</strong><br>
+      <strong class="important-word">రోషావేశము</strong> జనులకు<br>
+      దోషము, తలపోయ విపుల దుఃఖకరము నౌ;<br>
+      రోషము విడిచిన యెడ సం<br>
+      తోషింతురు బుధులు హితము దోప కుమారా! (5)
+    </div>
+<div class="poem-box">
+    <!-- GitHub Image Tag 7 -->
+    <div class="img-card">
+      <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.6.7.png?raw=true" alt="మంచి ప్రవర్తన">
+      <div class="img-caption">(6) మంచి ప్రవర్తనను ప్రదర్శిస్తున్న పిల్లలు</div>
+    </div>
+    
+      <strong>కం.</strong><br>
+      మఱవ వలెఁ <strong class="important-word">గీడు</strong>, నెన్నఁడు<br>
+      మఱవంగా రాదు <strong class="important-word">మేలు</strong>, మర్యాదలతో<br>
+      దిరుగవలె సర్వ జనముల<br>
+      దరిఁబ్రేమ మెలంగవలయు ధరణి కుమారీ! (6)
+    </div>
+<div class="poem-box">
+    <!-- GitHub Image Tag 8 -->
+    <div class="img-card">
+      <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.6.8.png?raw=true" alt="పరిశుభ్రత/ధ్యానం">
+      <div class="img-caption">(7) మొక్కకు నీరు పోస్తున్న మేఘం</div>
+    </div>
+    
+      <strong>ఆ.వె.</strong><br>
+      పుస్తకములు చదువ పూర్ణత్వమబ్బదు<br>
+      <strong class="important-word">హృదయసంపుటముల</strong> చదువవలయు<br>
+      పారిశుద్ధ్యమొకటె పరమాత్మ చేర్చును<br>
+      కాళికాంబ! హంస! కాళికాంబ! (7)
+    </div>
+<div class="poem-box">
+    <!-- GitHub Image Tag 9 -->
+    <div class="img-card">
+      <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.6.9.png?raw=true" alt="సహాయం">
+      <div class="img-caption">(8) పక్షులకు నీరు, ధాన్యం అందిస్తున్న బాలుడు</div>
+    </div>
+    
+      <strong>చ.</strong><br>
+      సిరిగలవాని కెయ్యెడలఁ జేసిన మేలది <strong class="important-word">నిష్ఫలంబగున్</strong><br>
+      నెఱిగుఱిగాదు పేదలకు నేర్పునఁ జేసిన <strong class="important-word">సత్ఫలంబగున్</strong><br>
+      వఱపున వచ్చి మేఘుఁడొక వర్షము వాడిన చేల మీఁదటం<br>
+      గుఱిసినఁ గాక యంబుధులఁ గుర్వఙగ నేమి ఫలంబు భాస్కరా! (8)
+    </div>
+
+    <div class="poem-box">
+      <strong>ఉ.</strong><br>
+      నోఁచిన తల్లిదండ్రికిఁ దనూభవుఁడొక్కఁడె చాలు మేటి చే<br>
+      చాఁచనివాడు వేడొకఁడు చాఁచిన లేదనకిచ్చువాఁడు నో<br>
+      రాఁచి నిజంబకాని పలుకాడనివాఁడు రణంబులోన మేన్<br>
+      దాఁచనివాడు భద్రగిరి <strong class="important-word">దాశరథీ కరుణాపయోనిధీ!</strong> (9)
+    </div>
+    
+  </div>
+
+  <!-- Meaning / Saaraamsham -->
+  <div class="card">
+    <h2>శతకం & సారాంశం</h2>
+    <p><strong>శతకం:</strong> శతకం అంటే <strong class="important-word">నూరు పద్యాల రచన</strong>. శతక పద్యాల చివర <strong>'మకుటం'</strong> ఉంటుంది. ఇందులో పద్యాలు <strong>'ముక్తకాలు'</strong>గా ఉంటాయి. అంటే ఏ పద్యానికి ఆ పద్యం స్వతంత్రభావం కలిగి ఉంటుంది.</p>
+    
+    <h3>పద్యాల సారాంశాలు:</h3>
+    <ol>
+      <li><strong>తెలుగుబిడ్డా!</strong> జరిగిపోయిన సమయం తిరిగిరాదు. కాబట్టి కాలాన్ని వృథాగా గడపకూడదు. అవకాశం ఉన్నప్పుడే పనులను చక్కగా చేసుకోవాలి. కాలం విలువ తెలుసుకొని చదువుకోవాలి.</li>
+      <li><strong>ఓ వేమా!</strong> ఈ భూమి నాది అని అహంకారం ప్రదర్శించిన వాడిని చూసి భూమి పగలబడి నవ్వుతుంది. ఈ ధనం నాది అనే మమకారంతో దానం జోలికి పోనివాడిని చూసి ధనం నవ్వుతుంది. యుద్ధమంటే భయపడే పిరికివాడిని చూసి యముడు నవ్వుతాడు.</li>
+      <li><strong>తెలుగుబాలా!</strong> విద్యాధనాన్ని దొరలు దోచుకోలేరు. దొంగలు ఎత్తుకు పోలేరు. అన్నదమ్ములు వచ్చి పంచుకోలేరు. ఈ విద్యాధనమే ప్రపంచ అభివృద్ధికి మూలం.</li>
+      <li><strong>ఓ రాజా!</strong> శరీరంలో బాణాలు గుచ్చుకుంటే ఉపాయంతో వాటిని తొలగించుకోవచ్చు. కాని అతి పరుషంగా మాట్లాడిన మాటలు మనస్సులో గుచ్చుకుంటే వాటిని తొలగించడానికి మనం ఎన్ని ఉపాయాలు చేసినా లాభం లేదు. అవి తొలగిపోవు.</li>
+      <li><strong>ఓ కుమారా!</strong> రోషావేశాలు మనుషులకు పాపాన్ని అంటగడతాయి. ఇవే దుఃఖానికి మూలం. అట్టి గుణాలను విడిచిపెట్టిన వారిని పండితులు సైతం మెచ్చుకుంటారు.</li>
+      <li><strong>ఓ కుమారీ!</strong> ఒకరు చేసిన కీడు మరచిపోవాలి. కాని ఇతరులు మనకి చేసిన మేలును ఎన్నడూ మరచిపోకూడదు. అందరిపట్ల అనురాగంగా, మర్యాదతో ప్రవర్తించాలి.</li>
+      <li><strong>ఓ కాళికాంబా!</strong> పుస్తకాలు చదివినందు వల్ల పూర్ణత్వం లభించదు, మనసులో ఉండే భావాలను చదవాలి. పరిశుభ్రత మనలను పరమేశ్వరుని వద్దకు చేరుస్తుంది. పుస్తక జ్ఞానం కంటే ఎదుటి వారి హృదయాలను చదవటం ముఖ్యం. మనిషి మనసు, వాక్కు, కర్మ పరిశుద్ధంగా ఉండాలని భావం.</li>
+      <li><strong>భాస్కరా!</strong> ధనవంతునికి మనం చేసే మేలు వ్యర్థం. పేదవారికి మేలు చేస్తే ప్రయోజనం కలుగుతుంది. వానలు లేక ఎండిపోతున్న చేల మీద మేఘుడు వర్షిస్తే ఫలితం ఉంటుంది కాని సముద్రం మీద కురిస్తే ప్రయోజనం ఉండదుకదా!</li>
+      <li><strong>దయాసముద్రుడవైన ఓరామా!</strong> ఎవరి దగ్గరా చేయి చాపనివాడు, అడిగితే లేదనకుండా ఇచ్చేవాడు, నోరు తెరచి నిజం తప్ప అబద్ధం చెప్పనివాడు, యుద్ధంలో వెన్నుచూపనివాడు, అదృష్టవంతులైన తల్లిదండ్రులకు ఇటువంటి గొప్పవాడైన కొడుకొక్కడు చాలు.</li>
+    </ol>
+   
+  </div>
+
+  <!-- Exercises / Abhyaasam -->
+  <div class="card">
+    <h2>ఇవి చేయండి</h2>
+
+    <h3>ఉక్తలేఖనం (పదాలు):</h3>
+    <p>పక్కున నవ్వు - భ్రాతృజనం - విశ్వ వర్ధనం – విరసంబైన - రోషావేశాలు – దుఃఖకరం - మాతృపూజ - అన్యకాంత – నిష్ఫలం - నెఱిగుఱి - తనూభవుడు – భద్రగిరి దాశరథి - కరుణాపయోనిధి – అంబుధి – సత్ఫలం - వీరబ్రహ్మం – కరుణశ్రీ</p>
+
+    <h3>అవగాహన - ప్రతిస్పందన</h3>
+    <ol>
+      <li>పాఠంలోని పద్యాలను రాగంతో, భావానికి తగినట్లుగా పాడండి.</li>
+      <li>ఎవరెవరిని చూసి నవ్వుతారని కవి అంటున్నాడు?</li>
+      <li>కీడు, మేలు గురించి కవి ఏమి చెప్పారు?</li>
+      <li><strong>కింది పద్యాన్ని చదివి ప్రశ్నలకు జవాబులు రాయండి:</strong>
+        <div class="poem-box">
+          చెలిమి శిలాక్షర మెప్పుడు<br>
+          అలుక జలాక్షరము సుజనులగు వారలకున్<br>
+          చెలిమి జలాక్షర మెప్పుడు<br>
+          అలుక శిలాక్షరము కుజనులగు వారలకున్
+        </div>
+        <strong>ప్రశ్నలు:</strong><br>
+        (అ) అలుక ఎవరికి జలాక్షరం?<br>
+        (ఆ) 'చెరిగిపోనిది' అనే అర్థంలో కవి ఏ పదాన్ని వాడాడు?<br>
+        (ఇ) ఈ పద్యంలో ఏ అక్షరం ఎక్కువ సార్లు వచ్చింది?<br>
+        (ఈ) ఈ పద్యానికి శీర్షికను సూచించండి.
+      </li>
+    </ol>
+
+    <h3>వ్యక్తీకరణ - సృజనాత్మకత</h3>
+    <p><strong>అ) కింది ప్రశ్నలకు నాలుగైదు వాక్యాలలో జవాబులు రాయండి:</strong></p>
+    <ol>
+      <li>"కాలం చాలా విలువైంది" ఎందుకో చర్చించండి?</li>
+      <li>'విద్య గొప్పతనం' నాలుగు వాక్యాల్లో రాయండి.</li>
+      <li>"కోపంగాని, ఆవేశంగాని మంచివికావు" ఎందుకో వివరించండి?</li>
+    </ol>
+    
+  </div>
+
+
+
+    <p><strong>ఆ) కింది ప్రశ్నలకు 8 నుండి 10 వాక్యాలలో జవాబులు రాయండి:</strong></p>
+    <ol>
+      <li>ఎటువంటి వారికి సహాయం చేయాలి? ఈ విషయాన్ని కవి ఎలా తెలియజేశారు?</li>
+      <li>మంచి కుమారునికి ఉండవలసిన లక్షణాలేవి?</li>
+      <li>పాఠంలోని పద్యాల ఆధారంగా మీరు నేర్చుకున్న మంచి గుణాలు రాయండి.</li>
+    </ol>
+
+    <h2>భాషాంశాలు</h2>
+    <p><strong>అ) కింది గీతగీసిన పదాలకు అర్థాలు రాయండి. వాటితో సొంతవాక్యాలు రాయండి:</strong></p>
+    <ul>
+      <li><em>ఉదా॥</em> <strong class="important-word">సిరి</strong> కలిగి ఉండటం వలన గర్వించకూడదు. <br>&rarr; <strong>సిరి = సంపద</strong>. (సొంతవాక్యం: సంపద ఎవరి వద్ద స్థిరంగా ఉండదు.)</li>
+      <li>1. ఏ పనినైనా విచక్షణతో చేసేవారే <strong class="important-word">బుధులు</strong>.</li>
+      <li>2. రైతులు <strong class="important-word">ధరణిని</strong> నమ్ముకొని జీవిస్తారు.</li>
+      <li>3. <strong class="important-word">అంబుధి</strong> లో నీరు తాగడానికి పనికిరాదు.</li>
+    </ul>
+
+    <p><strong>ఆ) పర్యాయపదాలు గుర్తించి రాయండి:</strong></p>
+    <ol>
+      <li>నేను <strong class="important-word">వర్షంలో</strong> తడిశాను. <strong class="important-word">వానలో</strong> తడవడం మంచిది కాదు.</li>
+      <li><strong class="important-word">భాస్కరుడు</strong> తూర్పున ఉదయిస్తాడు. లోకానికి వెలుగు నిచ్చేవాడు <strong class="important-word">సూర్యుడు</strong>.</li>
+      <li><strong class="important-word">యుద్ధం</strong> వలన అనేక నష్టాలు ఉన్నాయి. కాబట్టి <strong class="important-word">రణం</strong> లేకుండా కలసిమెలసి ఉండాలి.</li>
+    </ol>
+
+    <p><strong>ఇ) వ్యతిరేకార్థక పదాలు రాయండి:</strong></p>
+    <ol>
+      <li>మర్యాద &times; ________</li>
+      <li>నిజం &times; ________</li>
+      <li>ఉపాయం &times; ________</li>
+    </ol>
+
+    <p><strong>ఈ) ప్రకృతి - వికృతి పదాలను జతపరచండి:</strong></p>
+    <table>
+      <tr><th>ప్రకృతి</th><th>వికృతి</th></tr>
+      <tr><td>1. శ్రీ ( )</td><td>(అ) రోసం</td></tr>
+      <tr><td>2. దీపము ( )</td><td>(ఆ) సిరి</td></tr>
+      <tr><td>3. రోషం ( )</td><td>(ఇ) దివ్వె</td></tr>
+    </table>
+    
+  </div>
+
+  <!-- Vyakaranaamshaalu -->
+  <div class="card">
+    <h2>వ్యాకరణాంశాలు</h2>
+    <p><strong>అ) యడాగమ సంధి:</strong></p>
+    <ul>
+      <li>మాయమ్మ = మా + అమ్మ = మా + <strong>య్</strong> + అమ్మ</li>
+      <li>మీయిల్లు = మీ + ఇల్లు = మీ + <strong>య్</strong> + ఇల్లు</li>
+    </ul>
+    <p>పై పదాల మధ్య <strong>'య్'</strong> అదనంగా వచ్చి చేరింది. అలా చేరడాన్ని <strong class="important-word">'యడాగమం'</strong> అంటారు.</p>
+
+    <p><strong>కింది పదాలను విడదీయండి:</strong></p>
+    <ul>
+      <li>ఉదా : మేనయత్త = మేన + అత్త = మేన + య్ + అత్త</li>
+      <li>ఉన్నయూరు = _____ + _____ = _____ + _____ + _____</li>
+      <li>సరియైన = _____ + _____ = _____ + _____ + _____</li>
+      <li>నాదియన్న = _____ + _____ = _____ + _____ + _____</li>
+    </ul>
+
+    <p><strong>ఆ) వైకల్పిక సంధి (ఇత్వ సంధి):</strong></p>
+    <ul>
+      <li>ఏమంటివి = ఏమి + అంటివి (సంధి జరిగింది)</li>
+      <li>ఏమియంటివి = ఏమి + య్ + అంటివి (సంధి జరగకపోతే)</li>
+    </ul>
+    <p>ఇత్వంపై సంధి తప్పక జరగాలనే నియమం లేదు. జరగవచ్చు, జరగకపోవచ్చు. వ్యాకరణంలో ఈ పరిస్థితిని <strong class="important-word">'వైకల్పికం'</strong> అంటారు.</p>
+
+    <p><strong>విడదీసి రాయండి:</strong></p>
+    <ul>
+      <li>అదొకటి / అదియొకటి</li>
+      <li>లేకున్న / లేకయున్న</li>
+    </ul>
+
+    <p><strong>కలిపి రాయండి:</strong></p>
+    <ul>
+      <li>ఇది + అంత = _____ / _____</li>
+      <li>రానిది + అని = _____ / _____</li>
+      <li>అది + ఎట్లు = _____ / _____</li>
+    </ul>
+
+    <p><strong>ఇ) సంధి పేర్లు రాయండి:</strong></p>
+    <ul>
+      <li>కాలమూరక = కాలము + ఊరక (ఉత్వ సంధి)</li>
+      <li>దీపమున్న = దీపము + ఉన్న (ఉత్వ సంధి)</li>
+      <li>వినుమెన్ని = వినుము + ఎన్ని (ఉత్వ సంధి)</li>
+    </ul>
+   
+  </div>
+
+
+
+    <p><strong>కలిపి సంధిపేరు రాయండి:</strong></p>
+    <ul>
+      <li>పలుకు + ఆడని = పలుకాడని (ఉత్వ సంధి)</li>
+      <li>మేలు + అది = మేలది (ఉత్వ సంధి)</li>
+      <li>మేఘుడు + ఒక = మేఘుడొక (ఉత్వ సంధి)</li>
+    </ul>
+
+    <p><strong>ఈ) సమాసం:</strong> అర్థవంతమైన రెండు పదాలు కలిసి, ఒకే పదబంధంగా ఏర్పడటాన్నే సమాసం అంటారు. సమాసంలోని మొదటి పదాన్ని <strong>పూర్వపదమని</strong>, రెండవ పదాన్ని <strong>ఉత్తరపదమని</strong> అంటారు.</p>
+
+    <p><strong>ఉ) ద్వంద్వసమాసం :</strong> సమాసంలో ఉన్న రెండు పదాలు సమాన ప్రాధాన్యం కలిగి ఉంటే అది ద్వంద్వసమాసం. <br><em>"ఉభయ పదార్థ ప్రధానంబు ద్వంద్వంబు"</em> అని సూత్రం.</p>
+    <ul>
+      <li>సూర్యచంద్రులు = సూర్యుడును, చంద్రుడును</li>
+      <li>తల్లిదండ్రులు = తల్లియు, తండ్రియు</li>
+    </ul>
+
+    <p><strong>విగ్రహవాక్యాలు రాయండి:</strong> రాత్రింబవళ్ళు, బంధుమిత్రులు, బాలబాలికలు.</p>
+    <p><strong>సమాసపదాలుగా మార్చండి:</strong> రోషమును ఆవేశమును, అన్నయును తమ్ముడును, కూరయును కాయయును.</p>
+
+    <h3>విభక్తులు (Table)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ప్రత్యయాలు</th>
+          <th>విభక్తులు</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>డు, ము, వు, లు</td><td><strong>ప్రథమా విభక్తి</strong></td></tr>
+        <tr><td>ని(న్), ను(న్), ల(న్), కూర్చి, గురించి</td><td><strong>ద్వితీయా విభక్తి</strong></td></tr>
+        <tr><td>చేత(న్), చే(న్), తో(న్), తోడ(న్)</td><td><strong>తృతీయా విభక్తి</strong></td></tr>
+        <tr><td>కొఱకు(న్), కై (కోసం)</td><td><strong>చతుర్థీ విభక్తి</strong></td></tr>
+        <tr><td>వలన(న్), కంటె(న్), పట్టి</td><td><strong>పంచమీ విభక్తి</strong></td></tr>
+        <tr><td>కి(న్), కు(న్), యొక్క, లో(న్), లోపల(న్)</td><td><strong>షష్ఠీ విభక్తి</strong></td></tr>
+        <tr><td>అందు(న్), న(న్)</td><td><strong>సప్తమీ విభక్తి</strong></td></tr>
+        <tr><td>ఓ, ఓయి, ఓరి, ఓసి</td><td><strong>సంబోధన ప్రథమా విభక్తి</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h3>చమత్కార పద్యం - నానార్థాలు</h3>
+    <div class="poem-box">
+      హరి కుమారుడై యొప్పెడునాతడు హరి<br>
+      హరికి దక్షిణనేత్రమౌ నాతడు హరి<br>
+      హరికి శిరముతోడ వరలు నాతడు హరి<br>
+      హరికి వామాక్షమౌ యొప్పునాతడు హరి
+    </div>
+    <p><strong>నానార్థాలు (హరి = కోతి, సూర్యుడు, సింహము, చంద్రుడు):</strong></p>
+    <ol>
+      <li>సూర్యుని కొడుకు సుగ్రీవుడు (హరి)</li>
+      <li>శ్రీహరి కుడికన్ను సూర్యుడు (హరి)</li>
+      <li>సింహపు తలతో ఒప్పువాడు శ్రీహరి (హరి)</li>
+      <li>శ్రీహరికి ఎడమ కన్ను చంద్రుడు (హరి)</li>
+    </ol>
+
+    <h3>నేనివి చేయగలనా?</h3>
+    <ul>
+      <li>1. పాఠంలోని పద్యాలను రాగయుక్తంగా, భావయుక్తంగా పాడగలను. (ఔను / కాదు)</li>
+      <li>2. పద్యభావాలను సొంత మాటలలో చెప్పగలను, రాయగలను. (ఔను / కాదు)</li>
+      <li>3. పాఠంలోని పదాలను సొంత వాక్యాలలో ఉపయోగించగలను. (ఔను / కాదు)</li>
+      <li>4. పాఠంలోని ప్రశ్నలకు జవాబులు సొంతమాటలలో రాయగలను. (ఔను / కాదు)</li>
+    </ul>
+  
+  </div>
+
+  <!-- Story / Non-detail Part -->
+  <div class="card">
+    <h2>చదవండి - ఆనందించండి</h2>
+    <h3>టోపీల వ్యాపారి</h3>
+
+    <!-- GitHub Image Tag 13 -->
+    <div class="img-card">
+      <img src="https://github.com/Rajatalluri91/AP-DSC-2026/blob/main/6th%20Class/Telugu/6.6.11.png?raw=true" alt="టోపీల వ్యాపారి">
+      <div class="img-caption">ముసలాయనతో మాట్లాడతున్న కాశీనాథుడు</div>
+    </div>
+
+    <p>ఒక ఊరిలో <strong class="important-word">కాశీనాథుడు</strong> అనే ఒక టోపీలు అమ్మేవాడు ఉండేవాడు. అతడు చాలా నీతిమంతుడు. టోపీలను కొద్ది లాభానికే అమ్మేవాడు. అతడు దేశ విదేశాల నుండి తెప్పించిన రంగు రంగుల టోపీలను సరసమైన ధరలకే అమ్మడంతో జనం విరగబడి అతని దగ్గర టోపీలు కొనేవారు. అంగడిలో ఉన్నప్పుడు ఆ రోజు వ్యాపారంలో వచ్చిన డబ్బును అతడు ఓ టోపీలో దాచుకునేవాడు.</p>
+
+    <p>ఓ రోజు పూరి జగన్నాథుని రథ మహోత్సవం ఉండడంతో అతడు రథము లాగబడే వీథిలో ఒక చిన్న దుకాణం పెట్టుకున్నాడు. మొదటి రోజే చాలా టోపీలు అమ్మాడు. ఎప్పటిలాగే అతను డబ్బును ఒక టోపీలో దాచాడు. చీకటి పడ్డాక తన సంపాదన ఎంతో లెక్కపెడదామని, తన డబ్బు దాచుకునే టోపీ కొరకు వెతికాడు. టోపీ దొరకలేదు. అతనికి గుండె ఆగినంత పనైంది. <em>"అమ్మో! నేను బాగా నష్టపోయానే. పొరపాటున డబ్బు దాచుకునే టోపీని అమ్మేసినట్టున్నాను"</em> అని బాధతో కుమిలిపోతూ, రాత్రంతా నిదుర పోలేదు.</p>
+
+    <p>మరునాడు ఉదయాన్నే తన దుకాణానికి వెళ్లి 'ఎవరికైనా తన డబ్బు దాచిన టోపీ దొరికిందా' అని అడుగసాగాడు.</p>
+
+    <p><em>"ఎవరికైనా నువ్వు డబ్బు దాచిన టోపీ దొరికితే నీకు ఇస్తారా! నీ మూర్ఖత్వం కాకపోతే ఏంటి”</em> అని జనం ఎగతాళిగా నవ్వారు.</p>
+
+    <p>కొంచెం సేపు అయ్యాక, ఒక ముసలాయన దిగులుగా కూర్చున్న కాశీనాథ్ దగ్గరకు వచ్చి <em>“నాయనా! నువ్వు ఇచ్చిన టోపీ చాలా బరువుగా ఉంది. ఇది తీసుకొని నాకు తేలికగా ఉన్న టోపీని ఇవ్వు"</em> అని అన్నాడు.</p>
+
+    <p>కాశీనాథుడు ఆ టోపీని తీసుకొని తేలికైన టోపీని ఇచ్చి ఆ ముసలాయనను పంపేశాడు. టోపీ ఎందుకు బరువుగా ఉంది అని చూడగా, అతనికి అందులో దాచిన డబ్బు కనిపించింది.</p>
+
+    <p><strong class="important-word">'హమ్మయ్యా!'</strong> అని ఊపిరి పీల్చుకుంటూ, <strong class="important-word">'నిజాయితీగా బతికే వారిని దేవుడు ఎప్పుడూ మోసం చేయడని రుజువైంది'</strong> అని తన మనసులో అనుకున్నాడు కాశీనాథుడు.</p>
+
+    
+  </div>
+</div>
+
+<!-- Dark/Light Theme Switcher Script -->
+<script>
+  const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+  const currentTheme = localStorage.getItem('theme');
+
+  if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'dark') {
+      toggleSwitch.checked = true;
+    }
+  }
+
+  function switchTheme(e) {
+    if (e.target.checked) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }    
+  }
+
+  toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+
+</body>
+</html>
