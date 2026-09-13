@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6వ తరగతి తెలుగు - అర్థాలు, పర్యాయపదాలు & ప్రకృతి-వికృతులు</title>
+  <!-- Mandali Telugu Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #f4f7f6;
+      --card-bg: #ffffff;
+      --text-color: #2c3e50;
+      --primary-color: #008080;
+      --secondary-color: #d9534f;
+      --highlight-color: #e67e22;
+      --poem-bg: #fff8e7;
+      --border-color: #e0e0e0;
+      --table-header: #008080;
+      --table-header-text: #ffffff;
+      --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #1a1a1a;
+      --card-bg: #2d2d2d;
+      --text-color: #e0e0e0;
+      --primary-color: #4db6ac;
+      --secondary-color: #ff7675;
+      --highlight-color: #f39c12;
+      --poem-bg: #36352e;
+      --border-color: #444444;
+      --table-header: #004d4d;
+      --table-header-text: #ffffff;
+      --shadow: 0 4px 6px rgba(0,0,0,0.5);
+    }
+
+    body {
+      font-family: 'Mandali', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+     
+      line-height: 1.8;
+      transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    /* Toggle Switch */
+    .theme-switch-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .theme-switch {
+      display: inline-block;
+      height: 34px;
+      position: relative;
+      width: 60px;
+    }
+
+    .theme-switch input {
+      display: none;
+    }
+
+    .slider {
+      background-color: #ccc;
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      background-color: #fff;
+      bottom: 4px;
+      content: "";
+      height: 26px;
+      left: 4px;
+      position: absolute;
+      transition: .4s;
+      width: 26px;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary-color);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    /* Typography & Design Elements */
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 10px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 5px;
+      margin-bottom: 25px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+    }
+
+    strong {
+      color: var(--highlight-color);
+    }
+
+    .important-word {
+      color: var(--secondary-color);
+      font-weight: bold;
+    }
+
+    .letter-header {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      padding: 4px 12px;
+      border-radius: 6px;
+      display: inline-block;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    /* Image Card Styling */
+    .img-card {
+      text-align: center;
+      margin: 20px 0;
+      background: var(--card-bg);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .img-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 2px solid var(--border-color);
+    }
+
+    .img-caption {
+      margin-top: 10px;
+      font-style: italic;
+      color: var(--primary-color);
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--table-header);
+      color: var(--table-header-text);
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    .footer-page {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Theme Toggle -->
+  <div class="theme-switch-wrapper">
+    <span style="margin-right: 10px; font-weight: bold;"></span>
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider round"></div>
+    </label>
+  </div>
+
+  <!-- Main Title Card -->
+  <div class="card">
+    <h1>6వ తరగతి - తెలుగు బాట</h1>
+    <h2>అర్ధాల పట్టిక, పర్యాయ పదాలు & ప్రకృతి-వికృతులు</h2>
+
+
+  <!-- Section 1: Meanings (అర్ధాల పట్టిక) -->
+  <div class="card">
+    <h2>1. అర్ధాల పట్టిక</h2>
+    
+    <div class="letter-header">అ</div>
+    <table>
+      <thead>
+        <tr><th>క్రమ సంఖ్య</th><th>పదము</th><th>అర్థము</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong class="important-word">అంగడి</strong></td><td>కొట్టు (దుకాణం)</td></tr>
+        <tr><td>2</td><td><strong class="important-word">అఘము</strong></td><td>పాపం</td></tr>
+        <tr><td>3</td><td><strong class="important-word">అజ్ఞానం</strong></td><td>జ్ఞానం లేకపోవడం</td></tr>
+        <tr><td>4</td><td><strong class="important-word">అణగుట</strong></td><td>నశించుట</td></tr>
+        <tr><td>5</td><td><strong class="important-word">అతుల</strong></td><td>సాటిలేని</td></tr>
+        <tr><td>6</td><td><strong class="important-word">అధునాతనము</strong></td><td>ఆధునికం</td></tr>
+        <tr><td>7</td><td><strong class="important-word">అనర్ఘళంగా</strong></td><td>ధారాళంగా/అడ్డంకి లేకుండా</td></tr>
+        <tr><td>8</td><td><strong class="important-word">అనుకరించు</strong></td><td>మరొకరు చేసినట్లు చేయు</td></tr>
+        <tr><td>9</td><td><strong class="important-word">అనుగుణము</strong></td><td>తగినది/అనుకూలమైనది</td></tr>
+        <tr><td>10</td><td><strong class="important-word">అన్వేషణ</strong></td><td>వెదకుట</td></tr>
+        <tr><td>11</td><td><strong class="important-word">అంబరధి / అంబుధి</strong></td><td>సముద్రం</td></tr>
+        <tr><td>12</td><td><strong class="important-word">అర్ధించి</strong></td><td>వేడుకొని</td></tr>
+        <tr><td>13</td><td><strong class="important-word">అలరించు</strong></td><td>ఆనందింపజేయు</td></tr>
+        <tr><td>14</td><td><strong class="important-word">అవగతము</strong></td><td>తెలియబడినది</td></tr>
+        <tr><td>15</td><td><strong class="important-word">అశ్వము</strong></td><td>గుర్రం</td></tr>
+        <tr><td>16</td><td><strong class="important-word">అసువులు</strong></td><td>ప్రాణాలు</td></tr>
+      </tbody>
+    </table>
+
+    <div class="letter-header">ఆ</div>
+    <table>
+      <thead>
+        <tr><th>క్రమ సంఖ్య</th><th>పదము</th><th>అర్థము</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong class="important-word">ఆకృతి</strong></td><td>ఆకారం</td></tr>
+        <tr><td>2</td><td><strong class="important-word">ఆచరణ</strong></td><td>నిజ జీవితంలో అమలు చేయడం / నడత</td></tr>
+        <tr><td>3</td><td><strong class="important-word">ఆజ్ఞ</strong></td><td>ఆనతి</td></tr>
+        <tr><td>4</td><td><strong class="important-word">ఆత్మవిశ్వాసం</strong></td><td>తన శక్తి సామర్థ్యాలపై తనకున్న నమ్మకం</td></tr>
+        <tr><td>5</td><td><strong class="important-word">ఆనందపరవశుడు</strong></td><td>సంతోషంచేత పరాధీనుడు</td></tr>
+        <tr><td>6</td><td><strong class="important-word">ఆపన్నులు</strong></td><td>ఆపదలో ఉన్నవారు</td></tr>
+        <tr><td>7</td><td><strong class="important-word">ఆపద</strong></td><td>ప్రమాదం</td></tr>
+        <tr><td>8</td><td><strong class="important-word">ఆప్యాయత</strong></td><td>ప్రేమ, ఆదరం</td></tr>
+        <tr><td>9</td><td><strong class="important-word">ఆలి</strong></td><td>భార్య</td></tr>
+        <tr><td>10</td><td><strong class="important-word">ఆవశ్యకత</strong></td><td>అవసరం</td></tr>
+        <tr><td>11</td><td><strong class="important-word">ఆశ్రయించు</strong></td><td>ఆధారంచేసుకొను</td></tr>
+        <tr><td>12</td><td><strong class="important-word">ఆశ్రితులు</strong></td><td>ఆశ్రయించినవారు</td></tr>
+      </tbody>
+    </table>
+
+    <div class="letter-header">ఇ / ఈ / ఉ / ఊ</div>
+    <table>
+      <thead>
+        <tr><th>క్రమ సంఖ్య</th><th>పదము</th><th>అర్థము</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong class="important-word">ఇంకుట</strong></td><td>ఇగిరిపోవుట</td></tr>
+        <tr><td>2</td><td><strong class="important-word">ఇంతి</strong></td><td>అందమైన స్త్రీ</td></tr>
+        <tr><td>3</td><td><strong class="important-word">ఇమ్ముగ</strong></td><td>కుదురుగ / స్థిరంగా</td></tr>
+        <tr><td>4</td><td><strong class="important-word">ఉచ్చు</strong></td><td>పక్షులు మొదలైన వాటిని పట్టడానికి పెట్టే ఉరి</td></tr>
+        <tr><td>5</td><td><strong class="important-word">ఉజ్జ్వల</strong></td><td>బాగా ప్రకాశించేది</td></tr>
+        <tr><td>6</td><td><strong class="important-word">ఉత్తరీయం</strong></td><td>కండువా</td></tr>
+        <tr><td>7</td><td><strong class="important-word">ఉదకము</strong></td><td>నీరు</td></tr>
+        <tr><td>8</td><td><strong class="important-word">ఉబలాటం</strong></td><td>కుతూహలం / ఒక పని చేయాలనే తొందరతో కూడిన కోరిక</td></tr>
+      </tbody>
+    </table>
+
+    <div class="letter-header">ఎ / ఏ / ఐ / ఒ / ఓ / ఔ</div>
+    <table>
+      <thead>
+        <tr><th>క్రమ సంఖ్య</th><th>పదము</th><th>అర్థము</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong class="important-word">ఏకభుక్తులు</strong></td><td>ఒకపూట మాత్రమే తినేవారు</td></tr>
+        <tr><td>2</td><td><strong class="important-word">ఎడబాయు</strong></td><td>వేరగు</td></tr>
+        <tr><td>3</td><td><strong class="important-word">ఎలమి</strong></td><td>సంతోషం</td></tr>
+        <tr><td>4</td><td><strong class="important-word">ఎరుక</strong></td><td>జ్ఞానం</td></tr>
+        <tr><td>5</td><td><strong class="important-word">ఐశ్వర్యం</strong></td><td>సంపద</td></tr>
+        <tr><td>6</td><td><strong class="important-word">ఒద్దిక</strong></td><td>అనుకూలత, స్నేహం</td></tr>
+        <tr><td>7</td><td><strong class="important-word">ఒసగుట</strong></td><td>ఇచ్చుట</td></tr>
+        <tr><td>8</td><td><strong class="important-word">ఔన్నత్యము</strong></td><td>గొప్పతనం</td></tr>
+      </tbody>
+    </table>
+
+    
+  </div>
+
+  <!-- Section 1 Continued: Consonants Meanings -->
+  <div class="card">
+    <!-- GitHub Image Tag 2 -->
+    <div class="img-card">
+      <img src="https://raw.githubusercontent.com/username/repository/main/images/telugu_reading.jpg" alt="తెలుగు చదువుతున్న విద్యార్థులు">
+      <div class="img-caption">చిత్రం 2: వ్యాకరణం మరియు పదకోశ పఠనం</div>
+    </div>
+
+    <div class="letter-header">క / ఖ / గ / ఘ</div>
+    <table>
+      <thead>
+        <tr><th>క్రమ సంఖ్య</th><th>పదము</th><th>అర్థము</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong class="important-word">కదనం</strong></td><td>యుద్ధం</td></tr>
+        <tr><td>2</td><td><strong class="important-word">కనుమఱుగు</strong></td><td>కంటికి కనిపించకుండా పోవు</td></tr>
+        <tr><td>3</td><td><strong class="important-word">కన్నుల పండుగ</strong></td><td>చూడడానికి ఆనందంగా ఉండటం</td></tr>
+        <tr><td>4</td><td><strong class="important-word">కపటం</strong></td><td>మోసం</td></tr>
+        <tr><td>5</td><td><strong class="important-word">కపి</strong></td><td>కోతి</td></tr>
+        <tr><td>6</td><td><strong class="important-word">కర్తవ్యం</strong></td><td>బాధ్యత</td></tr>
+        <tr><td>7</td><td><strong class="important-word">కవిపుంగవుడు</strong></td><td>శ్రేష్ఠమైన కవి</td></tr>
+        <tr><td>8</td><td><strong class="important-word">కాంస్యం</strong></td><td>కంచు</td></tr>
+        <tr><td>9</td><td><strong class="important-word">కాలుడు</strong></td><td>యముడు</td></tr>
+        <tr><td>10</td><td><strong class="important-word">కాష్ఠం</strong></td><td>శ్మశానం</td></tr>
+        <tr><td>11</td><td><strong class="important-word">కాలయముడు</strong></td><td>ప్రాణాలు తీసేవాడు</td></tr>
+        <tr><td>12</td><td><strong class="important-word">కావలి</strong></td><td>రక్షణ</td></tr>
+        <tr><td>13</td><td><strong class="important-word">కినియు</strong></td><td>కోపించు</td></tr>
+        <tr><td>14</td><td><strong class="important-word">కూడు</strong></td><td>అన్నం</td></tr>
+        <tr><td>15</td><td><strong class="important-word">కూరిమి</strong></td><td>స్నేహం</td></tr>
+        <tr><td>16</td><td><strong class="important-word">కృతజ్ఞతలు</strong></td><td>ధన్యవాదాలు</td></tr>
+        <tr><td>17</td><td><strong class="important-word">కేరింత</strong></td><td>నవ్వు / సంతోషంలో చేసే ధ్వని</td></tr>
+        <tr><td>18</td><td><strong class="important-word">కోటీరము</strong></td><td>కిరీటం</td></tr>
+        <tr><td>19</td><td><strong class="important-word">కోమలి</strong></td><td>అందమైన స్త్రీ</td></tr>
+        <tr><td>20</td><td><strong class="important-word">కోలాహలం</strong></td><td>హడావుడి</td></tr>
+        <tr><td>21</td><td><strong class="important-word">గండం</strong></td><td>ప్రమాదం</td></tr>
+        <tr><td>22</td><td><strong class="important-word">గిరాకీ</strong></td><td>వెల ఎక్కువ / కొనుగోలుదారులకున్న ఆసక్తి</td></tr>
+        <tr><td>23</td><td><strong class="important-word">ఘట్టం</strong></td><td>రసవంతమైన సన్నివేశం</td></tr>
+      </tbody>
+    </table>
+
+    <div class="letter-header">చ / జ / డ / త</div>
+    <table>
+      <thead>
+        <tr><th>క్రమ సంఖ్య</th><th>పదము</th><th>అర్థము</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong class="important-word">చారెడు</strong></td><td>కొద్దిగా చెయ్యి వంచినప్పుడు ఏర్పడే పరిమాణం, ఒక చేతిలో పట్టినన్ని</td></tr>
+        <tr><td>2</td><td><strong class="important-word">చిక్కం</strong></td><td>తీగలతో అల్లి పశువుల మూతికి తగిలించే బుట్ట</td></tr>
+        <tr><td>3</td><td><strong class="important-word">చిరస్మరణీయుడు</strong></td><td>నిత్యం స్మరింపదగినవాడు</td></tr>
+        <tr><td>4</td><td><strong class="important-word">చేజారిపోవు</strong></td><td>చేతి నుండి విడిపోవు</td></tr>
+        <tr><td>5</td><td><strong class="important-word">చేటు</strong></td><td>కీడు, అనర్థం</td></tr>
+        <tr><td>6</td><td><strong class="important-word">జాగృతి</strong></td><td>మేలుకొలుపు</td></tr>
+        <tr><td>7</td><td><strong class="important-word">జాడ</strong></td><td>ఆనవాలు</td></tr>
+        <tr><td>8</td><td><strong class="important-word">జీవనశైలి</strong></td><td>జీవించే విధానం/ బతికే పద్ధతి</td></tr>
+        <tr><td>9</td><td><strong class="important-word">డెందము</strong></td><td>హృదయం</td></tr>
+        <tr><td>10</td><td><strong class="important-word">తనయ</strong></td><td>కూతురు</td></tr>
+        <tr><td>11</td><td><strong class="important-word">తనరు</strong></td><td>ప్రకాశించు</td></tr>
+        <tr><td>12</td><td><strong class="important-word">తనూభవుడు</strong></td><td>కుమారుడు</td></tr>
+        <tr><td>13</td><td><strong class="important-word">తర్కించు</strong></td><td>చర్చించు</td></tr>
+        <tr><td>14</td><td><strong class="important-word">తరుణము</strong></td><td>తగిన సమయం</td></tr>
+        <tr><td>15</td><td><strong class="important-word">తలపోయు</strong></td><td>ఆలోచించు</td></tr>
+        <tr><td>16</td><td><strong class="important-word">తహతహలాడు</strong></td><td>ఆరాటపడు, తొందరపడు</td></tr>
+        <tr><td>17</td><td><strong class="important-word">తిలలు</strong></td><td>నువ్వులు</td></tr>
+        <tr><td>18</td><td><strong class="important-word">తీవ్రత</strong></td><td>ఆధిక్యం</td></tr>
+        <tr><td>19</td><td><strong class="important-word">తుల్యం</strong></td><td>సమానం</td></tr>
+        <tr><td>20</td><td><strong class="important-word">తేట తెల్లంచేయు</strong></td><td>మిక్కిలి స్పష్టంగా వివరించు</td></tr>
+      </tbody>
+    </table>
+
+    <div class="letter-header">ద / ధ / న</div>
+    <table>
+      <thead>
+        <tr><th>క్రమ సంఖ్య</th><th>పదము</th><th>అర్థము</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong class="important-word">దత్త</strong></td><td>ఇవ్వబడిన</td></tr>
+        <tr><td>2</td><td><strong class="important-word">దనుజులు</strong></td><td>రాక్షసులు</td></tr>
+        <tr><td>3</td><td><strong class="important-word">దళం</strong></td><td>ఆకు</td></tr>
+        <tr><td>4</td><td><strong class="important-word">దాణా</strong></td><td>పశువులకు పెట్టు ఆహారం</td></tr>
+        <tr><td>5</td><td><strong class="important-word">దాశరథి</strong></td><td>శ్రీరాముడు</td></tr>
+        <tr><td>6</td><td><strong class="important-word">ద్విపము</strong></td><td>ఏనుగు</td></tr>
+        <tr><td>7</td><td><strong class="important-word">ద్వీపము</strong></td><td>నాలుగువైపులా నీటితో చుట్టబడిన భూమి</td></tr>
+        <tr><td>8</td><td><strong class="important-word">దుర్గతి</strong></td><td>చెడ్డస్థితి</td></tr>
+        <tr><td>9</td><td><strong class="important-word">దుర్భరం</strong></td><td>భరింపలేనిది</td></tr>
+        <tr><td>10</td><td><strong class="important-word">దేదీప్యమానం</strong></td><td>మిక్కిలి ప్రకాశవంతం</td></tr>
+        <tr><td>11</td><td><strong class="important-word">దొరతనం</strong></td><td>ప్రభుత్వం, అధికారం</td></tr>
+        <tr><td>12</td><td><strong class="important-word">దోచుకోవు</strong></td><td>అపహరించు</td></tr>
+        <tr><td>13</td><td><strong class="important-word">ధరణి</strong></td><td>భూమి</td></tr>
+        <tr><td>14</td><td><strong class="important-word">ధాటి</strong></td><td>దాడి</td></tr>
+        <tr><td>15</td><td><strong class="important-word">ధీరత్వము</strong></td><td>వశం / ధైర్యము</td></tr>
+        <tr><td>16</td><td><strong class="important-word">నిక్కం</strong></td><td>నిజం</td></tr>
+        <tr><td>17</td><td><strong class="important-word">నిరాడంబరం</strong></td><td>ఆడంబరం లేనిది</td></tr>
+        <tr><td>18</td><td><strong class="important-word">నిర్దేశం</strong></td><td>ఆజ్ఞ</td></tr>
+        <tr><td>19</td><td><strong class="important-word">నిశ్చితాభిప్రాయం</strong></td><td>దృఢమైన అభిప్రాయం, గట్టినిర్ణయం</td></tr>
+        <tr><td>20</td><td><strong class="important-word">నిష్ఫలం</strong></td><td>ప్రయోజనం లేనిది</td></tr>
+        <tr><td>21</td><td><strong class="important-word">నెమ్మి</strong></td><td>ప్రేమ, క్షేమం</td></tr>
+        <tr><td>22</td><td><strong class="important-word">నెఱగుఱి</strong></td><td>సరియైన లక్ష్యం</td></tr>
+        <tr><td>23</td><td><strong class="important-word">నేరము</strong></td><td>తప్పు</td></tr>
+      </tbody>
+    </table>
+
+    <div class="letter-header">ప / బ / భ</div>
+    <table>
+      <thead>
+        <tr><th>క్రమ సంఖ్య</th><th>పదము</th><th>అర్థము</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong class="important-word">పటాపంచలు</strong></td><td>చెల్లా చెదరు</td></tr>
+        <tr><td>2</td><td><strong class="important-word">పథకం</strong></td><td>ఆలోచన, ప్రణాళిక</td></tr>
+        <tr><td>3</td><td><strong class="important-word">పరస్పరం</strong></td><td>ఒకరికొకరు</td></tr>
+        <tr><td>4</td><td><strong class="important-word">పరవ</strong></td><td>ప్రవాహం</td></tr>
+        <tr><td>5</td><td><strong class="important-word">పస్తు</strong></td><td>ఉపవాసం</td></tr>
+        <tr><td>6</td><td><strong class="important-word">పాటు</strong></td><td>ఆపద</td></tr>
+        <tr><td>7</td><td><strong class="important-word">పాతకం</strong></td><td>పాపం</td></tr>
+        <tr><td>8</td><td><strong class="important-word">పామరుడు</strong></td><td>తెలివిలేనివాడు</td></tr>
+        <tr><td>9</td><td><strong class="important-word">పారదని</strong></td><td>జరగదని</td></tr>
+        <tr><td>10</td><td><strong class="important-word">పీడ</strong></td><td>బాధ</td></tr>
+        <tr><td>11</td><td><strong class="important-word">పుంగవం</strong></td><td>ఎద్దు</td></tr>
+        <tr><td>12</td><td><strong class="important-word">పుడుక</strong></td><td>పుల్ల (పుడక అనివాడుక)</td></tr>
+        <tr><td>13</td><td><strong class="important-word">పుష్కలం</strong></td><td>అధికం, సమృద్ధి</td></tr>
+        <tr><td>14</td><td><strong class="important-word">పొంచు</strong></td><td>చాటున దాగియుండి</td></tr>
+        <tr><td>15</td><td><strong class="important-word">పోచ</strong></td><td>తాళిబొట్టు</td></tr>
+        <tr><td>16</td><td><strong class="important-word">పోటి</strong></td><td>సాహసం</td></tr>
+        <tr><td>17</td><td><strong class="important-word">పోరాటం</strong></td><td>యుద్ధం</td></tr>
+        <tr><td>18</td><td><strong class="important-word">పోరు</strong></td><td>యుద్ధం</td></tr>
+        <tr><td>19</td><td><strong class="important-word">ప్రజ్ఞాశాలి</strong></td><td>ప్రతిభ గలవాడు</td></tr>
+        <tr><td>20</td><td><strong class="important-word">ప్రతీక</strong></td><td>గుర్తు</td></tr>
+        <tr><td>21</td><td><strong class="important-word">ప్రథితం</strong></td><td>ప్రఖ్యాతి నొందినది</td></tr>
+        <tr><td>22</td><td><strong class="important-word">ప్రభువు</strong></td><td>రాజు</td></tr>
+        <tr><td>23</td><td><strong class="important-word">ప్రస్తుతం</strong></td><td>ఇప్పుడు</td></tr>
+        <tr><td>24</td><td><strong class="important-word">ప్రాచీనం</strong></td><td>పూర్వకాలం, పురాతనం</td></tr>
+        <tr><td>25</td><td><strong class="important-word">ప్రాణం</strong></td><td>జీవం</td></tr>
+        <tr><td>26</td><td><strong class="important-word">ప్రారంభం</strong></td><td>మొదలు</td></tr>
+        <tr><td>27</td><td><strong class="important-word">బుధుడు</strong></td><td>పండితుడు</td></tr>
+        <tr><td>28</td><td><strong class="important-word">బుడతడు</strong></td><td>బాలుడు</td></tr>
+        <tr><td>29</td><td><strong class="important-word">భద్రం</strong></td><td>శుభకరం, శ్రేష్ఠం</td></tr>
+        <tr><td>30</td><td><strong class="important-word">భావన</strong></td><td>తలపు/ఆలోచన</td></tr>
+        <tr><td>31</td><td><strong class="important-word">భావి</strong></td><td>భవిష్యత్తు</td></tr>
+        <tr><td>32</td><td><strong class="important-word">భాస్కరుడు</strong></td><td>సూర్యుడు</td></tr>
+        <tr><td>33</td><td><strong class="important-word">భీతి</strong></td><td>భయం</td></tr>
+        <tr><td>34</td><td><strong class="important-word">భూషణములు</strong></td><td>అలంకారాలు</td></tr>
+        <tr><td>35</td><td><strong class="important-word">భేదం</strong></td><td>తేడా</td></tr>
+        <tr><td>36</td><td><strong class="important-word">భ్రాతృజనం</strong></td><td>అన్నదమ్ములు</td></tr>
+      </tbody>
+    </table>
+
+    
+  </div>
+
+  <!-- Section 1 Continued: More Consonants -->
+  <div class="card">
+    <div class="letter-header">మ / య / ర / ల / వ</div>
+    <table>
+      <thead>
+        <tr><th>క్రమ సంఖ్య</th><th>పదము</th><th>అర్థము</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong class="important-word">మకాం</strong></td><td>నివాసం</td></tr>
+        <tr><td>2</td><td><strong class="important-word">మదం</strong></td><td>గర్వం</td></tr>
+        <tr><td>3</td><td><strong class="important-word">మదత్రయం</strong></td><td>విద్యాగర్వం, ధనగర్వం, కులగర్వం</td></tr>
+        <tr><td>4</td><td><strong class="important-word">మనుచు</strong></td><td>రక్షించు</td></tr>
+        <tr><td>5</td><td><strong class="important-word">మనువు</strong></td><td>బ్రతుకు</td></tr>
+        <tr><td>6</td><td><strong class="important-word">మట్టగుడిసె</strong></td><td>ఒకరకమైన చేప</td></tr>
+        <tr><td>7</td><td><strong class="important-word">మమకారం</strong></td><td>ప్రేమ/నాది అనేభావం</td></tr>
+        <tr><td>8</td><td><strong class="important-word">మహనీయులు</strong></td><td>గొప్ప వారు</td></tr>
+        <tr><td>9</td><td><strong class="important-word">మిన్నక</strong></td><td>ఊరక/అప్రయత్నంగా</td></tr>
+        <tr><td>10</td><td><strong class="important-word">ముట్టుకోవడం</strong></td><td>తాకడం</td></tr>
+        <tr><td>11</td><td><strong class="important-word">మున్నీరు</strong></td><td>సముద్రం</td></tr>
+        <tr><td>12</td><td><strong class="important-word">ముల్లె</strong></td><td>ధనం/మూట</td></tr>
+        <tr><td>13</td><td><strong class="important-word">మెలకువ</strong></td><td>మేలుకొనుట/జాగృతి</td></tr>
+        <tr><td>14</td><td><strong class="important-word">మేటి</strong></td><td>శ్రేష్ఠం</td></tr>
+        <tr><td>15</td><td><strong class="important-word">మేను</strong></td><td>శరీరం</td></tr>
+        <tr><td>16</td><td><strong class="important-word">మైత్రి</strong></td><td>స్నేహం</td></tr>
+        <tr><td>17</td><td><strong class="important-word">మొరాయించు</strong></td><td>చెప్పిన మాట వినక పోవడం</td></tr>
+        <tr><td>18</td><td><strong class="important-word">మొహమాటం</strong></td><td>జంకు, సంకోచం</td></tr>
+        <tr><td>19</td><td><strong class="important-word">మోస్తరు</strong></td><td>రీతి/తరగతి</td></tr>
+        <tr><td>20</td><td><strong class="important-word">మౌనం</strong></td><td>మాట్లాడకుండా ఉండడం</td></tr>
+        <tr><td>21</td><td><strong class="important-word">యాచకులు</strong></td><td>భిక్షుకులు</td></tr>
+        <tr><td>22</td><td><strong class="important-word">రణము</strong></td><td>యుద్ధం</td></tr>
+        <tr><td>23</td><td><strong class="important-word">రమ్యము</strong></td><td>అందమైనది</td></tr>
+        <tr><td>24</td><td><strong class="important-word">రాజద్రోహం</strong></td><td>రాజాపరాధం</td></tr>
+        <tr><td>25</td><td><strong class="important-word">రాట్నం</strong></td><td>నూలువడికే యంత్రం</td></tr>
+        <tr><td>26</td><td><strong class="important-word">రిక్క</strong></td><td>పోగు</td></tr>
+        <tr><td>27</td><td><strong class="important-word">రూకలు</strong></td><td>నాణెములు</td></tr>
+        <tr><td>28</td><td><strong class="important-word">రూపు మాయు</strong></td><td>నశించు, అంతరించు</td></tr>
+        <tr><td>29</td><td><strong class="important-word">లేసు</strong></td><td>సులభం, చులుకన</td></tr>
+        <tr><td>30</td><td><strong class="important-word">వదనం</strong></td><td>ముఖం</td></tr>
+        <tr><td>31</td><td><strong class="important-word">వర్ధనం</strong></td><td>వృద్ధి పొందించేది</td></tr>
+        <tr><td>32</td><td><strong class="important-word">వలయాకారం</strong></td><td>గుండ్రని రూపం</td></tr>
+        <tr><td>33</td><td><strong class="important-word">వాత్సల్యం</strong></td><td>ప్రేమ</td></tr>
+        <tr><td>34</td><td><strong class="important-word">వ్రాత</strong></td><td>సమూహం కలది</td></tr>
+        <tr><td>35</td><td><strong class="important-word">విక్రయించు</strong></td><td>అమ్ము</td></tr>
+        <tr><td>36</td><td><strong class="important-word">విచ్ఛిన్నం</strong></td><td>ముక్కలు చేయబడినది</td></tr>
+        <tr><td>37</td><td><strong class="important-word">విధూతము</strong></td><td>కదలించబడినది</td></tr>
+        <tr><td>38</td><td><strong class="important-word">విరసం</strong></td><td>రసము లేనిది</td></tr>
+        <tr><td>39</td><td><strong class="important-word">వివేకి</strong></td><td>తెలివైనవాడు</td></tr>
+        <tr><td>40</td><td><strong class="important-word">విహరిస్తున్న</strong></td><td>స్వేచ్ఛగా తిరుగుతున్న</td></tr>
+        <tr><td>41</td><td><strong class="important-word">వీడ్కోలు</strong></td><td>వెళ్ళడానికి ఇచ్చే అనుమతి</td></tr>
+        <tr><td>42</td><td><strong class="important-word">వెఱచు</strong></td><td>భయపడు</td></tr>
+        <tr><td>43</td><td><strong class="important-word">వైరం</strong></td><td>శత్రుత్వం</td></tr>
+      </tbody>
+    </table>
+
+    <div class="letter-header">శ / స / హ</div>
+    <table>
+      <thead>
+        <tr><th>క్రమ సంఖ్య</th><th>పదము</th><th>అర్థము</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong class="important-word">శింశుపా వృక్షం</strong></td><td>ఇరుగుడు చెట్టు</td></tr>
+        <tr><td>2</td><td><strong class="important-word">శుంభత్</strong></td><td>ప్రకాశించే</td></tr>
+        <tr><td>3</td><td><strong class="important-word">శుద్ధము</strong></td><td>పవిత్రం</td></tr>
+        <tr><td>4</td><td><strong class="important-word">శూరులు</strong></td><td>శౌర్యం కలవారు</td></tr>
+        <tr><td>5</td><td><strong class="important-word">శ్రేయస్సు</strong></td><td>శుభం</td></tr>
+        <tr><td>6</td><td><strong class="important-word">సాంక్రమికవ్యాధులు</strong></td><td>అంటువ్యాధులు</td></tr>
+        <tr><td>7</td><td><strong class="important-word">సంఘాతం</strong></td><td>సమూహం/గట్టి దెబ్బ</td></tr>
+        <tr><td>8</td><td><strong class="important-word">సంచితం</strong></td><td>కూడబెట్టబడినది</td></tr>
+        <tr><td>9</td><td><strong class="important-word">సంప్రదాయం</strong></td><td>గతంనుండి పాటిస్తూ వచ్చిన నిర్దిష్ట ఆచారం</td></tr>
+        <tr><td>10</td><td><strong class="important-word">సంబరం</strong></td><td>సంతోషం</td></tr>
+        <tr><td>11</td><td><strong class="important-word">సంస్కృతి</strong></td><td>ఆచారవ్యవహారాలు, నాగరికత</td></tr>
+        <tr><td>12</td><td><strong class="important-word">సఖ్యంగా</strong></td><td>స్నేహంగా</td></tr>
+        <tr><td>13</td><td><strong class="important-word">సత్కవి</strong></td><td>మంచికవి</td></tr>
+        <tr><td>14</td><td><strong class="important-word">సత్యమైనది</strong></td><td>నిజమైనది</td></tr>
+        <tr><td>15</td><td><strong class="important-word">సన్నుతి</strong></td><td>చక్కని పొగడ్త</td></tr>
+        <tr><td>16</td><td><strong class="important-word">సాక్షాత్కరించు</strong></td><td>ప్రత్యక్షమగు</td></tr>
+        <tr><td>17</td><td><strong class="important-word">సిరి</strong></td><td>సంపద</td></tr>
+        <tr><td>18</td><td><strong class="important-word">సుంత</strong></td><td>కొంచెం</td></tr>
+        <tr><td>19</td><td><strong class="important-word">సునాయాసం</strong></td><td>తేలిక</td></tr>
+        <tr><td>20</td><td><strong class="important-word">సువర్ణము</strong></td><td>బంగారం</td></tr>
+        <tr><td>21</td><td><strong class="important-word">సౌందర్యం</strong></td><td>అందం</td></tr>
+        <tr><td>22</td><td><strong class="important-word">స్ఫూర్తి</strong></td><td>స్ఫురణం, ప్రకాశం</td></tr>
+        <tr><td>23</td><td><strong class="important-word">స్మరించు</strong></td><td>తలచుకొను</td></tr>
+        <tr><td>24</td><td><strong class="important-word">స్వాంతం</strong></td><td>హృదయం</td></tr>
+        <tr><td>25</td><td><strong class="important-word">స్మారకం</strong></td><td>స్మృతిచిహ్నం</td></tr>
+        <tr><td>26</td><td><strong class="important-word">హరియించు</strong></td><td>చంపు</td></tr>
+        <tr><td>27</td><td><strong class="important-word">హితము</strong></td><td>మేలు</td></tr>
+        <tr><td>28</td><td><strong class="important-word">హితుడు</strong></td><td>మేలుకోరేవాడు</td></tr>
+        <tr><td>29</td><td><strong class="important-word">హెచ్చు</strong></td><td>ఎక్కువ</td></tr>
+      </tbody>
+    </table>
+
+    
+  </div>
+
+  <!-- Section 2: Synonyms (పర్యాయ పదాలు) -->
+  <div class="card">
+    <h2>2. పర్యాయ పదాలు</h2>
+
+    <!-- GitHub Image Tag 3 -->
+    <div class="img-card">
+      <img src="https://raw.githubusercontent.com/username/repository/main/images/telugu_grammar.jpg" alt="తెలుగు వ్యాకరణం">
+      <div class="img-caption">చిత్రం 3: పర్యాయ పదాలు మరియు భాషా విశేషాలు</div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>క్రమ సంఖ్య</th>
+          <th>పదము</th>
+          <th>పర్యాయ పదాలు</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong class="important-word">అఘము</strong></td><td>పాపం, దురితం</td></tr>
+        <tr><td>2</td><td><strong class="important-word">అధికం</strong></td><td>ఎక్కువ, మెండు</td></tr>
+        <tr><td>3</td><td><strong class="important-word">అనలం</strong></td><td>అగ్ని, వహ్ని</td></tr>
+        <tr><td>4</td><td><strong class="important-word">అంబుధి</strong></td><td>సముద్రం, జలధి</td></tr>
+        <tr><td>5</td><td><strong class="important-word">అశ్వము</strong></td><td>గుర్రం, తురగం</td></tr>
+        <tr><td>6</td><td><strong class="important-word">ఇంతి</strong></td><td>స్త్రీ, వనిత</td></tr>
+        <tr><td>7</td><td><strong class="important-word">ఉదకము</strong></td><td>నీరు, జలం</td></tr>
+        <tr><td>8</td><td><strong class="important-word">ఉర్వి</strong></td><td>భూమి, వసుధ</td></tr>
+        <tr><td>9</td><td><strong class="important-word">కన్ను</strong></td><td>నేత్రం, నయనం</td></tr>
+        <tr><td>10</td><td><strong class="important-word">కపి</strong></td><td>కోతి, మర్కటం</td></tr>
+        <tr><td>11</td><td><strong class="important-word">కుమారుడు</strong></td><td>తనయుడు, పుత్రుడు</td></tr>
+        <tr><td>12</td><td><strong class="important-word">కూరిమి</strong></td><td>స్నేహం, చెలిమి</td></tr>
+        <tr><td>13</td><td><strong class="important-word">కాశీ</strong></td><td>వారణాసి, అవిముక్తం</td></tr>
+        <tr><td>14</td><td><strong class="important-word">డెందము</strong></td><td>హృదయం, ఎద</td></tr>
+        <tr><td>15</td><td><strong class="important-word">తండ్రి</strong></td><td>జనకుడు, పిత</td></tr>
+        <tr><td>16</td><td><strong class="important-word">తరుణము</strong></td><td>సమయం / కాలం</td></tr>
+        <tr><td>17</td><td><strong class="important-word">దనుజులు</strong></td><td>అసురులు, రాక్షసులు</td></tr>
+        <tr><td>18</td><td><strong class="important-word">దుఃఖము</strong></td><td>ఖేదం, బాధ</td></tr>
+        <tr><td>19</td><td><strong class="important-word">ఎద్దు</strong></td><td>వృషభం, ఎద్దు</td></tr>
+        <tr><td>20</td><td><strong class="important-word">పడతి</strong></td><td>స్త్రీ, పొలతి</td></tr>
+        <tr><td>21</td><td><strong class="important-word">పరులు</strong></td><td>ఒరులు, ఇతరులు</td></tr>
+        <tr><td>22</td><td><strong class="important-word">పామరుడు</strong></td><td>అజ్ఞుడు, నీచుడు</td></tr>
+        <tr><td>23</td><td><strong class="important-word">గుర్తు</strong></td><td>గుర్తు, చిహ్నం</td></tr>
+        <tr><td>24</td><td><strong class="important-word">ప్రారంభం</strong></td><td>అంకురార్పణ, మొదలు</td></tr>
+        <tr><td>25</td><td><strong class="important-word">ప్రాచీనము</strong></td><td>ప్రాక్తనం, సనాతనం</td></tr>
+        <tr><td>26</td><td><strong class="important-word">భాస్కరుడు</strong></td><td>సూర్యుడు, భానుడు</td></tr>
+        <tr><td>27</td><td><strong class="important-word">ప్రాణం</strong></td><td>ఉసురు, జీవం</td></tr>
+        <tr><td>28</td><td><strong class="important-word">మకాం</strong></td><td>బస, నివాసం</td></tr>
+        <tr><td>29</td><td><strong class="important-word">మదం</strong></td><td>గర్వం, పొగరు</td></tr>
+        <tr><td>30</td><td><strong class="important-word">తల్లి</strong></td><td>తల్లి, జనని</td></tr>
+        <tr><td>31</td><td><strong class="important-word">మేను</strong></td><td>శరీరం, దేహం</td></tr>
+        <tr><td>32</td><td><strong class="important-word">మైత్రి</strong></td><td>స్నేహం, నెయ్యం</td></tr>
+        <tr><td>33</td><td><strong class="important-word">రణం</strong></td><td>యుద్ధం, పోరు</td></tr>
+        <tr><td>34</td><td><strong class="important-word">రథం</strong></td><td>తేరు, స్యందనం</td></tr>
+        <tr><td>35</td><td><strong class="important-word">రాజు</strong></td><td>ప్రభువు, భూపతి</td></tr>
+        <tr><td>36</td><td><strong class="important-word">వృక్షం</strong></td><td>చెట్టు, తరువు</td></tr>
+        <tr><td>37</td><td><strong class="important-word">సకలం</strong></td><td>సర్వం, సమస్తం</td></tr>
+        <tr><td>38</td><td><strong class="important-word">ఆకాశం</strong></td><td>దివి, నాకం</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Section 3: Prakruthi - Vikruthi (ప్రకృతి-వికృతి) -->
+  <div class="card">
+    <h2>3. ప్రకృతి - వికృతి</h2>
+    
+    <!-- GitHub Image Tag 4 -->
+    <div class="img-card">
+      <img src="https://raw.githubusercontent.com/username/repository/main/images/telugu_literature.jpg" alt="తెలుగు సాహిత్యం">
+      <div class="img-caption">చిత్రం 4: ప్రకృతి మరియు వికృతి రూపాలు</div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>క్రమ సంఖ్య</th>
+          <th>ప్రకృతి</th>
+          <th>వికృతి</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong class="important-word">అంబ</strong></td><td>అమ్మ</td></tr>
+        <tr><td>2</td><td><strong class="important-word">ఆకాశం</strong></td><td>ఆకసం</td></tr>
+        <tr><td>3</td><td><strong class="important-word">ఆశ్చర్యం</strong></td><td>అచ్చెరువు</td></tr>
+        <tr><td>4</td><td><strong class="important-word">ఆహారం</strong></td><td>ఓగిరం</td></tr>
+        <tr><td>5</td><td><strong class="important-word">ఉత్తరీయం</strong></td><td>ఉత్తరిగం</td></tr>
+        <tr><td>6</td><td><strong class="important-word">ఉపాధ్యాయుడు</strong></td><td>ఒజ్జ</td></tr>
+        <tr><td>7</td><td><strong class="important-word">కవిత</strong></td><td>కైత</td></tr>
+        <tr><td>8</td><td><strong class="important-word">కాలం</strong></td><td>కారు</td></tr>
+        <tr><td>9</td><td><strong class="important-word">కార్యం</strong></td><td>కజ్జం</td></tr>
+        <tr><td>10</td><td><strong class="important-word">కుమారుడు</strong></td><td>కొమరుడు</td></tr>
+        <tr><td>11</td><td><strong class="important-word">గర్భం</strong></td><td>కడుపు</td></tr>
+        <tr><td>12</td><td><strong class="important-word">త్యాగం</strong></td><td>చాగం</td></tr>
+        <tr><td>13</td><td><strong class="important-word">దిశ</strong></td><td>దస</td></tr>
+        <tr><td>14</td><td><strong class="important-word">దీపం</strong></td><td>దివ్వె</td></tr>
+        <tr><td>15</td><td><strong class="important-word">దోషం</strong></td><td>దోసం</td></tr>
+        <tr><td>16</td><td><strong class="important-word">ధర్మము</strong></td><td>దమ్మం</td></tr>
+        <tr><td>17</td><td><strong class="important-word">పుణ్యము</strong></td><td>పున్నెం</td></tr>
+        <tr><td>18</td><td><strong class="important-word">పుస్తకము</strong></td><td>పొత్తం</td></tr>
+        <tr><td>19</td><td><strong class="important-word">రాత్రి</strong></td><td>రాతిరి</td></tr>
+        <tr><td>20</td><td><strong class="important-word">సంతోషం</strong></td><td>సంతసం</td></tr>
+      </tbody>
+    </table>
+   
+  </div>
+</div>
+
+<!-- Theme Switcher Script -->
+<script>
+  const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+  const currentTheme = localStorage.getItem('theme');
+
+  if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'dark') {
+      toggleSwitch.checked = true;
+    }
+  }
+
+  function switchTheme(e) {
+    if (e.target.checked) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }    
+  }
+
+  toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+
+</body>
+</html>
