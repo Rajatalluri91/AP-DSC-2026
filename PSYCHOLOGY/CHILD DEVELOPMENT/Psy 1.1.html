@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.1 పెరుగుదల - వికాసం - పరిపక్వత</title>
+  
+  <!-- Google Fonts: Mandali Import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+
+  <style>
+    /* Color Variables */
+    :root {
+      --bg-color: #f1f5f9;
+      --card-bg: #ffffff;
+      --text-color: #334155;
+      
+      /* Distinct Element Colors - Light Mode */
+      --main-heading: #1e3a8a;       /* Dark Blue */
+      --side-heading: #0369a1;       /* Deep Sky Blue */
+      --sub-heading: #0d9488;        /* Teal */
+      --important-word: #b91c1c;     /* Crimson Red for important words */
+      --important-bg: #fee2e2;       /* Light Pinkish Red background */
+      
+      --note-bg: #fefce8;
+      --note-border: #eab308;       /* Warm Yellow */
+      --note-text: #713f12;
+      
+      --hint-bg: #eff6ff;
+      --hint-border: #3b82f6;       /* Blue */
+      --hint-text: #1e40af;
+
+      --example-bg: #f0fdf4;
+      --example-border: #22c55e;    /* Fresh Green */
+      --example-text: #14532d;
+      
+      --quote-bg: #faf5ff;
+      --quote-border: #a855f7;      /* Purple */
+      
+      --border-color: #cbd5e1;
+      --table-header: #1e293b;
+      --table-row-even: #f8fafc;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #cbd5e1;
+      
+      /* Distinct Element Colors - Dark Mode */
+      --main-heading: #60a5fa;
+      --side-heading: #38bdf8;
+      --sub-heading: #2dd4bf;
+      --important-word: #fca5a5;     /* Soft Light Red */
+      --important-bg: #450a0a;       /* Dark Red tint */
+
+      --note-bg: #2e2608;
+      --note-border: #facc15;
+      --note-text: #fef08a;
+      
+      --hint-bg: #172554;
+      --hint-border: #60a5fa;
+      --hint-text: #bfdbfe;
+
+      --example-bg: #052e16;
+      --example-border: #4ade80;
+      --example-text: #bbf7d0;
+
+      --quote-bg: #2e1065;
+      --quote-border: #c084fc;
+
+      --border-color: #334155;
+      --table-header: #0f172a;
+      --table-row-even: #1e293b;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Mandali', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.8;
+      margin: 0;
+      padding: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 5px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Header & Toggle */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 0;
+      color: var(--main-heading);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Mandali', sans-serif;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--border-color);
+    }
+
+    /* Distinct Headings */
+    h2.side-heading {
+      font-size: 22px;
+      color: var(--side-heading);
+      border-left: 5px solid var(--side-heading);
+      padding-left: 12px;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, rgba(3,105,161,0.05) 0%, rgba(0,0,0,0) 100%);
+      padding-top: 4px;
+      padding-bottom: 4px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    h3.sub-heading {
+      font-size: 19px;
+      color: var(--sub-heading);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    /* Important Words Styling */
+    .imp-word {
+      color: var(--important-word);
+      background-color: var(--important-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    /* Individual Box Designs */
+    .box {
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+
+    .note-box {
+      background-color: var(--note-bg);
+      border-left: 5px solid var(--note-border);
+      color: var(--note-text);
+    }
+    .note-box .box-title {
+      color: var(--note-border);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .hint-box {
+      background-color: var(--hint-bg);
+      border-left: 5px solid var(--hint-border);
+      color: var(--hint-text);
+    }
+    .hint-box .box-title {
+      color: var(--hint-border);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .example-box {
+      background-color: var(--example-bg);
+      border-left: 5px solid var(--example-border);
+      color: var(--example-text);
+    }
+    .example-box .box-title {
+      color: var(--example-border);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .quote-box {
+      background-color: var(--quote-bg);
+      border-left: 5px solid var(--quote-border);
+      font-style: italic;
+    }
+
+    .formula-box {
+      text-align: center;
+      font-size: 22px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #ffffff;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 25px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--table-header);
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+
+    /* Lists */
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-bar">
+      <h1>1.1 పెరుగుదల - వికాసం - పరిపక్వత</h1>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+    </div>
+
+    <!-- పెరుగుదల -->
+    <h2 class="side-heading">పెరుగుదల :</h2>
+    <p>వ్యక్తులలో అంతర్గతంగా మరియు బహిర్గతంగా జరిగే అవయవాల అభివృద్ధినే <span class="imp-word">పెరుగుదల</span> అంటారు. మానవ శరీరంలో జరిగే <span class="imp-word">పరిమాణాత్మక (కొలవదగిన) శారీరక అభివృద్ధి</span>నే పెరుగుదల అంటారు.</p>
+
+    <div class="box note-box">
+      <span class="box-title">📌 Note :</span><br>
+      పెరుగుదల <strong>బహిర్గతంగానూ, అంతర్గతంగానూ</strong> జరుగుతుంది. బాహ్యంగా కనిపించే శారీరకపరమైన <strong>ఎత్తు, బరువు, నడుము చుట్టుకొలత, కాళ్ళు, చేతుల పొడవు</strong> మొదలగు వాటి అభివృద్ధిని <strong>బహిర్గత పెరుగుదల</strong> అంటారు.<br>
+      అలాగే అంతర్గత వ్యవస్థలోని <strong>మెదడు, గుండె, కాలేయం</strong> మొదలగు అవయవములలో జరిగే అభివృద్ధినే <strong>అంతర్గత పెరుగుదల</strong> అంటారు.
+    </div>
+
+    <div class="box hint-box">
+      <span class="box-title">💡 Hint :</span><br>
+      పెరుగుదల కేవలం <strong>పరిమాణాత్మకమైన శారీరక అవయవాల అభివృద్ధిని</strong> మాత్రమే సూచిస్తుంది.
+    </div>
+
+    <!-- వికాసము -->
+    <h2 class="side-heading">వికాసము :</h2>
+    <p>పరిణతి మరియు అభ్యసనముల ఫలితంగా వ్యక్తి యొక్క శారీరక అభివృద్ధితో పాటు <span class="imp-word">మానసిక, సాంఘిక, నైతిక, ఉద్వేగ లక్షణాలలో</span> కనిపించే <span class="imp-word">గుణాత్మకమైన అభివృద్ధిని</span> వికాసము అంటారు.</p>
+
+    <div class="box note-box">
+      <span class="box-title">📌 Note :</span><br>
+      <strong>గుణాత్మక అభివృద్ధి</strong> అనగా వ్యక్తి యొక్క మానసిక, సాంఘిక, నైతిక, ఉద్వేగ లక్షణాలలో <strong>సంభావీయత విచ్చుకోవడం</strong>.
+    </div>
+
+    <h3 class="sub-heading">నిర్వచనాలు :</h3>
+    
+    <div class="box quote-box">
+      <ul>
+        <li>పరిణతి, అనుభవాల ఫలితంగా ఒక క్రమ పద్ధతిలో సంభవించే అభివృద్ధికరమైన మార్పుల క్రమమే వికాసము. వికాసము <strong>గుణాత్మక, పరిమాణాత్మక మార్పులను</strong> సూచిస్తుంది. — <strong>ఎలిజబెత్ హార్లాక్</strong></li>
+      </ul>
+    </div>
+    <p><strong>వివరణ :</strong> వికాసము అనేది <strong>పరిపక్వత మరియు అనుభవాల ఫలితంగా</strong> ఏర్పడు మార్పుల యొక్క పురోగమన శ్రేణిగా పై నిర్వచనం వివరిస్తుంది. అనగా వికాసము క్రమపద్ధతిలో ముందుకు సాగుతుంది కానీ <strong>వెనుకకు మరలదు</strong> అని అర్థం.</p>
+
+    <div class="box quote-box">
+      <ul>
+        <li>ఆకారాలను (structures) మరియు ప్రాకార్యాలను (functions) సమైక్యపరచి, విశదపరిచే క్లిష్ట ప్రక్రియ వికాసము అని అన్నారు — <strong>అండర్సన్</strong>.</li>
+      </ul>
+    </div>
+    <p><strong>వివరణ :</strong> ఆకారాలు అనగా <strong>శారీరక అభివృద్ధి</strong>, ప్రాకార్యాలు అనగా <strong>మానసిక, సాంఘిక, నైతిక, ఉద్వేగ విధుల</strong>లో అభివృద్ధి.</p>
+
+    <div class="box quote-box">
+      <ul>
+        <li>జీవ సంబంధిత పరిసరాల ప్రభావం వల్ల జీవి యొక్క <strong>సంరచనలో, ఆలోచనలో, ప్రవర్తనలోను</strong> మార్పు రావటమే వికాసము — <strong>క్రెగ్</strong></li>
+      </ul>
+    </div>
+
+    <p><strong>వికాస వివరణ :</strong> వ్యక్తికి వయస్సు పెరిగే కొలది (పరిపక్వత పెరుగుతుంది) అనుభవం పెరిగే కొలది (అభ్యసనం జరుగుతుంది) వ్యక్తి యొక్క ఆలోచనలో, సాంఘికీకరణలో నియమ నిబంధనలు పాటించటంలో, ఉద్వేగాలను ప్రదర్శించటంలో ఎంతో అభివృద్ధి కనిపిస్తూ ఉంటుంది. దీనినే <span class="imp-word">వికాసము</span> అని చెప్పవచ్చు.</p>
+    
+    <p>ఒక వికాసానికి తప్పనిసరిగా కావాల్సినవి (వికాసము జరగాలంటే) తగిన <span class="imp-word">పరిపక్వత</span> మరియు <span class="imp-word">అభ్యసనం</span>.</p>
+
+    <div class="formula-box">
+      ⚡ <strong>వికాసము = [పరిపక్వత × అభ్యసనం]</strong>
+    </div>
+
+    <div class="box example-box">
+      <span class="box-title">📝 ఉదాహరణ (Example) :</span><br>
+      సైకిల్ తొక్కగలుగుతున్న వికాసము = <strong>తగిన పరిపక్వత + అభ్యసనము</strong>
+    </div>
+
+    <div class="box note-box">
+      <span class="box-title">📌 Note :</span><br>
+      పరిపక్వత లేకుండా అభ్యసనము చేసిన వికాసము జరగదు.<br>
+      పరిపక్వత ఉండి అభ్యసనము చేయకపోయినా వికాసం జరగదు.
+    </div>
+
+    <!-- పరిపక్వత / పరిణతి -->
+    <h2 class="side-heading">పరిపక్వత / పరిణతి :</h2>
+    <p>జన్మతః ప్రతి వ్యక్తిలో ఉండే <span class="imp-word">సహజ భౌతిక మానసిక శక్తులు</span> ఎలాంటి <span class="imp-word">శిక్షణ లేదా అనుభవం లేకుండానే</span> వయస్సుకు అనుగుణంగా క్రమంగా వాటికవే వికాసించడాన్నే <span class="imp-word">పరిపక్వత</span> అంటారు.</p>
+    <p>వ్యక్తి అనువంశిక లక్షణాంశాలలో సహజంగా సంభవించే <strong>అభ్యసనా ప్రమేయం లేని పరిమాణాత్మక, గుణాత్మక [Quantitative + Qualitative]</strong> మార్పులను సూచించేదే పరిపక్వత.</p>
+    
+    <div class="box quote-box">
+      <ul>
+        <li>పరిపక్వత అనేది జీవి యొక్క జీవిత వలయంలో జన్యువుల యొక్క ప్రభావంతో కార్యక్రమయుతంగా పనిచేసే ప్రక్రియ మరియు అభ్యసనం యొక్క ప్రమేయం లేకుండా ఒక క్రమమైన పద్ధతిలో జరిగే శారీరక, మానసిక వికాస ప్రక్రియే పరిపక్వత అని అనినవారు — <strong>గెస్సెల్</strong></li>
+        <li>పరిపక్వత అనేది జీవి జన్యు పటిష్టాన్ని తెలుపుతుందని, ముందుగా నిర్ణయించబడిన ప్రణాళికా బద్ధమైన మార్పులు జరుగుతాయని పేర్కొంటున్నారు — <strong>క్రెగ్</strong></li>
+      </ul>
+    </div>
+
+    <h3 class="sub-heading">👉 పరిపక్వత యొక్క ముఖ్యమైన లక్షణాలు :</h3>
+    <ul>
+      <li>1) <strong>జైవికమైనది / అనువంశికమైనది</strong></li>
+      <li>2) <strong>శిక్షణ అవసరం లేని</strong> అంతర్గత అభివృద్ధి.</li>
+      <li>3) <strong>అభ్యసనా ప్రమేయం లేని</strong> గుంబనంగా (అంతర్గతంగా) జరిగే పరిమాణాత్మక, గుణాత్మక ప్రక్రియ.</li>
+      <li>4) జీవి పెరుగుదల, వికాసాలకు <strong>ప్రాథమిక మూలం</strong>.</li>
+    </ul>
+
+    <div class="box example-box">
+      <span class="box-title">📝 ఉదాహరణలు (Examples) :</span><br>
+      • 3 నెలలు నిండిన శిశువు <strong>మెడను నిలపగలిగే సామర్థ్యం</strong> ఏర్పడటం.<br>
+      • 6 నెలలకి <strong>కూర్చోగలిగే సామర్థ్యం</strong> ఏర్పడడం.<br>
+      • 9 నెలలకు <strong>నిలుచోగలిగే సామర్థ్యం</strong> ఏర్పడటం.
+    </div>
+
+    <div class="box example-box">
+      <span class="box-title">📝 పెరుగుదల - వికాసము - పరిపక్వతలకు ఉదాహరణ :</span><br>
+      పుట్టినప్పుడు సగటున 19 అంగుళాలు ఉండే శిశువు శైశవ దశ పూర్తయ్యేనాటికి 30 అంగుళాల పొడవు పెరగటం అనేది — <span class="imp-word">పెరుగుదల అవుతుంది</span>.
+    </div>
+
+    <!-- పెరుగుదల - వికాసంల మధ్య భేదాలు -->
+    <h2 class="side-heading">👉 పెరుగుదల - వికాసంల మధ్య భేదాలు :</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>పెరుగుదల</th>
+          <th>వికాసం</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1) పెరుగుదల అనేది కేవలం <strong>శారీరకపరమైన అభివృద్ధి</strong>.</td>
+          <td>1) వికాసం అనేది శారీరక అభివృద్ధితో పాటు <strong>మానసిక, సాంఘిక, నైతిక, ఉద్వేగపరమైన</strong> అంశాలలో అభివృద్ధి.</td>
+        </tr>
+        <tr>
+          <td>2) ఇది <strong>పరిమాణాత్మకమైన</strong> అభివృద్ధి.</td>
+          <td>2) ఇది <strong>గుణాత్మకమైన</strong> అభివృద్ధి.</td>
+        </tr>
+        <tr>
+          <td>3) పెరుగుదలను <strong>ఖచ్చితంగా మాపనం చేయవచ్చు</strong>. అనగా పెరుగుదల గణనాత్మకమైనది.</td>
+          <td>3) వికాసమును కేవలం <strong>అంచనా వేయవచ్చు</strong>. అంతేకాని ఖచ్చితముగా కొలవలేము. ఎందుకంటే వికాసం గుణాత్మకమైనది.</td>
+        </tr>
+        <tr>
+          <td>4) పెరుగుదల ఒక దశలో <strong>ఆగిపోతుంది</strong>.</td>
+          <td>4) వికాసము జీవితాంతం <strong>అవిచ్ఛిన్నంగా కొనసాగుతుంది</strong>.</td>
+        </tr>
+        <tr>
+          <td>5) పెరుగుదల వికాసంలో <strong>ఒక భాగం మాత్రమే</strong>.</td>
+          <td>5) వికాసములో పెరుగుదలే కాకుండా మానసిక, సాంఘిక, నైతిక, ఉద్వేగ అంశాల అభివృద్ధి <strong>అంతర్భాగంగా</strong> ఉంటుంది.</td>
+        </tr>
+        <tr>
+          <td>6) పెరుగుదలపై <strong>అనువంశిక ప్రభావం</strong> ప్రధానంగా ఉంటుంది.</td>
+          <td>6) వికాసంపై <strong>అనువంశికత మరియు పరిసరాల ప్రభావం</strong> ఉంటుంది.</td>
+        </tr>
+        <tr>
+          <td>7) పెరుగుదల ఉన్నంత మాత్రాన <strong>వికాసం జరగదు</strong>.<br><strong>ఉదా :</strong> మూఢులు</td>
+          <td>7) పెరుగుదల లేకపోయినా కూడా <strong>వికాసం జరుగుతుంది</strong>.<br><strong>ఉదా :</strong> మరగుజ్జులు.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.getElementById('themeToggle');
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        btn.textContent = '🌙 Dark Mode';
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        btn.textContent = '☀️ Light Mode';
+      }
+    }
+  </script>
+
+</body>
+</html>
