@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.3 వికాస నియమాలు (వికాస సూత్రాలు)</title>
+  
+  <!-- Google Fonts: Mandali Import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+
+  <style>
+    /* Color Variables */
+    :root {
+      --bg-color: #f1f5f9;
+      --card-bg: #ffffff;
+      --text-color: #334155;
+      
+      /* Distinct Element Colors - Light Mode */
+      --main-heading: #1e3a8a;       /* Dark Blue */
+      --side-heading: #0369a1;       /* Deep Sky Blue */
+      --sub-heading: #0d9488;        /* Teal */
+      --important-word: #b91c1c;     /* Crimson Red for important words */
+      --important-bg: #fee2e2;       /* Light Pinkish Red background */
+      
+      --note-bg: #fefce8;
+      --note-border: #eab308;       /* Warm Yellow */
+      --note-text: #713f12;
+      
+      --hint-bg: #eff6ff;
+      --hint-border: #3b82f6;       /* Blue */
+      --hint-text: #1e40af;
+
+      --example-bg: #f0fdf4;
+      --example-border: #22c55e;    /* Fresh Green */
+      --example-text: #14532d;
+      
+      --quote-bg: #faf5ff;
+      --quote-border: #a855f7;      /* Purple */
+      
+      --border-color: #cbd5e1;
+      --table-header: #1e293b;
+      --table-row-even: #f8fafc;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #cbd5e1;
+      
+      /* Distinct Element Colors - Dark Mode */
+      --main-heading: #60a5fa;
+      --side-heading: #38bdf8;
+      --sub-heading: #2dd4bf;
+      --important-word: #fca5a5;     /* Soft Light Red */
+      --important-bg: #450a0a;       /* Dark Red tint */
+
+      --note-bg: #2e2608;
+      --note-border: #facc15;
+      --note-text: #fef08a;
+      
+      --hint-bg: #172554;
+      --hint-border: #60a5fa;
+      --hint-text: #bfdbfe;
+
+      --example-bg: #052e16;
+      --example-border: #4ade80;
+      --example-text: #bbf7d0;
+
+      --quote-bg: #2e1065;
+      --quote-border: #c084fc;
+
+      --border-color: #334155;
+      --table-header: #0f172a;
+      --table-row-even: #1e293b;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Mandali', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.8;
+      margin: 0;
+      padding: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Header & Toggle */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 0;
+      color: var(--main-heading);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Mandali', sans-serif;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--border-color);
+    }
+
+    /* Distinct Headings */
+    h2.side-heading {
+      font-size: 22px;
+      color: var(--side-heading);
+      border-left: 5px solid var(--side-heading);
+      padding-left: 12px;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, rgba(3,105,161,0.05) 0%, rgba(0,0,0,0) 100%);
+      padding-top: 4px;
+      padding-bottom: 4px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    h3.sub-heading {
+      font-size: 19px;
+      color: var(--sub-heading);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    /* Important Words Styling */
+    .imp-word {
+      color: var(--important-word);
+      background-color: var(--important-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    /* Individual Box Designs */
+    .box {
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+
+    .note-box {
+      background-color: var(--note-bg);
+      border-left: 5px solid var(--note-border);
+      color: var(--note-text);
+    }
+    .note-box .box-title {
+      color: var(--note-border);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .example-box {
+      background-color: var(--example-bg);
+      border-left: 5px solid var(--example-border);
+      color: var(--example-text);
+    }
+    .example-box .box-title {
+      color: var(--example-border);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    /* Lists */
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-bar">
+      <h1>1.3 వికాస నియమాలు (వికాస సూత్రాలు)</h1>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+    </div>
+
+    <!-- 1. వికాస అవిచ్ఛిన్న నియమము -->
+    <h2 class="side-heading">1. వికాస అవిచ్ఛిన్న నియమము లేదా నిరంతర నియమం :</h2>
+    <p>👉 ఫలదీకరణం జరిగినప్పటి నుండి శిశువు జన్మించి, పెద్దవాడై, మరణించే వరకు వికాసము ఎలాంటి విచ్ఛిన్నము లేకుండా ఒక ప్రవాహంలా <span class="imp-word">నిరంతరము కొనసాగుతూ ఉంటుంది</span> అని వివరించేదే వికాస నిరంతర నియమం.</p>
+
+    <div class="box example-box">
+      <span class="box-title">📝 Application :</span><br>
+      నాగేశ్వరరావు మాస్టారులో పుట్టినప్పటి నుండి ఇప్పటి వరకు ఆయా వికాసాలు ఎలాంటి అంతరాయము లేకుండా ఆగిపోకుండా నిరంతరము అభివృద్ధి చెందుతూ ఉన్నాయి. దీనిని వివరించే వికాస నియమము — <strong>వికాస నిరంతర నియమము</strong>.
+    </div>
+
+    <!-- 2. వికాస దిశా నియమము -->
+    <h2 class="side-heading">2. వికాస దిశా నియమము లేదా వికాస రెండు నిర్దిష్ట పోకడల నియమం :</h2>
+    <p>👉 వికాసము రెండు నిర్దిష్ట దిశలలో జరుగుతుంది అని ఈ నియమం వివరిస్తుంది. అవి :</p>
+    <ul>
+      <li>1) శిరోపాదాభిముఖ నియమం</li>
+      <li>2) సమీప దూరస్థ నియమము</li>
+    </ul>
+
+    <h3 class="sub-heading">1. శిరోపాదాభిముఖ నియమం :</h3>
+    <p>వికాసము <span class="imp-word">తల నుండి ప్రారంభమై</span> అనుదైర్ఘ్యంగా <span class="imp-word">పాదాల వైపుకు</span> కొనసాగుతుంది అని వివరించేదే శిరోపాదాభిముఖ నియమం. (వికాసము <strong>నిలువుగా</strong> కొనసాగుతుంది).</p>
+
+    <div class="box example-box">
+      <span class="box-title">📝 Application :</span><br>
+      చలన వికాసంలో భాగంగా శిశువు ముందు తల నిలిపిన తరువాత మొండెంను కూర్చోబెట్టగలుగుతాడు. చివరగా కాళ్ళపై నిలబడగలుగుతాడు అన్నది ఏ దిశా నియమమును వివరిస్తుంది — <strong>శిరోపాదాభిముఖ నియమం</strong>.
+    </div>
+
+    <div class="box note-box">
+      <span class="box-title">📌 Note :</span><br>
+      ఈ నియమాన్ని అనుసరించే గర్భస్థ శిశువులో కూడా మొదట తల ఏర్పడి, తరువాతనే మొండెం, కాళ్ళు ఏర్పడతాయి. అలాగే శిశువు జన్మించేటప్పుడు కూడా మొదట తల బయటకు వచ్చి మొండెం, కాళ్ళు బయటకు వస్తాయి.
+    </div>
+
+    <h3 class="sub-heading">2. సమీప దూరస్థ వికాస నియమం :</h3>
+    <p>వికాసము <span class="imp-word">దేహ మధ్యస్థ భాగాన ప్రారంభమై</span>, వెలుపలకు దూరంగా ఉన్న భాగాల వైపుకు (చేతుల వైపుకు) విస్తరిస్తుంది అని వివరించే నియమమే సమీప దూరస్థ నియమము. (వికాసము <strong>అడ్డంగా</strong> కొనసాగుతుంది).</p>
+
+    <div class="box example-box">
+      <span class="box-title">📝 Application :</span><br>
+      ఒక వస్తువును అందుకునేటప్పుడు మొదట దేహ మధ్య భాగం నుండి భుజంను కదిలించి, తరువాత చేతిని చాచి, మణికట్టుని వంచి, చివరగా వేళ్ళతో వస్తువుని అందుకుంటారు. దీనిని వివరించే వికాస దిశా నియమం — <strong>సమీప దూరస్థ నియమము</strong>.<br>
+      <em>(వికాసము అడ్డంగా కొనసాగుతుంది. ప్రతి కృత్యమును చేతులతోనే చేస్తాము, అందుకే చేతులు దేహమునకు వెలుపలంగా ఉంటాయి).</em>
+    </div>
+
+    <div class="box note-box">
+      <span class="box-title">📌 Note :</span><br>
+      ఈ నియమం ప్రకారం శిశువుకు మొదట <strong>పెద్ద కండరాలపై అదుపు వచ్చి</strong>, తర్వాత <strong>చిన్న కండరాలపై అదుపు వస్తుంది</strong>.
+    </div>
+
+    <!-- 3. వికాస క్రమానుగత నియమం -->
+    <h2 class="side-heading">3. వికాస క్రమానుగత నియమం / వికాసం ఒక ఖచ్చిత నమూనాను అనుసరించే నియమం :</h2>
+    <p>👉 వ్యక్తిలో జరిగే ఏ వికాసం అయినా ఒక క్రమ పద్ధతిలో, <span class="imp-word">సార్వత్రికమైన నమూనాని</span> అనుసరిస్తుంది అని వివరించే నియమమే — వికాస క్రమానుగత నియమం.</p>
+
+    <div class="box note-box">
+      <span class="box-title">📌 Note :</span><br>
+      ఇక్కడ సార్వత్రికమైన క్రమము ఉంటుంది కానీ ఒక దాని ఆధారంగా మరొకటి ఉండదు. ఈ క్రమము ప్రతి శిశువులో ఒకేలా ఉంటుంది. ఒకే దశలో ఉంటుంది.
+    </div>
+
+    <div class="box example-box">
+      <span class="box-title">📝 Application :</span><br>
+      • జ్ఞానేంద్రియ వికాసంలో భాగంగా ప్రతి శిశువులో మొదట <strong>స్పర్శ వికాసం</strong>, తదుపరి <strong>రుచి వికాసం</strong>, తదుపరి <strong>వాసన వికాసం</strong>, తదుపరి <strong>వినికిడి వికాసం</strong>, చివరగా <strong>దృష్టి వికాసము</strong> జరుగుతాయి. దీనిని వివరించే వికాస నియమము — <strong>వికాస క్రమానుగత నియమం</strong>.<br><br>
+      • ఒక ఉపాధ్యాయుడు విద్యార్థికి మొదట వృత్తంను గీయటం నేర్పి తర్వాత చతురస్రమును గీయటం నేర్పుతున్నట్లయితే ఇక్కడ ఉపాధ్యాయుడు ఏ వికాస నియమమును అనుసరిస్తున్నట్లుగా భావించవచ్చు — <strong>వికాస క్రమానుగత నియమం</strong>.
+    </div>
+
+    <!-- 4. వికాసం అంచనా నియమం -->
+    <h2 class="side-heading">4. వికాసం అంచనా నియమం లేదా వికాస ప్రాగుక్తీకరణ నియమం :</h2>
+    <p>👉 ఒక దశలోని ప్రస్తుత వికాస వేగం ఆధారంగా ఒక శిశువు రాబోయే దశలో ఆ వికాసంలో ఎంత అభివృద్ధి చెందుతాడో <span class="imp-word">అంచనా వేయవచ్చు</span> అని వివరించే నియమమే — వికాస ప్రాగుక్తీకరణ నియమం.</p>
+
+    <div class="box example-box">
+      <span class="box-title">📝 Application :</span><br>
+      • పూర్వ బాల్యదశలో ఎత్తుని బట్టి, కౌమారదశ పూర్తయ్యే నాటికి పిల్లవాడు ఎంత ఎత్తుకు ఎదగలుగుతాడో ఊహించి చెప్పవచ్చు. దీనిని వివరించే వికాస నియమం — <strong>వికాస ప్రాగుక్తీకరణ నియమం</strong>.<br><br>
+      • 5వ తరగతి విద్యార్థి ప్రస్తుతం గీస్తున్న బొమ్మలను బట్టి అతడు భవిష్యత్తులో మంచి చిత్రకారుడిగా రాణించే అవకాశం ఉంది అని ఉపాధ్యాయుడు ఆ పిల్లవాని తల్లిదండ్రులతో చెప్పినాడు. ఈ వాక్యము ఏ వికాస నియమాన్ని వివరిస్తుంది — <strong>వికాస ప్రాగుక్తీకరణ నియమం</strong>.
+    </div>
+
+    <!-- 5. వికాస వైయక్తిక భేదాల నియమం -->
+    <h2 class="side-heading">5. వికాస వైయక్తిక భేదాల నియమం :</h2>
+    <p>👉 వికాసము ఒక క్రమ పద్ధతిలో జరిగినప్పటికీ అది <span class="imp-word">అందరిలో ఒకే వేగంగా, ఒకే గుణాత్మకంగా జరగదు</span> అని వివరించే వికాస నియమమే — వికాస వైయక్తిక భేదాల నియమం.</p>
+
+    <div class="box example-box">
+      <span class="box-title">📝 Application :</span><br>
+      • ఒకే రోజు పుట్టిన రాధ, శ్రుతులలో చలన వికాసంలో రాధ సంవత్సరం నిండే నాటికి పరిగెత్తుతుంటే శ్రుతి ఆనాటికి లేచి నిలబడడమే చేయలేకపోతుంది. దీనిని వివరించే వికాస నియమం — <strong>వికాస వైయక్తిక భేదాల నియమం</strong>.<br><br>
+      • కవల సోదరులైన రాము, సుబ్బులలో భాషా వికాసంలో భాగంగా 1½ సం॥రం వయస్సులో రాము, చిన్న చిన్న వాక్యాలు మాట్లాడుతుంటే, సుబ్బు ఇప్పటికీ ఇంగితాలు మాత్రమే మాట్లాడగలగటంను వివరించే వికాస నియమం — <strong>వికాస వైయక్తిక భేదాల నియమం</strong>.
+    </div>
+
+    <!-- 6. వికాసము సాధారణం నుండి నిర్దిష్టం వైపుకు జరుగుతుంది -->
+    <h2 class="side-heading">6. వికాసము సాధారణం నుండి నిర్దిష్టం వైపుకు జరుగుతుంది అనే నియమం :</h2>
+    <p>👉 ఏ వికాసానికి సంబంధించి అయినా శిశువు మొదట <span class="imp-word">సాధారణ ప్రతిస్పందనలను</span> కనపరచి, తరువాత <span class="imp-word">నిర్దిష్టమైన లేదా ప్రత్యేకమైన ప్రతిస్పందనలను</span> కనబరుస్తారని వివరించే నియమమే — వికాసం సాధారణం నుండి నిర్దిష్టం వైపుకు జరుగుతుంది.</p>
+
+    <div class="box example-box">
+      <span class="box-title">📝 Application :</span><br>
+      • ఉద్వేగ వికాసంలో భాగంగా, శిశువు మొదట అన్ని బాధాకరమైన సంఘటనలకు సాధారణ ఉద్రిక్తత అయిన విచారాన్ని మాత్రమే కనబరుస్తాడు. అది క్రమంగా అసూయ, కోపం, భయం అనే నిర్దిష్టమైన ప్రతిస్పందనలుగా విడిపోవటం అనేది జరుగుతుంది. దీనిని వివరించే వికాస నియమం — <strong>వికాసం సాధారణం నుండి నిర్దిష్టం వైపుకు జరుగుతుంది</strong>.<br><br>
+      • మొదట్లో సాధారణంగా రెండు చేతులతో బొమ్మను పట్టుకునే శిశువు క్రమేపీ తన చేతి వేళ్ళతో బొమ్మని పట్టుకోగలుగుతుంది. దీనిని వివరించే వికాస నియమం — <strong>వికాసం సాధారణం నుండి నిర్దిష్టానికి జరుగుతుంది</strong>.
+    </div>
+
+    <div class="box note-box">
+      <span class="box-title">📌 Note :</span><br>
+      అందుకే క్రింది తరగతులలో సామాన్య మౌలిక భావనలను పరిచయం చేసి పై తరగతులలో నిర్దిష్ట అంశములను విస్తృతంగా వివరిస్తారు.<br>
+      <strong>ఉదా :</strong> జ్ఞానేంద్రియములపై సాధారణ అవగాహనను క్రింది తరగతులలో కల్పించి పై తరగతులలో ప్రతి జ్ఞానేంద్రియమును నిర్దిష్టంగా వివరిస్తారు.
+    </div>
+
+    <!-- 7. వికాస సంచిత నియమం -->
+    <h2 class="side-heading">7. వికాస సంచిత నియమం :</h2>
+    <p>👉 ఏదైనా ఒక వికాస కృత్యం దాని ముందు విజయవంతంగా నెరవేర్చబడిన <span class="imp-word">వికాస కృత్యం ఆధారంగా</span> జరిగినట్లయితే దానిని వికాస సంచిత నియమం అంటారు.</p>
+
+    <div class="box note-box">
+      <span class="box-title">📌 Note :</span><br>
+      ఈ నియమంలో ఒక వికాస కృత్యం ఆధారంగా మరొకటి జరుగుతూ ఉంటుంది.
+    </div>
+
+    <div class="box example-box">
+      <span class="box-title">📝 Application :</span><br>
+      • ఒక విద్యార్థి రేఖాఖండంను గీయటం నేర్చుకొని దాని ఆధారంగా చతురస్రమును గీయటం, చతురస్రం ఆధారంగా సమఘనాన్ని గీయటం నేర్చుకున్నట్లయితే దీనిని వివరించే వికాసం నియమం — <strong>వికాస సంచిత నియమం</strong>.<br><br>
+      • ఒక ఉపాధ్యాయుడు కూడికల ఆధారంగా గుణకారాలు, తీసివేతల ఆధారంగా భాగహారాలను విద్యార్థులకు నేర్పుతున్నట్లయితే ఆ ఉపాధ్యాయుడు అనుసరించిన వికాస నియమం — <strong>వికాస సంచిత నియమం</strong>.
+    </div>
+
+    <!-- 8. వికాసము అన్ని దశలలో ఒకే రకంగా జరగదు -->
+    <h2 class="side-heading">8. వికాసము అన్ని దశలలో ఒకే రకంగా జరగదు అనే నియమం :</h2>
+    <p>👉 వికాసము జీవిత పర్యంతం జరిగినప్పటికీ, <span class="imp-word">అన్ని దశలలో ఒకే రకంగా జరగదు</span>. కొన్ని దశలలో ఎక్కువ వేగంతో, మరికొన్ని దశలలో తక్కువ వేగంతో జరుగుతుంది అని వివరించే నియమమే — వికాసం అన్ని దశలలో ఒకే రకంగా జరగదు అనే నియమం.</p>
+
+    <div class="box example-box">
+      <span class="box-title">📝 Application :</span><br>
+      శైశవ దశలో మిగిలిన అన్ని దశల కంటే పెరుగుదల అత్యంత వేగంగా జరుగుతుంది. అలాగే ఉత్తర బాల్యదశలో పెరుగుదల మిగిలిన అన్ని దశల కంటే నెమ్మదిగా జరుగుతుంది. దీనిని వివరించే వికాస నియమము — <strong>వికాసము అన్ని దశలలో ఒక రకంగా జరగదు</strong>.
+    </div>
+
+    <!-- 9. వికాస సమైక్య నియమం -->
+    <h2 class="side-heading">9. వికాస సమైక్య నియమం / వికాస సమగ్ర నియమం / వికాసం ఏకీకృత మొత్తంగా జరిగే నియమం / వికాస పరస్పర సంబంధ నియమం :</h2>
+    <p>👉 వ్యక్తిలోని విభిన్న వికాసాలన్నీ విడివిడిగా కాక, <span class="imp-word">అన్నీ కలిసి సమైక్యంగా పనిచేస్తేనే</span> వ్యక్తి యొక్క సంపూర్ణ వికాసం జరుగుతుంది అని వివరించేదే — వికాస పరస్పర సంబంధ నియమం.</p>
+
+    <div class="box example-box">
+      <span class="box-title">📝 Application :</span><br>
+      మానసిక వికాస లోపంలో ఉన్న విద్యార్థి, మిగిలిన అన్ని వికాసాలతో వెనుకబడిపోయి ఉంటాడు. అతడిలో సంపూర్ణ వికాసం జరగదు. దీనికి కారణాన్ని వివరించే వికాస నియమం — <strong>వికాస పరస్పర సంబంధ నియమం</strong>.
+    </div>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.getElementById('themeToggle');
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        btn.textContent = '🌙 Dark Mode';
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        btn.textContent = '☀️ Light Mode';
+      }
+    }
+  </script>
+
+</body>
+</html>
