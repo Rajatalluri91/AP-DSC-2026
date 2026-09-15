@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.2 వికాసంపై ప్రభావం చూపు కారకాలు</title>
+  
+  <!-- Google Fonts: Mandali Import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+
+  <style>
+    /* Color Variables */
+    :root {
+      --bg-color: #f1f5f9;
+      --card-bg: #ffffff;
+      --text-color: #334155;
+      
+      /* Distinct Element Colors - Light Mode */
+      --main-heading: #1e3a8a;       /* Dark Blue */
+      --side-heading: #0369a1;       /* Deep Sky Blue */
+      --sub-heading: #0d9488;        /* Teal */
+      --important-word: #b91c1c;     /* Crimson Red for important words */
+      --important-bg: #fee2e2;       /* Light Pinkish Red background */
+      
+      --note-bg: #fefce8;
+      --note-border: #eab308;       /* Warm Yellow */
+      --note-text: #713f12;
+      
+      --hint-bg: #eff6ff;
+      --hint-border: #3b82f6;       /* Blue */
+      --hint-text: #1e40af;
+
+      --example-bg: #f0fdf4;
+      --example-border: #22c55e;    /* Fresh Green */
+      --example-text: #14532d;
+      
+      --quote-bg: #faf5ff;
+      --quote-border: #a855f7;      /* Purple */
+      
+      --border-color: #cbd5e1;
+      --table-header: #1e293b;
+      --table-row-even: #f8fafc;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #cbd5e1;
+      
+      /* Distinct Element Colors - Dark Mode */
+      --main-heading: #60a5fa;
+      --side-heading: #38bdf8;
+      --sub-heading: #2dd4bf;
+      --important-word: #fca5a5;     /* Soft Light Red */
+      --important-bg: #450a0a;       /* Dark Red tint */
+
+      --note-bg: #2e2608;
+      --note-border: #facc15;
+      --note-text: #fef08a;
+      
+      --hint-bg: #172554;
+      --hint-border: #60a5fa;
+      --hint-text: #bfdbfe;
+
+      --example-bg: #052e16;
+      --example-border: #4ade80;
+      --example-text: #bbf7d0;
+
+      --quote-bg: #2e1065;
+      --quote-border: #c084fc;
+
+      --border-color: #334155;
+      --table-header: #0f172a;
+      --table-row-even: #1e293b;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Mandali', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.8;
+      margin: 0;
+      padding: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 5px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Header & Toggle */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 0;
+      color: var(--main-heading);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Mandali', sans-serif;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--border-color);
+    }
+
+    /* Distinct Headings */
+    h2.side-heading {
+      font-size: 22px;
+      color: var(--side-heading);
+      border-left: 5px solid var(--side-heading);
+      padding-left: 12px;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, rgba(3,105,161,0.05) 0%, rgba(0,0,0,0) 100%);
+      padding-top: 4px;
+      padding-bottom: 4px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    h3.sub-heading {
+      font-size: 19px;
+      color: var(--sub-heading);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    /* Important Words Styling */
+    .imp-word {
+      color: var(--important-word);
+      background-color: var(--important-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    /* Individual Box Designs */
+    .box {
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+
+    .note-box {
+      background-color: var(--note-bg);
+      border-left: 5px solid var(--note-border);
+      color: var(--note-text);
+    }
+    .note-box .box-title {
+      color: var(--note-border);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .hint-box {
+      background-color: var(--hint-bg);
+      border-left: 5px solid var(--hint-border);
+      color: var(--hint-text);
+    }
+    .hint-box .box-title {
+      color: var(--hint-border);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .example-box {
+      background-color: var(--example-bg);
+      border-left: 5px solid var(--example-border);
+      color: var(--example-text);
+    }
+    .example-box .box-title {
+      color: var(--example-border);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .quote-box {
+      background-color: var(--quote-bg);
+      border-left: 5px solid var(--quote-border);
+      font-style: italic;
+    }
+
+    .formula-box {
+      text-align: center;
+      font-size: 20px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #ffffff;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 25px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    /* Lists */
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-bar">
+      <h1>1.2 వికాసంపై ప్రభావం చూపు కారకాలు</h1>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+    </div>
+
+    <p>👉 <span class="imp-word">అనువంశికత</span> మరియు <span class="imp-word">పరిసరాలు</span> రెండూ వ్యక్తి వికాసంపై ప్రభావం చూపుతాయి. ముఖ్యంగా శారీరక వికాసంపై అనువంశికత ప్రభావం చూపగా, మానసిక, సాంఘిక, నైతిక, ఉద్వేగ వికాసాలపై పరిసరాలు ఎక్కువ ప్రభావాన్ని చూపుతాయి.</p>
+
+    <!-- అనువంశికత -->
+    <h2 class="side-heading">అనువంశికత :</h2>
+    <p>👉 ఫలదీకరణ జరిగిన సమయంలో తల్లిదండ్రుల నుండి, పూర్వీకుల నుండి సంక్రమించిన జన్యుపరమైన వారసత్వ లక్షణాలనే <span class="imp-word">అనువంశికత</span> అంటారు.</p>
+
+    <div class="box hint-box">
+      <span class="box-title">💡 Hint :</span><br>
+      ఎందుకంటే ఇది పరిమాణాత్మక మార్పు. శారీరక అభివృద్ధి కాబట్టి.
+    </div>
+
+    <p>👉 6 నెలలు నిండే సరికి శిశువు కూర్చోగలగడం అనేది — <span class="imp-word">పరిపక్వత</span> అవుతుంది.</p>
+
+    <div class="box hint-box">
+      <span class="box-title">💡 Hint :</span><br>
+      ఎందుకంటే సృష్టిలోని ఏ శిశువు అయినా జెనెటిక్ కోడ్ వల్ల ఆ వయస్సు నిండితేనే ఆ సహజశక్తి వస్తుంది. కనుక ఇది పరిపక్వత అవుతుంది.
+    </div>
+
+    <p>👉 కౌమారదశలోని శిశువు కాలము, దూరము, వేగము లాంటి అమూర్త అంశములను అర్థం చేసుకొని ఆ రకమైన సమస్యలను సులువుగా పరిష్కరించగలగడం అనేది — <span class="imp-word">వికాసం</span> అవుతుంది.</p>
+
+    <div class="box hint-box">
+      <span class="box-title">💡 Hint :</span><br>
+      ఎందుకంటే ఇది ఆలోచనలో జరిగే గుణాత్మకమైన అభివృద్ధి (మానసిక వికాసము).
+    </div>
+
+    <h3 class="sub-heading">నిర్వచనం :</h3>
+    <div class="box quote-box">
+      <ul>
+        <li>అనువంశికత అనగా తల్లిదండ్రుల నుండి, పూర్వీకుల నుండి లేదా జాతి నుండి సంక్రమించే రూపాలు మరియు భౌతిక సామర్థ్యాలు — <strong>డగ్లస్ & హోలెండ్</strong></li>
+      </ul>
+    </div>
+
+    <p>👉 ఈ అనువంశికత వల్ల ఏ జాతివారికి ఆ జాతివారే పుడతారు.</p>
+
+    <!-- పరిసరాలు -->
+    <h2 class="side-heading">పరిసరాలు :</h2>
+    <div class="box quote-box">
+      <ul>
+        <li>జన్యువు తప్ప వ్యక్తిపై ప్రభావం చూపే ప్రతి ఇతర కారకాన్ని పరిసరం అని అంటారు — <strong>ఎడ్విన్ జి.బోరింగ్</strong></li>
+        <li>వ్యక్తి జీవితం ప్రారంభమైన నాటి నుండి అతనిపై ప్రభావం చూపించే ప్రతి బాహ్య కారకం పరిసరం అవుతుంది — <strong>వుడ్ వర్త్</strong></li>
+      </ul>
+    </div>
+
+    <!-- అనువంశికంగా వ్యక్తి యొక్క జీవితక్రమం -->
+    <h2 class="side-heading">అనువంశికంగా వ్యక్తి యొక్క జీవితక్రమం :</h2>
+    <p>👉 వ్యక్తి అనువంశికత ఫలదీకరణ సమయంలో <span class="imp-word">జైగోట్</span> ద్వారా నిర్ణయించబడుతుంది.</p>
+    <p>👉 జైగోట్ అనేది పురుషుని శుక్రకణము, స్త్రీ యొక్క అండము కలయిక వల్ల ఏర్పడే మొట్టమొదటి సంయుక్త బీజ కణం.</p>
+    <p>👉 దీని నుండే మానవ జీవితం ప్రారంభమవుతుంది.</p>
+    
+    <h3 class="sub-heading">👉 ఫలదీకరణ సమయంలో నిర్ధారించబడిన అంశములు :</h3>
+    <ul>
+      <li>1) లింగ నిర్ధారణ</li>
+      <li>2) శిశువుల సంఖ్య</li>
+      <li>3) అనువంశిక లక్షణాలు</li>
+    </ul>
+
+    <p>👉 జైగోట్ యొక్క కేంద్రకంలో <strong>23 జతల (46) క్రోమోజోమ్‌లు</strong> ఉంటాయి.</p>
+    <p>👉 ఈ 23 జతలలో తండ్రి నుండి 23 క్రోమోజోమ్‌లు, తల్లి నుండి 23 క్రోమోజోమ్‌లు సంక్రమిస్తాయి.</p>
+
+    <div class="box note-box">
+      <span class="box-title">📌 వివరణ :</span><br>
+      మానవుని యొక్క ప్రతి కణంలో 23 జతల క్రోమోజోమ్‌లు ఉంటాయి. కానీ ప్రత్యుత్పత్తి కణాలలో మాత్రం (అండం / శుక్రకణం) 23 క్రోమోజోమ్‌లు మాత్రమే ఉంటాయి. కారణం ప్రత్యుత్పత్తి కణాలలో క్షయకరణ విభజన జరుగుతుంది కాబట్టి :<br>
+      • స్త్రీ అండంలో క్రోమోజోమ్‌ల సంఖ్య — <strong>23</strong><br>
+      • పురుష శుక్రకణంలో క్రోమోజోమ్‌ల సంఖ్య — <strong>23</strong><br>
+      • సంయుక్త బీజం లేదా జైగోట్‌లో క్రోమోజోమ్‌ల సంఖ్య — <strong>23 జతలు / 46</strong>
+    </div>
+
+    <div class="box note-box">
+      <span class="box-title">📌 Note :</span><br>
+      ఈ 23 జతల క్రోమోజోమ్‌లలో <strong>22 జతలు శారీరక లక్షణాలను</strong> అందించే క్రోమోజోమ్‌లు కాగా, <strong>ఒక్క జత మాత్రం లింగాన్ని నిర్ధారించే</strong> క్రోమోజోమ్‌లు.
+    </div>
+
+    <ul>
+      <li>👉 క్రోమోజోమ్‌ల ఆకారం — <strong>V ఆకారం</strong></li>
+      <li>👉 ప్రతి క్రోమోజోమ్‌లో వేల సంఖ్యలో జన్యువులు ఉంటాయి.</li>
+      <li>👉 అనువంశికతకు ప్రాథమిక ఆధారం — <strong>జన్యువులు</strong></li>
+      <li>👉 కొన్ని తరాలకు తమ వారసత్వ లక్షణాలను అందించేవి — <strong>జన్యువులు</strong></li>
+      <li>👉 చాలా వరకు మానవ లక్షణాలన్నీ అనేక జన్యువులు కలిసి పనిచేయడం ద్వారా ఏర్పడతాయి. దీనినే <span class="imp-word">బహు జన్యుత్వము</span> అంటారు.</li>
+      <li>👉 ఈ జన్యువులు మానవుని యొక్క భౌతిక, మానసిక అభివృద్ధి కొరకు <strong>Blue print</strong> ని కలిగి ఉంటాయి.</li>
+      <li>👉 జన్యువుల నిర్మాణంలో <strong>DNA</strong> మరియు <strong>RNA</strong> లు ఉంటాయి.
+        <ul>
+          <li><strong>DNA</strong> - డి ఆక్సీరైబో న్యూక్లిక్ యాసిడ్</li>
+          <li><strong>RNA</strong> - రైబో న్యూక్లిక్ యాసిడ్</li>
+        </ul>
+      </li>
+      <li>👉 జెనెటిక్ కోడ్‌ను క్రింది తరాలకు అందించేది DNA కాగా, ఆ కోడ్‌ను పిల్లలకు చేరవేయడంలో DNA కు RNA సహాయపడుతుంది.</li>
+    </ul>
+
+    <h3 class="sub-heading">లింగ నిర్ధారణ :</h3>
+    <p>👉 జైగోట్‌లో ఉండే లింగ నిర్ధారక క్రోమోజోమ్‌లు 1 జత మాత్రమే. ఆ జతలో అండము నుండి <strong>X</strong> అనే క్రోమోజోమ్, శుక్రకణం నుండి <strong>X లేదా Y</strong> అనే క్రోమోజోమ్ సంక్రమిస్తుంది.</p>
+    <p>👉 అండంలోని X క్రోమోజోమ్‌తో శుక్రకణంలోని X క్రోమోజోమ్ కలిస్తే, <strong>ఆడశిశువు (XX)</strong> జన్మిస్తుంది.</p>
+    <p>👉 అండంలోని X క్రోమోజోమ్‌తో శుక్రకణంలోని Y క్రోమోజోమ్ కలిస్తే <strong>మగశిశువు (XY)</strong> జన్మిస్తాడు.</p>
+
+    <div class="formula-box">
+      <strong>XX — ఆడశిశువు | XY — మగశిశువు</strong>
+    </div>
+
+    <p>👉 శిశువు యొక్క లింగకత ఎప్పుడూ <strong>తండ్రి అందించే క్రోమోజోమ్‌పైనే</strong> ఆధారపడి ఉంటుంది.</p>
+
+    <h3 class="sub-heading">క్రోమోజోమ్‌ల లోపాలు :</h3>
+    <ul>
+      <li>👉 ఒక శిశువు 46 క్రోమోజోమ్‌లలో కాకుండా అంతకన్నా ఎక్కువ లేదా తక్కువ క్రోమోజోమ్‌లతో జన్మిస్తే తీవ్ర పరిణామాలు ఏర్పడతాయి.</li>
+      <li>👉 ఒక క్రోమోజోమ్ ఎక్కువగా పుట్టిన శిశువు <span class="imp-word">"డౌన్ సిండ్రోమ్"</span> అనే తీవ్రమైన మానసిక వైకల్యానికి గురి అవుతారు. ఇందులో శిశువుకి చిన్న తల, చిన్న మొండెము, చిన్న కాళ్ళు, చేతులు ఉండి, ఏ అభివృద్ధి జరగదు.</li>
+      <li>👉 ఒక క్రోమోజోమ్ తక్కువగా పుట్టిన శిశువు <span class="imp-word">"టర్నర్ సిండ్రోమ్"</span> కి గురి అవుతాడు. ఈ టర్నర్ సిండ్రోమ్‌కి గురైన శిశువులు తీవ్రమైన అభ్యసనా వైకల్యాన్ని కలిగి ఉంటారు.</li>
+    </ul>
+
+    <h3 class="sub-heading">కవలలు (Twins) :</h3>
+    <p>👉 స్త్రీలలో ఒకేసారి రెండు లేదా 3 అండాలు విడుదలయ్యి అవి ఒకేసారి ఫలదీకరణం చెందితే ట్విన్స్ లేదా ట్రిపుల్స్ పుడతారు.</p>
+    <ul>
+      <li>👉 <strong>విరూప కవలలు / విజాతి కవలలు :</strong> రెండు అండాలు ఒకేసారి విడుదలయ్యి రెండూ ఫలదీకరణం చెందితే జన్మిస్తారు. ఇద్దరు ఆడశిశువులు లేదా ఇద్దరు మగశిశువులు లేదా ఒక ఆడ, ఒకరు మగ శిశువుగా జన్మించే అవకాశం ఉంటుంది.</li>
+      <li>👉 <strong>సరూప కవలలు / సజాతి కవలలు :</strong> అండం ఫలదీకరణం చెందిన తర్వాత అది రెండుగా విభజన చెందితే జన్మిస్తారు. ఇద్దరూ ఆడశిశువులు లేదా ఇద్దరూ మగశిశువులుగా జన్మిస్తారు. ఇద్దరూ కూడా ఒకే రూపురేఖలను కలిగి ఉంటారు.</li>
+    </ul>
+
+    <!-- అనువంశిక నియమాలు -->
+    <h2 class="side-heading">అనువంశిక నియమాలు :</h2>
+    <p>👉 అనువంశిక పితామహుడైన <span class="imp-word">గ్రెగర్ మెండల్</span> ప్రతిపాదించిన అనువంశిక నియమాలు 3:</p>
+
+    <h3 class="sub-heading">1) సారూప్య నియమం :</h3>
+    <p>పుట్టిన శిశువు యొక్క రూపురేఖలు, ప్రజ్ఞాపటవాలు పూర్తిగా తల్లిదండ్రుల్ని పోలి ఉండడాన్నే సారూప్య నియమం అంటారు. (తెల్లపిల్లి కడుపున తెల్లపిల్లి పుట్టడం లాంటిది).</p>
+    <div class="box example-box">
+      <span class="box-title">📝 ఉదాహరణ :</span><br>
+      పొడవైన, ప్రజ్ఞావంతులైన తల్లిదండ్రులకు పొడవైన, ప్రజ్ఞావంతులైన వారసులు జన్మించడం.
+    </div>
+
+    <h3 class="sub-heading">2) ప్రతిగమన నియమం :</h3>
+    <p>పుట్టిన శిశువు యొక్క రూపురేఖలు, ప్రజ్ఞాపటవాలు వారి తల్లిదండ్రులకు పూర్తి వ్యతిరేకంగా లేదా తిరోగమనంగా ఉండటాన్నే 'ప్రతిగమన నియమం' అంటారు. (పండిత పుత్రః పరమ శుంఠః / తెల్లపిల్లి కడుపున నల్లపిల్లి పుట్టడం).</p>
+    <div class="box example-box">
+      <span class="box-title">📝 ఉదాహరణ :</span><br>
+      పొడవైన, ప్రజ్ఞావంతులైన తల్లిదండ్రులకు పొట్టివారైన, ప్రజ్ఞాహీనులు జన్మించడం.
+    </div>
+
+    <h3 class="sub-heading">3) వైరుధ్య నియమం / వైవిధ్య నియమం :</h3>
+    <p>పుట్టిన శిశువుల రూపురేఖలు, ప్రజ్ఞాపటవాలు కొన్ని లక్షణాలు తల్లిదండ్రులను పోలి, మరికొన్ని లక్షణాలు తల్లిదండ్రులకు విరుద్ధంగా ఉండటాన్నే "వైవిధ్య నియమం" అంటారు. (తెల్లపిల్లి కడుపున అక్కడక్కడ నల్లని చారలతో తెల్లపిల్లి పుట్టడం).</p>
+    <div class="box example-box">
+      <span class="box-title">📝 ఉదాహరణ :</span><br>
+      పొడవైన, ప్రజ్ఞావంతులైన తల్లిదండ్రులకు పొట్టివారైన, ప్రజ్ఞావంతులైన పిల్లలు పుట్టడం.
+    </div>
+
+    <!-- అనువంశిక వాదులు -->
+    <h2 class="side-heading">అనువంశిక వాదులు :</h2>
+    <p>👉 వ్యక్తి వికాసంపై అనువంశికతే ప్రధాన కారణము అని వాదించిన మనో విజ్ఞానశాస్త్రవేత్తలను అనువంశిక వాదులుగా చెప్పుకుంటారు.</p>
+
+    <div class="box note-box">
+      <span class="box-title">🔑 Shortcut Code :</span><br>
+      <strong>ఆ - వి - ద - గో - పి - కె - గా - ఫ్రీ</strong> (లేదా "ఆవిడ గోపి కెగా ఫ్రీ")
+      <ul>
+        <li><strong>ఆ</strong> -> ఆల్‌పోర్ట్ (ప్రముఖ వ్యక్తుల కుటుంబాలు, వారి వారసులు)</li>
+        <li><strong>వి</strong> -> విన్‌షిప్ (ఎడ్వర్డ్ వంశ వృక్షము)</li>
+        <li><strong>ద</strong> -> డగ్‌డేల్ (జూక్స్ వంశ వృక్షము)</li>
+        <li><strong>గో</strong> -> గోడార్డ్ (కల్లికాక్ వంశ వృక్షము)</li>
+        <li><strong>పి</strong> -> పియర్సన్ (హోమిని & డార్విన్ వంశ వృక్షము)</li>
+        <li><strong>కె</strong> -> కెల్లాగ్ దంపతులు (శిశువు డోనాల్డ్ + చింపాంజీ గువా)</li>
+        <li><strong>గా</strong> -> గాల్టన్ (ఇంగ్లాండులో ప్రముఖ & సాధారణ కుటుంబాలు)</li>
+        <li><strong>ఫ్రీ</strong> -> ఫ్రీమన్ (కవలలు, అన్నదమ్ములు, దాయాదుల పరిశీలన)</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-heading">అనువంశిక వాదుల పరిశోధనలు :</h3>
+    
+    <p><strong>1. గోడార్డ్ :</strong> మార్టిన్ కల్లికాక్ మూలపురుషుడిగా కలిగిన వంశ వృక్షాన్ని పరిశీలించినప్పుడు అతనికి ఉన్న ఇద్దరు భార్యల్లో ప్రజ్ఞావంతురాలైన భార్య పిల్లలు, వారి సంతానము మొత్తం 480 మందిలో ఎక్కువ మంది ప్రజ్ఞావంతులుగానే జన్మించారు. మందబుద్ధి కలిగిన 2వ భార్యకు పుట్టిన సంతానం, వారి పిల్లలు మొత్తం 496 మందిలోని ఎక్కువ మంది మందబుద్ధులుగా, ప్రజ్ఞాహీనులుగా జన్మించారు.</p>
+
+    <p><strong>2. డగ్‌డేల్ :</strong> వీరు <strong>"ది జూక్స్"</strong> అనే గ్రంథమును రచించారు. లంచగొంది, వ్యసనపరుడు, నేరచరిత్ర కలిగిన జూక్స్ మూలపురుషుడిగా కలిగిన వంశ వృక్షమును పరిశీలించినప్పుడు వారి వంశములో మొత్తం 709 మందిలో ఎక్కువ మంది నేరస్థులు, అవినీతిపరులు, చట్ట వ్యతిరేకులు, దొంగలు ఉన్నారు.</p>
+
+    <p><strong>3. ఆల్‌పోర్ట్ :</strong> వ్యక్తుల సుగుణాలకు, వారి మధ్య వైవిధ్యాలకు పరిసరాలు కారణం కాదని జన్యువుల ప్రభావం అధికం అని ఆల్‌పోర్ట్ భావించారు. వీరు అనేక ప్రముఖ కుటుంబాలను, వారి వారసులను పరిశోధించి ప్రముఖులకు పుట్టిన వారసులు కూడా సమాజంలో ప్రముఖులుగా ఎదగటం అనువంశికత వల్లే అని భావించారు.</p>
+    <div class="box example-box">
+      <span class="box-title">📝 ఉదాహరణలు :</span><br>
+      • ప్రఖ్యాతి క్రికెటర్ అయిన లాలా అమర్‌నాథ్ కుమారులు మోహిందర్, విజయేందర్, సురేందర్ అమర్‌నాథ్‌లు తండ్రి వలె క్రికెట్‌లో మంచి పేరు సంపాదించడం.<br>
+      • ప్రఖ్యాతి సంగీత విద్వాంసుడు అయిన హృదయనాథ్ మంగేష్కర్ కుమార్తెలు లతా మంగేష్కర్, ఆశా భోంస్లే తండ్రివలె సంగీతంలో రాణించడం.
+    </div>
+
+    <p><strong>4. పియర్సన్ :</strong> హోమిని మరియు డార్విన్ వంశ వృక్షాలను పరిశీలించిన పియర్సన్, మేధావి & శాస్త్రజ్ఞుడు అయిన చార్లెస్ డార్విన్ మూలపురుషుడిగా కలిగిన వంశంలో ఎంతోమంది మేధావులు, శాస్త్రవేత్తలు ఉన్నట్లుగా అలాగే బుద్ధిహీనుడైన హోమిని, బలహీన మనస్కురాలైన అతని భార్య వంశవృక్షాన్ని పరిశీలించినప్పుడు, వారి వారసులలో ఎక్కువ మంది బుద్ధిమాంద్యులుగా, ప్రజ్ఞాహీనులుగా ఉండటం గుర్తించారు.</p>
+
+    <p><strong>5. విన్‌షిప్ :</strong> ఎడ్వర్డ్ కుటుంబాన్ని పరిశోధించి అతనికి ప్రజ్ఞావంతురాలైన మొదటి భార్య ఎలిజబెత్ కు కలిగిన సంతాన వృక్షం అందరూ చాలా ప్రజ్ఞావంతులుగా గుర్తించబడ్డారు. మందమతి అయిన 2వ భార్య మేరీకి పుట్టిన సంతానము, వారి వంశ వృక్షము తెలివితక్కువ వారిగా గుర్తించబడ్డారు అని విన్‌షిప్ తన పరిశోధన ద్వారా అనువంశిక ప్రభావాన్ని తెలియజేశారు.</p>
+
+    <p><strong>6. గాల్టన్ :</strong> ఇంగ్లాండ్‌లోని 997 ప్రముఖ కుటుంబాలకు చెందిన వ్యక్తులను 997 సాధారణ కుటుంబాలకు చెందిన వ్యక్తులను పరిశీలించినప్పుడు ప్రముఖ కుటుంబానికి చెందిన వారసులలో 535 మంది ప్రజ్ఞావంతులు ఉండగా, సాధారణ కుటుంబానికి చెందిన వారసులలో కేవలం 5 మంది మాత్రమే ప్రజ్ఞావంతులు ఉండటానికి కారణం అనువంశికతే అని తన <strong>"హెరిడిటరీ జీనియస్"</strong> అనే గ్రంథం ద్వారా వివరించారు.</p>
+
+    <p><strong>7. కెల్లాగ్ దంపతులు :</strong> వీరు మానవ శిశువు డొనాల్డ్ మరియు గువా అనే చింపాంజీలకు ఒకే పరిసరాలను కల్పించినప్పటికీ మానవ శిశువులో జరిగిన వికాసం చింపాంజీలో జరగకపోవడానికి కారణం అనువంశికతే అని తేల్చి చెప్పారు.</p>
+
+    <p><strong>8. W.H ఫ్రీమన్ :</strong> కవలలు, అన్నదమ్ములు, దాయాదులలో ప్రజ్ఞాపటవాలను పరిశీలించి అనువంశికతకు, ప్రజ్ఞకు సహసంబంధ గుణకం ఉంటుందని వారిలో కూడా సమరూప కవలల్లో ఈ గుణకం అత్యధికంగా ఉంటుందని తన పరిశోధనలో ఫ్రీమన్ తెలియజేశారు.</p>
+
+    <!-- పరిసరవాదులు -->
+    <h2 class="side-heading">పరిసరవాదులు :</h2>
+    <p>👉 వ్యక్తి వికాసంపై పరిసరాల ప్రభావమే ఎక్కువగా ఉంటుంది అని వాదించిన మనో విజ్ఞానవేత్తలనే <span class="imp-word">పరిసర వాదులు</span> అంటారు.</p>
+
+    <div class="box note-box">
+      <span class="box-title">🔑 Shortcut Code :</span><br>
+      <strong>న్యూ - బా - వా - గో - ఫ్రీ - స్కో</strong>
+      <ul>
+        <li><strong>న్యూ</strong> -> న్యూమన్ (19 జతల సమరూప కవలలు)</li>
+        <li><strong>బా</strong> -> బాగ్లే (పాఠశాల పరిసరాలు - శిశు వికాసం)</li>
+        <li><strong>వా</strong> -> వాట్సన్ (డజను శిశువులను ఇవ్వండి)</li>
+        <li><strong>గో</strong> -> గోర్డన్ (పడవలు, జిప్సీలు నడిపే పిల్లలు)</li>
+        <li><strong>ఫ్రీ</strong> -> FN ఫ్రీమన్ (మిల్డ్రెడ్ & రూత్ అనే కవలలు)</li>
+        <li><strong>స్కో</strong> -> స్కోడాక్ (పెంపుడు శిశువులు)</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-heading">పరిసరవాదుల పరిశోధనలు :</h3>
+
+    <p><strong>1. న్యూమన్ :</strong> 19 జతల సమరూప కవలల మీద పరిశోధన చేసి వారు వేరు, వేరు పరిసరాలలో పెరగటం వల్లనే సమరూప కవలలు అయినప్పటికీ వారి ప్రజ్ఞలో చాలా తేడా వచ్చినట్లుగా న్యూమన్ గుర్తించారు.</p>
+
+    <p><strong>2. W.C బాగ్లే :</strong> వీరు <strong>'ఎడ్యుకేషనల్ డిటర్మినిజం'</strong> అనే గ్రంథంలో పాఠశాల వసతులకు, వ్యక్తుల వికాసానికి మధ్య సహ సంబంధం ఎక్కువగా ఉంటుందని మంచి పాఠశాల పరిసరాలు వ్యక్తి వికాసంలో గొప్ప మార్పును తీసుకొస్తాయని పేర్కొన్నారు. పాఠశాల పరిసరాలలో చదివిన పిల్లలకు, పాఠశాలకు పోని పిల్లలకు ప్రజ్ఞలో చాలా తేడా ఉన్నట్లు గుర్తించారు.</p>
+
+    <p><strong>3. వాట్సన్ :</strong> మనో విజ్ఞానమును ప్రవర్తనను వివరించే శాస్త్రంగా మొదటిగా చెప్పిన వ్యక్తి — వాట్సన్. వీరు అనువంశికవాదులను తీవ్రంగా వ్యతిరేకించారు. <em>"నాకు ఒక డజను శిశువులనివ్వండి. అనువంశికతతో సంబంధం లేకుండా మీరు కోరుకున్న విధంగా వారిని తీర్చిదిద్ది ఇస్తాను"</em> అని అనువంశిక వాదులకు ఛాలెంజ్ విసిరారు.</p>
+
+    <p><strong>4. గోర్డన్ :</strong> పడవలు, జిప్సీలు నడిపే పిల్లలను పరిశీలించి, పాఠశాలలో చదువుకొనే పిల్లలకు, పాఠశాలకు వెళ్ళకుండా పడవ నడుపుకునే తోబుట్టువుల పిల్లలకు మధ్య IQలో చాలా తేడాలున్నట్లు గుర్తించారు.</p>
+
+    <p><strong>5. FN ఫ్రీమన్ :</strong> వివిధ పరిసరాలలో పెరిగిన మిల్డ్రెడ్ మరియు రూత్ అనే కవలల ప్రజ్ఞా పటవాల్లో చాలా తేడాలున్నట్లు తన పరిశోధనలో గుర్తించారు. కాబట్టి పరిసరాల ప్రభావం ప్రజ్ఞపై అధికంగా ఉంటుందని తెలియజేశారు.</p>
+
+    <p><strong>6. స్కౌడాక్ :</strong> పెంపుడు శిశువులపై పరిశోధన చేసి, శిశువు యొక్క అసలు తల్లుల ప్రజ్ఞాలబ్ధి సగటు 87.7 కాగా, పెరిగిన పరిసరాల వల్ల పెంపుడు శిశువుల ప్రజ్ఞాలబ్ధి సగటున 116గా గుర్తించారు. ఈ తేడా పరిసరాల ప్రభావం వల్లనే అని స్కౌడాక్ తన పరిశోధన ద్వారా తెలియజేశారు.</p>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.getElementById('themeToggle');
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        btn.textContent = '🌙 Dark Mode';
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        btn.textContent = '☀️ Light Mode';
+      }
+    }
+  </script>
+
+</body>
+</html>
