@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.5 నయోమ్ చోమ్‌స్కీ భాషా వికాస సిద్ధాంతం & సాంఘిక వికాసం</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #f1f5f9;
+      --card-bg: #ffffff;
+      --text-color: #334155;
+      
+      --main-heading: #1e3a8a;
+      --side-heading: #0369a1;
+      --sub-heading: #0d9488;
+      --important-word: #b91c1c;
+      --important-bg: #fee2e2;
+      
+      --note-bg: #fefce8;
+      --note-border: #eab308;
+      --note-text: #713f12;
+      
+      --example-bg: #f0fdf4;
+      --example-border: #22c55e;
+      --example-text: #14532d;
+
+      --app-bg: #eff6ff;
+      --app-border: #3b82f6;
+      --app-text: #1e40af;
+      
+      --border-color: #cbd5e1;
+      --table-header: #1e293b;
+      --table-row-even: #f8fafc;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #cbd5e1;
+      
+      --main-heading: #60a5fa;
+      --side-heading: #38bdf8;
+      --sub-heading: #2dd4bf;
+      --important-word: #fca5a5;
+      --important-bg: #450a0a;
+
+      --note-bg: #2e2608;
+      --note-border: #facc15;
+      --note-text: #fef08a;
+
+      --example-bg: #052e16;
+      --example-border: #4ade80;
+      --example-text: #bbf7d0;
+
+      --app-bg: #1e3a8a;
+      --app-border: #60a5fa;
+      --app-text: #dbeaff;
+
+      --border-color: #334155;
+      --table-header: #0f172a;
+      --table-row-even: #1e293b;
+    }
+
+    body {
+      font-family: 'Mandali', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.8;
+      margin: 0;
+      padding: 10px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 0;
+      color: var(--main-heading);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Mandali', sans-serif;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--border-color);
+    }
+
+    h2.side-heading {
+      font-size: 21px;
+      color: var(--side-heading);
+      border-left: 5px solid var(--side-heading);
+      padding-left: 12px;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, rgba(3,105,161,0.05) 0%, rgba(0,0,0,0) 100%);
+      padding-top: 4px;
+      padding-bottom: 4px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    h3.sub-heading {
+      font-size: 18px;
+      color: var(--sub-heading);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .imp-word {
+      color: var(--important-word);
+      background-color: var(--important-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .box {
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+
+    .note-box {
+      background-color: var(--note-bg);
+      border-left: 5px solid var(--note-border);
+      color: var(--note-text);
+    }
+    
+    .note-box .box-title {
+      color: var(--note-border);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .example-box {
+      background-color: var(--example-bg);
+      border-left: 5px solid var(--example-border);
+      color: var(--example-text);
+    }
+
+    .app-box {
+      background-color: var(--app-bg);
+      border-left: 5px solid var(--app-border);
+      color: var(--app-text);
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--table-header);
+      color: #ffffff;
+    }
+
+    tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-bar">
+      <h1>1.5 నయోమ్ చోమ్‌స్కీ తాత్విక నిర్మాణాల భాషా వికాస సిద్ధాంతం</h1>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</button>
+    </div>
+
+    <!-- 1. నయోమ్ చోమ్‌స్కీ సిద్ధాంతం -->
+    <h2 class="side-heading">నయోమ్ చోమ్‌స్కీ భాషా వికాస సిద్ధాంతం</h2>
+    <p>👉 భాషార్జనలో సాంప్రదాయ భాషా సిద్ధాంతాలను వ్యతిరేకించి, ఒక కొత్త తాత్విక నిర్మాణాల భాషా సిద్ధాంతమును ప్రకటించిన భాషా శాస్త్రవేత్త — <span class="imp-word">అవ్రామ్ నయోమ్ చోమ్‌స్కీ (అమెరికా)</span>.</p>
+    <p>👉 శిశువు పుట్టిన తర్వాత భాషను অনুకరణ ద్వారా నేర్చుకుంటాడని బందూరా వంటివారు, నిబంధనం ద్వారా నేర్చుకుంటాడని స్కిన్నర్ లాంటివారు చెప్పిన సాంప్రదాయ భాషా సిద్ధాంతాలన్నింటిని వ్యతిరేకిస్తూ... శిశువు పుట్టుకతోనే అంతర్గతంగా భాషా సామర్థ్యాన్ని అనువంశికంగా కలిగి ఉంటాడని, మిగిలిన సామర్థ్యాల వలె, తగిన వయస్సు వచ్చేసరికి సహజ వివర్తనం ద్వారా భాషా వికాసము జరిగిపోతుంది అని చోమ్‌స్కీ సరికొత్త నూతన భాషా సిద్ధాంతమును ప్రకటించారు.</p>
+
+    <ul>
+      <li><strong>ఆధునిక భాషా శాస్త్ర పితామహుడు (Father of Modern Linguistics) :</strong> <span class="imp-word">నయోమ్ చోమ్‌స్కీ</span></li>
+      <li><strong>ప్రతిపాదించిన దృక్పథము / వాదము :</strong> <span class="imp-word">నేటివిస్ట్ వాదము / స్థానిక దృక్పథం</span></li>
+    </ul>
+
+    <h3 class="sub-heading">నేటివిస్ట్ దృక్పథము (Nativist Approach) :</h3>
+    <p>ఇది జీవ సంబంధ దృక్పథం. దీని ప్రకారం మానవుడు ముందే <span class="imp-word">Programmed</span>-చేయబడిన వ్యాకరణ నియమాలతో పుట్టి వాటి ఆధారంగా భాషా సామర్థ్యాన్ని అభివృద్ధి చేసుకుంటారు.</p>
+
+    <h3 class="sub-heading">చోమ్‌స్కీ రచించిన ప్రముఖ గ్రంథములు :</h3>
+    <ul>
+      <li><strong>Language and Mind</strong></li>
+      <li><strong>The Logical Structures of Linguistic Theory</strong></li>
+      <li><strong>Syntactic Structures</strong> (తను ప్రతిపాదించిన భాషా సంబంధమైన విజ్ఞానాన్ని ఇందులో వివరించాడు)</li>
+    </ul>
+
+    <p>👉 భాష అనేది ప్రత్యేక నియమాల సముదాయం ఆధారంగా నిర్మించిన ప్రత్యేక వాక్యాల సముదాయం అని చోమ్‌స్కీ పేర్కొన్నారు.</p>
+    <p>👉 చోమ్‌స్కీ భాషార్జనలో సాంప్రదాయ వ్యాకరణమును వ్యతిరేకించి, <span class="imp-word">సార్వత్రిక వ్యాకరణం (Universal Grammar)</span> అనే నూతన భావనను ప్రవేశపెట్టారు.</p>
+
+    <div class="box note-box">
+      <span class="box-title">📌 సార్వత్రిక వ్యాకరణం (Universal Grammar) అనగా :</span><br>
+      అనేక మానవ భాషలన్నీ ఒక ఉమ్మడి వ్యాకరణంను కలిగి ఉంటాయని, ఆ ఉమ్మడి వ్యాకరణానికి చెందిన నిర్మాణాలు అనువంశికంగా పుట్టుకతోనే తల్లిదండ్రుల జన్యువుల నుండి పొందుతాడని, పిల్లలు పుట్టుకతోనే భాషను నేర్చుకునే వ్యాకరణాంశములతో కూడిన అంతర్గత సామర్థ్యం కలిగి ఉంటాడని చోమ్‌స్కీ తెలిపారు.
+    </div>
+
+    <ul>
+      <li>భాషా సూత్రాలను, నియమాలను అర్థం చేసుకోగలిగే సామర్థ్యం ప్రతి మనిషికి సహజసిద్ధంగా పుట్టుకతోనే ఉంటుంది, అది ఇతర సామర్థ్యాల లాగే క్రమక్రమంగా అభివృద్ధి చెంది, తగిన వయస్సు వచ్చే సరికి వికాసం జరిగి భాషా ప్రావీణ్యత లభిస్తుంది.</li>
+      <li>పిల్లలు పుట్టుకతోనే భాషను నేర్చుకునే జీవసంతృప్తతతో పుడతారని, వారి మెదడులో డిఫాల్ట్‌గా ప్రోగ్రామ్ చేయబడిన కొన్ని వ్యాకరణ నియమాలు ఉంటాయని భావించారు.</li>
+      <li>అందువల్లనే ప్రతి శిశువు <span class="imp-word">4 సం॥లు వచ్చే సరికి</span> భాషలోని నియమ నిబంధనలను చాలా వరకు అర్థం చేసుకొని ఒక వ్యాకరణ క్రమంలో మాట్లాడగలుగుతాడు.</li>
+      <li>ఒక పక్షి పిల్లకి సహజ వివర్తనం ద్వారా ఎగరగలిగే శక్తి ఎలా వస్తుందో, అలాగే భాష కూడా సహజ వివర్తనం జరిగి శిశువు మాట్లాడగలుగుతాడు.</li>
+      <li>అందరిలోను పుట్టుకతోనే వారి సామాజిక, సాంస్కృతిక స్థానిక అంశాలకు అనుగుణంగా భాషా నిర్మాణాలు మెదడులో ఉండటం వల్లే ఆ 'నేటివిటి'కి సంబంధించిన భాషను పిల్లవాడు వ్యక్తపరచగలుగుతాడు.</li>
+      <li>సాంప్రదాయ భాషా సిద్ధాంతాల ప్రకారం భాష నేర్పబడుతుంది. కానీ చోమ్‌స్కీ ప్రకారం <strong>భాష ఆర్జించబడుతుంది</strong>. నేర్పటం వల్ల కాకుండా జన్యు పరమైన అంశాలు శిశువులో పరిణతి చెందడం వల్ల భాషార్జన జరుగుతుంది.</li>
+      <li>ఎడమ మస్తిష్క అర్ధగోళంలోని <span class="imp-word">బ్రోకా (Broca)</span> అనే ప్రాంతం భాషోత్పత్తి విధిని నిర్వహిస్తుందని వీరు తెలిపారు.</li>
+    </ul>
+
+    <h3 class="sub-heading">Language Acquisition Device (LAD) :</h3>
+    <p>👉 ప్రతి శిశువు యొక్క భాషార్జనకు కారణం పుట్టుకతోనే తన మెదడులో <span class="imp-word">LAD</span> ను అనువంశికంగా కలిగి ఉండటమే అని చోమ్‌స్కీ తెలిపారు.</p>
+    <ul>
+      <li><strong>LAD = Language Acquisition Device</strong> (భాషార్జన పరికరము లేదా భాషా గ్రహణ పరికరము).</li>
+      <li>ఇది మానవ మెదడులో మాత్రమే ఉంటుంది. ఇతర ఏ జీవి మెదడులో ఉండదు, అందుకే ఇతర ఏ జీవులు కూడా భాషను నేర్చుకోలేకపోతున్నాయి.</li>
+    </ul>
+
+    <div class="box example-box">
+      <strong>ఉదాహరణ / వివరణ :</strong><br>
+      ఇప్పుడే పుట్టిన శిశువుకు, పిల్లికి ఒకే రకమైన అనుభవాలు పరిసరాలు కల్పించినప్పటికీ 2 సం॥ల తర్వాత శిశువు మాట్లాడగలడు, కానీ పిల్లి మాట్లాడలేదు. కారణం పిల్లి మెదడులో LAD లేకపోవటమే; శిశువు మెదడులో LAD ఉండటమే.
+    </div>
+
+    <ul>
+      <li>LAD యొక్క సామర్థ్యమును బట్టి ఒక వ్యక్తి వివిధ రకాలైన భాషలను నేర్చుకోగలుగుతాడని భావించాడు.</li>
+      <li><span class="imp-word">3 - 10 సం॥ల వయస్సులో</span> భాషా సామర్థ్యం గరిష్టంగా ఉంటుందని చోమ్‌స్కీ తెలిపారు.</li>
+    </ul>
+
+    <h3 class="sub-heading">చోమ్‌స్కీ ప్రవేశపెట్టిన 4 రకాల వ్యాకరణములు :</h3>
+    <ul>
+      <li><strong>U</strong> — Universal grammar</li>
+      <li><strong>T</strong> — Transformational grammar (రూపాంతర వ్యాకరణం)</li>
+      <li><strong>F</strong> — Formal grammar</li>
+      <li><strong>G</strong> — Generative grammar</li>
+    </ul>
+
+    <!-- 2. సాంఘిక వికాసం -->
+    <h2 class="side-heading">సాంఘిక వికాసము</h2>
+    <p>ఏ వ్యక్తి కూడా ఒంటరిగా జీవించలేడు. తన చుట్టూ ఉన్న ఇతర వ్యక్తులతో కలిసి, మెలిసి జీవనం సాగించాలని కోరుకుంటాడు. ఆ కోరికనే <strong>యూథ జీవనం</strong> అంటారు. ఈ విధంగా ఇతరులతో కలిసిమెలిసి జీవించడంలో వ్యక్తి కలిగి ఉండే సఖ్యత, నైపుణ్యం, చక్కటి సంబంధాల నిర్వహణనే <strong>"సాంఘిక వికాసం"</strong> అంటారు.</p>
+
+    <h3 class="sub-heading">నిర్వచనాలు :</h3>
+    <ul>
+      <li>"సాంఘిక సంబంధాలలో పరిపక్వతను సాధించటమే సాంఘిక వికాసం" — <span class="imp-word">ఎలిజబెత్ హర్లాక్</span></li>
+      <li>"వ్యక్తి ఇతరులతో సమర్థవంతంగా మెలగగలిగే సామర్థ్యమును కలిగి ఉండటమే సాంఘిక వికాసం" — <span class="imp-word">సోరెన్సన్</span></li>
+      <li>"వ్యక్తిని మానవునిగా తీర్చిదిద్దే ప్రక్రియే సాంఘిక వికాసం. జైవిక వ్యక్తి మానవత్వం గల వ్యక్తిగా మారే ప్రక్రియనే సాంఘిక వికాసం అంటారు" — <span class="imp-word">గ్యారెట్</span></li>
+    </ul>
+
+    <p><strong>వివరణ :</strong> వ్యక్తి తన కుటుంబంలోని ఇతర సభ్యులతో, స్నేహితులతో, ఇరుగుపొరుగుతో సమాజంలోని ఇతర వ్యక్తులతో చక్కని సంబంధాలను కలిగి ఉండి, సఖ్యతతో జీవించగలుగుతూ, మానవ సంబంధాలను మెరుగుపరుచుకోగలటాన్నే 'సాంఘిక వికాసం' అని చెప్పవచ్చు.</p>
+
+    <h3 class="sub-heading">సామాజకీకరణము (Socialization) :</h3>
+    <p>సమాజంలో ఉన్న జీవన శైలులను లేదా జీవన విధానాలను, నియమ నిబంధనలను, ఆచార వ్యవహరాలను అర్థం చేసుకొని, వాటికనుగుణంగా సర్దుబాటు చేసుకొని జీవించట్నాన్ని సామాజకీకరణము అంటారు.</p>
+    <p>👉 <em>"సామూహిక ప్రమాణాలకు, సాంప్రదాయాలకు, విలువలకు లోనై సఖ్యత, పరస్పర సంభాషణ, సహకార స్వభావాలను పెంచుకోవటమే సామాజకీకరణము"</em> — <span class="imp-word">ఫ్రీమన్ - షావెల్</span></p>
+
+    <h3 class="sub-heading">సాంఘిక వికాసం కలిగిన వ్యక్తి లక్షణములు :</h3>
+    <ul>
+      <li>ఇతరులకు సహకరించటం</li>
+      <li>ఇతరులకు సహాయం చేయటం</li>
+      <li>ఇతరుల క్షేమం కోసం చర్యలు చేపట్టడం</li>
+      <li>సామాజిక పురోభివృద్ధికి పాటు పడటము</li>
+      <li>ఇతరులతో అనోయన్యమైన సంబంధాలను కలిగి ఉండటము</li>
+      <li>ఇతరులను ప్రోత్సహించటం</li>
+      <li>ఇతరుల అభిప్రాయాలకు విలువ ఇవ్వటం</li>
+      <li>సామూహిక కృత్యాలలో పాల్గొని సంఘసేవ చేయటం</li>
+    </ul>
+
+    <div class="box app-box">
+      <strong>🎯 Application Questions:</strong><br>
+      1. ఒక పిల్లవాడు ఏడుస్తుంటే, మరొక పిల్లవాడు వానికి తన బొమ్మను ఇచ్చి, ఓదార్చినాడు. ఈ చర్య బొమ్మను ఇచ్చిన పిల్లవాడిలోని ఏ వికాసాన్ని తెలియజేస్తుంది? <br>👉 <strong>సాంఘిక వికాసం</strong><br><br>
+      2. ఒక 10వ తరగతి విద్యార్థి ఒక గ్రామంలో జరిగే శ్రమదానం కార్యక్రమంలో పాల్గొని రహదారి ప్రక్కనే చెట్లు నాటటం అనే చర్య అతనిలోని ఏ వికాసాన్ని సూచిస్తుంది? <br>👉 <strong>సాంఘిక వికాసం</strong>
+    </div>
+
+    <!-- 3. వివిధ దశలలో సాంఘిక వికాసం -->
+    <h2 class="side-heading">వివిధ దశలలో సాంఘిక వికాసం</h2>
+
+    <h3 class="sub-heading">1. శైశవ దశ :</h3>
+    <ul>
+      <li>సాంఘిక వికాసానికి పునాది మెట్టు — <strong>కుటుంబం</strong></li>
+      <li>శిశువు యొక్క సాంఘిక వికాసం ప్రారంభంగా ఈ చర్యను చెప్పుకోవచ్చు — <span class="imp-word">తల్లిని గుర్తుపట్టి నవ్వటం (2 - 3 నెలల మధ్య)</span></li>
+      <li>పరిచయం ఉన్న ఇతర వ్యక్తులను చూసి నవ్వటం శిశువులో ఎప్పటి నుండి ప్రారంభం అవుతుంది — <span class="imp-word">6 - 7 నెలల మధ్య కాలం</span></li>
+      <li>శిశువు యొక్క సాంఘిక ప్రతిస్పందన — ముందు పెద్దవారితో మొదలై తరువాత చిన్నవారితో ఉంటుంది.</li>
+      <li><span class="imp-word">18 నెలల వయస్సులో</span> పెద్దల ఆక్షేపణకు కోపంగా శిశువు ప్రతిస్పందిస్తాడు.</li>
+      <li>శైశవ దశలో కన్పించు సాంఘిక క్రీడ — <strong>ఏకాంతర క్రీడ (Solitary Play)</strong></li>
+      <li><strong>ఏకాంతర క్రీడ అనగా :</strong> శిశువు తన ఆటబొమ్మలతో ఒంటరిగా తాను మాత్రమే ఆడుకోవడం. (Note: శిశువు తనంత బొమ్మలను ఎవరు తాకినా ఒప్పుకోడు).</li>
+      <li>వ్యక్తి యొక్క సాంఘిక ప్రవర్తన శైశవ దశలో శిశువు పొందే తొలి సాంఘిక అనుభవాలపై ఆధారపడి ఉంటుంది.</li>
+    </ul>
+
+    <h3 class="sub-heading">2. పూర్వ బాల్యదశ :</h3>
+    <ul>
+      <li>వ్యక్తి సాంఘిక వికాసంలో ముఖ్యమైన దశ పూర్వబాల్య దశ. (ఎందుకనగా బయటివారితో కలిసిమెలిసి ఆడుకోవడం, ఇచ్చి పుచ్చుకోవడం అనే సాంఘిక కృత్యం ఈ దశలోనే ప్రారంభం అవుతుంది. తద్వారా సాంఘిక వైఖరి, సాంఘిక ప్రవర్తనా నమూనాలు ఏర్పడతాయి).</li>
+      <li>పూర్వ బాల్యదశను <span class="imp-word">పూర్వ ముఠాదశ (Pre-gang age)</span> అని అంటారు.</li>
+      <li><strong>పూర్వ ముఠాదశ అని ఎందుకంటారంటే :</strong> ఉత్తర బాల్యదశలో కన్పించు ముఠాలలో సభ్యులు కావటానికి కావలసిన శిక్షణ, అనుభవం పూర్వ బాల్యదశలోనే పొందటం వల్ల.</li>
+    </ul>
+
+    <p><strong>పూర్వ బాల్యదశలోని సాంఘిక క్రీడలు :</strong></p>
+    <table>
+      <thead>
+        <tr>
+          <th>క్రీడ రకం</th>
+          <th>వయస్సు</th>
+          <th>వివరణ & ఉదాహరణలు</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>సమాంతర క్రీడలు (Parallel Play)</strong></td>
+          <td>2 - 3 సం॥లు</td>
+          <td>ముగ్గురు లేదా నలుగురు పిల్లలు ఒక చోటకు చేరి ఒకరి ప్రక్కన ఒకరు కూర్చుని ఎవరికి వారే వారి ఆటబొమ్మలతో ఆడుకోవడం. (ఆటవస్తువులు ఇచ్చిపుచ్చుకోరు).</td>
+        </tr>
+        <tr>
+          <td><strong>సంసర్గ క్రీడలు (Associative Play)</strong></td>
+          <td>3 - 4 సం॥లు</td>
+          <td>ముగ్గురు లేదా నలుగురు పిల్లలు ఒకచోట చేరి ఆటను పోలిన ఆటనే అందరూ ఆడుకోవడం, ఒకరి ఆటను ఒకరు గమనిస్తుంటారు. (ఆట వస్తువులు ఇచ్చిపుచ్చుకోరు). <br><em>ఉదా : ఇసుకలో గూళ్ళు, కోటలు కట్టడం.</em></td>
+        </tr>
+        <tr>
+          <td><strong>సహకార క్రీడలు (Cooperative Play)</strong></td>
+          <td>3 - 4 సం॥లు</td>
+          <td>ఒకరితో ఒకరు సహకరించుకుంటూ, ఆటవస్తువులను పంచుకుంటూ, అనుకూలతను కనబరుస్తూ ఆడే ఆటలు. (ఆటవస్తువులు ఇచ్చిపుచ్చుకుంటారు, కానీ నియమాలు అంతగా పట్టించుకోరు). <br><em>ఉదా : బంతితో రాయిని కొట్టే ఆట.</em></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>👉 పూర్వ బాల్యదశ అంతానికి అందరూ ఆమోదించే లేదా తిరస్కరించే ప్రవర్తనను ఎంచుకుంటారు.</p>
+
+    <h3 class="sub-heading">3. ఉత్తర బాల్యదశ :</h3>
+    <ul>
+      <li>ఉత్తర బాల్యదశను <span class="imp-word">ముఠాదశ (Gang age)</span> అని పిలుస్తారు.</li>
+      <li><strong>జట్టు భావన (Team Spirit)</strong> బాగా అభివృద్ధి చెందే దశగా "ఉత్తర బాల్యదశ" ను చెప్పవచ్చు.</li>
+      <li>ఈ దశలో ముఠాలు ఆటలు / సరదాల కోసం ఏర్పడతాయి.</li>
+      <li>ఉత్తర బాల్యదశలో ముఠాలలో <strong>ఒకే లింగానికి (Same sex)</strong> చెందిన సభ్యులు ఉంటారు.</li>
+      <li>ముఠాలలో సభ్యులుగా ఉండటం వల్ల : ముఠాకు విధేయుడై ఉండటం, ప్రమాణాలకు కట్టుబడి ఉండటం, సాంఘిక ఆమోద ప్రవర్తనను కలిగి ఉండటం, సహకరించుకోవడం, కలిసిమెలిసి ఉండటం, నాయకత్వ లక్షణాలను రూపొందించుకోవడం మొదలగునవి అభివృద్ధి చెందుతాయి.</li>
+      <li>ఈ దశ అంతానికి సాధారణంగా పిల్లలకు జట్టులో వారి <span class="imp-word">సాంఘికమితి స్థితి (Sociometric status)</span> తో పాటు ఇతరుల సాంఘికమితి స్థితి గురించి కూడా అవగాహన ఏర్పడుతుంది.</li>
+    </ul>
+
+    <div class="box note-box">
+      <span class="box-title">📌 Note :</span> సాంఘికమితి స్థితి అనగా ఒక సమూహంలోని ఇతర సభ్యులు తనను అంగీకరిస్తున్నారా లేక తిరస్కరిస్తున్నారా అనేవి తెలిసి ఉండటం.
+    </div>
+
+    <p>👉 <strong>ఉత్తర బాల్యదశలోని క్రీడలు :</strong> సాంఘిక క్రీడలు / ముఠాక్రీడలు / జట్టు క్రీడలు.</p>
+    <p><strong>జట్టు క్రీడలు :</strong> సమూహంలోని సభ్యులు రెండు జట్లుగా విడిపోయి ఉమ్మడిగా ఆడుకొనే ఆటలను జట్టు క్రీడలు అంటారు.</p>
+
+    <h3 class="sub-heading">4. కౌమార దశ :</h3>
+    <ul>
+      <li>కౌమారులు బాల్యంలో ఏర్పరచుకున్న ముఠాల నుండి విడిపోయి, కొత్త సమూహాలను ఏర్పాటు చేసుకుంటారు. వీటినే <strong>గ్యాంగ్స్ (Gangs)</strong> అంటారు.</li>
+      <li>గ్యాంగ్స్ ను <strong>సమవయస్క బృందాలు / Peer groups</strong> అని అంటారు.</li>
+      <li>సాధారణంగా అబ్బాయిల సమూహాలు పెద్దవిగా ఉంటాయి కానీ వారి మధ్య బంధం అంత బలంగా ఉండదు. అమ్మాయిల సమూహాలు చిన్నవైనప్పటికీ వారి మధ్య బలమైన బంధం ఉంటుంది.</li>
+      <li>కౌమారదశను <strong>సాంఘిక స్థిరత్వం పెరిగే దశగా</strong> చెప్పుకుంటారు.</li>
+      <li>సాంఘిక కార్యక్రమాలలో భాగస్వామ్యం ఎక్కువ అవటం వల్ల వీరిలో సాంఘిక పరిజ్ఞానం పెరిగి, సాంఘిక సమర్థత అభివృద్ధి చెందుతుంది.</li>
+      <li>కౌమారదశలో సమూహంలో ఎక్కువ సమయం గడపటం వల్ల పెద్దల నుండి తీవ్ర వ్యతిరేకతను ఎదుర్కొంటుంటారు.</li>
+      <li>కౌమారదశను <span class="imp-word">'పాత్ర గుర్తింపు' (Identity)</span> కోరుకునే దశగా భావిస్తారు. (తన ఉనికిని, తన మూర్తిమత్వాన్ని ఇతరులు గుర్తించి, పొగడాలని కోరుకోవటం).</li>
+      <li><span class="imp-word">'వ్యక్తి పూజ / నాయకారాధన' (Hero Worship)</span> ఎక్కువగా కన్పించు దశ — <strong>కౌమారదశ</strong>.</li>
+    </ul>
+
+    <div class="box example-box">
+      <strong>వ్యక్తి పూజ అనగా :</strong> తనకు నచ్చిన సినిమా హీరోను కానీ, Cricket Star ను గానీ, రాజకీయ నాయకుని గానీ ఆరాధించటం.
+    </div>
+
+    <ul>
+      <li><strong>సాంఘిక వికాసం గరిష్ఠస్థాయికి చేరుకొనే దశ — కౌమారదశ.</strong></li>
+      <li>సామాజిక కార్యక్రమాలలో పాల్గొనడం ద్వారా (NCC, NSS) సంఘసేవ చేయడం కౌమారదశ నుండి ప్రారంభం అవుతుంది.</li>
+    </ul>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.getElementById('themeToggle');
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        btn.textContent = '🌙';
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        btn.textContent = '☀️';
+      }
+    }
+  </script>
+
+</body>
+</html>
