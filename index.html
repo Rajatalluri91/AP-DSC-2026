@@ -1,71 +1,186 @@
 <!DOCTYPE html>
-
 <html lang="te">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1020">
+    <meta name="description" content="AP DSC 2026 Pro Study Portal">
     <title>Target DSC - Pro Study Portal</title>
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0f172a">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root{
+            --bg:#070b16; --panel:rgba(15,23,42,.72); --panel2:rgba(20,29,51,.82);
+            --line:rgba(148,163,184,.13); --text:#f8fafc; --muted:#94a3b8;
+            --primary:#ff8a00; --primary2:#ffb347; --blue:#60a5fa; --purple:#a78bfa;
+            --green:#34d399; --shadow:0 20px 60px rgba(0,0,0,.32);
+        }
+        *{box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{
+            margin:0; min-height:100vh; color:var(--text);
+            font-family:Inter,"Anek Telugu",sans-serif;
+            background: var(--bg);
+            overflow-x:hidden;
+        }
+        body:before{
+            content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;
+            background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+            background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 90%);
+        }
+        button,input{font:inherit}
+        button,a{ -webkit-tap-highlight-color:transparent }
+        .topbar{
+            position:sticky;top:0;z-index:100;
+            border-bottom:1px solid var(--line);
+            background:rgba(7,11,22,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+        }
+        .top-inner{max-width:1100px;margin:auto;padding:14px 18px;display:flex;align-items:center;gap:12px;min-height:72px}
+        .back-btn{
+            border:1px solid var(--line);background:rgba(30,41,59,.7);color:#cbd5e1;
+            width:42px;height:42px;border-radius:14px;cursor:pointer;transition:.25s;box-shadow:0 8px 24px rgba(0,0,0,.18)
+        }
+        .back-btn:hover{background:rgba(51,65,85,.9);color:white;transform:translateX(-2px)}
+        .brand{flex:1;text-align:center;display:flex;justify-content:center;align-items:center;gap:10px}
+        .brand-icon{
+            width:40px;height:40px;border-radius:13px;display:grid;place-items:center;color:#111827;
+            background:linear-gradient(135deg,var(--primary),var(--primary2));box-shadow:0 8px 28px rgba(255,138,0,.28)
+        }
+        .brand-title{font-size:17px;font-weight:800;letter-spacing:.6px}
+        .brand-sub{font-size:10px;color:var(--muted);letter-spacing:1.4px;margin-top:2px;text-transform:uppercase}
+        .header-spacer{width:42px}
+        .page{max-width:1100px;margin:auto;padding:28px 18px 50px}
+        .hero{
+            position:relative;overflow:hidden;border:1px solid var(--line);border-radius:28px;padding:25px;
+            background:linear-gradient(135deg,rgba(30,41,59,.75),rgba(15,23,42,.54));
+            box-shadow:var(--shadow);margin-bottom:20px
+        }
+        .hero-row{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:18px}
+        .eyebrow{font-size:11px;font-weight:800;letter-spacing:1.8px;color:var(--primary2);text-transform:uppercase}
+        .hero h2{margin:7px 0 5px;font-size:clamp(22px,4vw,32px);line-height:1.2}
+        .hero p{margin:0;color:var(--muted);font-size:13px}
+        .fire{
+            width:58px;height:58px;border-radius:20px;display:grid;place-items:center;flex:none;
+            background:linear-gradient(135deg,rgba(255,138,0,.2),rgba(255,179,71,.06));
+            border:1px solid rgba(255,138,0,.25);color:var(--primary2);font-size:22px;box-shadow:0 12px 35px rgba(255,138,0,.12)
+        }
+        .search-wrap{position:relative;margin-bottom:22px}
+        .search{
+            width:100%;height:54px;padding:0 52px 0 48px;color:white;outline:none;
+            background:rgba(15,23,42,.78);border:1px solid var(--line);border-radius:18px;
+            box-shadow:0 12px 35px rgba(0,0,0,.18);transition:.25s
+        }
+        .search:focus{border-color:rgba(255,138,0,.55);box-shadow:0 0 0 4px rgba(255,138,0,.08),0 15px 40px rgba(0,0,0,.25)}
+        .search::placeholder{color:#64748b}
+        .search-icon{position:absolute;left:18px;top:18px;color:#64748b}
+        .clear-search{display:none;position:absolute;right:14px;top:9px;width:36px;height:36px;border:0;border-radius:12px;background:#1e293b;color:#94a3b8;cursor:pointer}
+        .section-head{display:flex;align-items:end;justify-content:space-between;margin:0 2px 12px}
+        .section-head h3{margin:0;font-size:13px;color:#cbd5e1;letter-spacing:.4px}
+        .count{font-size:11px;color:#64748b}
+        .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+        .card{
+            position:relative;overflow:hidden;text-align:left;width:100%;cursor:pointer;
+            border:1px solid var(--line);border-radius:22px;padding:17px;
+            color:var(--text);background:linear-gradient(145deg,rgba(15,23,42,.88),rgba(17,24,39,.66));
+            display:flex;align-items:center;justify-content:space-between;gap:14px;
+            transition:transform .25s,border-color .25s,background .25s,box-shadow .25s;
+            box-shadow:0 10px 35px rgba(0,0,0,.16)
+        }
+        .card:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent,rgba(255,255,255,.045),transparent);transform:translateX(-120%);transition:.6s}
+        .card:hover{transform:translateY(-4px);border-color:rgba(255,138,0,.38);box-shadow:0 18px 45px rgba(0,0,0,.28)}
+        .card:hover:before{transform:translateX(120%)}
+        .card-main{display:flex;align-items:center;gap:14px;min-width:0}
+        .subject-icon{width:54px;height:54px;padding:7px;object-fit:contain;border-radius:17px;background:rgba(255,255,255,.045);border:1px solid var(--line);flex:none}
+        .card-title{font-weight:700;font-size:14px;line-height:1.45;word-break:break-word}
+        .arrow{
+            width:38px;height:38px;border-radius:13px;display:grid;place-items:center;flex:none;
+            color:#94a3b8;background:#172033;border:1px solid var(--line);transition:.25s
+        }
+        .card:hover .arrow{background:var(--primary);color:#111827;border-color:var(--primary);transform:translateX(2px)}
+        .crumb{
+            display:flex;align-items:center;gap:12px;margin-bottom:15px;padding:15px 17px;border:1px solid var(--line);
+            border-radius:20px;background:rgba(15,23,42,.7);box-shadow:0 10px 30px rgba(0,0,0,.14)
+        }
+        .crumb-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(255,138,0,.12);color:var(--primary2);flex:none}
+        .crumb h2{margin:0;font-size:15px}.crumb p{margin:3px 0 0;color:#64748b;font-size:11px}
+        .list{display:grid;gap:11px}
+        .list-card{
+            width:100%;border:1px solid var(--line);background:rgba(15,23,42,.72);border-radius:19px;
+            padding:15px 16px;display:flex;align-items:center;justify-content:space-between;gap:15px;
+            color:inherit;text-decoration:none;text-align:left;cursor:pointer;transition:.25s;box-shadow:0 8px 28px rgba(0,0,0,.12)
+        }
+        .list-card:hover{transform:translateX(4px);background:rgba(25,36,58,.9);border-color:rgba(96,165,250,.34)}
+        .list-left{display:flex;align-items:center;gap:13px;min-width:0}
+        .mini-icon{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;background:#172033;color:#94a3b8;flex:none;border:1px solid var(--line)}
+        .list-title{font-size:13px;font-weight:600;line-height:1.55;word-break:break-word}
+        .action{
+            flex:none;padding:9px 12px;border-radius:12px;border:1px solid rgba(52,211,153,.2);
+            background:rgba(52,211,153,.09);color:#6ee7b7;font-size:11px;font-weight:700;display:flex;align-items:center;gap:7px;white-space:nowrap
+        }
+        .list-card:hover .action{background:#10b981;color:#04130d;border-color:#10b981}
+        .empty{padding:45px 20px;text-align:center;border:1px dashed #334155;border-radius:22px;color:#64748b}
+        footer{text-align:center;color:#475569;font-size:11px;padding:20px;border-top:1px solid var(--line)}
+        .hidden{display:none!important}
+        @media(max-width:700px){
+            .page{padding:20px 13px 35px}.top-inner{padding:11px 13px;min-height:64px}
+            .brand-title{font-size:14px}.brand-sub{display:none}.brand-icon{width:36px;height:36px;border-radius:12px}
+            .hero{padding:20px;border-radius:23px}.hero h2{font-size:22px}.grid{grid-template-columns:1fr;gap:10px}
+            .card{padding:14px;border-radius:18px}.subject-icon{width:48px;height:48px}
+            .action{padding:8px 9px}.list-card{padding:13px;border-radius:17px}
+        }
+        @media(max-width:430px){.list-title{font-size:12px}.action{font-size:10px}.hero p{font-size:12px}}
+    </style>
 </head>
 
-<body class="font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-orange-500 selection:text-white bg-slate-950 text-slate-100">
-
-<div>
-    <!-- Header Section -->
-    <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 p-4">
-        <div class="max-w-4xl mx-auto flex items-center justify-between">
-            <div id="backButtonContainer" class="hidden">
-                <button onclick="goBack()" class="bg-slate-800 hover:bg-slate-700 text-orange-400 px-3 py-1.5 rounded-xl text-sm flex items-center gap-1.5 transition border border-slate-700 shadow">
-                    <i class="fa-solid fa-arrow-left"></i> Back
-                </button>
-            </div>
-            <h1 class="text-lg md:text-xl font-bold flex items-center gap-2 mx-auto tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-200">
-                <i class="fa-solid fa-graduation-cap text-orange-400"></i> AP DSC 2026 PRO
-            </h1>
-            <div style="width: 60px;"></div>
-        </div>
-    </header>
-
-    <!-- Main Content Container -->
-    <main class="max-w-4xl mx-auto p-4 md:p-6">
-        
-        <!-- Add-on 1: Quick Search Bar -->
-        <div id="searchContainer" class="mb-5">
-            <div class="relative">
-                <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400"></i>
-                <input type="text" id="searchInput" onkeyup="filterSubjects()" placeholder="Search subjects or topics..." 
-                    class="w-full bg-slate-800/80 border border-slate-700 rounded-2xl py-3 pl-11 pr-4 text-sm text-slate-200 placeholder-slate-400 focus:outline-none focus:border-orange-500 transition shadow-inner">
-            </div>
-        </div>
-
-        <!-- Add-on 2: Motivation / Stats Banner -->
-        <div id="statsBanner" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 mb-5 flex items-center justify-between border-l-4 border-l-orange-500 shadow-lg">
+<body>
+<header class="topbar">
+    <div class="top-inner">
+        <button id="backButton" class="back-btn hidden" onclick="goBack()" aria-label="Go back">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="brand">
+            <div class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></div>
             <div>
-                <h3 class="text-xs font-semibold text-orange-400 uppercase tracking-wider">Target 2026</h3>
-                <p class="text-sm font-bold text-slate-200 mt-0.5">Consistency is the key to cracking DSC!</p>
-            </div>
-            <div class="bg-orange-500/20 text-orange-400 p-2.5 rounded-xl border border-orange-500/30">
-                <i class="fa-solid fa-fire text-lg"></i>
+                <div class="brand-title">AP DSC 2026 PRO</div>
+                <div class="brand-sub">Smart Study Portal</div>
             </div>
         </div>
+        <div class="header-spacer"></div>
+    </div>
+</header>
 
-        <!-- Dynamic App View -->
-        <div id="appContainer"></div>
-    </main>
-</div>
+<main class="page">
+    <section id="statsBanner" class="hero">
+        <div class="hero-row">
+            <div>
+                <div class="eyebrow">Target DSC 2026</div>
+                <h2>Study Smart. Stay Consistent.</h2>
+                <p>All your subjects, classes and lessons in one clean study portal.</p>
+            </div>
+            <div class="fire"><i class="fa-solid fa-fire-flame-curved"></i></div>
+        </div>
+    </section>
 
-<!-- Footer -->
-<footer class="text-center py-6 text-slate-500 text-xs border-t border-slate-800/60 mt-10">
-    &copy; 2026 AP DSC Master Portal. Built for Excellence.
-</footer>
+    <div id="searchContainer" class="search-wrap">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input id="searchInput" class="search" type="search" autocomplete="off"
+               placeholder="Search subjects or topics..." oninput="filterSubjects()">
+        <button id="clearSearch" class="clear-search" onclick="clearSearch()" aria-label="Clear search">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
 
-<!-- JavaScript Application Logic -->
+    <div id="appContainer"></div>
+</main>
+
+<footer>&copy; 2026 AP DSC Master Portal • Built for Excellence</footer>
+
 <script>
+
     const dscData = [
         {
             subjectName: "Psychology & Pedagogy",
@@ -411,202 +526,153 @@
         }
     ];
 
-    let currentView = 'subjects'; 
-    let selectedSubjectIndex = null;
-    let selectedClassIndex = null;
-    let selectedSectionIndex = null;
+let currentView='subjects';
+let selectedSubjectIndex=null;
+let selectedClassIndex=null;
+let selectedSectionIndex=null;
 
-    function renderApp(filteredData = dscData) {
-        const container = document.getElementById('appContainer');
-        const backBtnContainer = document.getElementById('backButtonContainer');
-        const searchContainer = document.getElementById('searchContainer');
-        const statsBanner = document.getElementById('statsBanner');
-        
-        container.innerHTML = "";
+function esc(value){
+    return String(value).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+}
 
-        if (currentView === 'subjects') {
-            backBtnContainer.classList.add('hidden');
-            searchContainer.classList.remove('hidden');
-            statsBanner.classList.remove('hidden');
+function setChrome(){
+    const isHome=currentView==='subjects';
+    document.getElementById('backButton').classList.toggle('hidden',isHome);
+    document.getElementById('searchContainer').classList.toggle('hidden',!isHome);
+    document.getElementById('statsBanner').classList.toggle('hidden',!isHome);
+}
 
-            let html = '<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="subjectsGrid">';
-            
-            filteredData.forEach((sub) => {
-                let originalIndex = dscData.findIndex(s => s.subjectName === sub.subjectName);
-                html += `
-                    <button onclick="openSubject(${originalIndex})" class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:border-orange-500/50 hover:bg-slate-800/80 transition flex items-center justify-between text-left group shadow-lg">
-                        <div class="flex items-center gap-3.5">
-                            <img src="${sub.icon}" class="w-11 h-11 object-contain drop-shadow">
-                            <span class="font-bold text-slate-100 text-base group-hover:text-orange-400 transition">${sub.subjectName}</span>
-                        </div>
-                        <div class="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-orange-500 group-hover:text-white transition">
-                            <i class="fa-solid fa-chevron-right text-xs"></i>
-                        </div>
-                    </button>
-                `;
-            });
-            html += '</div>';
-            container.innerHTML = html;
+function renderApp(filteredData=dscData){
+    const c=document.getElementById('appContainer');
+    c.innerHTML='';
+    setChrome();
 
-        } else if (currentView === 'classes') {
-            backBtnContainer.classList.remove('hidden');
-            searchContainer.classList.add('hidden');
-            statsBanner.classList.add('hidden');
-
-            let sub = dscData[selectedSubjectIndex];
-            let html = `
-                <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mb-4 flex items-center gap-3 border-l-4 border-l-blue-500 shadow-lg">
-                    <img src="${sub.icon}" class="w-8 h-8">
-                    <h2 class="text-base font-bold text-slate-100">${sub.subjectName} - Select Class</h2>
+    if(currentView==='subjects'){
+        const q=document.getElementById('searchInput').value.trim();
+        let html=`<div class="section-head"><h3>Explore Subjects</h3><span class="count">${filteredData.length} subject${filteredData.length===1?'':'s'}</span></div><div class="grid">`;
+        if(!filteredData.length) html+=`<div class="empty" style="grid-column:1/-1"><i class="fa-solid fa-magnifying-glass" style="font-size:25px;margin-bottom:10px"></i><div>No subjects found for “${esc(q)}”</div></div>`;
+        filteredData.forEach(sub=>{
+            const originalIndex=dscData.findIndex(s=>s.subjectName===sub.subjectName);
+            html+=`<button class="card" onclick="openSubject(${originalIndex})">
+                <div class="card-main">
+                    <img class="subject-icon" src="${sub.icon}" alt="" loading="lazy">
+                    <div class="card-title">${esc(sub.subjectName)}</div>
                 </div>
-                <div class="space-y-3">
-            `;
-            
-            sub.classes.forEach((cls, index) => {
-                html += `
-                    <button onclick="openClass(${index})" class="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:border-blue-500/50 hover:bg-slate-800/80 transition flex items-center justify-between text-left group shadow-lg">
-                        <span class="font-semibold text-blue-400 flex items-center gap-2.5">
-                            <i class="fa-solid fa-layer-group text-slate-400 group-hover:text-blue-400"></i>${cls.className}
-                        </span>
-                        <div class="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition">
-                            <i class="fa-solid fa-chevron-right text-xs"></i>
-                        </div>
-                    </button>
-                `;
-            });
-            html += '</div>';
-            container.innerHTML = html;
-
-        } else if (currentView === 'sections') {
-            backBtnContainer.classList.remove('hidden');
-            searchContainer.classList.add('hidden');
-            statsBanner.classList.add('hidden');
-
-            let sub = dscData[selectedSubjectIndex];
-            let cls = sub.classes[selectedClassIndex];
-            let html = `
-                <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mb-4 border-l-4 border-l-purple-500 shadow-lg">
-                    <h2 class="text-base font-bold text-slate-100 flex items-center gap-2">
-                        <i class="fa-solid fa-folder-open text-purple-400"></i>${cls.className} - Select Section
-                    </h2>
-                </div>
-                <div class="space-y-3">
-            `;
-            
-            cls.sections.forEach((sec, index) => {
-                html += `
-                    <button onclick="openSection(${index})" class="w-full bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:border-purple-500/50 hover:bg-slate-800/80 transition flex items-center justify-between text-left group shadow-lg">
-                        <span class="font-semibold text-purple-300 flex items-center gap-2.5">
-                            <i class="fa-solid fa-book-bookmark text-slate-400 group-hover:text-purple-400"></i>${sec.sectionName}
-                        </span>
-                        <div class="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-purple-600 group-hover:text-white transition">
-                            <i class="fa-solid fa-chevron-right text-xs"></i>
-                        </div>
-                    </button>
-                `;
-            });
-            html += '</div>';
-            container.innerHTML = html;
-
-        } else if (currentView === 'lessons') {
-            backBtnContainer.classList.remove('hidden');
-            searchContainer.classList.add('hidden');
-            statsBanner.classList.add('hidden');
-
-            let sub = dscData[selectedSubjectIndex];
-            let cls = sub.classes[selectedClassIndex];
-            let sec = cls.sections[selectedSectionIndex];
-            let html = `
-                <div class="bg-slate-900/60 border border-slate-800 p-4 rounded-2xl mb-4 border-l-4 border-l-emerald-500 shadow-lg">
-                    <h2 class="text-base font-bold text-slate-100 flex items-center gap-2">
-                        <i class="fa-solid fa-book-open text-emerald-400"></i>${sec.sectionName} Lessons
-                    </h2>
-                </div>
-                <div class="space-y-2.5">
-            `;
-            
-            sec.lessons.forEach(les => {
-                html += `
-                    <a href="${les.githubLink}" target="_blank" class="block bg-slate-900/60 border border-slate-800 p-4 rounded-2xl hover:bg-slate-800/80 hover:border-emerald-500/50 transition flex items-center justify-between group shadow-lg">
-                        <span class="text-sm font-medium text-slate-200 group-hover:text-emerald-300 transition flex items-center gap-2.5">
-                            <i class="fa-solid fa-file-lines text-slate-500 group-hover:text-emerald-400"></i>${les.title}
-                        </span>
-                        <span class="bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 group-hover:bg-emerald-600 group-hover:text-white transition">
-                            Read Notes <i class="fa-solid fa-external-link-alt text-[10px]"></i>
-                        </span>
-                    </a>
-                `;
-            });
-            html += '</div>';
-            container.innerHTML = html;
-        }
-    }
-
-    function filterSubjects() {
-        let query = document.getElementById('searchInput').value.toLowerCase();
-        let filtered = dscData.filter(sub => sub.subjectName.toLowerCase().includes(query));
-        renderApp(filtered);
-    }
-
-    function openSubject(index) {
-        selectedSubjectIndex = index;
-        currentView = 'classes';
-        history.pushState({ view: 'classes', sub: index }, '');
-        renderApp();
-        window.scrollTo(0, 0);
-    }
-
-    function openClass(index) {
-        selectedClassIndex = index;
-        currentView = 'sections';
-        history.pushState({ view: 'sections', sub: selectedSubjectIndex, cls: index }, '');
-        renderApp();
-        window.scrollTo(0, 0);
-    }
-
-    function openSection(index) {
-        selectedSectionIndex = index;
-        currentView = 'lessons';
-        history.pushState({ view: 'lessons', sub: selectedSubjectIndex, cls: selectedClassIndex, sec: index }, '');
-        renderApp();
-        window.scrollTo(0, 0);
-    }
-
-    function goBack() {
-        window.history.back();
-    }
-
-    window.onpopstate = function(event) {
-        if (event.state) {
-            currentView = event.state.view;
-            selectedSubjectIndex = event.state.sub !== undefined ? event.state.sub : null;
-            selectedClassIndex = event.state.cls !== undefined ? event.state.cls : null;
-            selectedSectionIndex = event.state.sec !== undefined ? event.state.sec : null;
-        } else {
-            currentView = 'subjects';
-            selectedSubjectIndex = null;
-            selectedClassIndex = null;
-            selectedSectionIndex = null;
-        }
-        renderApp();
-    };
-
-    window.onload = function() {
-        history.replaceState({ view: 'subjects' }, '');
-        renderApp();
-    };
-</script>
-
-<!-- Register Service Worker for Target DSC PWA -->
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js')
-                .then((reg) => console.log('Target DSC Service Worker Registered Successfully', reg))
-                .catch((err) => console.log('Service Worker Registration Failed', err));
+                <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </button>`;
         });
+        html+='</div>'; c.innerHTML=html; return;
     }
-</script>
 
+    const sub=dscData[selectedSubjectIndex];
+    if(currentView==='classes'){
+        c.innerHTML=`${crumb(`<i class="fa-solid fa-layer-group"></i>`,sub.subjectName,'Select your class')}<div class="list">
+            ${sub.classes.map((cls,i)=>`<button class="list-card" onclick="openClass(${i})"><div class="list-left"><div class="mini-icon"><i class="fa-solid fa-graduation-cap"></i></div><div class="list-title">${esc(cls.className)}</div></div><div class="arrow"><i class="fa-solid fa-chevron-right"></i></div></button>`).join('')}
+        </div>`; return;
+    }
+
+    const cls=sub.classes[selectedClassIndex];
+    if(currentView==='sections'){
+        c.innerHTML=`${crumb(`<i class="fa-solid fa-folder-open"></i>`,cls.className,'Select a section')}<div class="list">
+            ${cls.sections.map((sec,i)=>`<button class="list-card" onclick="openSection(${i})"><div class="list-left"><div class="mini-icon"><i class="fa-solid fa-book-bookmark"></i></div><div class="list-title">${esc(sec.sectionName)}</div></div><div class="arrow"><i class="fa-solid fa-chevron-right"></i></div></button>`).join('')}
+        </div>`; return;
+    }
+
+    const sec=cls.sections[selectedSectionIndex];
+    c.innerHTML=`${crumb(`<i class="fa-solid fa-book-open"></i>`,sec.sectionName,'Lessons & study notes')}<div class="list">
+        ${sec.lessons.map(les=>{
+            const disabled=!les.githubLink || les.githubLink==='#';
+            return `<a class="list-card" href="${disabled?'javascript:void(0)':les.githubLink}" ${disabled?'aria-disabled="true" onclick="return false"':''}>
+                <div class="list-left"><div class="mini-icon"><i class="fa-solid fa-file-lines"></i></div><div class="list-title">${esc(les.title)}</div></div>
+                <span class="action" style="${disabled?'color:#94a3b8;background:rgba(148,163,184,.07);border-color:rgba(148,163,184,.12)':''}">
+                    <i class="fa-solid ${disabled?'fa-lock':'fa-book-open'}"></i>${disabled?'Coming Soon':'Read Notes'}
+                </span>
+            </a>`;
+        }).join('')}
+    </div>`;
+}
+
+function crumb(icon,title,sub){
+    return `<div class="crumb"><div class="crumb-icon">${icon}</div><div><h2>${esc(title)}</h2><p>${esc(sub)}</p></div></div>`;
+}
+
+function filterSubjects(){
+    const q=document.getElementById('searchInput').value.toLowerCase().trim();
+    document.getElementById('clearSearch').style.display=q?'block':'none';
+    const filtered=dscData.filter(sub=>{
+        if(sub.subjectName.toLowerCase().includes(q)) return true;
+        return sub.classes.some(cls=>cls.className.toLowerCase().includes(q) ||
+            cls.sections.some(sec=>sec.sectionName.toLowerCase().includes(q) ||
+                sec.lessons.some(les=>les.title.toLowerCase().includes(q))));
+    });
+    renderApp(filtered);
+}
+
+function clearSearch(){
+    document.getElementById('searchInput').value='';
+    document.getElementById('clearSearch').style.display='none';
+    renderApp(dscData);
+    document.getElementById('searchInput').focus();
+}
+
+function openSubject(index){
+    selectedSubjectIndex=index; selectedClassIndex=null; selectedSectionIndex=null; currentView='classes';
+    history.pushState({view:'classes',sub:index},''); renderApp(); window.scrollTo({top:0,behavior:'smooth'});
+}
+function openClass(index){
+    selectedClassIndex=index; selectedSectionIndex=null; currentView='sections';
+    history.pushState({view:'sections',sub:selectedSubjectIndex,cls:index},''); renderApp(); window.scrollTo({top:0,behavior:'smooth'});
+}
+function openSection(index){
+    selectedSectionIndex=index; currentView='lessons';
+    history.pushState({view:'lessons',sub:selectedSubjectIndex,cls:selectedClassIndex,sec:index},''); renderApp(); window.scrollTo({top:0,behavior:'smooth'});
+}
+function goBack(){history.back()}
+
+window.onpopstate=e=>{
+    if(e.state){
+        currentView=e.state.view;
+        selectedSubjectIndex=e.state.sub??null;
+        selectedClassIndex=e.state.cls??null;
+        selectedSectionIndex=e.state.sec??null;
+    }else{
+        currentView='subjects'; selectedSubjectIndex=selectedClassIndex=selectedSectionIndex=null;
+    }
+    renderApp();
+};
+
+function restoreViewFromHistory(){
+    const state = history.state;
+
+    if(state && state.view){
+        currentView = state.view;
+        selectedSubjectIndex = state.sub ?? null;
+        selectedClassIndex = state.cls ?? null;
+        selectedSectionIndex = state.sec ?? null;
+    } else {
+        currentView = 'subjects';
+        selectedSubjectIndex = null;
+        selectedClassIndex = null;
+        selectedSectionIndex = null;
+
+        // Create the HOME history entry only once.
+        // Do not overwrite an existing lesson/class/section history entry.
+        history.replaceState({view:'subjects'}, '', location.href);
+    }
+
+    renderApp();
+}
+
+window.onload=()=>{
+    // IMPORTANT:
+    // When returning from an opened lesson, the browser restores the
+    // previous portal history state. Do NOT replace it with HOME.
+    restoreViewFromHistory();
+
+    if('serviceWorker' in navigator){
+        navigator.serviceWorker.register('./sw.js').catch(err=>console.log('Service Worker:',err));
+    }
+};
+</script>
 </body>
 </html>
