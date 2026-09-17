@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.7 కార్ల్ రోజర్స్ ఆత్మ వికాస సిద్ధాంతం / స్వీయ వికాస సిద్ధాంతం</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #f1f5f9;
+      --card-bg: #ffffff;
+      --text-color: #334155;
+      
+      --main-heading: #1e3a8a;
+      --side-heading: #0369a1;
+      --sub-heading: #0d9488;
+      --important-word: #b91c1c;
+      --important-bg: #fee2e2;
+      
+      --note-bg: #fefce8;
+      --note-border: #eab308;
+      --note-text: #713f12;
+      
+      --example-bg: #f0fdf4;
+      --example-border: #22c55e;
+      --example-text: #14532d;
+
+      --app-bg: #eff6ff;
+      --app-border: #3b82f6;
+      --app-text: #1e40af;
+      
+      --border-color: #cbd5e1;
+      --table-header: #1e293b;
+      --table-row-even: #f8fafc;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #cbd5e1;
+      
+      --main-heading: #60a5fa;
+      --side-heading: #38bdf8;
+      --sub-heading: #2dd4bf;
+      --important-word: #fca5a5;
+      --important-bg: #450a0a;
+
+      --note-bg: #2e2608;
+      --note-border: #facc15;
+      --note-text: #fef08a;
+
+      --example-bg: #052e16;
+      --example-border: #4ade80;
+      --example-text: #bbf7d0;
+
+      --app-bg: #1e3a8a;
+      --app-border: #60a5fa;
+      --app-text: #dbeaff;
+
+      --border-color: #334155;
+      --table-header: #0f172a;
+      --table-row-even: #1e293b;
+    }
+
+    body {
+      font-family: 'Mandali', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.8;
+      margin: 0;
+      padding: 10px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 0;
+      color: var(--main-heading);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Mandali', sans-serif;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--border-color);
+    }
+
+    h2.side-heading {
+      font-size: 21px;
+      color: var(--side-heading);
+      border-left: 5px solid var(--side-heading);
+      padding-left: 12px;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, rgba(3,105,161,0.05) 0%, rgba(0,0,0,0) 100%);
+      padding-top: 4px;
+      padding-bottom: 4px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    h3.sub-heading {
+      font-size: 18px;
+      color: var(--sub-heading);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .imp-word {
+      color: var(--important-word);
+      background-color: var(--important-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .box {
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+
+    .note-box {
+      background-color: var(--note-bg);
+      border-left: 5px solid var(--note-border);
+      color: var(--note-text);
+    }
+    
+    .note-box .box-title {
+      color: var(--note-border);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .example-box {
+      background-color: var(--example-bg);
+      border-left: 5px solid var(--example-border);
+      color: var(--example-text);
+    }
+
+    .app-box {
+      background-color: var(--app-bg);
+      border-left: 5px solid var(--app-border);
+      color: var(--app-text);
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      overflow-x: auto;
+      display: block;
+    }
+
+    @media (min-width: 600px) {
+      table {
+        display: table;
+      }
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--table-header);
+      color: #ffffff;
+    }
+
+    tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+
+    .flow-chart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .flow-step {
+      background-color: var(--app-bg);
+      border: 2px solid var(--app-border);
+      color: var(--app-text);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .arrow {
+      font-size: 20px;
+      color: var(--side-heading);
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-bar">
+      <h1>1.7 కార్ల్ రోజర్స్ ఆత్మ వికాస సిద్ధాంతం / స్వీయ వికాస సిద్ధాంతం</h1>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</button>
+    </div>
+
+    <!-- పరిచయం -->
+    <h2 class="side-heading">సిద్ధాంత పరిచయం</h2>
+    <p>👉 ఆత్మ వికాస సిద్ధాంతము / స్వీయ వికాస సిద్ధాంతమును ప్రతిపాదించినవారు — <span class="imp-word">కార్ల్ రోజర్స్ (అమెరికా)</span>.</p>
+
+    <div class="box note-box">
+      <span class="box-title">📌 గమనిక :</span><br>
+      వీరు అమెరికాలోని 'చికాగో' పట్టణంలో ప్రముఖ కౌన్సిలర్ గా పేరుగాంచారు. వీరు <strong>మానవతావాదాన్ని</strong> అనుసరించారు. వీరు <strong>'సైకోథెరపి' (Psychotherapy)</strong> కి మూలపురుషుడుగా చెప్పుకుంటారు.
+    </div>
+
+    <ul>
+      <li>వీరు మానవతావాదాన్ని కేంద్రంగా చేసుకొని తన స్వీయ వికాస సిద్ధాంతమును ప్రకటించారు.</li>
+      <li>మానవతావాదమును <span class="imp-word">'వ్యక్తి కేంద్ర ఉపగమనము' (Person-Centered Approach)</span> అని కూడా అంటారు.</li>
+      <li>వ్యక్తిని కేంద్రముగా చేసుకొని వివిధ క్షేత్రాలలో అనుప్రయుక్తమయ్యే అతని మూర్తిమత్వ లక్షణాలను, సృజనాత్మక ఆలోచనలను, మానవ సంబంధాలను వివరించేదే మానవతావాదము.</li>
+      <li>ప్రధానంగా మానవతావాదం వ్యక్తి యొక్క ఆత్మ ప్రస్తావనను, స్వేచ్ఛాపూరిత ఇచ్చను ప్రస్తావిస్తూ వాటిని కేంద్రంగా చేసుకొని తన భావనలను వివరించింది.</li>
+      <li>కార్ల్ రోజర్స్ ప్రతిపాదించిన మంత్రణము — <span class="imp-word">అనిర్దేశక మంత్రణము / సహాయార్థి కేంద్రీకృత మంత్రణం (Non-Directive / Client-Centered Counseling)</span>.</li>
+      <li>ఈ సిద్ధాంతం <strong>'నేను, నాది'</strong> అనే భావనలను వివరించిన సిద్ధాంతంగా పేరుగాంచింది.</li>
+      <li>వ్యక్తిత్వ వికాసము <span class="imp-word">'బాల్యదశ' నుండి 'కౌమారదశ' వరకు</span> ఎలా అభివృద్ధి చెందుతుంది అనేది ఈ సిద్ధాంతం వివరిస్తుంది.</li>
+    </ul>
+
+    <h3 class="sub-heading">కార్ల్ రోజర్స్ రచించిన ప్రముఖ గ్రంథములు :</h3>
+    <ul>
+      <li><strong>Client Centered Therapy</strong></li>
+      <li><strong>On Becoming a Person</strong></li>
+    </ul>
+
+    <!-- ముఖ్య భావనలు -->
+    <h2 class="side-heading">స్వీయ వికాస సిద్ధాంతంలోని ముఖ్య భావనలు</h2>
+    <ol>
+      <li>ఆత్మ భావన (Self-Concept)</li>
+      <li>వాస్తవిక ఆత్మభావన (Real Self)</li>
+      <li>ఆదర్శ ఆత్మభావన (Ideal Self)</li>
+      <li>అంతరము (Incongruence) / అన్యోన్యత (Congruence)</li>
+      <li>ఆత్మ సాక్షాత్కారము (Self-Actualization)</li>
+    </ol>
+
+    <!-- 1. ఆత్మ భావన -->
+    <h3 class="sub-heading">1. ఆత్మ భావన (Self-Concept) :</h3>
+    <p>👉 ఒక వ్యక్తి తన గురించి తాను చేసుకొనే ఆలోచనల సారాంశమే ఆత్మభావన. అనగా వ్యక్తికి తన గురించి, తన లక్షణాల గురించి, తన సామర్థ్యాల గురించి, తన ప్రవర్తనను గురించి తనకు పూర్తిగా తెలిసి ఉండటము.</p>
+    <p>👉 <em>(లేదా)</em> తన సొంత మూర్తిమత్వం గురించి, తన ప్రవర్తన గురించి, తన పట్ల తాను ఏర్పరచుకున్న నమ్మకాల సమూహమే ఆత్మభావన.</p>
+
+    <div class="box example-box">
+      <strong>ఉదాహరణలు :</strong><br>
+      "నేను ఎత్తుగా ఉన్నాను", "నేను ధైర్యవంతుడను", "నాది అందమైన రూపం"...
+    </div>
+
+    <ul>
+      <li>ఈ ఆత్మభావన అనేది శిశువు యొక్క <span class="imp-word">పూర్వ బాల్యదశలో</span> ప్రారంభం అవుతుంది.</li>
+      <li>కార్ల్ రోజర్స్ ప్రకారం ఆత్మభావన అనేది వ్యక్తి యొక్క <strong>సంజ్ఞానాత్మక అభివృద్ధి మీద</strong>, <strong>సామాజిక అనుభవాల మీద</strong> ఆధారపడి ఉంటుంది.</li>
+      <li>ఆత్మ భావన అనేది మూర్తిమత్వ నిర్మాణంలో / వ్యక్తిత్వ వికాసంలో ప్రధాన పాత్ర పోషిస్తుంది.</li>
+    </ul>
+
+    <p><strong>ఆత్మ భావన 2 రకములు :</strong></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>రకము</th>
+          <th>వివరణ</th>
+          <th>ఉదాహరణలు</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>వాస్తవిక ఆత్మభావన<br>(Real Self)</strong></td>
+          <td>ఒక వ్యక్తి ప్రస్తుతం / వర్తమానంలో ఎలాంటి మూర్తిమత్వ లక్షణాలను, ఎలాంటి ప్రవర్తనను కలిగి ఉన్నాడు అనేది వ్యక్తికి స్పష్టంగా తెలిసి ఉండటం.</td>
+          <td>"నేను పిరికివాడిని", "నేను స్వార్థపరుడిని", "నేను కోపిష్టిని", "నాది జగడాలమారి మనస్సు"...</td>
+        </tr>
+        <tr>
+          <td><strong>ఆదర్శ ఆత్మభావన<br>(Ideal Self)</strong></td>
+          <td>ఒక వ్యక్తి భవిష్యత్తులో ఎలాంటి మూర్తిమత్వ లక్షణాలను, ఎలాంటి ప్రవర్తనను పొందాలనుకుంటున్నాడో తెలిపేది.</td>
+          <td>"నేను ధైర్యవంతుడిగా ఉండాలనుకుంటున్నాను", "నేను నిస్వార్థంగా ఉండాలనుకుంటున్నాను", "నేను శాంతంగా ఉండాలనుకుంటున్నాను"...</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="flow-chart">
+      <div class="flow-step">ఉన్న ప్రవర్తన<br>↓<br>వాస్తవ ఆత్మభావన</div>
+      <div class="arrow">➔</div>
+      <div class="flow-step">ఉన్నత ప్రవర్తన<br>↓<br>ఆదర్శ ఆత్మభావన</div>
+    </div>
+
+    <!-- ప్రయాణం మరియు సంభావీయతలు -->
+    <h3 class="sub-heading">ఆత్మభావనల ప్రయాణం — 3 సంభావీయతలు :</h3>
+    <p>ప్రతి వ్యక్తి ఇతరుల నుండి గౌరవాన్ని, గుర్తింపును కోరుకుంటాడు. ఈ కారణంతో సమాజంలో గొప్ప వ్యక్తుల మూర్తిమత్వాన్ని ఆదర్శంగా తీసుకుని తన ఆదర్శ ఆత్మ భావనను పెంపొందించుకునే ప్రయత్నం చేస్తుంటాడు. ఈ కోణంలో వ్యక్తి ప్రయాణం నిరంతరం <strong>వాస్తవిక ఆత్మభావన నుండి ఆదర్శ ఆత్మభావన వైపుకు</strong> కొనసాగుతూ ఉంటుంది (బాల్యం నుండి కౌమారం).</p>
+    
+    <p>ఈ ప్రయాణంలో <strong>3 రకాల సంభావీయతలకు (Possibilities)</strong> అవకాశం ఉంటుంది :</p>
+    <ol>
+      <li>వ్యక్తి తన ఆదర్శ ఆత్మభావనకు అనుగుణంగా తనను తాను మలచుకోవటంలో విజయం సాధించటం.</li>
+      <li>తన ఆత్మ భావనకు భిన్నమైన రీతిలో ఎదుటివారి అభిప్రాయాలు ఉంటే వాటిని ఎదుర్కొని నిలదొక్కుకోవటం లేదా ఇతరుల కోసం నటించటం.</li>
+      <li>ఆత్మభావనలో అంతరం ఎక్కువగా ఉంటే రక్షక తంత్రములను ఉపయోగించుకుంటూ తాత్కాలిక ఉపశమనమును పొందుతూ ఉండటం.</li>
+    </ol>
+
+    <!-- అంతరము & అన్యోన్యత -->
+    <h3 class="sub-heading">2. అంతరము & అన్యోన్యత :</h3>
+    <ul>
+      <li><strong>అంతరము (Incongruence) :</strong> వ్యక్తిలో తన వాస్తవ ఆత్మ భావనకు, తాను కోరుకునే ఆదర్శ ఆత్మ భావనకు మధ్య ఉన్న తేడానే అంతరము అంటారు.</li>
+      <li><strong>అన్యోన్యత (Congruence) :</strong> వాస్తవిక ఆత్మ భావనకు, ఆదర్శ ఆత్మ భావనకు మధ్య అంతరం అతి తక్కువగా ఉండటాన్ని అన్యోన్యత అంటారు.</li>
+    </ul>
+
+    <div class="box note-box">
+      <span class="box-title">📌 వికాస సూత్రం :</span><br>
+      వాస్తవ ఆత్మ భావనకు, ఆదర్శ ఆత్మ భావనకు మధ్య అంతరం చాలా ఎక్కువగా ఉన్నట్లయితే అది ఒత్తిడికి, కుంఠనాలకు దారితీసి మానసిక ఆరోగ్యం దెబ్బతిని తద్వారా మూర్తిమత్వ వికాసం ప్రభావితమవుతుంది. <strong>ఈ అంతరం ఎంత తక్కువగా ఉంటే అంత వ్యక్తిత్వ వికాసం సాధ్యం అవుతుందని</strong> కార్ల్ రోజర్స్ భావించారు.
+    </div>
+
+    <div class="box example-box">
+      <strong>ఉదాహరణ :</strong><br>
+      👉 ఒక సాధారణ ఉపాధ్యాయుడు తాను ప్రస్తుతం ఎవరి గుర్తింపును నోచుకోలేదు అని భావిస్తున్నాడు — ఇది <strong>వాస్తవిక ఆత్మ భావన</strong>.<br>
+      👉 నాగేశ్వరరావు మాస్టారిలా అందరిలో గొప్ప గుర్తింపును తెచ్చుకోవాలి అని కోరుకుంటున్నాడు — ఇది <strong>ఆదర్శ ఆత్మభావన</strong>.
+    </div>
+
+    <p>👉 రోజర్స్ ప్రకారం వ్యక్తిలో వ్యక్తిత్వ వికాసాన్ని దెబ్బతీసేది <strong>ఆదర్శ ఆత్మ భావనలో ఒడిదుడుకులే</strong>. ఇది వ్యక్తిలో ఆందోళనను, ఒత్తిడిని, కుంఠనాన్ని కలుగజేస్తుంది.</p>
+    <p>👉 వ్యక్తులలో ఆదర్శ ఆత్మ భావన అనేది వారు ఆరాధించే వ్యక్తుల వ్యక్తిత్వం మీద, తాను తాదాత్మీకరణం చేసుకునే గొప్ప వ్యక్తుల మూర్తిమత్వం మీద అలాగే తాను చదివే మంచి గ్రంథాలు, కథల పుస్తకాలు, బయోగ్రఫీలు, ఆటోబయోగ్రఫీలలో ఉండే పాత్రల మీద ఆధారపడి ఉంటుంది.</p>
+
+    <div class="box app-box">
+      <strong>🎯 ముఖ్యమైన అంశాలు / బిట్స్ :</strong><br>
+      <ul>
+        <li>ఆదర్శ ఆత్మ భావన వికాసంలో ప్రధాన పాత్ర పోషించే అభ్యసనం — <span class="imp-word">అనుకరణ / సాంఘిక అభ్యసనం (Imitation / Social Learning)</span></li>
+        <li>వాస్తవిక ఆత్మ భావనకు, ఆదర్శ ఆత్మభావనకు మధ్య అంతరమును కొలుచుటకు ఉపయోగించు మాపనం — <span class="imp-word">సెమాంటిక్ డిఫరెన్షియల్ స్కేల్ (Semantic Differential Scale)</span></li>
+      </ul>
+    </div>
+
+    <!-- ఆత్మ సాక్షాత్కారము -->
+    <h3 class="sub-heading">3. ఆత్మ సాక్షాత్కారము (Self-Actualization) :</h3>
+    <p>👉 రోజర్స్ ప్రకారం ఆత్మ వికాసంలో / స్వీయ వికాసంలో చివరి అంశం — <strong>ఆత్మ సాక్షాత్కారం</strong>.</p>
+    <p>👉 వ్యక్తి <em>"నేను ఏమిటి ? నేను ఎలా ఉన్నాను ? నేను ఎలా ఉండాలి ?"</em> అనే అంశాలను సంపూర్ణంగా అర్థం చేసుకుని, తన గురించి తాను పూర్తిగా తెలుసుకుని, తనను తాను ఆదర్శ ఆత్మభావనకు అనుగుణంగా పూర్తిగా మార్చుకుని, వాస్తవిక ఆత్మ భావనకు, ఆదర్శ ఆత్మ భావనకు మధ్య <strong>శూన్య అంతరము (Zero Gap)</strong> కావించి తనను తాను సంపూర్ణంగా ఆవిష్కరించుకోవటమే ఆత్మ సాక్షాత్కారము అవుతుంది.</p>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.getElementById('themeToggle');
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        btn.textContent = '🌙';
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        btn.textContent = '☀️';
+      }
+    }
+  </script>
+
+</body>
+</html>
