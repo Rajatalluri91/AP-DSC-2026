@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.6 ఎరిక్ ఎరిక్సన్ మనోసాంఘిక వికాస సిద్ధాంతం</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #f1f5f9;
+      --card-bg: #ffffff;
+      --text-color: #334155;
+      
+      --main-heading: #1e3a8a;
+      --side-heading: #0369a1;
+      --sub-heading: #0d9488;
+      --important-word: #b91c1c;
+      --important-bg: #fee2e2;
+      
+      --note-bg: #fefce8;
+      --note-border: #eab308;
+      --note-text: #713f12;
+      
+      --example-bg: #f0fdf4;
+      --example-border: #22c55e;
+      --example-text: #14532d;
+
+      --app-bg: #eff6ff;
+      --app-border: #3b82f6;
+      --app-text: #1e40af;
+      
+      --border-color: #cbd5e1;
+      --table-header: #1e293b;
+      --table-row-even: #f8fafc;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #cbd5e1;
+      
+      --main-heading: #60a5fa;
+      --side-heading: #38bdf8;
+      --sub-heading: #2dd4bf;
+      --important-word: #fca5a5;
+      --important-bg: #450a0a;
+
+      --note-bg: #2e2608;
+      --note-border: #facc15;
+      --note-text: #fef08a;
+
+      --example-bg: #052e16;
+      --example-border: #4ade80;
+      --example-text: #bbf7d0;
+
+      --app-bg: #1e3a8a;
+      --app-border: #60a5fa;
+      --app-text: #dbeaff;
+
+      --border-color: #334155;
+      --table-header: #0f172a;
+      --table-row-even: #1e293b;
+    }
+
+    body {
+      font-family: 'Mandali', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.8;
+      margin: 0;
+      padding: 10px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 0;
+      color: var(--main-heading);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Mandali', sans-serif;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--border-color);
+    }
+
+    h2.side-heading {
+      font-size: 21px;
+      color: var(--side-heading);
+      border-left: 5px solid var(--side-heading);
+      padding-left: 12px;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, rgba(3,105,161,0.05) 0%, rgba(0,0,0,0) 100%);
+      padding-top: 4px;
+      padding-bottom: 4px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    h3.sub-heading {
+      font-size: 18px;
+      color: var(--sub-heading);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .imp-word {
+      color: var(--important-word);
+      background-color: var(--important-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .box {
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+
+    .note-box {
+      background-color: var(--note-bg);
+      border-left: 5px solid var(--note-border);
+      color: var(--note-text);
+    }
+    
+    .note-box .box-title {
+      color: var(--note-border);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .example-box {
+      background-color: var(--example-bg);
+      border-left: 5px solid var(--example-border);
+      color: var(--example-text);
+    }
+
+    .app-box {
+      background-color: var(--app-bg);
+      border-left: 5px solid var(--app-border);
+      color: var(--app-text);
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      overflow-x: auto;
+      display: block;
+    }
+
+    @media (min-width: 600px) {
+      table {
+        display: table;
+      }
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--table-header);
+      color: #ffffff;
+    }
+
+    tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+	p {
+		text-align :justify;
+		}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-bar">
+      <h1>1.6 ఎరిక్ ఎరిక్సన్ మనోసాంఘిక వికాస సిద్ధాంతం</h1>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</button>
+    </div>
+
+    <!-- పరిచయం -->
+    <h2 class="side-heading">సిద్ధాంత పరిచయం</h2>
+    <p>👉 వ్యక్తి యొక్క మూర్తిమత్వాన్ని, మనో సాంఘిక వికాసాన్ని సమగ్రంగా వివరించిన నిర్మితి సిద్ధాంతాలలో ఒక ప్రముఖ సిద్ధాంతంగా దీనిని చెప్పుకుంటారు.</p>
+    <p>👉 మనో సాంఘిక వికాస సిద్ధాంతమును ప్రతిపాదించినవారు — <span class="imp-word">ఎరిక్ ఎరిక్సన్ (జర్మనీ)</span>.</p>
+    <p>👉 వీరు సిగ్మండ్ ఫ్రాయిడ్ యొక్క ముఖ్య అనుచరులు మరియు మనో విశ్లేషణా వాదాన్ని అనుసరించి, తన సిద్ధాంతాన్ని ప్రకటించాడు.</p>
+    <p>👉 వ్యక్తి జీవితకాలంలో జరిగే వికాసాన్ని తన మనో సాంఘిక వికాస దశల ద్వారా తెలియజేశారు.</p>
+    <p>👉 వీరి ప్రకారము వ్యక్తి యొక్క <span class="imp-word">అహం (Ego)</span> జీవిత కాలంలోని <strong>8 మనో సాంఘిక వికాస దశలలో</strong> ఒక్కొక్క సంక్షోభాన్ని లేదా క్లిష్ట పరిస్థితిని ఎదుర్కొని, దానిలో విజయాన్ని పొందటం ద్వారా చక్కని మూర్తిమత్వ వికాసం జరుగుతుంది అని మరియు అపజయాన్ని పొందటం ద్వారా ప్రతికూల మూర్తిమత్వం ఏర్పడుతుంది అని తెలియచేశారు.</p>
+    <p>👉 వ్యక్తి ప్రవర్తన యొక్క మంచి లేదా చెడు అనేది అహం ఎదుర్కొనే సంక్షోభాలపై అది సాధించే విజయం / అపజయంపై ఆధారపడి ఉంటుంది అనేది వారి అభిప్రాయం.</p>
+    <p>👉 ఎరిక్సన్ ను <span class="imp-word">'అహం మనో విజ్ఞానవేత్త' (Ego Psychologist)</span> అని పిలుస్తారు.</p>
+
+    <div class="box note-box">
+      <span class="box-title">📌 ముఖ్యాంశం :</span><br>
+      "వ్యక్తి వికాసము అనేది అతడు తన సాంఘిక పరిసరాలతో జరిపే పరస్పర చర్యల ఫలితము" — <strong>ఎరిక్ ఎరిక్సన్</strong><br>
+      వ్యక్తి యొక్క సాంఘిక వికాస అభివృద్ధి అనేది వారి సాంస్కృతిక జీవనశైలి మరియు పరిసర అనుభవాలపై ఆధారపడి ఉంటుందని ఎరిక్సన్ తెలియచేశారు.
+    </div>
+
+    <h3 class="sub-heading">ఎరిక్ ఎరిక్సన్ రచించిన ప్రముఖ గ్రంథములు :</h3>
+    <ul>
+      <li><strong>Childhood and Society</strong></li>
+      <li><strong>The Stages of Psychological Development</strong></li>
+    </ul>
+
+    <!-- 8 మనో సాంఘిక వికాస దశలు పట్టిక -->
+    <h2 class="side-heading">8 మనో సాంఘిక వికాస దశలు మరియు క్లిష్ట పరిస్థితులు</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>క్ర.సం. & దశలు</th>
+          <th>కాలము</th>
+          <th>క్లిష్ట పరిస్థితులు / సంక్షోభాలు</th>
+          <th>గుణం / సద్గుణం (Virtue)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. పూర్వ శైశవ దశ</strong></td>
+          <td>0 - 1½ సం॥లు</td>
+          <td>నమ్మకం Vs అపనమ్మకం</td>
+          <td>ఆశ</td>
+        </tr>
+        <tr>
+          <td><strong>2. ఉత్తర శైశవ దశ</strong></td>
+          <td>1½ - 3 సం॥లు</td>
+          <td>స్వయం ప్రతిపత్తి Vs సందేహం</td>
+          <td>మనోబలం</td>
+        </tr>
+        <tr>
+          <td><strong>3. క్రీడా దశ</strong></td>
+          <td>3 - 5 సం॥లు</td>
+          <td>చొరవ చూపడం Vs అపరాధ భావన (లేదా తప్పు చేశానన్న భావన)</td>
+          <td>లక్ష్యం</td>
+        </tr>
+        <tr>
+          <td><strong>4. పాఠశాల దశ</strong></td>
+          <td>6 - 12 సం॥లు</td>
+          <td>శ్రమించడం Vs న్యూనత</td>
+          <td>సమర్థత / సామర్థ్యం</td>
+        </tr>
+        <tr>
+          <td><strong>5. కౌమార దశ</strong></td>
+          <td>12 - 20 సం॥లు</td>
+          <td>పాత్ర గుర్తింపు (తాదాత్మ్యం) Vs పాత్ర సందిగ్ధం (తాదాత్మ్య భంగం)</td>
+          <td>విశ్వసనీయత</td>
+        </tr>
+        <tr>
+          <td><strong>6. పూర్వ వయోజన దశ</strong></td>
+          <td>20 - 30 సం॥లు</td>
+          <td>సన్నిహితము Vs ఏకాంతము</td>
+          <td>ప్రేమ</td>
+        </tr>
+        <tr>
+          <td><strong>7. మధ్య వయోజన దశ</strong></td>
+          <td>30 - 60 సం॥లు</td>
+          <td>ఉత్పాదకత Vs స్తబ్దత</td>
+          <td>సంరక్షణ</td>
+        </tr>
+        <tr>
+          <td><strong>8. పరిపక్వ దశ</strong></td>
+          <td>60 సం॥లు పైన</td>
+          <td>సమర్థత (సమగ్రత) Vs నిరాశ</td>
+          <td>సూక్ష్మబుద్ధి</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- జ్ఞాపకశక్తి చిట్కాలు (Hints) -->
+    <h2 class="side-heading">జ్ఞాపకశక్తి చిట్కాలు (Memory Hints)</h2>
+
+    <div class="box example-box">
+      <strong>💡 క్లిష్ట పరిస్థితి / సంక్షోభాల వరుస క్రమానికి Hint :</strong><br>
+      (1) అక్కినేని నాగార్జున ఎంతో <strong>'నమ్మకం'</strong> తో (2) తనే <strong>'స్వయంగా'</strong> (3) <strong>'చొరవ'</strong> తీసుకుని బాగా (4) <strong>'శ్రమించి'</strong> 'హ‌లో' సినిమా తీస్తే అందులో (5) అఖిల్ <strong>'పాత్ర గుర్తింపు'</strong> పొందింది, మరియు అతడిని (6) అభిమానులకు <strong>'సన్నిహితం'</strong> చేసింది, కాని నాగార్జున సినిమాకు పెట్టిన (7) <strong>'ఉత్పాదకత'</strong> దెబ్బతింది. ఆ సినిమా అపజయం దర్శకుడి (8) <strong>'సమర్థత'</strong> ను ప్రశ్నించింది.
+    </div>
+
+    <div class="box example-box">
+      <strong>💡 లక్షణం / సద్గుణాల వరుస క్రమానికి Hint :</strong><br>
+      (1) <strong>'అమల'</strong> కు (అ - ఆశ, మ - మనోబలం, ల - లక్ష్యం) (4) తన కొడుకు అఖిల్ యొక్క <strong>'సామర్థ్యం'</strong> మీద (5) చాలా <strong>'విశ్వసనీయత'</strong> ఉంది. అలాగే కొడుకు మీద <strong>'ప్రేమ'</strong> కూడా చాలా ఉంది. అది తెలిసి అఖిల్ (7) <strong>'సంరక్షణ'</strong> బాధ్యతను (8) <strong>"సూక్ష్మబుద్ధి"</strong> ఉన్న నాగార్జున అమలకే అప్పజెప్పాడు.
+    </div>
+
+    <!-- దశల వారీ వివరాలు -->
+    <h2 class="side-heading">దశల వారీ విపుల వివరణ</h2>
+
+    <h3 class="sub-heading">1. పూర్వ శైశవ దశ (0 - 1½ సం॥లు) :</h3>
+    <p>👉 <strong>క్లిష్ట పరిస్థితి :</strong> నమ్మకం Vs అపనమ్మకం | <strong>సద్గుణం :</strong> ఆశ</p>
+    <p>శిశువు తన అవసరాల కొరకు తల్లిదండ్రులు / సంరక్షకులపై ఆధారపడి ఉంటారు. వారి సంరక్షణ, పోషణ పట్ల శ్రద్ధ చూపి, వారి అవసరాలను వెనువెంటనే తీరుస్తున్నట్లయితే వారికి కలిగే అనుభవాల వల్ల వారిలో ఇతరుల పట్ల నమ్మకమే కాకుండా వారిపట్ల వారికి కూడా <span class="imp-word">'నమ్మకం'</span> ఏర్పడుతుంది. వారి అవసరాలు తీరకపోయినా, వారి అవసరాలు తీర్చటంలో జాప్యం జరిగినా / నిర్లక్ష్యం వహించినా వారిలో <span class="imp-word">'అపనమ్మకం'</span> అనే భావన ఏర్పడుతుంది. నమ్మకం, అపనమ్మకం మధ్య ఉండే నిష్పత్తి ఆధారంగా <strong>'ఆశ'</strong> అనే సద్గుణం వారి మూర్తిమత్వంలో ఏర్పడుతుంది.</p>
+
+    <h3 class="sub-heading">2. ఉత్తర శైశవ దశ (1½ - 3 సం॥లు) :</h3>
+    <p>👉 <strong>క్లిష్ట పరిస్థితి :</strong> స్వయం ప్రతిపత్తి Vs సంశయం / సందేహం | <strong>సద్గుణం :</strong> మనోబలం</p>
+    <p>ఈ దశలో పిల్లలు వారిలో అభివృద్ధి చెందిన శారీరక, చలనాత్మక, మానసిక, భాషా సామర్థ్యాలను ఉపయోగించుకుంటూ స్వయం పోషక నైపుణ్యాలను నేర్చుకోవటం ప్రారంభిస్తారు. ఈ దశలో వారిని ప్రోత్సహించటం ద్వారా వారిలో <span class="imp-word">'స్వయం ప్రతిపత్తి'</span> అనే భావన ఏర్పడుతుంది. వారిని ఆటంకపరచటం ద్వారా వారిని నిరుత్సాహపరచటం ద్వారా / అతి సంరక్షణ ఇవ్వటం ద్వారా వారిలో <span class="imp-word">'సందేహం'</span> ఏర్పడుతుంది. ఈ దశలో <strong>'మనోబలం'</strong> అనే సద్గుణం ఏర్పడుతుంది.</p>
+
+    <h3 class="sub-heading">3. క్రీడాదశ (3 - 5 సం॥లు) :</h3>
+    <p>👉 <strong>క్లిష్ట పరిస్థితి :</strong> చొరవ చూపటం Vs తప్పు చేశానన్న భావన / అపరాధ భావన | <strong>సద్గుణం :</strong> లక్ష్యం</p>
+    <p>ఈ దశలో పిల్లలు వివిధ కృత్యాలలో, ఆటలలో పాల్గొంటూ ఇతరులతో చొరవ తీసుకోవటం ప్రారంభం అవుతుంది. వివిధ కృత్యాలను శోధించటంలో భాగంగా లభించే ప్రోత్సాహం వలన <span class="imp-word">'చొరవ చూపడం'</span> అనే భావన ఏర్పడుతుంది. తద్వారా పిల్లలు భవిష్యత్తులో నూతన కృత్యాలలో చురుకుగా, చొరవగా పాల్గొంటుంటారు. అలా కాకుండా పిల్లలు చొరవ తీసుకోవటాన్ని ఆటంకపరిచినా, వారిని నిరుత్సాహపరిచినా, వారిని విమర్శించినా, శిక్షించినా పిల్లలలో తామేదో తప్పు చేశామన్న భావన ఏర్పడి తద్వారా చొరవ తీసుకోలేక <span class="imp-word">'అపరాధ భావనకు'</span> గురి అవుతారు. ఈ దశలో <strong>'లక్ష్యం'</strong> అనే సద్గుణం ఏర్పడుతుంది.</p>
+
+    <h3 class="sub-heading">4. పాఠశాల దశ (6 - 12 సం॥లు) :</h3>
+    <p>👉 <strong>క్లిష్ట పరిస్థితి :</strong> శ్రమించటం Vs న్యూనత | <strong>సద్గుణం :</strong> సామర్థ్యం</p>
+    <p>ఈ దశలో పిల్లలు పాఠశాలకు హాజరై వివిధ రకాల పాఠ్య, పాఠ్యేతర అంశాలలో పాల్గొంటూ శ్రమించటం అలవాటు చేసుకుంటారు. ఇక్కడ వీరి నిష్పాదన ఉపాధ్యాయులచే, తల్లిదండ్రులచే తోటి విద్యార్థులచే గుర్తించబడినట్లయితే, వారిలో సాధన భావంతో <span class="imp-word">'శ్రమీశీలత'</span> ఏర్పడుతుంది. అలా కాకుండా పిల్లల నిష్పాదన వారి సమవయస్కుల కంటే తక్కువగా ఉండి ఉపాధ్యాయుల, తల్లిదండ్రుల నిందలకు, శిక్షలకు, విమర్శలకు గురి అయితే <span class="imp-word">'ఆత్మన్యూనత'</span> ఏర్పడుతుంది. తద్వారా తమను తాము తక్కువగా భావించుకోవటం జరుగుతుంది. ఈ దశలో <strong>'సామర్థ్యం'</strong> అనే సద్గుణం ఏర్పడుతుంది.</p>
+
+    <h3 class="sub-heading">5. కౌమార దశ (12 - 20 సం॥లు) :</h3>
+    <p>👉 <strong>క్లిష్ట పరిస్థితి :</strong> పాత్ర గుర్తింపు / తాదాత్మ్యం Vs పాత్ర సందిగ్ధం / తాదాత్మ్య భంగం | <strong>సద్గుణం :</strong> విశ్వసనీయత</p>
+    <p>కౌమారులు వారి స్వయం వ్యక్తిత్వ గుర్తింపు అన్వేషణను ప్రారంభిస్తారు. విద్య, ఉద్యోగం, భవిష్యత్తు, జీవితం గురించి నిర్ణయాలు తీసుకోవటం మొదలగు వానిలో సరి అయిన విధంగా విజయాలను పొందటం ద్వారా <span class="imp-word">'పాత్ర గుర్తింపును'</span> పొందుతారు. వాటిల్లో సరి అయిన నిర్ణయాలు తీసుకోలేకపోవడం వలన భావి జీవితం గురించి కలవరపాటుకు గురై <span class="imp-word">'పాత్ర సందిగ్ధం'</span> లో పడిపోతుంది. ఏమి చెయ్యాలి ? ఎలా చెయ్యాలి ? ఎలా ప్రవర్తించాలి అనే గందరగోళానికి గురి అవుతారు. ఈ దశలో <strong>'విశ్వసనీయత'</strong> అనే సద్గుణం ఏర్పడుతుంది.</p>
+
+    <h3 class="sub-heading">6. పూర్వ వయోజన దశ (20 - 30 సం॥లు) :</h3>
+    <p>👉 <strong>క్లిష్ట పరిస్థితి :</strong> సన్నిహితం Vs ఏకాంతం | <strong>సద్గుణం :</strong> ప్రేమ</p>
+    <p>ఈ దశలోని వారు తన కుటుంబ సభ్యులతో, ఇతరులతో అన్యోన్య సంబంధాలు ఏర్పరచుకునే ప్రయత్నాలు చేస్తారు. కొన్నిసార్లు వారి వ్యక్తిత్వాలను కూడా కోల్పోయి ఇతరులతో సాన్నిహిత్యం పెంచుకోవడానికి 'వ్యక్తిపూజ' కూడా చేస్తారు. ఈ విధంగా వ్యక్తిలో <span class="imp-word">'సన్నిహిత'</span> భావన ఏర్పడుతుంది. ఇతరులు వీరిని తిరస్కరించినా, ఇతరులతో సన్నిహిత సంబంధాలు నెలకొల్ప లేకపోయినా, ఉన్న సంబంధాలు చెడిపోయినా వ్యక్తి ఒంటరితనం వల్ల <span class="imp-word">'ఏకాంతం'</span> లోకి వెళ్ళిపోతారు. ఈ దశలో <strong>'ప్రేమ'</strong> అనే సద్గుణం ఏర్పడుతుంది.</p>
+
+    <h3 class="sub-heading">7. మధ్య వయోజన దశ (30 - 60 సం॥లు) :</h3>
+    <p>👉 <strong>క్లిష్ట పరిస్థితి :</strong> ఉత్పాదకత Vs స్తబ్దత | <strong>సద్గుణం :</strong> సంరక్షణ</p>
+    <p>మనచుట్టూ ఉన్న వారితో సన్నిహిత సంబంధాలు ఏర్పరచుకున్నవారు క్రిందితరం వారికి మార్గదర్శకంగా ఉండటం, వారికి సామాజిక విలువలను సంక్రమింపజేస్తూ, వాటిని పరిరక్షించటం, నూతన విలువలను సృష్టించటం జరుగుతుంది. ఇదే <span class="imp-word">'ఉత్పాదకత'</span>. ఎరిక్సన్ ప్రకారం ఈ ఉత్పాదక లక్షణం గలవారి వల్లనే సమాజం జీవించ గలుగుతుందని, సమాజంలో విలువలు పరిరక్షించబడుతున్నాయని, నూతన విలువలు సమాజంలో ఉద్భవిస్తాయని పేర్కొన్నారు. ఈ ఉత్పాదక లక్షణం లేనివారు, స్వార్థంలోకి కూరుకుపోయి తమ గురించి మాత్రమే పట్టించుకుంటూ ఏమీ చేయలేక <span class="imp-word">'స్తబ్దతకు'</span> లోనవుతారు. ఈ దశలో <strong>'సంరక్షణ'</strong> అనే సద్గుణం ఏర్పడుతుంది.</p>
+
+    <h3 class="sub-heading">8. పరిపక్వ దశ (60 సం॥లు పైన) :</h3>
+    <p>👉 <strong>క్లిష్ట పరిస్థితి :</strong> సమగ్రత / సమర్థత / చిత్తశుద్ధి Vs నిరాశ | <strong>సద్గుణం :</strong> సూక్ష్మబుద్ధి</p>
+    <p>ఈ దశలోని వారు ముందు 7 దశలలోని సంక్షోభాలను విజయవంతంగా ఎదుర్కొని పరిష్కరించుకోవటం ద్వారా తమపట్ల, ప్రపంచం పట్ల సానుకూల దృక్పథం ఏర్పడి తమను తాము <span class="imp-word">'సమర్థులు'</span> గా భావిస్తారు. పూర్వదశలలో సంక్షోభాలను నివారించుకోలేక పోయినవారు <span class="imp-word">'నిరాశ'</span>, నిస్పృహ ఏర్పడి జీవితం పట్ల అసంతృప్తితో ఉంటారు. జీవన మార్గాన్ని మార్చుకోవడానికి సమయం లేదు అనే ఆలోచన వారిలో దుఃఖమును కలిగిస్తుంది. తద్వారా నైరాశ్యంతో మునిగిపోతారు. ఈ దశలో <strong>'సూక్ష్మబుద్ధి'</strong> అనే సద్గుణం ఏర్పడుతుందని తెలిపారు.</p>
+
+    <!-- ముఖ్యమైన ప్రశ్నలు - జవాబులు -->
+    <h2 class="side-heading">మనోసాంఘిక వికాసం — ముఖ్యమైన బిట్స్ / ప్రశ్నలు</h2>
+
+    <div class="box app-box">
+      <strong>❓ ప్రశ్న 1:</strong> ఎరిక్ ఎరిక్సన్ ప్రకారం 'వ్యక్తి పూజ' చేయడానికి కూడా వ్యక్తులు సిద్ధమయ్యే దశ ఏది?<br>
+      👉 <strong>పూర్వ వయోజన దశ</strong>
+    </div>
+
+    <div class="box app-box">
+      <strong>❓ ప్రశ్న 2:</strong> వీళ్ల వల్లనే సమాజంలో విలువలు పరిరక్షించబడుతున్నాయని, నూతన విలువలు ఉత్పత్తి అవుతున్నాయని ఎరిక్సన్ ఏ దశ వారి గురించి భావించారు?<br>
+      👉 <strong>మధ్య వయోజన దశ</strong>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.getElementById('themeToggle');
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        btn.textContent = '🌙';
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        btn.textContent = '☀️';
+      }
+    }
+  </script>
+
+</body>
+</html>
