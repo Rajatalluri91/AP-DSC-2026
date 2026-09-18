@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.10 వికాస కృత్యములు - ఆపదలు</title>
+  
+  <!-- Google Fonts: Mandali Import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+
+  <style>
+    /* Color Variables matching sample design */
+    :root {
+      --bg-color: #f1f5f9;
+      --card-bg: #ffffff;
+      --text-color: #334155;
+      
+      --main-heading: #1e3a8a;       /* Dark Blue */
+      --side-heading: #0369a1;       /* Deep Sky Blue */
+      --sub-heading: #0d9488;        /* Teal */
+      --important-word: #b91c1c;     /* Crimson Red */
+      --important-bg: #fee2e2;       /* Light Pinkish Red background */
+      
+      --note-bg: #fefce8;
+      --note-border: #eab308;       /* Warm Yellow */
+      --note-text: #713f12;
+      
+      --hint-bg: #eff6ff;
+      --hint-border: #3b82f6;       /* Blue */
+      --hint-text: #1e40af;
+
+      --danger-bg: #fef2f2;
+      --danger-border: #ef4444;     /* Red */
+      --danger-text: #991b1b;
+      
+      --quote-bg: #faf5ff;
+      --quote-border: #a855f7;      /* Purple */
+      
+      --border-color: #cbd5e1;
+      --table-header: #1e293b;
+      --table-row-even: #f8fafc;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #cbd5e1;
+      
+      --main-heading: #60a5fa;
+      --side-heading: #38bdf8;
+      --sub-heading: #2dd4bf;
+      --important-word: #fca5a5;
+      --important-bg: #450a0a;
+
+      --note-bg: #2e2608;
+      --note-border: #facc15;
+      --note-text: #fef08a;
+      
+      --hint-bg: #172554;
+      --hint-border: #60a5fa;
+      --hint-text: #bfdbfe;
+
+      --danger-bg: #450a0a;
+      --danger-border: #f87171;
+      --danger-text: #fca5a5;
+
+      --quote-bg: #2e1065;
+      --quote-border: #c084fc;
+
+      --border-color: #334155;
+      --table-header: #0f172a;
+      --table-row-even: #1e293b;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Mandali', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.8;
+      margin: 0;
+      padding: 10px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Header & Toggle */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 0;
+      color: var(--main-heading);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Mandali', sans-serif;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--border-color);
+    }
+
+    /* Headings */
+    h2.side-heading {
+      font-size: 22px;
+      color: var(--side-heading);
+      border-left: 5px solid var(--side-heading);
+      padding-left: 12px;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, rgba(3,105,161,0.05) 0%, rgba(0,0,0,0) 100%);
+      padding-top: 4px;
+      padding-bottom: 4px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* Important Words Styling */
+    .imp-word {
+      color: var(--important-word);
+      background-color: var(--important-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    /* Box Designs */
+    .box {
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+
+    .note-box {
+      background-color: var(--note-bg);
+      border-left: 5px solid var(--note-border);
+      color: var(--note-text);
+    }
+    .note-box .box-title {
+      color: var(--note-border);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .danger-box {
+      background-color: var(--danger-bg);
+      border-left: 5px solid var(--danger-border);
+      color: var(--danger-text);
+    }
+    .danger-box .box-title {
+      color: var(--danger-border);
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .quote-box {
+      background-color: var(--quote-bg);
+      border-left: 5px solid var(--quote-border);
+      padding: 12px 20px;
+      margin: 15px 0;
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 12px 15px;
+      text-align: left;
+      vertical-align: top;
+      width: 50%;
+    }
+
+    th {
+      background-color: var(--table-header);
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    tr:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+
+    /* Lists */
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-bar">
+      <h1>1.10 వికాస కృత్యములు - ఆపదలు</h1>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</button>
+    </div>
+
+    <!-- పరిచయం -->
+    <p>ప్రతి నిర్దిష్టమైన వికాస దశలో ఒక వ్యక్తి నుండి ఎటువంటి ప్రవర్తనలను సమాజం ఆశిస్తుందో వాటిని <span class="imp-word">వికాస కృత్యములు</span> అంటారు.</p>
+
+    <p>వికాస కృత్యములు అను భావనను మొదటగా ప్రవేశపెట్టిన వారు — <span class="imp-word">రాబర్ట్ జేమ్స్ హవింగ్ హర్స్ట్ (అమెరికా)</span>.</p>
+
+    <div class="box quote-box">
+      <strong>హవింగ్ హర్స్ట్ ప్రకారం వికాస కృత్యం అనగా:</strong> ఒక నిర్దిష్ట వయోజన దశలో ఒక వ్యక్తి నుండి ఎటువంటి నైపుణ్య సాధనను ఆశిస్తాయో తెలిపేది.
+    </div>
+
+    <p>హవింగ్ హర్స్ట్ రచించిన ప్రముఖ గ్రంథము — <span class="imp-word">Human Development & Education</span>.</p>
+
+    <div class="box note-box">
+      <span class="box-title">📌 Note :</span><br>
+      వ్యక్తి యొక్క వికాసం సంపూర్ణంగా జరగాలంటే ప్రతి దశలో వ్యక్తి కొన్ని నిర్దిష్టమైన ప్రవర్తనలను తప్పనిసరిగా వెలువరించగలగాలి, వీటినే <strong>'వికాస కృత్యములు'</strong> అంటారు.<br><br>
+      వికాస కృత్యములను ఆయా దశల వారీగా సాధించడం తప్పనిసరి. తరువాత వయోస్థాయి వికాస కృత్యాలు ఎదుర్కోవాలంటే దానికి పూర్వం వయోస్థాయి వికాస కృత్యాలను విజయవంతంగా పూర్తిచేసి ఉండాలి.
+      <ul>
+        <li><strong>వికాస కృత్యములు విజయవంతం అయితే:</strong> వ్యక్తిగత సంతోషం, విజయాన్ని పొందిన భావన ఏర్పడి భవిష్యత్తు కృత్యాలు సాధించడం సులభతరం అవుతుంది.</li>
+        <li><strong>పరాజయం పొందితే:</strong> వ్యక్తిగత బాధ, సామాజిక తిరస్కరణ, భవిష్యత్తు కృత్యాలకు ప్రతికూలత ఏర్పడతాయి.</li>
+      </ul>
+    </div>
+
+    <div class="box danger-box">
+      <span class="box-title">⚠️ ఆటంకాలు / విపత్తులు :</span><br>
+      వికాస కృత్యాలను సాధించడంలో వ్యక్తికి ఎదురయ్యే శారీరక, మానసిక, సాంఘిక, నైతిక, ఉద్వేగ పరమైన అవరోధాలను <span class="imp-word">ఆటంకాలు లేదా విపత్తులు</span> అంటారు.
+    </div>
+
+    <!-- వయోజన దశలు -->
+    <h2 class="side-heading">హవింగ్ హర్స్ట్ ప్రకారం వయోజన దశలు :</h2>
+    <ul>
+      <li><strong>బాల్యారంభ దశ</strong> — 0-5 సం||లు</li>
+      <li><strong>మధ్య బాల్యదశ</strong> — 6-12 సం||లు</li>
+      <li><strong>కౌమార దశ</strong> — 13-18 సం||లు</li>
+      <li><strong>వయోజనారంభ దశ</strong> — 19-29 సం||లు</li>
+      <li><strong>మధ్య వయోజన దశ</strong> — 30-60 సం||లు</li>
+      <li><strong>పరిపక్వ దశ</strong> — 60 పైన</li>
+    </ul>
+
+    <!-- 1. బాల్యారంభ దశ -->
+    <h2 class="side-heading">1. బాల్యారంభ దశ - వికాస కృత్యములు & ఆటంకాలు</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>బాల్యారంభ దశ - వికాస కృత్యములు</th>
+          <th>ఆటంకాలు</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            1. నడక నేర్చుకొనుట<br>
+            2. ఘనాహారం తీసుకొనుట<br>
+            3. మాట్లాడడం నేర్చుకొనుట<br>
+            4. విసర్జన క్రియలో అదుపు సాధించుట<br>
+            5. లింగ భేదాలు గుర్తించుట<br>
+            6. చదువుకు సంసిద్ధులగుట<br>
+            7. శారీరక స్థిరత్వం ఏర్పడుట
+          </td>
+          <td>
+            • అనువంశిక వ్యాధులు<br>
+            • పరిపక్వత లోపాలు<br>
+            • మానసిక ఎదుగుదల లోపం<br>
+            • శారీరక వికాసం సరిగా లేకపోవటం<br>
+            • జ్ఞానేంద్రియ వికాసం లోపించడం
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 2. మధ్య బాల్యదశ -->
+    <h2 class="side-heading">2. మధ్య బాల్యదశ - వికాస కృత్యములు & ఆటంకాలు</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>మధ్య బాల్యదశ - వికాస కృత్యములు</th>
+          <th>ఆటంకాలు</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            1. సమ వయస్సులతో వ్యవహరించుట నేర్చుకొనుట<br>
+            2. జట్టు కృత్యములు ఏర్పరచుట<br>
+            3. సాధారణ ఆటలకు అవసరమైన భౌతిక నైపుణ్యాలు నేర్చుకొనుట<br>
+            4. చదువుతు, రాయుతు, అంకగణితము (3R) చేయుట<br>
+            5. పాఠశాలల విషయములను అభ్యసించుట<br>
+            6. దైనందిన జీవితానికి తప్పనిసరి అయిన భావనలను పెంపొందించుట<br>
+            7. వ్యక్తి స్వేచ్ఛను సాధించుకొనుట<br>
+            8. నీతి, నియమాలను, విలువలను వ్యక్తి అభివృద్ధి చేయుట
+          </td>
+          <td>
+            1. ప్రజ్ఞ తక్కువగా ఉండటం<br>
+            2. ఆత్మాన్యునత ఉండటం<br>
+            3. ఈర్ష్య, అసూయలు ఉండటం<br>
+            4. శారీరక వికాసం సరిగా లేకపోవటం<br>
+            5. జ్ఞానేంద్రియ వికాసం లోపించడం<br>
+            6. ప్రతికూల ఉద్వేగాలు
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 3. కౌమార దశ -->
+    <h2 class="side-heading">3. కౌమార దశ - వికాస కృత్యములు & ఆటంకాలు</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>కౌమార దశ - వికాస కృత్యములు</th>
+          <th>ఆటంకాలు</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            1. ఆడవారు, మగవారు పరిపక్వమైన సంబంధంను కలిగి ఉండుట<br>
+            2. తమ సామాజిక పాత్రను తగిన విధంగా పోషించుట<br>
+            3. భావోద్వేగ స్వాతంత్య్రమును పొందుట<br>
+            4. ఆర్థిక స్వేచ్ఛ తగిన భరోసా పొందగలుగుట<br>
+            5. వృత్తిని ఎంపిక చేసుకొని సంసిద్ధమగుట<br>
+            6. బాధ్యతాయుత పౌర జీవనాన్ని సాగించుట<br>
+            7. వివాహం చేసుకొని కుటుంబ జీవనంకు సిద్ధపడుట<br>
+            8. నీతివంతమైన విలువలు కలిగి అందరికి మార్గదర్శకమైన ప్రవర్తనను కలిగి ఉండుట
+          </td>
+          <td>
+            1. తరచుగా అపజయాలు<br>
+            2. ఆత్మవిశ్వాస లోపం<br>
+            3. ఉద్వేగాల తీవ్రత<br>
+            4. మార్గదర్శకత్వ లేమి
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.getElementById('themeToggle');
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        btn.textContent = '🌙';
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        btn.textContent = '☀️';
+      }
+    }
+  </script>
+
+</body>
+</html>
