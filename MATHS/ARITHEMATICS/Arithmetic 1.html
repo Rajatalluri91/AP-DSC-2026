@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ఏక వస్తు మార్గం</title>
+    <!-- Google Fonts: Mandali -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    <!-- MathJax for Math Formatting -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --primary-color: #0056b3;
+            --highlight-color: #d9534f;
+            --accent-color: #28a745;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a202c;
+            --card-bg: #2d3748;
+            --text-color: #e2e8f0;
+            --primary-color: #63b3ed;
+            --highlight-color: #f6ad55;
+            --accent-color: #68d391;
+            --border-color: #4a5568;
+            --shadow: 0 4px 6px rgba(0,0,0,0.4);
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 26px;
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 28px;
+            position: relative;
+            width: 54px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 3px;
+            content: "";
+            height: 22px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 22px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .mode-label {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .important {
+            color: var(--highlight-color);
+            font-weight: bold;
+        }
+
+        .accent {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula-box {
+            background-color: rgba(0, 86, 179, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .problem-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .problem-title {
+            font-weight: bold;
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .step {
+            margin-left: 20px;
+            margin-bottom: 5px;
+        }
+
+        .result {
+            font-size: 20px;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size:15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ARITHMETIC</h1>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+            <span class="mode-label" id="mode-text"></span>
+        </div>
+    </header>
+
+    <div class="card">
+        <h2 class="card-title">1. ఏక వస్తు మార్గం (<span class="important">UNITARY METHOD</span>)</h2>
+        <div class="formula-box">
+            <p><strong>నిర్వచనం:</strong> <span class="important">ఒక వస్తువు</span> విలువను కనుగొని దాని ద్వారా కావలసినన్ని రాశుల విలువను కనుగొనే విధానాన్ని <span class="accent">ఏక వస్తు మార్గం</span> అంటారు.</p>
+        </div>
+        
+        <h3>ముఖ్యమైన పరిమాణాలు / ప్రమాణాలు:</h3>
+        <ul>
+            <li>1 జత = <b>2</b> వస్తువులు</li>
+            <li>1 డజను = <b>12</b> వస్తువులు</li>
+            <li>1 గ్రోసు = <b>12</b> డజన్లు = \(12 \times 12\) వస్తువులు = <b>144</b> వస్తువులు</li>
+            <li>1 స్కోరు = <b>20</b> వస్తువులు</li>
+            <li>1 దస్తా = <b>24</b> కాగితాలు</li>
+            <li>1 రీము = <b>20</b> దస్తాలు (QUIRES) = \(20 \times 24\) కాగితాలు = <b>480</b> కాగితాలు</li>
+        </ul>
+
+        <div class="formula-box">
+            <ul>
+                <li>480 sheets = 20 quires = 2 reams = 1 bundle</li>
+                <li>4,800 sheets = 200 quires = 20 reams = 10 bundles = 1 bale</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- లెక్కలు / ప్రొబ్లెమ్స్ -->
+    <div class="problem-card">
+        <div class="problem-title">1. <span class="important">5 పెన్సిళ్ల</span> వెల <span class="accent">300 రూపాయలు</span> అయితే <span class="important">3 పెన్సిళ్ల</span> వెల ఎంత?</div>
+        <div class="step">5 పెన్సిళ్ల వెల = 300</div>
+        <div class="step">3 పెన్సిళ్ల వెల = తక్కువ</div>
+        <div class="step">\( = \frac{3}{5} \times 300 \)</div>
+        <div class="step">\( = 3 \times 60 \)</div>
+        <div class="result">= 180 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">2. <span class="important">1 డజను సబ్బుల</span> ధర <span class="accent">306 రూపాయలు</span> అయితే <span class="important">15 సబ్బుల</span> ధర ఎంత?</div>
+        <div class="step">1 డజను సబ్బుల ధర = 306</div>
+        <div class="step">12 సబ్బుల ధర = 306</div>
+        <div class="step">15 సబ్బుల ధర = ఎక్కువ</div>
+        <div class="step">\( = \frac{15}{12} \times 306 \)</div>
+        <div class="step">\( = 15 \times 25.5 \)</div>
+        <div class="result">= 382.50 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">3. <span class="accent">1100 రూపాయలతో</span> <span class="important">5 ఫ్యాన్లు</span> కొనగలం అయితే <span class="accent">4400 రూపాయలతో</span> ఎన్ని ఫ్యాన్లు కొనగలం?</div>
+        <div class="step">1100 రూపాయలతో కొనగలిగే ఫ్యాన్ల సంఖ్య = 5</div>
+        <div class="step">4400 రూపాయలతో కొనగలిగే ఫ్యాన్ల సంఖ్య = ఎక్కువ</div>
+        <div class="step">\( = \frac{4400}{1100} \times 5 \)</div>
+        <div class="step">\( = 4 \times 5 \)</div>
+        <div class="result">= 20 ఫ్యాన్లు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">4. <span class="important">6 నారింజ పండ్ల</span> వెల <span class="accent">54 రూపాయలు</span> అయితే <span class="important">9 నారింజ పండ్ల</span> వెల ఎంత?</div>
+        <div class="step">6 నారింజ పండ్ల వెల = 54</div>
+        <div class="step">9 నారింజ పండ్ల వెల = ఎక్కువ</div>
+        <div class="step">\( = \frac{9}{6} \times 54 \)</div>
+        <div class="step">\( = 9 \times 9 \)</div>
+        <div class="result">= 81 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">5. <span class="important">72 మామిడి పండ్లను</span> <span class="accent">9 బుట్టలలో</span> సమానంగా అమర్చగలిగితే <span class="important">48 పండ్లను</span> అమర్చుటకు ఎన్ని బుట్టలు కావలెను?</div>
+        <div class="step">72 మామిడి పండ్లను అమర్చుటకు అవసరమయ్యే బుట్టల సంఖ్య = 9</div>
+        <div class="step">48 మామిడి పండ్లను అమర్చుటకు అవసరమయ్యే బుట్టల సంఖ్య = తక్కువ</div>
+        <div class="step">\( = \frac{48}{72} \times 9 \)</div>
+        <div class="step">\( = \frac{48}{8} \)</div>
+        <div class="result">= 6 బుట్టలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">6. <span class="important">5 కిలోల</span> గోధుమ పిండి పాకెట్ ధర <span class="accent">125 రూపాయలు</span> అయితే <span class="important">2 కిలోల</span> పాకెట్ ల ధర ఎంత?</div>
+        <div class="step">5 కిలోల గోధుమ పిండి పాకెట్ ధర = 125</div>
+        <div class="step">2 కిలోల గోధుమ పిండి పాకెట్ ధర = తక్కువ</div>
+        <div class="step">\( = \frac{2}{5} \times 125 \)</div>
+        <div class="step">\( = 2 \times 25 \)</div>
+        <div class="result">= 50 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">7. ఒక <span class="important">స్కోరు పెన్సిళ్లు</span> ఖరీదు <span class="accent">216 రూపాయలు</span> అయితే <span class="important">5 డజన్ ల</span> పెన్సిళ్ల ఖరీదు ఎంత?</div>
+        <div class="step">1 స్కోరు పెన్సిళ్లు ఖరీదు = 216</div>
+        <div class="step">20 పెన్సిళ్ళ ఖరీదు = 216</div>
+        <div class="step">60(5 డజన్లు) పెన్సిళ్ళ ఖరీదు = ఎక్కువ</div>
+        <div class="step">\( = \frac{60}{20} \times 216 \)</div>
+        <div class="step">\( = 3 \times 216 \)</div>
+        <div class="result">= 648 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">8. ఒక <span class="important">డజను కుర్చీల</span> ధర <span class="accent">10800 రూపాయలు</span> అయితే <span class="important">5 కుర్చీల</span> ధర ఎంత?</div>
+        <div class="step">1 డజను కుర్చీల ధర = 10800</div>
+        <div class="step">12 కుర్చీల ధర = 10800</div>
+        <div class="step">5 కుర్చీల ధర = తక్కువ</div>
+        <div class="step">\( = \frac{5}{12} \times 10800 \)</div>
+        <div class="step">\( = 5 \times 900 \)</div>
+        <div class="result">= 4500 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">9. <span class="important">5 దస్తాల</span> కాగితం ధర <span class="accent">250 రూపాయలు</span> అయితే ఒక <span class="important">రీము</span> కాగితం ధర ఎంత?</div>
+        <div class="step">5 దస్తాల కాగితం ధర = 250</div>
+        <div class="step">120 కాగితాల ధర = 250</div>
+        <div class="step">480 కాగితాల ధర = ఎక్కువ</div>
+        <div class="step">\( = \frac{480}{120} \times 250 \)</div>
+        <div class="step">\( = 4 \times 250 \)</div>
+        <div class="result">= 1000 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">10. ఒక <span class="important">గ్రోసు</span> బొట్టు బిళ్ళల ఖరీదు <span class="accent">600 రూపాయలు</span> అయితే <span class="important">5 డజన్ల</span> బొట్టు బిళ్ళల ఖరీదు ఎంత?</div>
+        <div class="step">1 గ్రోసు బొట్టు బిళ్ళల ఖరీదు = 600</div>
+        <div class="step">12 డజన్ల బొట్టు బిళ్ళల ఖరీదు = 600</div>
+        <div class="step">5 డజన్ల బొట్టు బిళ్ళల ఖరీదు = తక్కువ</div>
+        <div class="step">\( = \frac{5}{12} \times 600 \)</div>
+        <div class="step">\( = 5 \times 50 \)</div>
+        <div class="result">= 250 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">11. <span class="accent">300 గ్రాముల</span> బియ్యంతో <span class="important">ముగ్గురికి</span> బియ్యం వండుటకు సరిపడగా <span class="important">7గురికి</span> వండుటకు ఎంత బియ్యం కావలెను?</div>
+        <div class="step">ముగ్గురు తినుటకు అవసరమయ్యే బియ్యం = 300</div>
+        <div class="step">ఏడుగురు తినుటకు అవసరమయ్యే బియ్యం = ఎక్కువ</div>
+        <div class="step">\( = \frac{7}{3} \times 300 \)</div>
+        <div class="step">\( = 7 \times 100 \)</div>
+        <div class="result">= 700 గ్రాములు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">12. రెండు కిలోల క్యారెట్ ధర <span class="accent">36 రూపాయలు</span> అయిన <span class="important">5 కిలోల</span> క్యారెట్ ధర ఎంత?</div>
+        <div class="step">2 కిలోల క్యారెట్ ధర = 36</div>
+        <div class="step">5 కిలోల క్యారెట్ ధర = ఎక్కువ</div>
+        <div class="step">\( = \frac{5}{2} \times 36 \)</div>
+        <div class="step">\( = 5 \times 18 \)</div>
+        <div class="result">= 90 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">13. <span class="important">2 జతల</span> అరటి పండ్ల వెల <span class="accent">20 రూపాయలు</span> అయితే <span class="important">2 డజన్ల</span> అరటి పండ్ల వెల ఎంత?</div>
+        <div class="step">2 జతల అరటి పండ్ల వెల = 20</div>
+        <div class="step">4 అరటి పండ్ల వెల = 20</div>
+        <div class="step">24 అరటి పండ్ల వెల = ఎక్కువ</div>
+        <div class="step">\( = \frac{24}{4} \times 20 \)</div>
+        <div class="step">\( = 6 \times 20 \)</div>
+        <div class="result">= 120 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">14. ఒక పిట్ట <span class="important">10 సెకన్లలో 23 సార్లు</span> రెక్కలు ఆడించును. అయినా ఆ పిట్ట <span class="important">2 నిముషాలలో</span> ఎన్ని సార్లు రెక్కలు ఆడించును?</div>
+        <div class="step">10 సెకన్లలో ఆ పిట్ట రెక్కల చాలన సంఖ్య = 23</div>
+        <div class="step">120 సెకన్లలో అదే రెక్కల చాలన సంఖ్య = ఎక్కువ</div>
+        <div class="step">\( = \frac{120}{10} \times 23 \)</div>
+        <div class="step">\( = 12 \times 23 \)</div>
+        <div class="result">= 276 సార్లు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">15. మానవుని గుండె నిముషానికి <span class="accent">72 సార్లు</span> కొట్టుకొంటుంది. అయితే <span class="important">15 సెకన్లలో</span> ఎన్ని సార్లు కొట్టుకొంటుంది?</div>
+        <div class="step">60 సెకన్లలో గుండె స్పందనల సంఖ్య = 72</div>
+        <div class="step">15 సెకన్లలో గుండె స్పందనల సంఖ్య = తక్కువ</div>
+        <div class="step">\( = \frac{15}{60} \times 72 \)</div>
+        <div class="step">\( = 3 \times 6 \)</div>
+        <div class="result">= 18 సార్లు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">16. <span class="important">20 టన్నుల</span> ఇనుము ఖరీదు <span class="accent">6,00,000 రూపాయలు</span> అయితే <span class="important">560 కిలోల</span> ఇనుము ఖరీదు ఎంత?</div>
+        <div class="step">20,000 కిలోల ఇనుము ఖరీదు = 6,00,000</div>
+        <div class="step">560 కిలోల ఇనుము ఖరీదు = తక్కువ</div>
+        <div class="step">\( = \frac{560}{20000} \times 6,00,000 \)</div>
+        <div class="step">\( = 560 \times 30 \)</div>
+        <div class="result">= 16,800 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">17. రోజా ప్రతి రోజూ <span class="accent">50 రూపాయలు</span> ఖర్చు చేసినచో <span class="important">వారం రోజులలో</span> ఆమె ఎంత ఖర్చు చేయును?</div>
+        <div class="step">1 రోజులో చేసే ఖర్చు = 50</div>
+        <div class="step">7 రోజులలో చేయు ఖర్చు = ఎక్కువ</div>
+        <div class="step">\( = \frac{7}{1} \times 50 \)</div>
+        <div class="result">= 350 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">18. <span class="important">7 గంటలలో</span> <span class="accent">0.896 cm</span> వర్షపాతం నమోదైనది. అయితే <span class="important">ఒక గంటలో</span> పడిన సగటు వర్షపాతం ఎంత?</div>
+        <div class="step">7 గంటలలో నమోదైన వర్షపాతం = 0.896</div>
+        <div class="step">1 గంటలో నమోదయ్యే వర్షపాతం = తక్కువ</div>
+        <div class="step">\( = \frac{1}{7} \times 0.896 \)</div>
+        <div class="result">= 0.128 cm</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">19. క్రిష్ ఒక సెకనులో <span class="accent">\(1\frac{2}{3}\) మీటర్ల</span> దూరం నడవగలడు. అయితే అతడు <span class="important">12 నిముషాలలో</span> నడిచే దూరం ఎంత?</div>
+        <div class="step">1 సెకనులో నడిచే దూరం = \(1\frac{2}{3}\)</div>
+        <div class="step">1 సెకనులో నడిచే దూరం = \(\frac{5}{3}\)</div>
+        <div class="step">720 సెకనులలో నడిచే దూరం = ఎక్కువ</div>
+        <div class="step">\( = \frac{720}{1} \times \frac{5}{3} \)</div>
+        <div class="step">\( = 240 \times 5 \)</div>
+        <div class="result">= 1200 మీటర్లు</div>
+    </div>
+
+    <footer>
+        <p>Target DSC 2026</p>
+        <p>@Raja Talluri</p>
+    </footer>
+</div>
+
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const modeText = document.getElementById('mode-text');
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            modeText.textContent = '';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            modeText.textContent = '';
+        }    
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+
+</body>
+</html>

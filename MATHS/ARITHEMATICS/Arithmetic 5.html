@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>భాగస్వామ్యం (PARTNERSHIP)</title>
+    
+    <!-- Mandali Telugu Font Only -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    
+    <!-- MathJax 3 Configuration for Inline Display -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        enableMenu: false
+      },
+      chtml: {
+        mtextInheritFont: true
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Mandali', sans-serif !important;
+        }
+
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --primary-color: #0056b3;
+            --accent-color: #28a745;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a202c;
+            --card-bg: #2d3748;
+            --text-color: #e2e8f0;
+            --primary-color: #63b3ed;
+            --accent-color: #68d391;
+            --border-color: #4a5568;
+            --shadow: 0 4px 6px rgba(0,0,0,0.4);
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif !important;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 15px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 19px;
+            line-height: 1.8;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* MathJax Inline Text Alignment & Font Fix */
+        mjx-container, 
+        mjx-mtext, 
+        mjx-mtext *, 
+        .mjx-mtext span, 
+        .mjx-annotation span,
+        mjx-utext,
+        mjx-utext * {
+            font-family: 'Mandali', sans-serif !important;
+            font-style: normal !important;
+        }
+
+        mjx-container[jax="CHTML"][display="true"] {
+            margin: 0.5em 0 !important;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 26px;
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 28px;
+            position: relative;
+            width: 54px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 3px;
+            content: "";
+            height: 22px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 22px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .mode-label {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .formula-box {
+            background-color: rgba(0, 86, 179, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .problem-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            overflow-x: auto;
+        }
+
+        .problem-title {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .step {
+            margin-left: 10px;
+            margin-bottom: 8px;
+        }
+
+        .result {
+            font-size: 20px;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ARITHMETIC</h1>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+            <span class="mode-label" id="mode-text"></span>
+        </div>
+    </header>
+
+    <!-- Concepts & Principles -->
+    <div class="card">
+        <h2 class="card-title">భాగస్వామ్యం (PARTNERSHIP)</h2>
+        
+        <p><b>వ్యాపార భాగస్వామ్యం రెండు రకాలు:</b></p>
+        <ol>
+            <li><b>సామాన్య భాగస్వామ్యం:</b> ఈ విధానంలో పెట్టుబడిదారులు సమాన కాల వ్యవధిలో వ్యాపారంలో కొనసాగుతారు. వచ్చే ఫలితాన్ని (లాభం/నష్టం) పెట్టుబడుల నిష్పత్తిలో పంచుకొంటారు.</li>
+            <li><b>సంయుక్త భాగస్వామ్యం:</b> ఈ విధానంలో పెట్టుబడిదారులు వేరు వేరు కాల వ్యవధిలో వ్యాపారంలో కొనసాగుతారు. వచ్చే ఫలితాన్ని పెట్టుబడి మరియు కాలాల లబ్దాల నిష్పత్తిలో పంచుకొంటారు.</li>
+        </ol>
+
+        <div class="formula-box">
+            <p><strong>లాభాల నిష్పత్తి సూత్రాలు:</strong></p>
+            <p>• సమాన కాలం ఉన్నప్పుడు: $\text{లాభాల నిష్పత్తి} = C_1 : C_2$</p>
+            <p>• వేర్వేరు కాలాలు ఉన్నప్పుడు: $\text{లాభాల నిష్పత్తి} = (C_1 \times T_1) : (C_2 \times T_2)$</p>
+        </div>
+    </div>
+
+    <!-- Solved Problems -->
+
+    <div class="problem-card">
+        <div class="problem-title">• సీమా, రీమాలు వరుసగా 2000 రూపాయలు, 3000 రూపాయల పెట్టుబడులతో ఒక వ్యాపారం ప్రారంభించారు. సంవత్సరాంతాన వారు వచ్చిన లాభాన్ని ఏ నిష్పత్తిలో పంచుకొంటారు?</div>
+        <div class="step">సీమా యొక్క పెట్టుబడి $= 2000$</div>
+        <div class="step">రీమా యొక్క పెట్టుబడి $= 3000$</div>
+        <div class="step">ఇద్దరూ సమాన కాలం పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని పెట్టుబడుల నిష్పత్తిలో పంచుకొంటారు.</div>
+        <div class="step">సీమా, రీమాల లాభాల నిష్పత్తి = సీమా పెట్టుబడి : రీమా పెట్టుబడి</div>
+        <div class="step">$= 2000 : 3000$</div>
+        <div class="result">= 2 : 3</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• జస్వంత్, యశ్వంత్‌లు ఒక్కొక్కరు 5000 రూపాయల పెట్టుబడులతో వ్యాపారం ప్రారంభించారు. జస్వంత్ పెట్టుబడిని 12 నెలలు ఉంచాడు. యశ్వంత్ పెట్టుబడిని 9 నెలలు ఉంచాడు. అయితే వారు వచ్చిన లాభాన్ని ఏ నిష్పత్తిలో పంచుకొంటారు?</div>
+        <div class="step">జస్వంత్ యొక్క పెట్టుబడి $= 5,000$</div>
+        <div class="step">యశ్వంత్ యొక్క పెట్టుబడి $= 5,000$</div>
+        <div class="step">జస్వంత్ వ్యాపారంలో ఉన్న కాలం = 12 నెలలు</div>
+        <div class="step">యశ్వంత్ వ్యాపారంలో ఉన్న కాలం = 9 నెలలు</div>
+        <div class="step">ఇద్దరూ వేరు వేరు కాలాల పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని $\text{పెట్టుబడి} \times \text{కాలం}$ నిష్పత్తిలో పంచుకొంటారు.</div>
+        <div class="step">జస్వంత్, యశ్వంత్‌ల లాభాల నిష్పత్తి = జస్వంత్ పెట్టుబడి $\times$ కాలం : యశ్వంత్ పెట్టుబడి $\times$ కాలం</div>
+        <div class="step">$= 5,000 \times 12 : 5,000 \times 9$</div>
+        <div class="step">$= 60 : 45$</div>
+        <div class="result">= 4 : 3</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• సంజు 2000 రూపాయలను 12 నెలలు పెట్టుబడిగా, అంజు 3000 రూపాయలను 9 నెలలు పెట్టుబడిగా పెట్టారు. సంవత్సరాంతాన వచ్చే లాభాన్ని వారు ఏ నిష్పత్తిలో పంచుకొంటారు?</div>
+        <div class="step">సంజు యొక్క పెట్టుబడి $= 2,000$</div>
+        <div class="step">అంజు యొక్క పెట్టుబడి $= 3,000$</div>
+        <div class="step">సంజు వ్యాపారంలో ఉన్న కాలం = 12 నెలలు</div>
+        <div class="step">అంజు వ్యాపారంలో ఉన్న కాలం = 9 నెలలు</div>
+        <div class="step">ఇద్దరూ వేరు వేరు కాలాల పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని $\text{పెట్టుబడి} \times \text{కాలం}$ నిష్పత్తిలో పంచుకొంటారు.</div>
+        <div class="step">సంజు, అంజుల లాభాల నిష్పత్తి = సంజు పెట్టుబడి $\times$ కాలం : అంజు పెట్టుబడి $\times$ కాలం</div>
+        <div class="step">$= 2,000 \times 12 : 3,000 \times 9$</div>
+        <div class="step">$= 24 : 27$</div>
+        <div class="result">= 8 : 9</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• A, B లు 85,000 రూపాయలు, 15,000 రూపాయల పెట్టుబడులతో వ్యాపారం ప్రారంభించారు. 2 yrs తర్వాత వచ్చిన లాభాన్ని వారిద్దరూ ఏ నిష్పత్తిలో పంచుకొంటారు?</div>
+        <div class="step">A యొక్క పెట్టుబడి $= 85,000$</div>
+        <div class="step">B యొక్క పెట్టుబడి $= 15,000$</div>
+        <div class="step">ఇద్దరూ సమాన కాలం పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని పెట్టుబడుల నిష్పత్తిలో పంచుకొంటారు.</div>
+        <div class="step">A, B ల లాభాల నిష్పత్తి = A పెట్టుబడి : B పెట్టుబడి</div>
+        <div class="step">$= 85,000 : 15,000$</div>
+        <div class="step">$= 85 : 15$</div>
+        <div class="result">= 17 : 3</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• అరుణ్ మరియు వరుణ్‌లు 12,000 రూపాయలు, 18,000 రూపాయల పెట్టుబడులతో ఒక వ్యాపారాన్ని ప్రారంభించారు. సంవత్సరాంతాన 6250 రూపాయల లాభం వస్తే అరుణ్ మరియు వరుణ్‌ల వాటా ఎంత?</div>
+        <div class="step">అరుణ్ యొక్క పెట్టుబడి $= 12,000$</div>
+        <div class="step">వరుణ్ యొక్క పెట్టుబడి $= 18,000$</div>
+        <div class="step">ఇద్దరూ సమాన కాలం పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని పెట్టుబడుల నిష్పత్తిలో పంచుకొంటారు.</div>
+        <div class="step">అరుణ్, వరుణ్‌ల లాభాల నిష్పత్తి = అరుణ్ పెట్టుబడి : వరుణ్ పెట్టుబడి</div>
+        <div class="step">$= 12,000 : 18,000 = 12 : 18 = 2 : 3$</div>
+        <div class="step">లాభంలో అరుణ్ వాటా = 2 భాగాలు, వరుణ్ వాటా = 3 భాగాలు</div>
+        <div class="step">మొత్తం భాగాలు $= 2 + 3 = 5\text{ భాగాలు} = 6250$</div>
+        <div class="step">$1\text{ భాగం} = \frac{6250}{5} = 1250$</div>
+        <div class="step">అరుణ్ వాటా ($2\text{ భాగాలు}$) $= 2 \times 1250 = 2500$</div>
+        <div class="result">వరుణ్ వాటా ($3\text{ భాగాలు}$) $= 3 \times 1250 = 3750$</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• రామ్ 6000 రూపాయలను 12 నెలలకు, శ్యామ్ 9000 రూపాయలను 9 నెలలు పెట్టుబడిగా పెట్టి సంవత్సరాంతాన వచ్చిన లాభాన్ని పంచుకొనే నిష్పత్తి ఎంత?</div>
+        <div class="step">రామ్ యొక్క పెట్టుబడి $= 6,000$</div>
+        <div class="step">శ్యామ్ యొక్క పెట్టుబడి $= 9,000$</div>
+        <div class="step">రామ్ వ్యాపారంలో ఉన్న కాలం = 12 నెలలు</div>
+        <div class="step">శ్యామ్ వ్యాపారంలో ఉన్న కాలం = 9 నెలలు</div>
+        <div class="step">ఇద్దరూ వేరు వేరు కాలాల పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని $\text{పెట్టుబడి} \times \text{కాలం}$ నిష్పత్తిలో పంచుకొంటారు.</div>
+        <div class="step">రామ్, శ్యామ్‌ల లాభాల నిష్పత్తి = రామ్ పెట్టుబడి $\times$ కాలం : శ్యామ్ పెట్టుబడి $\times$ కాలం</div>
+        <div class="step">$= 6,000 \times 12 : 9,000 \times 9$</div>
+        <div class="step">$= 72 : 81$</div>
+        <div class="result">= 8 : 9</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• సీత, గీతలు వ్యాపార భాగస్వాములు. సీత 8 మాసాల పాటు 35,000 రూపాయలు, గీత 10 మాసాల పాటు 42,000 రూపాయలు పెట్టుబడులు పెట్టారు. మొత్తం 31,750 రూపాయల లాభం వస్తే సీత మరియు గీతల వాటాలు ఎంత?</div>
+        <div class="step">సీత యొక్క పెట్టుబడి $= 35,000$</div>
+        <div class="step">గీత యొక్క పెట్టుబడి $= 42,000$</div>
+        <div class="step">సీత వ్యాపారంలో ఉన్న కాలం = 8 నెలలు</div>
+        <div class="step">గీత వ్యాపారంలో ఉన్న కాలం = 10 నెలలు</div>
+        <div class="step">సీత, గీతల లాభాల నిష్పత్తి = సీత పెట్టుబడి $\times$ కాలం : గీత పెట్టుబడి $\times$ కాలం</div>
+        <div class="step">$= 35,000 \times 8 : 42,000 \times 10$</div>
+        <div class="step">$= 280 : 420 = 2 : 3$</div>
+        <div class="step">లాభంలో సీత వాటా = 2 భాగాలు, గీత వాటా = 3 భాగాలు</div>
+        <div class="step">మొత్తం లాభం $= 5\text{ భాగాలు} = 31750$</div>
+        <div class="step">$1\text{ భాగం} = 6350$</div>
+        <div class="step">సీత వాటా ($2\text{ భాగాలు}$) $= 2 \times 6350 = 12700$</div>
+        <div class="result">గీత వాటా ($3\text{ భాగాలు}$) $= 3 \times 6350 = 19050$</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 9000 రూపాయల పెట్టుబడితో కమల్ వ్యాపారం ప్రారంభించాడు. 5 నెలల తర్వాత 8000 రూపాయల పెట్టుబడితో విమల్ వ్యాపారంలో చేరాడు. సంవత్సరాంతాన వారి మొత్తం లాభం 6970 రూపాయలు అయితే వారి వాటాలు ఎంత?</div>
+        <div class="step">కమల్ యొక్క పెట్టుబడి $= 9,000$</div>
+        <div class="step">విమల్ యొక్క పెట్టుబడి $= 8,000$</div>
+        <div class="step">కమల్ వ్యాపారంలో ఉన్న కాలం = $1\text{ yr} = 12\text{ నెలలు}$</div>
+        <div class="step">విమల్ వ్యాపారంలో ఉన్న కాలం = $12 - 5 = 7\text{ నెలలు}$</div>
+        <div class="step">కమల్, విమల్‌ల లాభాల నిష్పత్తి = కమల్ పెట్టుబడి $\times$ కాలం : విమల్ పెట్టుబడి $\times$ కాలం</div>
+        <div class="step">$= 9,000 \times 12 : 8,000 \times 7$</div>
+        <div class="step">$= 108 : 56 = 27 : 14$</div>
+        <div class="step">మొత్తం లాభం $= 27 + 14 = 41\text{ భాగాలు} = 6970$</div>
+        <div class="step">$1\text{ భాగం} = \frac{6970}{41} = 170$</div>
+        <div class="step">కమల్ వాటా ($27\text{ భాగాలు}$) $= 27 \times 170 = 4590$</div>
+        <div class="result">విమల్ వాటా ($14\text{ భాగాలు}$) $= 14 \times 170 = 2380$</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 50,000 రూపాయల పెట్టుబడితో స్వప్న వ్యాపారం ప్రారంభించింది. 6 నెలల తర్వాత బాలు 80,000 రూపాయల పెట్టుబడితో ఆమెతో కలిసాడు. 3 yrs తర్వాత వారికి వచ్చిన లాభం 24,500 రూపాయలలో వారి వాటాలు ఎంత?</div>
+        <div class="step">స్వప్న యొక్క పెట్టుబడి $= 50,000$</div>
+        <div class="step">బాలు యొక్క పెట్టుబడి $= 80,000$</div>
+        <div class="step">స్వప్న వ్యాపారంలో ఉన్న కాలం = $3\text{ yrs} = 36\text{ నెలలు}$</div>
+        <div class="step">బాలు వ్యాపారంలో ఉన్న కాలం = $36 - 6 = 30\text{ నెలలు}$</div>
+        <div class="step">స్వప్న, బాలుల లాభాల నిష్పత్తి = స్వప్న పెట్టుబడి $\times$ కాలం : బాలు పెట్టుబడి $\times$ కాలం</div>
+        <div class="step">$= 50,000 \times 36 : 80,000 \times 30$</div>
+        <div class="step">$= 180 : 240 = 3 : 4$</div>
+        <div class="step">మొత్తం లాభం $= 3 + 4 = 7\text{ భాగాలు} = 24500$</div>
+        <div class="step">$1\text{ భాగం} = 3500$</div>
+        <div class="step">స్వప్న వాటా ($3\text{ భాగాలు}$) $= 3 \times 3500 = 10500$</div>
+        <div class="result">బాలు వాటా ($4\text{ భాగాలు}$) $= 4 \times 3500 = 14000$</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 8,000 రూపాయలు, 4,000 రూపాయలు, 8,000 రూపాయలు వరుస పెట్టుబడులతో నవ్య, దివ్య, భవ్యలు వ్యాపారం ప్రారంభించారు. ఆరు నెలల తర్వాత నవ్య వ్యాపారం నుండి వైదొలగింది. మొత్తం మీద 8 నెలల తర్వాత 4005 రూపాయలు లాభం వస్తే వారి వాటాలు ఎంత?</div>
+        <div class="step">నవ్య పెట్టుబడి $= 8,000$ (కాలం = 6 నెలలు)</div>
+        <div class="step">దివ్య పెట్టుబడి $= 4,000$ (కాలం = 8 నెలలు)</div>
+        <div class="step">భవ్య పెట్టుబడి $= 8,000$ (కాలం = 8 నెలలు)</div>
+        <div class="step">నవ్య, దివ్య, భవ్యల లాభాల నిష్పత్తి</div>
+        <div class="step">$= 8000 \times 6 : 4000 \times 8 : 8000 \times 8$</div>
+        <div class="step">$= 48 : 32 : 64 = 3 : 2 : 4$</div>
+        <div class="step">మొత్తం భాగాలు $= 3 + 2 + 4 = 9\text{ భాగాలు} = 4005$</div>
+        <div class="step">$1\text{ భాగం} = 445$</div>
+        <div class="step">నవ్య వాటా ($3\text{ భాగాలు}$) $= 3 \times 445 = 1335$</div>
+        <div class="step">దివ్య వాటా ($2\text{ భాగాలు}$) $= 2 \times 445 = 890$</div>
+        <div class="result">భవ్య వాటా ($4\text{ భాగాలు}$) $= 4 \times 445 = 1780$</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• రూప వ్యాపారం ప్రారంభించిన కొన్ని నెలలకు దీప వ్యాపారంలో చేరెను. వారి పెట్టుబడుల నిష్పత్తి 4 : 5. సంవత్సరాంతాన లాభంలో రూప, దీపల వాటాలు వరుసగా 3300 రూపాయలు, 2750 రూపాయలు అయితే దీప వ్యాపారంలో ఎప్పుడు చేరింది?</div>
+        <div class="step">రూప వ్యాపారంలో ఉన్న కాలం = 12 నెలలు</div>
+        <div class="step">దీప వ్యాపారంలో ఉన్న కాలం $= (12 - x)$ నెలలు</div>
+        <div class="step">రూప, దీపల పెట్టుబడుల నిష్పత్తి $= 4 : 5$</div>
+        <div class="step">రూప, దీపల లాభాల నిష్పత్తి = రూప పెట్టుబడి $\times$ కాలం : దీప పెట్టుబడి $\times$ కాలం</div>
+        <div class="step">$3300 : 2750 = 4 \times 12 : 5 \times (12 - x)$</div>
+        <div class="step">$6 : 5 = 48 : (60 - 5x)$</div>
+        <div class="step">$\frac{6}{5} = \frac{48}{60 - 5x} \Rightarrow 6(60 - 5x) = 5(48)$</div>
+        <div class="step">$360 - 30x = 240 \Rightarrow 30x = 120 \Rightarrow x = 4$</div>
+        <div class="result">దీప 4 నెలల తర్వాత వ్యాపారంలో చేరింది (8 నెలలు వ్యాపారంలో ఉంది).</div>
+    </div>
+
+</div>
+
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const modeText = document.getElementById('mode-text');
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            modeText.textContent = '';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            modeText.textContent = '';
+        }    
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+
+</body>
+</html>

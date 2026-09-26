@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>శాతాలు (PERCENTAGES)</title>
+    
+    <!-- Mandali Telugu Font Only -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    
+    <!-- MathJax 3 Configuration for Inline Display -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        enableMenu: false
+      },
+      chtml: {
+        mtextInheritFont: true
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Mandali', sans-serif !important;
+        }
+
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --primary-color: #0056b3;
+            --accent-color: #28a745;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a202c;
+            --card-bg: #2d3748;
+            --text-color: #e2e8f0;
+            --primary-color: #63b3ed;
+            --accent-color: #68d391;
+            --border-color: #4a5568;
+            --shadow: 0 4px 6px rgba(0,0,0,0.4);
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif !important;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 19px;
+            line-height: 1.8;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* MathJax Inline Text Alignment & Font Fix */
+        mjx-container, 
+        mjx-mtext, 
+        mjx-mtext *, 
+        .mjx-mtext span, 
+        .mjx-annotation span,
+        mjx-utext,
+        mjx-utext * {
+            font-family: 'Mandali', sans-serif !important;
+            font-style: normal !important;
+        }
+
+        mjx-container[jax="CHTML"][display="true"] {
+            margin: 0.5em 0 !important;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 26px;
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 28px;
+            position: relative;
+            width: 54px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 3px;
+            content: "";
+            height: 22px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 22px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .mode-label {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .formula-box {
+            background-color: rgba(0, 86, 179, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .problem-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            overflow-x: auto;
+        }
+
+        .problem-title {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .step {
+            margin-left: 10px;
+            margin-bottom: 8px;
+        }
+
+        .result {
+            font-size: 20px;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ARITHMETIC</h1>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+            <span class="mode-label" id="mode-text"></span>
+        </div>
+    </header>
+
+    <!-- Concepts & Formulas -->
+    <div class="card">
+        <h2 class="card-title">శాతాలు (PERCENTAGES)</h2>
+        
+        <ul>
+            <li><b>PERCENTAGE</b> అనే పదం లాటిన్ భాష నుండి ఉద్భవించింది. దీని అర్థం <b>Out of One Hundred</b>.</li>
+            <li>శాతము అనగా <b>ప్రతి వందకు</b> అని అర్థం.</li>
+            <li>శాతాన్ని <b>%</b> అనే గుర్తుచే సూచిస్తారు.</li>
+        </ul>
+
+        <div class="formula-box">
+            <p><strong>ఉదాహరణలు:</strong></p>
+            <p>1% అనగా $100\text{ లో }1 = \frac{1}{100} = 0.01 = 1:100$</p>
+            <p>12% అనగా $100 \Leftrightarrow 12 = \frac{12}{100} = 0.12 = 12:100$</p>
+            <p>98% అనగా $100\text{ లో }98 = \frac{98}{100} = 0.98 = 98:100$</p>
+        </div>
+
+        <ul>
+            <li><b>100</b> హారముగా గల భిన్నాలను <b>శాతాలు</b> అనవచ్చు.</li>
+            <li>భిన్నాలను శాతాలుగా మార్చాలంటే <b>100% చే గుణించాలి</b>: $\frac{1}{2} = \frac{1}{2} \times 100\% = 50\%$, $\frac{3}{4} = \frac{3}{4} \times 100\% = 75\%$</li>
+            <li>శాతాలను భిన్నాలుగా మార్చాలంటే <b>100% చే భాగించాలి</b>: $25\% = \frac{25\%}{100\%} = \frac{1}{4}$, $60\% = \frac{60\%}{100\%} = \frac{3}{5}$</li>
+        </ul>
+    </div>
+
+    <!-- All Solved Problems -->
+
+    <div class="problem-card">
+        <div class="problem-title">• 0.625 ను శాతముగా రాయండి</div>
+        <div class="step">$= 0.625 \times 100\%$</div>
+        <div class="result">= 62.5%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 0.125 ను భిన్న రూపంలో, శాత రూపంలో, నిష్పత్తి రూపంలో వ్రాయండి</div>
+        <div class="step">శాత రూపం $= 0.125 \times 100\% = 12.5\%$</div>
+        <div class="step">భిన్న రూపం $= \frac{0.125}{1} = \frac{125}{1000} = \frac{1}{8}$</div>
+        <div class="result">నిష్పత్తి రూపం = 1 : 8</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• $3\frac{3}{4}$ ను దశాంశ రూపంలో, శాత రూపంలో, నిష్పత్తి రూపంలో వ్రాయండి</div>
+        <div class="step">$3\frac{3}{4} = \frac{15}{4}$</div>
+        <div class="step">దశాంశ రూపం $= 3.75$</div>
+        <div class="step">శాత రూపం $= \frac{15}{4} \times 100\% = 375\%$</div>
+        <div class="result">నిష్పత్తి రూపం = 15 : 4</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 3 : 16 ను భిన్న రూపంలో, దశాంశ రూపంలో, శాత రూపంలో వ్రాయండి</div>
+        <div class="step">భిన్న రూపం $= \frac{3}{16}$</div>
+        <div class="step">దశాంశ రూపం $= 0.1875$</div>
+        <div class="result">శాత రూపం $= \frac{3}{16} \times 100\% = 18.75\%$</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 250 లో 20% ఎంత?</div>
+        <div class="step">$100\% = 250$</div>
+        <div class="step">$20\% =$ తక్కువ</div>
+        <div class="step">$= \frac{20}{100} \times 250$</div>
+        <div class="result">= 50</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక రీములో 80% ఎంత?</div>
+        <div class="step">ఒక రీము = 480 కాగితాలు</div>
+        <div class="step">$100\% = 480$ కాగితాలు</div>
+        <div class="step">$80\% =$ తక్కువ</div>
+        <div class="step">$= \frac{80}{100} \times 480$</div>
+        <div class="result">= 384 కాగితాలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 24 km లలో $8\frac{1}{3}\%$ ఎంత?</div>
+        <div class="step">$100\% = 24\text{ km}$</div>
+        <div class="step">$8\frac{1}{3}\% =$ తక్కువ</div>
+        <div class="step">$= \frac{8\frac{1}{3}}{100} \times 24 = \frac{25}{3} \times \frac{1}{100} \times 24$</div>
+        <div class="result">= 2 km</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 84% శాతాన్ని సూక్ష్మ నిష్పత్తి రూపంలో రాయండి</div>
+        <div class="step">$84\% = \frac{84}{100} = \frac{21}{25}$</div>
+        <div class="result">= 21 : 25</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 2400 రూపాయల కన్నా 2000 రూపాయలు ఎంత శాతం తక్కువ?</div>
+        <div class="step">$2400 = 100\%$</div>
+        <div class="step">$2000 = \frac{2000}{2400} \times 100\% = 83\frac{1}{3}\%$</div>
+        <div class="result">తగ్గుదల శాతం = $100\% - 83\frac{1}{3}\% = 16\frac{2}{3}\%$</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 2000 రూపాయల కన్నా 2400 రూపాయలు ఎంత శాతం ఎక్కువ?</div>
+        <div class="step">$2000 = 100\%$</div>
+        <div class="step">$2400 = \frac{2400}{2000} \times 100\% = 120\%$</div>
+        <div class="result">పెరుగుదల శాతం = $120\% - 100\% = 20\%$</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక సంఖ్యలో 25% విలువ 40 అయితే ఆ సంఖ్య ఏది?</div>
+        <div class="step">$25\% = 40$</div>
+        <div class="step">$100\% = \frac{100}{25} \times 40$</div>
+        <div class="result">= 160</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక సంఖ్యలో 40 శాతము 800 కు సమానం అయితే ఆ సంఖ్య ఎంత?</div>
+        <div class="step">$40\% = 800$</div>
+        <div class="step">$100\% = \frac{100}{40} \times 800$</div>
+        <div class="result">= 2000</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక సంఖ్యను 20% విలువ తగ్గించగా దాని విలువ 32 అయితే ఆ సంఖ్య ఏది?</div>
+        <div class="step">20% విలువ తగ్గించగా అంటే 80% విలువ = 32</div>
+        <div class="step">$80\% = 32$</div>
+        <div class="step">$100\% = \frac{100}{80} \times 32$</div>
+        <div class="result">= 40</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక సంఖ్యలో 65% దానిలో $\frac{4}{5}$ వ వంతు కన్నా 21 తక్కువైతే ఆ సంఖ్య ఏది?</div>
+        <div class="step">ఆ సంఖ్య $= x$</div>
+        <div class="step">65% of $x = \frac{4x}{5} - 21$</div>
+        <div class="step">$\frac{65x}{100} = \frac{4x}{5} - 21 \Rightarrow \frac{65x}{100} - \frac{4x}{5} = -21$</div>
+        <div class="step">$\frac{65x - 80x}{100} = -21 \Rightarrow \frac{-15x}{100} = -21$</div>
+        <div class="step">$15x = 2100$</div>
+        <div class="result">x = 140</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 120 అనే సంఖ్యను 25% పెంచినచో, దాని విలువెంత?</div>
+        <div class="step">$100\% = 120$</div>
+        <div class="step">$125\% = \frac{125}{100} \times 120 = 5 \times 30$</div>
+        <div class="result">= 150</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 800 అనే సంఖ్యను 20% తగ్గించినచో, దాని విలువెంత?</div>
+        <div class="step">$100\% = 800$</div>
+        <div class="step">$80\% = \frac{80}{100} \times 800 = 80 \times 8$</div>
+        <div class="result">= 640</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 12 గంటలను 4 రోజులలో శాతముగా తెలపండి</div>
+        <div class="step">4 రోజులు = 96 గంటలు</div>
+        <div class="step">96 గంటలు $= 100\%$</div>
+        <div class="step">12 గంటలు $= \frac{12}{96} \times 100 = \frac{100}{8}$</div>
+        <div class="result">= 12.5%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ముకేష్ ఆదాయం అశోక్ ఆదాయం కంటే 20% ఎక్కువ అయితే అశోక్ ఆదాయం ముకేష్ ఆదాయం కంటే ఎంత శాతం తక్కువ?</div>
+        <div class="step">అశోక్ ఆదాయం = 100</div>
+        <div class="step">ముకేష్ ఆదాయం = 120</div>
+        <div class="step">ముకేష్‌తో పోలుస్తున్నాము కాబట్టి ముకేష్ ఆదాయాన్ని 100% గా భావించాలి</div>
+        <div class="step">$120 = 100\%$</div>
+        <div class="step">$20 = \frac{20}{120} \times 100$</div>
+        <div class="result">= 16&frac23;%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• గీతికకు ఒక పరీక్షలో 75 మార్కులకు గాను 45 మార్కులు వచ్చాయి. అయితే ఆమె మార్కుల శాతం ఎంత?</div>
+        <div class="step">75 మార్కులు $= 100\%$</div>
+        <div class="step">45 మార్కులు $= \frac{45}{75} \times 100\%$</div>
+        <div class="result">= 60%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• పరీక్షలో 35% మార్కులు వస్తే పాస్ అవుతారు. ఒక విద్యార్థి 32% మార్కులు తెచ్చుకొని 6 మార్కుల తేడాతో ఫెయిల్ అయ్యాడు. అయితే ఆ పరీక్ష యొక్క గరిష్ట మార్కులు ఎన్ని?</div>
+        <div class="step">తేడా $= 35\% - 32\% = 3\% = 6$ మార్కులు</div>
+        <div class="step">$3\% = 6$ మార్కులు</div>
+        <div class="step">$100\% = \frac{100}{3} \times 6 = 200$</div>
+        <div class="result">= 200 గరిష్ట మార్కులు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక తరగతిలో 35 మంది బాలురు, 15 మంది బాలికలు కలరు. అయితే బాలుర శాతం ఎంత?</div>
+        <div class="step">బాలురు = 35, బాలికలు = 15, మొత్తం = 50</div>
+        <div class="step">మొత్తం $50 = 100\%$</div>
+        <div class="step">బాలురు $35 = \frac{35}{50} \times 100\%$</div>
+        <div class="result">= 70%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• మహేష్ చొక్కాలో $\frac{3}{5}$ వంతు నూలు, సురేష్ చొక్కాలో $\frac{3}{4}$ వంతు నూలు కలదు. అయితే ఎవరి చొక్కాలో నూలు శాతం తక్కువ?</div>
+        <div class="step">మహేష్ చొక్కాలో నూలు $= \frac{3}{5} = 0.60$</div>
+        <div class="step">సురేష్ చొక్కాలో నూలు $= \frac{3}{4} = 0.75$</div>
+        <div class="result">మహేష్ చొక్కాలో నూలు శాతం తక్కువ</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక కళాశాలలో వర్షం పడిన రోజున 150 మంది విద్యార్థులకు గాను 25 మంది హాజరు కాలేదు. అయితే వచ్చిన విద్యార్థుల శాతమెంత?</div>
+        <div class="step">మొత్తం = 150, గైర్హాజరు = 25, హాజరు = 125</div>
+        <div class="step">$150 = 100\%$</div>
+        <div class="step">$125 = \frac{125}{150} \times 100\%$</div>
+        <div class="result">= 83&frac13;%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• రంగమ్మ బుట్ట నిండా అరటి పండ్లు, కమలా పండ్లు, మామిడి పండ్లు ఉన్నాయి. అందులో 50% అరటి పండ్లు, 15% కమలా పండ్లు ఉన్నచో మామిడి పండ్ల శాతమెంత?</div>
+        <div class="step">అరటి + కమలా + మామిడి = 100%</div>
+        <div class="step">$50\% + 15\% + \text{మామిడి} = 100\%$</div>
+        <div class="step">మామిడి పండ్లు $= 100\% - 65\%$</div>
+        <div class="result">= 35%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• హిందూపురం నియోజక వర్గంలోని 2,40,000 మంది ఓటర్లలో 60% మంది బాలకృష్ణకు ఓటేశారు అయితే బాలకృష్ణకు మద్దతు పలికిన ఓటర్ల సంఖ్య ఎంత?</div>
+        <div class="step">మొత్తం పోలైన ఓట్లు $= 2,40,000 = 100\%$</div>
+        <div class="step">$60\% = \frac{60}{100} \times 2,40,000$</div>
+        <div class="result">= 1,44,000</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక ప్రదర్శనలో భాగంగా 8వ తరగతి విద్యార్థులు 300 టికెట్లను, 7 వ తరగతి విద్యార్థులు 250 టికెట్లను అమ్మాలని లక్ష్యంగా పెట్టుకొన్నారు. చివరికి 8 వ తరగతి వారు 225 టికెట్లను, 7 వ తరగతి వారు 200 టికెట్లను అమ్మారు. అయితే ఏ తరగతి వారు లక్ష్యానికి దగ్గరగా వచ్చారు?</div>
+        <div class="step">8 వ తరగతి : $\frac{225}{300} \times 100\% = 75\%$</div>
+        <div class="step">7 వ తరగతి : $\frac{200}{250} \times 100\% = 80\%$</div>
+        <div class="result">7 వ తరగతి వారు లక్ష్యానికి దగ్గరగా వచ్చారు.</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• Dream-11 IPL-2020 లో CSK 20 మ్యాచులను ఆడగా 25% మ్యాచులలో గెలిచింది. అయితే CSK ఓడిన మ్యాచులు ఎన్ని?</div>
+        <div class="step">మొత్తం మ్యాచులు $= 20 = 100\%$</div>
+        <div class="step">ఓడిన మ్యాచులు శాతం $= 100\% - 25\% = 75\%$</div>
+        <div class="step">$75\% = \frac{75}{100} \times 20$</div>
+        <div class="result">= 15</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక కంసాలి ప్రతి గ్రాము బంగారానికి 0.25 గ్రాముల వెండిని, 0.05 గ్రాముల రాగిని కలుపును. ప్రతి గ్రాము బంగారంలో గల వెండి, రాగి శాతాలను కనుగొనుము</div>
+        <div class="step">1 గ్రాము బంగారం $= 100\%$</div>
+        <div class="step">వెండి శాతం $= \frac{0.25}{1} \times 100\% = 25\%$</div>
+        <div class="step">రాగి శాతం $= \frac{0.05}{1} \times 100\% = 5\%$</div>
+        <div class="result">వెండి = 25%, రాగి = 5%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• లేపాక్షి అనే గ్రామ జనాభాలో 60% స్త్రీలు కలరు. గ్రామ మొత్తం జనాభా 2,400 అయితే పురుషుల జనాభా ఎంత?</div>
+        <div class="step">స్త్రీలు = 60%, పురుషులు = 40%</div>
+        <div class="step">$100\% = 2400$</div>
+        <div class="step">$40\% = \frac{40}{100} \times 2400$</div>
+        <div class="result">= 960</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• గత సంవత్సరం ఒక వస్తువు ధర 40 రూపాయలు. ఈ సంవత్సరం దాని ధర 50 రూపాయలకు పెరిగింది అయితే ధరలో పెరుగుదల శాతమెంత?</div>
+        <div class="step">$40 = 100\%$</div>
+        <div class="step">$50 = \frac{50}{40} \times 100\% = 125\%$</div>
+        <div class="result">పెరుగుదల శాతం = 125% - 100% = 25%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• గత సంవత్సరం ఒక మొబైల్ ధర 5000 రూపాయలు. ఈ సంవత్సరం దాని ధర 4000 రూపాయలకు తగ్గింది. అయితే ధరలో తగ్గుదల శాతమెంత?</div>
+        <div class="step">$5000 = 100\%$</div>
+        <div class="step">$4000 = \frac{4000}{5000} \times 100\% = 80\%$</div>
+        <div class="result">తగ్గుదల శాతం = 100% - 80% = 20%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 250 కిలోల ప్రత్తి నుండి గింజలు తీయగా 60 కిలోల దూది లభించును. అయితే ప్రత్తిలో దూది ఎంత శాతం బరువు ఉండును?</div>
+        <div class="step">$250 = 100\%$</div>
+        <div class="step">$60 = \frac{60}{250} \times 100\%$</div>
+        <div class="result">= 24%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 10000 రూపాయలు విలువ గల యంత్ర పరికరంలో తరుగుదల రేటు 5% అయితే 1yr తర్వాత దాని విలువెంత?</div>
+        <div class="step">1 yr తర్వాత యంత్ర విలువ $= 10000 \times \frac{95\%}{100\%}$</div>
+        <div class="result">= 9500</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• KIA మోటార్స్ 98700 KIA కార్లను కిందటి నెలలోమ్మింది. అమ్మకాలను ఈ నెలలో 35% పెంచాలని నిర్ణయించింది. అయితే ఈ నెలలో అమ్మాల్సిన కార్లు ఎన్ని?</div>
+        <div class="step">$100\% = 98700$</div>
+        <div class="step">$135\% = \frac{135\%}{100\%} \times 98700$</div>
+        <div class="result">= 1,33,245</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక గ్రామ జనాభా ప్రతి సంవత్సరం 6% వృద్ధి చెందుతోంది. ప్రస్తుత జనాభా 17490. అయితే సంవత్సరం క్రితం ఆ గ్రామ జనాభా ఎంత?</div>
+        <div class="step">1 yr క్రితం గ్రామ జనాభా $= 17490 \times \frac{100\%}{106\%}$</div>
+        <div class="step">$= 165 \times 100$</div>
+        <div class="result">= 16500</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• పద్మనాభం తన ఇంటి అద్దెను ప్రతి సంవత్సరం 5% పెంచును. ప్రస్తుతం ఆ ఇంటి అద్దె 2500 రూపాయలు అయితే రెండు సంవత్సరాల తర్వాత ఆ ఇంటి అద్దె ఎంత?</div>
+        <div class="step">2 yrs తర్వాత ఇంటి అద్దె $= 2500 \times \frac{105\%}{100\%} \times \frac{105\%}{100\%}$</div>
+        <div class="step">$= 0.25 \times 105 \times 105$</div>
+        <div class="result">= 2756.25</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక పట్టణ జనాభా 1,50,000. ప్రతి సంవత్సరం జనాభా 25% పెరుగుతూ ఉంటె 2 yrs తర్వాత ఆ పట్టణ జనాభా ఎంత?</div>
+        <div class="step">2 yrs తర్వాత పట్టణ జనాభా $= 1,50,000 \times \frac{125\%}{100\%} \times \frac{125\%}{100\%}$</div>
+        <div class="step">$= 15 \times 125 \times 125$</div>
+        <div class="result">= 2,34,375</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక పట్టణ జనాభా 25,000. ప్రతి సంవత్సరం జనాభా 25% పెరుగుతూ ఉంటే 2 yrs క్రితం ఆ పట్టణ జనాభా ఎంత?</div>
+        <div class="step">2 yrs క్రితం పట్టణ జనాభా $= 25,000 \times \frac{100\%}{125\%} \times \frac{100\%}{125\%}$</div>
+        <div class="step">$= 8 \times 100 \times 20$</div>
+        <div class="result">= 16000</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక కారు యొక్క ప్రస్తుత ధర 75,000 రూపాయలు. ప్రతి సంవత్సరం దాని ధర 20% చొప్పున తగ్గినచో 2 yrs తర్వాత దాని విలువ ఎంత?</div>
+        <div class="step">2 yrs తర్వాత కారు విలువ $= 75,000 \times \frac{80\%}{100\%} \times \frac{80\%}{100\%}$</div>
+        <div class="step">$= 750 \times 8 \times 8$</div>
+        <div class="result">= 48,000</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 25000 ఖరీదు గల మోటార్ సైకిల్ విలువ సంవత్సరానికి 5% చొప్పున క్షీణిస్తూ ఉంటే 2 సంవత్సరాల తర్వాత దాని విలువ ఎంత?</div>
+        <div class="step">2 yrs తర్వాత మోటార్ సైకిల్ విలువ $= 25,000 \times \frac{95\%}{100\%} \times \frac{95\%}{100\%}$</div>
+        <div class="step">$= 2.50 \times 95 \times 95$</div>
+        <div class="result">= 22562.50</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక టెలివిజన్ యొక్క ప్రస్తుత ధర 7290 రూపాయలు. ప్రతి సంవత్సరం దాని ధర 10% చొప్పున తగ్గినచో 3 yrs క్రితం దాని విలువ ఎంత?</div>
+        <div class="step">3 yrs క్రితం టెలివిజన్ ధర $= 7290 \times \frac{100\%}{90\%} \times \frac{100\%}{90\%} \times \frac{100\%}{90\%}$</div>
+        <div class="step">$= 90 \times 100 \times 1$</div>
+        <div class="result">= 9000</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక గ్రామ జనాభా 18750. ఆ గ్రామ జనాభా పెరుగుదల రేటు సంవత్సరానికి 8% గా గుర్తించబడింది. అయితే రెండు సంవత్సరాల తర్వాత ఆ గ్రామ జనాభా ఎంత?</div>
+        <div class="step">2 yrs తర్వాత గ్రామ జనాభా $= 18750 \times \frac{108\%}{100\%} \times \frac{108\%}{100\%}$</div>
+        <div class="step">$= 1.875 \times 108 \times 108$</div>
+        <div class="result">= 21870</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక గ్రామ జనాభా 6250. ఆ గ్రామ జనాభా పెరుగుదల రేటు సంవత్సరానికి 8% గా గుర్తించబడింది. అయితే రెండు సంవత్సరాల తర్వాత ఆ గ్రామ జనాభా ఎంత?</div>
+        <div class="step">2 yrs తర్వాత గ్రామ జనాభా $= 6250 \times \frac{108\%}{100\%} \times \frac{108\%}{100\%}$</div>
+        <div class="step">$= 0.625 \times 108 \times 108$</div>
+        <div class="result">= 7290</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• అమరావతి నగర్ ప్రస్తుత జనాభా 12 లక్షలు. సంవత్సరానికి 4% చొప్పున జనాభా పెరుగుతూ ఉంటే 2 సంవత్సరాల తర్వాత ఆ నగర్ జనాభా ఎంత?</div>
+        <div class="step">2 yrs తర్వాత నగర్ జనాభా $= 12,00,000 \times \frac{104\%}{100\%} \times \frac{104\%}{100\%}$</div>
+        <div class="step">$= 120 \times 104 \times 104$</div>
+        <div class="result">= 12,97,920</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక రబ్బరు బంతిని కొంత ఎత్తు నుండి నేల మీదకు విడిచిన అది ప్రతిసారి ముందు ఎగిరిన ఎత్తులో 90% మాత్రమే పైకి ఎగురును. అది 25 మీ ఎత్తయిన భవంతి పైనుండి క్రిందకు వేయబడిన నేల మీద 2 సార్లు పడి పైకి ఎగిరిన ఎంత ఎత్తు వరకు ఎగురును?</div>
+        <div class="step">2 సార్లు ఎగిరిన తర్వాత ఎత్తు $= 25 \times \frac{90\%}{100\%} \times \frac{90\%}{100\%}$</div>
+        <div class="step">$= 25 \times 0.9 \times 0.9$</div>
+        <div class="result">= 20.25 మీ</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక రబ్బరు బంతిని కొంత ఎత్తు నుండి నేల మీదకు విడిచిన అది ప్రతిసారి ముందు ఎగిరిన ఎత్తులో 90% మాత్రమే పైకి ఎగురును. అది 125 మీ ఎత్తయిన భవంతి పైనుండి క్రిందకు వేయబడిన నేల మీద 2 సార్లు పడి పైకి ఎగిరిన ఎంత ఎత్తు వరకు ఎగురును?</div>
+        <div class="step">2 సార్లు ఎగిరిన తర్వాత ఎత్తు $= 125 \times \frac{90\%}{100\%} \times \frac{90\%}{100\%}$</div>
+        <div class="step">$= 125 \times 0.9 \times 0.9$</div>
+        <div class="result">= 101.25 మీ</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 85 రూపాయల పెట్రోలును మొదట 4% పెంచి, తర్వాత 5% తగ్గించినచో ప్రస్తుత పెట్రోల్ ధర ఎంత?</div>
+        <div class="step">2 మార్పుల తర్వాత పెట్రోల్ ధర $= 85 \times \frac{104\%}{100\%} \times \frac{95\%}{100\%}$</div>
+        <div class="step">$= 85 \times 1.04 \times 0.95$</div>
+        <div class="result">= 83.98</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• షేర్ మార్కెట్ లో ఒక కంపెనీ విలువ సోమవారం నాడు 7.50 రూపాయలు. మంగళవారం నాడు అది 6% పెరిగి, బుధవారం నాడు 1.5% తగ్గినది మరలా గురువారం నాడు 2% తగ్గింది. ఐతే శుక్రవారం ఉదయం ఆ షేర్ విలువ ఎంత?</div>
+        <div class="step">శుక్రవారం ఉదయం షేర్ విలువ $= 7.50 \times \frac{106\%}{100\%} \times \frac{98.5\%}{100\%} \times \frac{98\%}{100\%}$</div>
+        <div class="step">$= \frac{7674135}{1000000}$</div>
+        <div class="result">= 7.67</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• కరోనా నిర్ధారణ ప్రయోగంలో వైరస్ పెరుగుదల రేటు గంటకు 2.5% గా గుర్తించారు. ప్రారంభంలో వైరస్ లు 5,06,000 ఉన్నచో రెండు గంటల తర్వాత వైరస్ ల సంఖ్య ఎంత?</div>
+        <div class="step">రెండు గంటల తర్వాత వైరస్ ల సంఖ్య $= 5,06,000 \times \frac{102.5\%}{100\%} \times \frac{102.5\%}{100\%}$</div>
+        <div class="step">$= 50.6 \times 102.5 \times 102.5 = 531616.25$</div>
+        <div class="result">≈ 531616</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• జాహ్నవి 2cm × 4cm కొలతలు గల బొమ్మను జెరాక్స్ యంత్రంలో 150% పరిమాణం వచ్చేలా చేసి నకలు తీసుకొన్నది అయితే నకలులో ఉండే బొమ్మ కొలతలు ఏవి?</div>
+        <div class="step">అసలు కొలతలు $= 2\text{ cm} \times 4\text{ cm}$</div>
+        <div class="step">150% పరిమాణం కావున 50% పెరిగినట్టుగా భావించాలి</div>
+        <div class="result">కొలతలు = (2cm + 1cm) × (4cm + 2cm) = 3cm × 6cm</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక సంఖ్యను 20% పెంచి మరియు 20% తగ్గించినచో, ఆ సంఖ్యలో పెరుగుదల లేదా తరుగుదల శాతం ఎంత?</div>
+        <div class="step">సంఖ్యను 100 గా భావించాలి</div>
+        <div class="step">2 మార్పుల తర్వాత విలువ $= 100 \times \frac{120\%}{100\%} \times \frac{80\%}{100\%} = 12 \times 8 = 96$</div>
+        <div class="result">తరుగుదల శాతం = 100% - 96% = 4%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక ఉద్యోగి జీతంలో 10% తగ్గించారు. అతను మరలా ముందు తీసుకొన్న జీతమునకు రావడానికి ఎంత శాతం పెంచాలి?</div>
+        <div class="step">జీతాన్ని 100 గా భావిస్తే, తగ్గిన తర్వాత జీతం = 90</div>
+        <div class="step">$90 = 100\% \Rightarrow 100 = \frac{100}{90} \times 100\% = 111\frac{1}{9}\%$</div>
+        <div class="result">పెంచాల్సిన శాతం = $111\frac{1}{9}\% - 100\% = 11\frac{1}{9}\%$</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• జనాభా 1,75,000 నుండి 2,62,500 కి పెరిగితే 10 సం||లలో సగటు పెరుగుదల శాతం ఎంత?</div>
+        <div class="step">పెరిగిన జనాభా $= 2,62,500 - 1,75,000 = 87500$</div>
+        <div class="step">$1,75,000 = 100\%$</div>
+        <div class="step">మొత్తం పెరుగుదల శాతం $= \frac{87500}{1,75,000} \times 100\% = 50\%$</div>
+        <div class="result">10 సం||లలో సగటు పెరుగుదల / ఏటా సగటు సంఖ్య = 8750</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వ్యక్తి బరువు 8% తగ్గగా 65.6 కిలోలు అయినచో అతని అసలు బరువు ఎంత?</div>
+        <div class="step">తగ్గిన బరువు $= 8\%$</div>
+        <div class="step">మిగిలిన శాతం $= 100\% - 8\% = 92\% = 65.60\text{ kg} = 65600\text{ గ్రా}$</div>
+        <div class="step">$100\% = \frac{100\%}{8\%} \times 6560 = 12.5 \times 6560$</div>
+        <div class="result">= 82,000 గ్రాములు = 82 కిలోలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• మొబైల్ డేటా చార్జీలు పెరగక ముందు, పెరిగిన తర్వాత 7 : 9 నిష్పత్తిలో కలవు. పెరుగుదలకు ముందు చార్జీ 245 రూపాయలు అయితే చార్జీలో పెరుగుదల ఎంత?</div>
+        <div class="step">చార్జీలు పెరగక ముందు $= 7x$, పెరిగిన తర్వాత $= 9x$</div>
+        <div class="step">తేడా $= 9x - 7x = 2x$</div>
+        <div class="step">$7x = 245 \Rightarrow x = 35$</div>
+        <div class="result">పెరుగుదల = 2x = 2(35) = 70 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• టమాటా ధర ముందు 25% పెరిగి తర్వాత 25% తగ్గినది అయితే టమాటా అసలు ధరలో పెరుగుదల లేదా తరుగుదల ఎంత శాతం?</div>
+        <div class="step">ధరను 100 గా భావించాలి</div>
+        <div class="step">2 మార్పుల తర్వాత ధర $= 100 \times \frac{125}{100} \times \frac{75}{100} = 1 \times 125 \times \frac{3}{4} = 93.75$</div>
+        <div class="result">తరుగుదల శాతం = 100% - 93.75% = 6.25%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వస్తువు విలువ ప్రతి సంవత్సరం 20% చొప్పున తగ్గుతున్నది. రెండు సంవత్సరాల తర్వాత దాని విలువ 19200 రూపాయలు అయితే వస్తువు అసలు విలువ ఎంత?</div>
+        <div class="step">అసలు విలువ $= X$</div>
+        <div class="step">$X \times \frac{80\%}{100\%} \times \frac{80\%}{100\%} = 19200$</div>
+        <div class="step">$X \times \frac{64}{100} = 19200 \Rightarrow X = \frac{1920000}{64}$</div>
+        <div class="result">అసలు విలువ = 30,000 రూపాయలు</div>
+    </div>
+
+</div>
+
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const modeText = document.getElementById('mode-text');
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            modeText.textContent = '';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            modeText.textContent = '';
+        }    
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+
+</body>
+</html>

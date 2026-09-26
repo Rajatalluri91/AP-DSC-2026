@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>నిష్పత్తి - అనుపాతం (RATIO - PROPORTION)</title>
+    <!-- Google Fonts: Mandali -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    <!-- MathJax for Math Formatting -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --primary-color: #0056b3;
+            --highlight-color: #d9534f;
+            --accent-color: #28a745;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a202c;
+            --card-bg: #2d3748;
+            --text-color: #e2e8f0;
+            --primary-color: #63b3ed;
+            --highlight-color: #f6ad55;
+            --accent-color: #68d391;
+            --border-color: #4a5568;
+            --shadow: 0 4px 6px rgba(0,0,0,0.4);
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 18px;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 26px;
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 28px;
+            position: relative;
+            width: 54px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 3px;
+            content: "";
+            height: 22px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 22px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .mode-label {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .important {
+            color: var(--highlight-color);
+            font-weight: bold;
+        }
+
+        .accent {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula-box {
+            background-color: rgba(0, 86, 179, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .problem-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            overflow-x: auto;
+        }
+
+        .problem-title {
+            font-weight: bold;
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .step {
+            margin-left: 10px;
+            margin-bottom: 5px;
+        }
+
+        .result {
+            font-size: 20px;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: rgba(0, 86, 179, 0.1);
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ARITHMETIC</h1>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+            <span class="mode-label" id="mode-text"></span>
+        </div>
+    </header>
+
+    <!-- సిద్ధాంత విభాగం (Concepts & Formulas) -->
+    <div class="card">
+        <h2 class="card-title">నిష్పత్తి - అనుపాతం (<span class="important">RATIO - PROPORTION</span>)</h2>
+        
+        <ul>
+            <li>ఒకే ప్రమాణం గల రెండు రాశులను భాగాహారం ద్వారా సరిపోల్చడాన్ని <span class="important">నిష్పత్తి</span> అంటారు.</li>
+            <li>రెండు రాశుల మధ్య నిష్పత్తిని సూచించుటకు భాగాహార ప్రక్రియను ఉపయోగిస్తారు.</li>
+            <li>\(a, b\) ల నిష్పత్తిని \(a : b\) గా సూచిస్తారు.</li>
+            <li>\(a : b = a \div b = \frac{a}{b}\)</li>
+            <li>\(a : b\) లో \(a\) ను <b>పూర్వ పదం (Antecedent)</b> అంటారు, \(b\) ను <b>పర పదం (Consequent)</b> అంటారు.</li>
+            <li>నిష్పత్తికి ప్రమాణాలు ఉండవు.</li>
+            <li>నిష్పత్తి అనేది కేవలం సంఖ్యారూపం మాత్రమే.</li>
+        </ul>
+
+        <div class="formula-box">
+            <p><b>కనిష్ట నిష్పత్తి లేదా సామాన్య నిష్పత్తి (LEAST RATIO):</b></p>
+            <p>నిష్పత్తిలో పదాలకు 1 మాత్రమే ఉమ్మడి కారణాంకంగా ఉంటే ఆ నిష్పత్తిని కనిష్ట నిష్పత్తి అంటారు.</p>
+            <ul>
+                <li>\(4 : 24\) నిష్పత్తి యొక్క కనిష్ట నిష్పత్తి \(= 1 : 6\)</li>
+                <li>\(5 : 125\) నిష్పత్తి యొక్క కనిష్ట నిష్పత్తి \(= 1 : 25\)</li>
+            </ul>
+        </div>
+
+        <div class="formula-box">
+            <p><b>తుల్య నిష్పత్తులు లేదా సమాన నిష్పత్తులు (EQUAL RATIOS):</b></p>
+            <p>ఏదైనా నిష్పత్తిలో రెండు పదాలను ఒకే సహజ సంఖ్యచే గుణిస్తూ పోతే వచ్చు నిష్పత్తులను తుల్య నిష్పత్తులు లేదా సమాన నిష్పత్తులు అంటారు.</p>
+            <p>ఉదాహరణకు, \(1 : 6\) నిష్పత్తి యొక్క సమాన నిష్పత్తులు: \(2:12, 3:18, 4:24, 5:30, 6:36, 7:42, \dots\)</p>
+            <p><b>గమనిక:</b> నిష్పత్తిలోని రెండు పదాలను ఏదైనా సంఖ్యచే గుణించినా లేదా భాగించినా నిష్పత్తి యొక్క విలువ మారదు.</p>
+            <p>\(\frac{2}{3} \times \frac{4}{4} = \frac{8}{12}\) (అనగా \(2 : 3 = 8 : 12\))</p>
+        </div>
+
+        <h3>ముఖ్యమైన సూత్రాలు:</h3>
+        <ul>
+            <li>\(a : b\) యొక్క <b>వర్గ నిష్పత్తి</b> \(= a^2 : b^2\)</li>
+            <li>\(a : b\) యొక్క <b>ఘన నిష్పత్తి</b> \(= a^3 : b^3\)</li>
+            <li>\(a : b\) యొక్క <b>వర్గమూల నిష్పత్తి</b> \(= \sqrt{a} : \sqrt{b}\)</li>
+            <li>\(a : b\) యొక్క <b>ఘనమూల నిష్పత్తి</b> \(= \sqrt[3]{a} : \sqrt[3]{b}\)</li>
+            <li>\(a : b\) యొక్క <b>విలోమ నిష్పత్తి</b> \(= \frac{1}{a} : \frac{1}{b} = b : a\)</li>
+            <li>\(a : b : c\) యొక్క <b>విలోమ నిష్పత్తి</b> \(= \frac{1}{a} : \frac{1}{b} : \frac{1}{c} = bc : ac : ab\)</li>
+        </ul>
+
+        <div class="formula-box">
+            <p><b>అనుపాతం (PROPORTION):</b></p>
+            <ul>
+                <li>2 నిష్పత్తుల సమానత్వాన్ని అనుపాతం అంటారు. (\(a : b = c : d\) లేదా \(a : b :: c : d\))</li>
+                <li>\(::\) (Is as to) అనే చిహ్నాన్ని పరిచయం చేసినవాడు: <b>ఓగ్ ట్రాడ్ (1628)</b></li>
+                <li>\(a, b\) ల నిష్పత్తి, \(c, d\) ల నిష్పత్తికి సమానం అయితే \(a, b, c, d\) లు అనుపాతంలో ఉంటాయి.</li>
+                <li>ఇందులో \(a, d\) లను <b>అంత్యములు (EXTREMES)</b> అని, \(b, c\) లను <b>మధ్యములు (MEANS)</b> అని అంటారు.</li>
+                <li>\(a, b, c, d\) లు అనుపాతంలో ఉంటే: <b>అంత్యముల లబ్ధం = మధ్యముల లబ్ధం</b> (\(ad = bc\))</li>
+                <li><b>చతుర్థ అనుపాతం (Fourth Proportional):</b> \(d = \frac{bc}{a}\)</li>
+                <li><b>తృతీయ అనుపాతం (Third Proportional):</b> \(c = \frac{b^2}{a}\) (\(a, b, b, c\) లు అనుపాతంలో ఉన్నప్పుడు)</li>
+                <li><b>మధ్యమ అనుపాతం (Mean Proportional):</b> \(b^2 = ac \Rightarrow b = \sqrt{ac}\)</li>
+            </ul>
+        </div>
+
+        <div class="formula-box">
+            <p><b>బహుళ నిష్పత్తి (MULTIPLE RATIO / COMPOUND RATIO):</b></p>
+            <ul>
+                <li>రెండు నిష్పత్తులలో ఉండే పూర్వ పదాల లబ్ధం, పరపదాల లబ్ధాల మధ్య నిష్పత్తిని బహుళ నిష్పత్తి అంటారు.</li>
+                <li>\(a : b\) & \(c : d\) నిష్పత్తుల బహుళ నిష్పత్తి \(= \frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd} = ac : bd\)</li>
+            </ul>
+        </div>
+
+        <h3>రేటుగా నిష్పత్తి (Ratio as Rate):</h3>
+        <ul>
+            <li>హృదయ స్పందన : 72 స్పందనలు / నిముషం</li>
+            <li>జననాల రేటు : 21 / 1000</li>
+            <li>వేగం రేటు : 60 km / గంట</li>
+            <li>ధర రేటు : ₹120 / kg</li>
+        </ul>
+
+        <div class="formula-box">
+            <p><b>అనుపాత రకాలు:</b></p>
+            <ul>
+                <li><b>అనులోమానుపాతం (DIRECT PROPORTION):</b> రెండు రాశులు అనులోమానుపాతంలో ఉన్నచో ఒక రాశి విలువ పెరిగితే రెండో రాశి విలువ కూడా పెరుగును, ఒక రాశి విలువ తగ్గితే రెండో రాశి విలువ కూడా తగ్గును. (ఉదా: కొనే వస్తువుల సంఖ్య పెరిగితే చెల్లించాల్సిన మొత్తం పెరుగును; ప్రయాణ దూరం పెరిగితే ప్రయాణ సమయం పెరుగును).</li>
+                <li><b>విలోమానుపాతం (INVERSE PROPORTION):</b> రెండు రాశులు విలోమానుపాతంలో ఉన్నచో ఒక రాశి విలువ పెరిగితే రెండో రాశి విలువ తగ్గును, ఒక రాశి విలువ తగ్గితే రెండో రాశి విలువ పెరుగును. (ఉదా: ధరలు పెరిగితే డిమాండ్ తగ్గడం; మంది ఎక్కువైతే మజ్జిగ పల్చబడటం).</li>
+                <li><b>మిశ్రమానుపాతం (MIXED PROPORTION):</b> రెండు కంటే ఎక్కువ రాశులు మిశ్రమానుపాతంలో ఉన్నచో ఒక రాశిలో మార్పు, మిగిలిన రాశులలో మార్పుకు కారణం అగును. (ఉదా: ఫోన్‌లో గడిపే సమయం పెరిగితే మార్కులు తగ్గడం).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- సాధించిన సమస్యలు (Solved Problems) -->
+    
+    <div class="problem-card">
+        <div class="problem-title">1. 16, 9 ల మధ్యమ అనుపాతం ఎంత?</div>
+        <div class="step">ఇచ్చినవి \(a = 16\), \(c = 9\)</div>
+        <div class="step">మధ్యమ అనుపాతం \(b = \sqrt{ac}\)</div>
+        <div class="step">\(b = \sqrt{16 \times 9} = \sqrt{144}\)</div>
+        <div class="result">= 12</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">2. 16, 36 ల తృతీయ అనుపాతం ఎంత?</div>
+        <div class="step">ఇచ్చినవి \(a = 16\), \(b = 36\)</div>
+        <div class="step">తృతీయ అనుపాతం \(c = \frac{b^2}{a}\)</div>
+        <div class="step">\(c = \frac{36 \times 36}{16}\)</div>
+        <div class="result">= 81</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">3. 5, 8, 15 ల చతుర్థ అనుపాతం ఎంత?</div>
+        <div class="step">ఇచ్చినవి \(a = 5\), \(b = 8\), \(c = 15\)</div>
+        <div class="step">చతుర్థ అనుపాతం \(d = \frac{bc}{a}\)</div>
+        <div class="step">\(d = \frac{15 \times 8}{5}\)</div>
+        <div class="result">= 24</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">4. 7 : 11 యొక్క వర్గ నిష్పత్తి ఎంత?</div>
+        <div class="step">\(7 : 11\) యొక్క వర్గ నిష్పత్తి \(= 7^2 : 11^2\)</div>
+        <div class="result">= 49 : 121</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">5. 196 : 289 యొక్క వర్గమూల నిష్పత్తి ఎంత?</div>
+        <div class="step">\(196 : 289\) యొక్క వర్గమూల నిష్పత్తి \(= \sqrt{196} : \sqrt{289}\)</div>
+        <div class="result">= 14 : 17</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">6. 3 : 5 యొక్క ఘన నిష్పత్తి ఎంత?</div>
+        <div class="step">\(3 : 5\) యొక్క ఘన నిష్పత్తి \(= 3^3 : 5^3\)</div>
+        <div class="result">= 27 : 125</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">7. 8 : 27 యొక్క ఘన మూల నిష్పత్తి ఎంత?</div>
+        <div class="step">\(8 : 27\) యొక్క ఘన మూల నిష్పత్తి \(= \sqrt[3]{8} : \sqrt[3]{27}\)</div>
+        <div class="result">= 2 : 3</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">8. 3 : 4 యొక్క విలోమ నిష్పత్తి ఎంత?</div>
+        <div class="step">\(3 : 4\) యొక్క విలోమ నిష్పత్తి \(= \frac{1}{3} : \frac{1}{4}\)</div>
+        <div class="result">= 4 : 3</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">9. 2 : 3 : 4 యొక్క విలోమ నిష్పత్తి ఎంత?</div>
+        <div class="step">\(2 : 3 : 4\) యొక్క విలోమ నిష్పత్తి \(= (3 \times 4) : (2 \times 4) : (2 \times 3)\)</div>
+        <div class="step">\(= 12 : 8 : 6\)</div>
+        <div class="result">= 6 : 4 : 3</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">10. 2 : 3 కు సమానం కాని నిష్పత్తి ఏది? (4:6, 10:15, 6:9, 7:4)</div>
+        <div class="step">ప్రతి నిష్పత్తిని సూక్ష్మీకరించగా: \(4:6 = 2:3\), \(10:15 = 2:3\), \(6:9 = 2:3\)</div>
+        <div class="result">సమానం కాని నిష్పత్తి = 7 : 4</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">11. క్రింది నిష్పత్తుల్లో ఏవి అనుపాతంలో లేవో గుర్తించండి.</div>
+        <ul>
+            <li>\(2 : 3\) & \(22 : 33\) \(\Rightarrow \frac{2}{3} = \frac{22}{33}\) (అనుపాతంలో ఉన్నవి)</li>
+            <li>\(15 : 30\) & \(7 : 14\) \(\Rightarrow \frac{1}{2} = \frac{1}{2}\) (అనుపాతంలో ఉన్నవి)</li>
+            <li>\(5 : 10\) & \(16 : 8\) \(\Rightarrow \frac{1}{2} \neq \frac{2}{1}\) (అనుపాతంలో లేవు)</li>
+        </ul>
+        <div class="result">అనుపాతంలో లేనిది = 5 : 10 & 16 : 8</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">12. క్రింది ఖాళీలను పూరించండి.</div>
+        <div class="step">1) \(\underline{2} : 5 = 6 : 15\)</div>
+        <div class="step">2) \(16 : 20 = \underline{28} : 35\)</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">13. 'MISSISSIPPI' అనే పదంలోని అచ్చుల సంఖ్యకు, హల్లుల సంఖ్యకు ఉండే నిష్పత్తిని కనిష్ట పదాలలో రాయండి.</div>
+        <div class="step"><b>TYPE 1 (మొత్తం అక్షరాల ఆధారంగా):</b></div>
+        <div class="step">అచ్చుల సంఖ్య (I) = 4</div>
+        <div class="step">హల్లుల సంఖ్య (M, S, P) = 7</div>
+        <div class="step">అచ్చులు : హల్లులు = 4 : 7</div>
+        <br>
+        <div class="step"><b>TYPE 2 (ఒకే రకమైన అక్షరాలను ఒకటిగా భావిస్తే):</b></div>
+        <div class="step">అచ్చుల సంఖ్య = 1 (I)</div>
+        <div class="step">హల్లుల సంఖ్య = 3 (M, S, P)</div>
+        <div class="result">అచ్చులు : హల్లులు = 1 : 3</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">14. 5 : 8, 3 : 4 లో పెద్ద నిష్పత్తిని గుర్తించండి.</div>
+        <div class="step">\(\frac{5}{8}\) మరియు \(\frac{3}{4}\) లను అడ్డ గుణకారం చేయగా:</div>
+        <div class="step">\(5 \times 4 = 20\), \(8 \times 3 = 24\)</div>
+        <div class="step">20, 24 లలో పెద్ద సంఖ్య 24</div>
+        <div class="result">పెద్ద నిష్పత్తి = 3 : 4</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">15. 7 : 15, 13 : 25 లో చిన్న నిష్పత్తిని గుర్తించండి.</div>
+        <div class="step">\(\frac{7}{15}\) మరియు \(\frac{13}{25}\) లను అడ్డ గుణకారం చేయగా:</div>
+        <div class="step">\(7 \times 25 = 175\), \(15 \times 13 = 195\)</div>
+        <div class="step">175, 195 లలో చిన్న సంఖ్య 175</div>
+        <div class="result">చిన్న నిష్పత్తి = 7 : 15</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">16. 4 నిమిషాలకు, 30 సెకన్లకు గల నిష్పత్తి ఎంత?</div>
+        <div class="step">4 నిమిషాలు \(= 4 \times 60 = 240\) సెకన్లు</div>
+        <div class="step">నిష్పత్తి \(= 240 : 30\)</div>
+        <div class="result">= 8 : 1</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">17. 30 వస్తువులకు, ఒక స్కోరుకు మధ్య గల నిష్పత్తి ఎంత?</div>
+        <div class="step">1 స్కోరు = 20 వస్తువులు</div>
+        <div class="step">నిష్పత్తి \(= 30 : 20\)</div>
+        <div class="result">= 3 : 2</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">18. 3 రీములకు, 80 దస్త్రాలకు మధ్యగల నిష్పత్తి ఎంత?</div>
+        <div class="step">1 రీము = 20 దస్త్రాలు, కావున 3 రీములు \(= 3 \times 20 = 60\) దస్త్రాలు</div>
+        <div class="step">(కాగితాల ప్రకారం: 3 రీములు \(= 3 \times 480 = 1440\), 80 దస్త్రాలు \(= 80 \times 24 = 1920\))</div>
+        <div class="step">దస్త్రాల నిష్పత్తి \(= 60 : 80 = 3 : 4\) (లేదా పుస్తకంలో పేర్కొన్న ప్రకారం \(3(24) : 80(480)\))</div>
+        <div class="result">= 3 : 4 (లేదా 3 : 1600)</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">19. \(\frac{1}{4} : \frac{1}{3}\) అనే నిష్పత్తి దేనికి సమానం అగును?</div>
+        <div class="step">అడ్డ గుణకారం చేయగా:</div>
+        <div class="result">= 3 : 4</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">20. \(5\frac{1}{2} : 2\frac{2}{3}\) అనే నిష్పత్తి దేనికి సమానం అగును?</div>
+        <div class="step">మిత్ర భిన్నాలను క్రమ భిన్నాలుగా మార్చగా: \(\frac{11}{2} : \frac{8}{3}\)</div>
+        <div class="step">అడ్డ గుణకారం చేయగా: \(11 \times 3 : 2 \times 8\)</div>
+        <div class="result">= 33 : 16</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">21. \(a : b = 3 : 4\) అయితే \(3a + 2b : 2a + 5b\) విలువ ఎంత?</div>
+        <div class="step">\(a = 3, b = 4\) విలువలను ప్రతిక్షేపించగా:</div>
+        <div class="step">\(3(3) + 2(4) : 2(3) + 5(4)\)</div>
+        <div class="step">\(= 9 + 8 : 6 + 20\)</div>
+        <div class="result">= 17 : 26</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">22. \(\frac{a}{b} = \frac{3}{5}\) మరియు \(\frac{b}{c} = \frac{4}{7}\) అయితే \(a : b : c\) విలువెంత?</div>
+        <div class="step">\(a : b = 3 : 5\), \(b : c = 4 : 7\)</div>
+        <div class="step">\(a : b : c = (3 \times 4) : (5 \times 4) : (5 \times 7)\)</div>
+        <div class="result">= 12 : 20 : 35</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">23. \(a : b = 5 : 9\), \(b : c = 4 : 7\) అయితే \(a : b : c\) విలువెంత?</div>
+        <div class="step">\(a : b : c = (5 \times 4) : (9 \times 4) : (9 \times 7)\)</div>
+        <div class="result">= 20 : 36 : 63</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">24. భూమిపై 90 కిలోల బరువు గల ఒక స్త్రీ బరువు చంద్రుడిపై 15 కిలోలైతే, భూమిపై 60 కిలోల బరువు గల స్త్రీ బరువు చంద్రుడిపై ఎంత ఉండును?</div>
+        <div class="step">భూమిపై 90 kg = చంద్రుడిపై 15 kg</div>
+        <div class="step">భూమిపై 60 kg = చంద్రుడిపై తక్కువ</div>
+        <div class="step">\(= \frac{60}{90} \times 15\)</div>
+        <div class="result">= 10 kg</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">25. రెండు సంఖ్యల నిష్పత్తి 1 : 2. వాటికి 7 కలుపగా నిష్పత్తి 3 : 5 గా మారినచో వాటిలో గరిష్ట సంఖ్య ఏది?</div>
+        <div class="step">రెండు సంఖ్యలు \(1x, 2x\) అనుకొనుము.</div>
+        <div class="step">\(\frac{1x + 7}{2x + 7} = \frac{3}{5}\)</div>
+        <div class="step">\(5(1x + 7) = 3(2x + 7)\)</div>
+        <div class="step">\(5x + 35 = 6x + 21 \Rightarrow 6x - 5x = 35 - 21 \Rightarrow x = 14\)</div>
+        <div class="step">ఒకటో సంఖ్య \(= 1x = 14\)</div>
+        <div class="step">రెండో సంఖ్య \(= 2x = 2(14) = 28\)</div>
+        <div class="result">గరిష్ట సంఖ్య = 28</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">26. \(2x + 3y : 3x + 5y = 18 : 29\) అయితే \(x : y\) విలువెంత?</div>
+        <div class="step">\(\frac{2x + 3y}{3x + 5y} = \frac{18}{29}\)</div>
+        <div class="step">\(29(2x + 3y) = 18(3x + 5y)\)</div>
+        <div class="step">\(58x + 87y = 54x + 90y\)</div>
+        <div class="step">\(58x - 54x = 90y - 87y \Rightarrow 4x = 3y \Rightarrow \frac{x}{y} = \frac{3}{4}\) (పేపర్‌లో సరిచేసిన ప్రకారం: \(x = 3y \Rightarrow x : y = 3 : 1\))</div>
+        <div class="result">x : y = 3 : 1</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">27. \(8 : 5\frac{1}{3}\) మరియు \(3\frac{1}{5} : 1\frac{1}{3}\) విలోమ నిష్పత్తుల బహుళ నిష్పత్తి \(50 : X\) అయితే X విలువెంత?</div>
+        <div class="step">\(8 : \frac{16}{3} = 24 : 16 = 3 : 2\)</div>
+        <div class="step">\(\frac{16}{5} : \frac{4}{3} = 48 : 20 = 12 : 5\)</div>
+        <div class="step">\(3 : 1\) యొక్క విలోమ నిష్పత్తి \(= 1 : 3\)</div>
+        <div class="step">\(3 : 2\) మరియు \(5 : 12\) ల బహుళ నిష్పత్తి \(= \frac{3 \times 5}{2 \times 12} = \frac{15}{24}\)</div>
+        <div class="step">\(\frac{15}{24} = \frac{50}{X} \Rightarrow 15X = 1200\)</div>
+        <div class="result">X = 80</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">28. రెండు సంఖ్యల నిష్పత్తి 2 : 3. అందులో ప్రతీ సంఖ్యకు 5 కలుపగా నిష్పత్తి 5 : 7 గా మారినచో ఆ సంఖ్యలేవి?</div>
+        <div class="step">రెండు సంఖ్యలు \(2x, 3x\) అనుకొనుము.</div>
+        <div class="step">\(\frac{2x + 5}{3x + 5} = \frac{5}{7}\)</div>
+        <div class="step">\(7(2x + 5) = 5(3x + 5) \Rightarrow 14x + 35 = 15x + 25\)</div>
+        <div class="step">\(15x - 14x = 35 - 25 \Rightarrow x = 10\)</div>
+        <div class="result">ఆ సంఖ్యలు: \(2(10) = 20\), \(3(10) = 30\)</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">29. 100 గ్రాముల కాఫీ పొడి ధర ₹36, అరకిలో టీ పొడి ధర ₹240 అయితే రెండింటి ధరల నిష్పత్తి ఎంత?</div>
+        <div class="step">100g కాఫీ పొడి ధర = 36</div>
+        <div class="step">500g (అరకిలో) టీ పొడి ధర = 240</div>
+        <div class="step">500g కాఫీ పొడి ధర \(= 36 \times 5 = 180\)</div>
+        <div class="step">ధరల నిష్పత్తి \(= 180 : 240\)</div>
+        <div class="result">= 3 : 4</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">30. ₹5600 లను లలిత, శేఖర్‌ల మధ్య 3 : 4 నిష్పత్తిలో విభజించుము.</div>
+        <div class="step">లలిత వాటా \(= 3x\), శేఖర్ వాటా \(= 4x\)</div>
+        <div class="step">మొత్తం \(7x = 5600 \Rightarrow x = 800\)</div>
+        <div class="step">లలిత వాటా \(= 3(800) = 2400\)</div>
+        <div class="step">శేఖర్ వాటా \(= 4(800) = 3200\)</div>
+        <div class="result">లలిత వాటా = ₹2400, శేఖర్ వాటా = ₹3200</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">31. ₹1,60,000 ను 3 : 5 నిష్పత్తిలో రెండు భాగాలుగా విభజిస్తే అందులో కనిష్ట భాగం విలువెంత?</div>
+        <div class="step">మొత్తం భాగాలు \(= 3x + 5x = 8x\)</div>
+        <div class="step">\(8x = 1,60,000 \Rightarrow x = 20,000\)</div>
+        <div class="step">కనిష్ట భాగం \(= 3x = 3(20,000) = 60,000\)</div>
+        <div class="step">గరిష్ట భాగం \(= 5x = 5(20,000) = 1,00,000\)</div>
+        <div class="result">కనిష్ట భాగం = ₹60,000</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">32. రమణ, రిజ్వానాలు వ్యాపార భాగస్వాములు. రిజ్వానా ప్రతీ నెల వచ్చిన లాభంలో 25% తీసుకొంటుంది. ఒక నెలలో రిజ్వానా తీసుకొన్న మొత్తం ₹2080 అయితే ఆ నెలలో వారికి వచ్చిన మొత్తం లాభం ఎంత?</div>
+        <div class="step">రిజ్వానా వాటా \(= 25\% = 2080\)</div>
+        <div class="step">మొత్తం లాభం \(= 100\% = ?\)</div>
+        <div class="step">\(= \frac{100\%}{25\%} \times 2080 = 4 \times 2080\)</div>
+        <div class="result">= ₹8320</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">33. రంగమ్మ అనే మహిళా రైతుకు గత సంవత్సరం రాగి పంటలో 1720 బస్తాల దిగుబడి వచ్చింది. ఈ సంవత్సరం పంట దిగుబడి 20% ఎక్కువ వచ్చునని ఆమె అంచనా వేసింది. అయితే ఈ సంవత్సరం ఆమె ఎన్ని బస్తాల దిగుబడి ఆశిస్తున్నది?</div>
+        <div class="step">100% = 1720 బస్తాలు</div>
+        <div class="step">120% = ఎక్కువ</div>
+        <div class="step">\(= \frac{120\%}{100\%} \times 1720 = 12 \times 172\)</div>
+        <div class="result">= 2064 బస్తాలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">34. గోపిక వద్ద 16 ఎర్ర గోళీలు, 4 నీలం గోళీలు కలవు. అయితే గోపిక వద్దనున్న నీలం, ఎరుపు రంగు గోళీల నిష్పత్తి ఎంత?</div>
+        <div class="step">నీలం, ఎరుపు రంగు గోళీల నిష్పత్తి \(= 4 : 16\)</div>
+        <div class="result">= 1 : 4</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">35. ఒక పాల వ్యాపారి ప్రతి లీటరు పాలకు 250ml నీటిని కలుపును. అయితే అతను అమ్మే పాలలో నీటి, పాల నిష్పత్తి ఎంత?</div>
+        <div class="step">పాలు \(= 1000\) ml, నీరు \(= 250\) ml</div>
+        <div class="step">నీటి, పాల నిష్పత్తి \(= 250 : 1000\)</div>
+        <div class="result">= 1 : 4</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">36. కుందన 4 కిలోల కంది పప్పును, 50 గ్రాముల మిరప పొడిని కొన్నది. అయితే మిరప పొడి, కంది పప్పు బరువు నిష్పత్తి ఎంత?</div>
+        <div class="step">కందిపప్పు \(= 4000\) g, మిరప పొడి \(= 50\) g</div>
+        <div class="step">మిరప పొడి, కంది పప్పు బరువు నిష్పత్తి \(= 50 : 4000\)</div>
+        <div class="result">= 1 : 80</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">37. రాణి తన ఇంటి నుండి పాఠశాలకు 30 mins లో చేరగలదు. అదే దూరాన్ని అరవింద్ అరగంటలో నడవగలడు. రాణి నడక సమయానికి, అరవింద్ నడక సమయానికి గల నిష్పత్తి ఎంత?</div>
+        <div class="step">రాణి నడక సమయం = 30 mins</div>
+        <div class="step">అరవింద్ నడక సమయం = 30 mins (అరగంట)</div>
+        <div class="step">నిష్పత్తి \(= 30 : 30\)</div>
+        <div class="result">= 1 : 1</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">38. ఒక తరగతిలో ఉన్న శృతి, మహేష్‌లు సంచాయిక పొదుపు పథకంలో వరుసగా ₹50, ₹100 పొదుపు చేశారు. తరగతి యొక్క మొత్తం పొదుపు ₹2000 అయితే: 1) తరగతి, శృతి ల పొదుపుల నిష్పత్తి ఎంత? 2) మహేష్, తరగతి పొదుపుల నిష్పత్తి ఎంత?</div>
+        <div class="step">1) తరగతి, శృతి ల పొదుపుల నిష్పత్తి \(= 2000 : 50 = 40 : 1\)</div>
+        <div class="step">2) మహేష్, తరగతి పొదుపుల నిష్పత్తి \(= 100 : 2000 = 1 : 20\)</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">39. ఒక తరగతి పొడవు 30 మీ, వెడల్పు 20 మీ అయితే గది పొడవు, వెడల్పుల నిష్పత్తి ఎంత?</div>
+        <div class="step">పొడవు, వెడల్పుల నిష్పత్తి \(= 30 : 20\)</div>
+        <div class="result">= 3 : 2</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">40. ఒక విహార యాత్రలో మొత్తం 24 మంది పాల్గొన్నారు, అందులో 16 మంది బాలికలు అయితే బాలురు, బాలికల నిష్పత్తి ఎంత?</div>
+        <div class="step">మొత్తం విద్యార్థులు = 24, బాలికలు = 16</div>
+        <div class="step">బాలురు \(= 24 - 16 = 8\)</div>
+        <div class="step">బాలురు, బాలికల నిష్పత్తి \(= 8 : 16\)</div>
+        <div class="result">= 1 : 2</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">41. ఒక సంచిలో 20 కిలోల బియ్యం, మరొక సంచిలో 10 కిలోల గోధుమలు కలవు. అయితే బియ్యం బరువుకు, రెండు సంచుల మొత్తం బరువుకు గల నిష్పత్తి ఎంత?</div>
+        <div class="step">రెండు సంచుల మొత్తం బరువు \(= 20 + 10 = 30\) kg</div>
+        <div class="step">బియ్యం బరువు : మొత్తం బరువు \(= 20 : 30\)</div>
+        <div class="result">= 2 : 3</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">42. పూజిత పుట్టిన రోజున ఆమె తండ్రి ఒక పూల గుత్తిని తెచ్చెను. దానిలోని మొత్తం 18 పూలలో ఎరుపు రంగు, పసుపు రంగు పూలకు గల నిష్పత్తి 1 : 2 అయితే ఎరుపు, పసుపు రంగు పూల సంఖ్యను కనుగొనండి.</div>
+        <div class="step">మొత్తం పూలు \(= x + 2x = 3x = 18 \Rightarrow x = 6\)</div>
+        <div class="step">ఎరుపు రంగు పూలు \(= x = 6\)</div>
+        <div class="step">పసుపు రంగు పూలు \(= 2x = 2(6) = 12\)</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">43. దీపిక తన వద్ద ఉన్న డబ్బులో \(\frac{2}{5}\) వంతు కథల పుస్తకంపై ఖర్చు పెట్టెను. అయితే దీపిక ఖర్చు పెట్టిన డబ్బుకు, మొదట ఆమె వద్ద గల డబ్బుకు గల నిష్పత్తి ఎంత?</div>
+        <div class="step">మొదట ఉన్న డబ్బు = 5</div>
+        <div class="step">ఖర్చు పెట్టిన డబ్బు = 2</div>
+        <div class="result">నిష్పత్తి = 2 : 5</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">44. ఒక స్వర్ణకారుడు ఆభరణాల తయారీలో బంగారాన్ని, రాగిని 7 : 2 నిష్పత్తిలో కలుపును. ఒక ఆభరణం బరువు 45 గ్రాములు అయితే అందులోని బంగారం, రాగి బరువులను కనుగొనుము.</div>
+        <div class="step">\(7x + 2x = 45 \Rightarrow 9x = 45 \Rightarrow x = 5\)</div>
+        <div class="step">బంగారం బరువు \(= 7x = 7(5) = 35\) గ్రాములు</div>
+        <div class="step">రాగి బరువు \(= 2x = 2(5) = 10\) గ్రాములు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">45. 15 cm పొడవు గల AB అనే రేఖా ఖండాన్ని X అనునది 3 : 2 నిష్పత్తిలో విభజించును. అయితే AX, XB ల పొడవులెంత?</div>
+        <div class="step">\(3x + 2x = 15 \Rightarrow 5x = 15 \Rightarrow x = 3\)</div>
+        <div class="step">\(AX = 3x = 3(3) = 9\) cm</div>
+        <div class="step">\(XB = 2x = 2(3) = 6\) cm</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">46. అరుణ్, తరుణ్ కొంత సొమ్మును లాటరీలో గెలిచారు. వారు దానిని 5 : 3 నిష్పత్తిలో పంచుకొనగా తరుణ్‌కు ₹150 వచ్చినవి. అయితే అరుణ్‌కి వచ్చే వాటా ఎంత? వారు గెలిచిన మొత్తం సొమ్ము ఎంత?</div>
+        <div class="step">తరుణ్ వాటా \(= 3x = 150 \Rightarrow x = 50\)</div>
+        <div class="step">అరుణ్ వాటా \(= 5x = 5(50) = 250\) రూపాయలు</div>
+        <div class="result">మొత్తం సొమ్ము = 250 + 150 = ₹400</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">47. ఒక సంచిలో ఉన్న 25 మామిడి పండ్లను విమల, కమలలు 2 : 3 నిష్పత్తిలో పంచుకొన్నచో ఒక్కొక్కరికి ఎన్ని పండ్లు వచ్చును?</div>
+        <div class="step">\(2x + 3x = 25 \Rightarrow 5x = 25 \Rightarrow x = 5\)</div>
+        <div class="step">విమల వాటా \(= 2(5) = 10\)</div>
+        <div class="step">కమల వాటా \(= 3(5) = 15\)</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">48. బస్సు చార్జీలు పెరగక ముందు, పెరిగిన తర్వాత 7 : 9 నిష్పత్తిలో కలవు. పెరుగుదలకు ముందు చార్జీ ₹245 అయితే చార్జీలో పెరుగుదల ఎంత?</div>
+        <div class="step">పెరగక ముందు చార్జీ \(= 7x = 245 \Rightarrow x = 35\)</div>
+        <div class="step">పెరిగిన తర్వాత చార్జీ \(= 9x = 9(35) = 315\) రూపాయలు</div>
+        <div class="result">చార్జీలో పెరుగుదల = 315 - 245 = ₹70</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">49. రెండు సంఖ్యల మొత్తం 132 మరియు వాటి నిష్పత్తి 5 : 6 అయితే ఆ సంఖ్యలేవి?</div>
+        <div class="step">\(5x + 6x = 132 \Rightarrow 11x = 132 \Rightarrow x = 12\)</div>
+        <div class="step">ఒకటో సంఖ్య \(= 5(12) = 60\)</div>
+        <div class="step">రెండో సంఖ్య \(= 6(12) = 72\)</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">50. ఒక రైతు వద్ద గల గొర్రెలు, ఆవుల నిష్పత్తి 8 : 3. ఆవుల సంఖ్య 180 అయినప్పుడు గొర్రెల సంఖ్య ఎంత?</div>
+        <div class="step">ఆవుల సంఖ్య \(= 3x = 180 \Rightarrow x = 60\)</div>
+        <div class="result">గొర్రెల సంఖ్య = 8x = 8(60) = 480</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">51. జీవిత యొక్క రాబడి మరియు పొదుపుల నిష్పత్తి 11 : 2, ఆమె ఖర్చు ₹5346 అయితే ఆమె రాబడి, పొదుపు ఎంత?</div>
+        <div class="step">ఖర్చు = రాబడి - పొదుపు \(= 11x - 2x = 9x\)</div>
+        <div class="step">\(9x = 5346 \Rightarrow x = 594\)</div>
+        <div class="step">రాబడి \(= 11(594) = 6534\) రూపాయలు</div>
+        <div class="step">పొదుపు \(= 2(594) = 1188\) రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">52. గడిచిన 30 రోజులలో ఉష్ణోగ్రతలు 15° C మేర పడిపోయాయి. ఇదే విధంగా తగ్గుతూ పోయినచో రాబోయే 10 రోజులలో ఎంత మేరకు ఉష్ణోగ్రత తగ్గుతుంది?</div>
+        <div class="step">30 రోజులలో తగ్గిన ఉష్ణోగ్రత = 15° C</div>
+        <div class="step">10 రోజులలో తగ్గే ఉష్ణోగ్రత \(= \frac{10}{30} \times 15\)</div>
+        <div class="result">= 5° C</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">53. నవనీత నెలకు ₹12000 సంపాదించును. దానిలో ₹3000 పొదుపు చేసినచో ఖర్చు, సంపాదనల నిష్పత్తి ఎంత?</div>
+        <div class="step">సంపాదన = 12000, పొదుపు = 3000</div>
+        <div class="step">ఖర్చు \(= 12000 - 3000 = 9000\)</div>
+        <div class="step">ఖర్చు, సంపాదనల నిష్పత్తి \(= 9000 : 12000\)</div>
+        <div class="result">= 3 : 4</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">54. సుధ వద్ద ₹5 ఉన్నాయి. రాధ వద్ద సుధ కన్నా 3 రెట్ల సొమ్ము ఉన్నది. అయితే రాధ వద్ద ఉన్న సొమ్ము ఎంత? రాధ మరియు సుధల వద్దనున్న సొమ్ముల నిష్పత్తి ఎంత?</div>
+        <div class="step">రాధ వద్ద ఉన్న సొమ్ము \(= 3 \times 5 = 15\) రూపాయలు</div>
+        <div class="step">రాధ మరియు సుధల సొమ్ముల నిష్పత్తి \(= 15 : 5\)</div>
+        <div class="result">= 3 : 1</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">55. AB రేఖాఖండం పొడవు 38 cm. దానిపై X అనే బిందువు రేఖాఖండాన్ని 9 : 10 నిష్పత్తిలో విభజిస్తున్నది. అయితే AX, XB రేఖాఖండాల పొడవులెంత?</div>
+        <div class="step">\(9x + 10x = 38 \Rightarrow 19x = 38 \Rightarrow x = 2\)</div>
+        <div class="step">\(AX = 9(2) = 18\) cm</div>
+        <div class="step">\(XB = 10(2) = 20\) cm</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">56. ఆకుపచ్చ రంగు పొందటానికి ఒక పెయింటర్ పసుపు, నీలం రంగులను 3 : 2 నిష్పత్తిలో కలపాలి. పసుపు రంగును 12 లీటర్లు వాడితే నీలం రంగును ఎన్ని లీటర్లు వాడాలి?</div>
+        <div class="step">పసుపు \(= 3x = 12 \Rightarrow x = 4\)</div>
+        <div class="result">నీలం రంగు \(= 2(4) = 8\) లీటర్లు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">57. నత్త వేగం గంటకు 50 మీ మరియు చిరుత పులి వేగం గంటకు 120 km అయితే వాటి వేగాల నిష్పత్తి ఎంత?</div>
+        <div class="step">నత్త వేగం = 50 m/h</div>
+        <div class="step">చిరుత వేగం \(= 120 \text{ km/h} = 120 \times 1000 = 1,20,000\) m/h</div>
+        <div class="step">నిష్పత్తి \(= 50 : 120000\)</div>
+        <div class="result">= 1 : 2400</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">58. ఒక విపత్తు సహాయక బృందంలో ఇంజినీర్లు మరియు డాక్టర్లు 2 : 5 నిష్పత్తిలో ఉన్నారు.</div>
+        <div class="step">1) 18 మంది ఇంజినీర్లు ఉన్న బృందంలో ఎంత మంది డాక్టర్లు ఉండాలి?</div>
+        <div class="step">\(2x = 18 \Rightarrow x = 9 \Rightarrow \text{డాక్టర్లు} = 5(9) = 45\)</div>
+        <br>
+        <div class="step">2) 65 మంది డాక్టర్లు ఉన్న బృందంలో ఇంజినీర్లు ఎంత మంది ఉండాలి?</div>
+        <div class="step">\(5x = 65 \Rightarrow x = 13 \Rightarrow \text{ఇంజినీర్లు} = 2(13) = 26\)</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">59. 24 మంది విద్యార్థులలో 9 మందికి ఒక పరీక్షలో 75% కంటే తక్కువ మార్కులు వచ్చాయి. 75% కంటే తక్కువ మార్కులు వచ్చిన విద్యార్థుల సంఖ్యకు, 75% కంటే ఎక్కువ మార్కులు వచ్చిన విద్యార్థుల సంఖ్యకు గల నిష్పత్తి ఎంత?</div>
+        <div class="step">75% కంటే తక్కువ = 9</div>
+        <div class="step">75% కంటే ఎక్కువ \(= 24 - 9 = 15\)</div>
+        <div class="step">నిష్పత్తి \(= 9 : 15\)</div>
+        <div class="result">= 3 : 5</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">60. రెండు కోణాల నిష్పత్తి 3 : 1 మరియు చిన్న కోణం 63° అయితే పెద్ద కోణం విలువెంత?</div>
+        <div class="step">చిన్న కోణం \(= x = 63^\circ\)</div>
+        <div class="result">పెద్ద కోణం \(= 3x = 3(63^\circ) = 189^\circ\)</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">61. 5 : 8 & 3 : 7 ల బహుళ నిష్పత్తి 45 : X అయితే X విలువెంత?</div>
+        <div class="step">\(\frac{5 \times 3}{8 \times 7} = \frac{45}{X} \Rightarrow \frac{15}{56} = \frac{45}{X}\)</div>
+        <div class="step">\(15X = 45 \times 56\)</div>
+        <div class="result">X = 168</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">62. 7 : 5 & 8 : X ల బహుళ నిష్పత్తి 84 : 60 అయితే X విలువెంత?</div>
+        <div class="step">\(\frac{7 \times 8}{5 \times X} = \frac{84}{60} \Rightarrow \frac{56}{5X} = \frac{84}{60}\)</div>
+        <div class="step">\(5X = \frac{56 \times 60}{84} \Rightarrow 5X = 40\)</div>
+        <div class="result">X = 8</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">63. 3 : 4 మరియు 4 : 5 విలోమ నిష్పత్తుల బహుళ నిష్పత్తి 45 : X అయితే X విలువెంత?</div>
+        <div class="step">4 : 5 యొక్క విలోమ నిష్పత్తి = 5 : 4</div>
+        <div class="step">3 : 4 మరియు 5 : 4 ల బహుళ నిష్పత్తి \(= \frac{3 \times 5}{4 \times 4} = \frac{15}{16}\)</div>
+        <div class="step">\(\frac{15}{16} = \frac{45}{X} \Rightarrow 15X = 45 \times 16\)</div>
+        <div class="result">X = 48</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">64. 3 : 4 మరియు 2 : 3 ల బహుళ నిష్పత్తి ఎంత?</div>
+        <div class="step">బహుళ నిష్పత్తి \(= \frac{3}{4} \times \frac{2}{3} = \frac{1}{2}\)</div>
+        <div class="result">= 1 : 2</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">65. 45 : 108 ను సూక్ష్మ రూపంలో రాయండి.</div>
+        <div class="step">\(\frac{45}{108} = \frac{5}{12}\)</div>
+        <div class="result">= 5 : 12</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">66. a : b మరియు c : d ల బహుళ నిష్పత్తి రాయండి.</div>
+        <div class="result">= ac : bd</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">67. \(\frac{3}{4}A = \frac{5}{7}B\) అయితే A : B విలువ ఎంత?</div>
+        <div class="step">\(\frac{3A}{4} = \frac{5B}{7} \Rightarrow 21A = 20B\)</div>
+        <div class="step">\(\frac{A}{B} = \frac{20}{21}\)</div>
+        <div class="result">A : B = 20 : 21</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">68. తేజా, రోజాలకు ఒక క్విజ్‌లో డబ్బులు బహుమతిగా వచ్చాయి. వాళ్ళు ఆ డబ్బును 5 : 3 నిష్పత్తిలో పంచుకోదలిచారు. తేజకు ₹250 వచ్చినచో రోజాకు వచ్చిన వాటా ఎంత?</div>
+        <div class="step">తేజా వాటా \(= 5x = 250 \Rightarrow x = 50\)</div>
+        <div class="result">రోజా వాటా = 3x = 3(50) = ₹150</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">69. \(\frac{1}{8}\) కిలోల కారం ఖరీదు ₹28 కి కొనినచో ఒక కిలో కారం ఖరీదు ఎంత?</div>
+        <div class="step">\(\frac{1}{8}\) kg కారం ఖరీదు = 28</div>
+        <div class="step">1 kg కారం ఖరీదు \(= 8 \times 28\)</div>
+        <div class="result">= ₹224</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">70. ఆరుగురు సభ్యులు గల కుటుంబానికి 30 కిలోగ్రాముల బియ్యం అవసరం. సభ్యుల సంఖ్య 16 కు పెరిగినచో ఎన్ని కిలోగ్రాముల బియ్యం అవసరమవుతాయి?</div>
+        <div class="step">6 మందికి = 30 kg</div>
+        <div class="step">16 మందికి \(= \frac{16}{6} \times 30\)</div>
+        <div class="result">= 80 kg</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">71. 8 మీ ఎత్తు గల ఒక స్థంభం 10 మీ పొడవు గల నీడను ఏర్పరచును. అదే సమయంలో అదే పరిస్థితుల్లో ఒక చెట్టు 40 మీ పొడవు గల నీడను ఏర్పరిస్తే ఆ చెట్టు పొడవెంత?</div>
+        <div class="step">10 మీ నీడకు స్థంభం పొడవు = 8 మీ</div>
+        <div class="step">40 మీ నీడకు చెట్టు పొడవు \(= \frac{40}{10} \times 8\)</div>
+        <div class="result">= 32 మీటర్లు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">72. ఒక శిబిరంలో 500 మందికి 70 రోజులకు సరిపడా ఆహార పదార్థాలు కలవు. ఆ శిబిరానికి 200 మంది అదనంగా చేరితే ఆ ఆహార పదార్థాలు ఎన్ని రోజులకు సరిపోవును?</div>
+        <div class="step">మొత్తం సభ్యులు = 500 + 200 = 700 మంది</div>
+        <div class="step">500 మందికి = 70 రోజులు</div>
+        <div class="step">700 మందికి \(= \frac{500}{700} \times 70 = 5 \times 10\)</div>
+        <div class="result">= 50 రోజులు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">73. ఒక హాస్టల్‌లో 100 మంది విద్యార్థులకు 40 రోజులకు సరిపడా బియ్యం కలవు. 4 రోజుల తర్వాత 20 మంది అదనంగా చేరితే మిగిలిన బియ్యం ఎన్ని రోజులకు సరిపోవును?</div>
+        <div class="step">4 రోజుల తర్వాత మిగిలిన రోజులు = 36</div>
+        <div class="step">కొత్త విద్యార్థుల సంఖ్య = 120 మంది</div>
+        <div class="step">100 మందికి = 36 రోజులు</div>
+        <div class="step">120 మందికి \(= \frac{100}{120} \times 36 = 10 \times 3\)</div>
+        <div class="result">= 30 రోజులు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">74. 35 మంది విద్యార్థులకు 24 రోజులకు భోజనాలకు అయ్యే ఖర్చు ₹6300 అయితే 25 మంది విద్యార్థులకు 18 రోజులకు అయ్యే ఖర్చు ఎంత?</div>
+        <table>
+            <tr>
+                <th>విద్యార్థులు</th>
+                <th>రోజులు</th>
+                <th>ఖర్చు (₹)</th>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>24</td>
+                <td>6300</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>18</td>
+                <td>?</td>
+            </tr>
+        </table>
+        <div class="step">ఖర్చు \(= 6300 \times \frac{25}{35} \times \frac{18}{24}\)</div>
+        <div class="step">\(= 225 \times 5 \times 3\)</div>
+        <div class="result">= ₹3375</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">75. 10 మంది పని వారు 75 km పొడవు గల రోడ్డును 5 రోజులలో వేయగలరు. అదే పనితనం గల 15 మంది పని వారు 45 km పొడవు గల రోడ్డును ఎన్ని రోజులలో వేయగలరు?</div>
+        <table>
+            <tr>
+                <th>కూలీలు</th>
+                <th>రోడ్డు పొడవు (km)</th>
+                <th>రోజులు</th>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>75</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>45</td>
+                <td>?</td>
+            </tr>
+        </table>
+        <div class="step">రోజులు \(= 5 \times \frac{10}{15} \times \frac{45}{75}\)</div>
+        <div class="step">\(= 1 \times 2 \times 1\)</div>
+        <div class="result">= 2 రోజులు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">76. 14 మంది టైపిస్టులు 6 గంటల వంతున పని చేస్తూ 12 రోజులలో ఒక పుస్తకాన్ని టైపు చేయగలరు. అయితే అదే పుస్తకాన్ని నలుగురు టైపిస్టులు రోజుకు 7 గంటల వంతున పని చేసి ఎన్ని రోజులలో పూర్తి చేయగలరు?</div>
+        <table>
+            <tr>
+                <th>టైపిస్టులు</th>
+                <th>పని గంటలు</th>
+                <th>రోజులు</th>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>6</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>7</td>
+                <td>?</td>
+            </tr>
+        </table>
+        <div class="step">రోజులు \(= 12 \times \frac{14}{4} \times \frac{6}{7}\)</div>
+        <div class="step">\(= 3 \times 2 \times 6\)</div>
+        <div class="result">= 36 రోజులు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">77. 175 మంది పని వారు 36 రోజులలో 3150 మీ పొడవు గల కాలువను త్రవ్వగలరు. అయితే 3900 మీ పొడవు గల కాలువను 24 రోజులలో త్రవ్వాలంటే ఎంత మంది పనివారు అవసరం అవుతారు?</div>
+        <table>
+            <tr>
+                <th>కాలువ పొడవు (మీ)</th>
+                <th>రోజులు</th>
+                <th>కూలీలు</th>
+            </tr>
+            <tr>
+                <td>3150</td>
+                <td>36</td>
+                <td>175</td>
+            </tr>
+            <tr>
+                <td>3900</td>
+                <td>24</td>
+                <td>?</td>
+            </tr>
+        </table>
+        <div class="step">కూలీలు \(= 175 \times \frac{3900}{3150} \times \frac{36}{24}\)</div>
+        <div class="step">\(= 5 \times 65 \times 1\)</div>
+        <div class="result">= 325 మంది</div>
+    </div>
+
+</div>
+
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const modeText = document.getElementById('mode-text');
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            modeText.textContent = '';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            modeText.textContent = '';
+        }    
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>సూచిక భిన్నం (REPRESENTATIVE FRACTION)</title>
+    <!-- Google Fonts: Mandali -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    <!-- MathJax for Math Formatting -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --primary-color: #0056b3;
+            --highlight-color: #d9534f;
+            --accent-color: #28a745;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a202c;
+            --card-bg: #2d3748;
+            --text-color: #e2e8f0;
+            --primary-color: #63b3ed;
+            --highlight-color: #f6ad55;
+            --accent-color: #68d391;
+            --border-color: #4a5568;
+            --shadow: 0 4px 6px rgba(0,0,0,0.4);
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 18px;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 26px;
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 28px;
+            position: relative;
+            width: 54px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 3px;
+            content: "";
+            height: 22px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 22px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .mode-label {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .important {
+            color: var(--highlight-color);
+            font-weight: bold;
+        }
+
+        .accent {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula-box {
+            background-color: rgba(0, 86, 179, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .problem-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            overflow-x: auto;
+        }
+
+        .problem-title {
+            font-weight: bold;
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .step {
+            margin-left: 10px;
+            margin-bottom: 5px;
+        }
+
+        .result {
+            font-size: 20px;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ARITHMETIC</h1>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+            <span class="mode-label" id="mode-text"></span>
+        </div>
+    </header>
+
+    <!-- సిద్ధాంత విభాగం (Concepts & Formulas) -->
+    <div class="card">
+        <h2 class="card-title">సూచిక భిన్నం (<strong class="important">REPRESENTATIVE FRACTION</strong>)</h2>
+        
+        <ul>
+            <li>పటంలోని దూరానికి మరియు నిజ దూరానికి మధ్య గల నిష్పత్తిని <strong class="important">సూచిక భిన్నం</strong> అంటారు.</li>
+            <li>పటంలోని దూరానికి మరియు నిజ దూరానికి మధ్య గల సంబంధాన్ని <strong class="important">స్కేలు</strong> తెలియజేస్తుంది.</li>
+        </ul>
+
+        <div class="formula-box">
+            <p><strong>సూత్రం:</strong></p>
+            <p>$$R.F. = \frac{\text{Distance on map}}{\text{Distance on ground}} = \frac{1\text{ cm}}{100\text{ km}}$$</p>
+            <p>$$= \frac{1\text{ cm}}{10000000\text{ cm}} = \mathbf{1 : 10000000}$$</p>
+            <p>$$[\because 1\text{ km} = 1000\text{ m} \text{ and } 1\text{ m} = 100\text{ cm}]$$</p>
+            <p>$$100\text{ km} = 100 \times 1000 \times 100 = 10000000\text{ cm}$$</p>
+        </div>
+
+        <ul>
+            <li>రెండు ప్రదేశాల మధ్య ఉన్న <strong class="accent">100 మీటర్ల</strong> నిజ దూరాన్ని పటంలో <strong class="accent">1 cm</strong> గా చూపించినచో:
+                <br>$$1\text{ cm} = 100\text{ m} \Rightarrow \mathbf{1 : 10000}$$
+            </li>
+        </ul>
+    </div>
+
+    <!-- సాధించిన సమస్యలు (Solved Problems) -->
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక చెట్టు పొడవు 13 మీ, ఈ చెట్టును పటంలో 26 cm గా చూపించినచో స్కేలు ఎంత?</div>
+        <div class="step">$$26\text{ cm} = 13\text{ m}$$</div>
+        <div class="step">$$26\text{ cm} = 1300\text{ cm}$$</div>
+        <div class="step">$$26 : 1300$$</div>
+        <div class="result">= 1 : 50</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక పటం యొక్క స్కేలు 1 : 30000 అని ఇవ్వబడింది. పటంలో రెండు పట్టణాల మధ్య దూరం 4cm ఉంది. ఆ రెండు పట్టణాల మధ్య గల నిజ దూరమెంత?</div>
+        <div class="step">కనిష్ట స్కేలు $$1 : 30000$$</div>
+        <div class="step">1cm పటంలో ఉన్నప్పుడు నిజ దూరం $$= 30000\text{ cm}$$</div>
+        <div class="step">4cm పటంలో ఉన్నప్పుడు నిజ దూరం = ఎక్కువ</div>
+        <div class="step">$$= \frac{4}{1} \times 30000$$</div>
+        <div class="step">$$= 120000\text{ cm}$$</div>
+        <div class="step">$$= 1200\text{ m}$$</div>
+        <div class="result">= 1.2 KM</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక బాక్టీరియా పొడవును 50,000 రెట్లు పెద్దది చేయగా 5cm పొడవు ఉంది. అయితే బాక్టీరియా అసలు పొడవెంత? ఒక వేళ 20,000 రెట్లు పెంచబడితే బాక్టీరియా పొడవు ఎంత ఉంటుంది?</div>
+        <div class="step">50,000 రెట్లు చేసినప్పుడు బాక్టీరియా పొడవు $$= 5\text{ cm}$$</div>
+        <div class="step">(1) సాధారణంగా బాక్టీరియా పొడవు = తక్కువ</div>
+        <div class="step">$$= \frac{1}{50,000} \times 5$$</div>
+        <div class="step">$$= \frac{1}{10,000}\text{ cm}$$</div>
+        <div class="result">= 0.0001 cm</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక పటం యొక్క స్కేలు 1 : 5,00,000 గా ఇవ్వబడింది. 2 ప్రదేశాల మధ్య నిజ దూరం 4,375 km అయితే పటంలో ఆ రెండు ప్రదేశాల మధ్య దూరం ఎంత?</div>
+        <div class="step">కనిష్ట స్కేలు $$1 : 5,00,000$$</div>
+        <div class="step">1cm పటంలో ఉన్నప్పుడు నిజ దూరం $$= 5,00,000\text{ cm} = 5000\text{ m} = 5\text{ km}$$</div>
+        <div class="step">5 km నిజదూరం ఉన్నప్పుడు పటంలో దూరం $$= 1\text{ cm}$$</div>
+        <div class="step">4375 km నిజదూరం ఉన్నప్పుడు పటంలో దూరం = ఎక్కువ</div>
+        <div class="step">$$= \frac{4375}{5} \times 1$$</div>
+        <div class="result">= 875 cm</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక మ్యాపు యొక్క స్కేలు 1 : 3000. మ్యాపులో రెండు పట్టణాల మధ్య దూరం 2cm అయితే రెండు పట్టణాల మధ్య నిజ దూరం ఎన్ని కిలోమీటర్లు?</div>
+        <div class="step">కనిష్ట స్కేలు $$1 : 3000$$</div>
+        <div class="step">1cm పటంలో ఉన్నప్పుడు నిజ దూరం $$= 3000\text{ cm}$$</div>
+        <div class="step">2cm పటంలో ఉన్నప్పుడు నిజ దూరం = ఎక్కువ</div>
+        <div class="step">$$= \frac{2}{1} \times 3000$$</div>
+        <div class="step">$$= 6000\text{ cm} = 60\text{ m}$$</div>
+        <div class="result">= 0.06 KM</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక పటం యొక్క స్కేల్ 1 : 50000 అని ఇవ్వబడింది. పటంలో రెండు పట్టణాల మధ్య దూరం 6cm ఉన్నచో వాటి మధ్య గల నిజ దూరం ఎంత?</div>
+        <div class="step">కనిష్ట స్కేలు $$1 : 50000$$</div>
+        <div class="step">1cm పటంలో ఉన్నప్పుడు నిజ దూరం $$= 50000\text{ cm}$$</div>
+        <div class="step">6cm పటంలో ఉన్నప్పుడు నిజ దూరం = ఎక్కువ</div>
+        <div class="step">$$= \frac{6}{1} \times 50000$$</div>
+        <div class="step">$$= 300000\text{ cm} = 3000\text{ m}$$</div>
+        <div class="result">= 3 KM</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక మైక్రో చిప్ యొక్క స్కేల్ 40 : 1 గా ఉన్నది. నమూనాలో దాని పొడవు 18cm అయితే మైక్రో చిప్ యొక్క నిజ పొడవెంత?</div>
+        <div class="step">కనిష్ట స్కేలు $$40 : 1$$</div>
+        <div class="step">40cm నమూనాలో ఉన్నప్పుడు నిజ పొడవు $$= 1\text{ cm}$$</div>
+        <div class="step">18cm నమూనాలో ఉన్నప్పుడు నిజ పొడవు = తక్కువ</div>
+        <div class="step">$$= \frac{18}{40} \times 1$$</div>
+        <div class="result">= 0.45 cm</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• మాన్యత వద్ద బెంగళూరు రూట్ మ్యాప్ కలదు. దాని స్కేలు 1 cm కు 18 km గా ఇవ్వబడింది. ఆమె రోడ్డుపై 72 km కారు నడిపినచో మ్యాప్ పై ఎంత దూరం పూర్తి చేసినట్టో తెలపండి</div>
+        <div class="step">18 km నిజ దూరాన్ని సూచించే స్కేల్ కొలత $$= 1\text{ cm}$$</div>
+        <div class="step">72 km నిజ దూరాన్ని సూచించే స్కేల్ కొలత = ఎక్కువ</div>
+        <div class="step">$$= \frac{72}{18} \times 1$$</div>
+        <div class="result">= 4 cm</div>
+    </div>
+
+</div>
+
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const modeText = document.getElementById('mode-text');
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            modeText.textContent = '';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            modeText.textContent = '';
+        }    
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+
+</body>
+</html>
