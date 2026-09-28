@@ -196,6 +196,52 @@
             margin-bottom: 8px;
         }
 
+        /* Practice Bits Styling */
+        .practice-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--highlight-color);
+        }
+
+        .options-list {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        .options-list li {
+            margin-bottom: 5px;
+        }
+
+        .btn-answer {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: 'Mandali', sans-serif;
+            transition: background-color 0.2s;
+        }
+
+        .btn-answer:hover {
+            opacity: 0.9;
+        }
+
+        .answer-box {
+            display: none;
+            margin-top: 12px;
+            padding: 10px;
+            background-color: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -427,6 +473,412 @@
         <div class="result">= 1200 మీటర్లు</div>
     </div>
 
+    <!-- PRACTICE BITS SECTION -->
+    <div class="card">
+        <h2 class="card-title">అభ్యాస ప్రశ్నలు (25 PRACTICE BITS)</h2>
+        
+        <!-- Practice Bit 1 -->
+        <div class="practice-card">
+            <div class="problem-title">1. 1 రీము నందు ఎన్ని దస్తాల (Quires) కాగితాలు ఉంటాయి?</div>
+            <ul class="options-list">
+                <li>A) 12</li>
+                <li>B) 20</li>
+                <li>C) 24</li>
+                <li>D) 480</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans1', this)">Show Answer</button>
+            <div id="ans1" class="answer-box">
+                <strong>సమాధానం:</strong> B) 20 దస్తాలు<br>
+                <small>వివరణ: 1 రీము = 20 దస్తాలు = 480 కాగితాలు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 2 -->
+        <div class="practice-card">
+            <div class="problem-title">2. 1 గ్రోసు లో ఉన్న వస్తువుల సంఖ్య ఎంత?</div>
+            <ul class="options-list">
+                <li>A) 20</li>
+                <li>B) 100</li>
+                <li>C) 144</li>
+                <li>D) 480</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans2', this)">Show Answer</button>
+            <div id="ans2" class="answer-box">
+                <strong>సమాధానం:</strong> C) 144<br>
+                <small>వివరణ: 1 గ్రోసు = 12 డజన్లు = \(12 \times 12 = 144\) వస్తువులు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 3 -->
+        <div class="practice-card">
+            <div class="problem-title">3. 8 పుస్తకాల వెల ₹240 అయిన, 5 పుస్తకాల వెల ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹150</li>
+                <li>B) ₹160</li>
+                <li>C) ₹120</li>
+                <li>D) ₹180</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans3', this)">Show Answer</button>
+            <div id="ans3" class="answer-box">
+                <strong>సమాధానం:</strong> A) ₹150<br>
+                <small>వివరణ: 1 పుస్తకం = \(240 / 8 = 30\). కావున 5 పుస్తకాలు = \(5 \times 30 = 150\) రు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 4 -->
+        <div class="practice-card">
+            <div class="problem-title">4. 1 స్కోరు వస్తువుల సంఖ్య మరియు 1 దస్తా కాగితాల సంఖ్యల మొత్తం ఎంత?</div>
+            <ul class="options-list">
+                <li>A) 44</li>
+                <li>B) 32</li>
+                <li>C) 48</li>
+                <li>D) 24</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans4', this)">Show Answer</button>
+            <div id="ans4" class="answer-box">
+                <strong>సమాధానం:</strong> A) 44<br>
+                <small>వివరణ: 1 స్కోరు = 20, 1 దస్తా = 24. మొత్తం = \(20 + 24 = 44\).</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 5 -->
+        <div class="practice-card">
+            <div class="problem-title">5. 12 టేబుల్స్ ఖరీదు ₹14,400 అయిన 2 టేబుల్స్ ఖరీదు ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹1,200</li>
+                <li>B) ₹2,400</li>
+                <li>C) ₹3,600</li>
+                <li>D) ₹4,800</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans5', this)">Show Answer</button>
+            <div id="ans5" class="answer-box">
+                <strong>సమాధానం:</strong> B) ₹2,400<br>
+                <small>వివరణ: 1 టేబుల్ = \(14400 / 12 = 1200\). కావున 2 టేబుల్స్ = \(2 \times 1200 = 2400\) రు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 6 -->
+        <div class="practice-card">
+            <div class="problem-title">6. 1 రీము లో ఉన్న మొత్తం కాగితాల సంఖ్య ఎంత?</div>
+            <ul class="options-list">
+                <li>A) 240</li>
+                <li>B) 480</li>
+                <li>C) 500</li>
+                <li>D) 1000</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans6', this)">Show Answer</button>
+            <div id="ans6" class="answer-box">
+                <strong>సమాధానం:</strong> B) 480<br>
+                <small>వివరణ: 1 రీము = 20 దస్తాలు \(\times\) 24 కాగితాలు = 480 కాగితాలు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 7 -->
+        <div class="practice-card">
+            <div class="problem-title">7. 15 పెన్నుల ధర ₹105 అయిన, 8 పెన్నుల ధర ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹56</li>
+                <li>B) ₹64</li>
+                <li>C) ₹48</li>
+                <li>D) ₹70</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans7', this)">Show Answer</button>
+            <div id="ans7" class="answer-box">
+                <strong>సమాధానం:</strong> A) ₹56<br>
+                <small>వివరణ: 1 పెన్ను = \(105 / 15 = 7\). 8 పెన్నులు = \(8 \times 7 = 56\) రు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 8 -->
+        <div class="practice-card">
+            <div class="problem-title">8. 3 డజన్ల అరటిపండ్ల వెల ₹180 అయిన ఒక అరటిపండు వెల ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹3</li>
+                <li>B) ₹5</li>
+                <li>C) ₹6</li>
+                <li>D) ₹10</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans8', this)">Show Answer</button>
+            <div id="ans8" class="answer-box">
+                <strong>సమాధానం:</strong> B) ₹5<br>
+                <small>వివరణ: 3 డజన్లు = 36 పండ్లు. 1 పండు వెల = \(180 / 36 = 5\) రు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 9 -->
+        <div class="practice-card">
+            <div class="problem-title">9. 2 స్కోర్ల వస్తువుల సంఖ్య ఎంత?</div>
+            <ul class="options-list">
+                <li>A) 24</li>
+                <li>B) 36</li>
+                <li>C) 40</li>
+                <li>D) 48</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans9', this)">Show Answer</button>
+            <div id="ans9" class="answer-box">
+                <strong>సమాధానం:</strong> C) 40<br>
+                <small>వివరణ: 1 స్కోరు = 20 వస్తువులు. కావున 2 స్కోర్లు = \(2 \times 20 = 40\).</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 10 -->
+        <div class="practice-card">
+            <div class="problem-title">10. 4 కిలోల పంచదార వెల ₹160 అయిన 7 కిలోల పంచదార వెల ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹240</li>
+                <li>B) ₹280</li>
+                <li>C) ₹320</li>
+                <li>D) ₹200</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans10', this)">Show Answer</button>
+            <div id="ans10" class="answer-box">
+                <strong>సమాధానం:</strong> B) ₹280<br>
+                <small>వివరణ: 1 కిలో = \(160 / 4 = 40\). 7 కిలోలు = \(7 \times 40 = 280\) రు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 11 -->
+        <div class="practice-card">
+            <div class="problem-title">11. ఒక కారు 3 గంటలలో 180 కిమీ దూరం ప్రయాణించినచో, 5 గంటలలో ఎంత దూరం ప్రయాణించును?</div>
+            <ul class="options-list">
+                <li>A) 250 కిమీ</li>
+                <li>B) 300 కిమీ</li>
+                <li>C) 320 కిమీ</li>
+                <li>D) 280 కిమీ</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans11', this)">Show Answer</button>
+            <div id="ans11" class="answer-box">
+                <strong>సమాధానం:</strong> B) 300 కిమీ<br>
+                <small>వివరణ: 1 గంటలో వేగం = \(180 / 3 = 60\) కిమీ. 5 గంటలలో = \(5 \times 60 = 300\) కిమీ.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 12 -->
+        <div class="practice-card">
+            <div class="problem-title">12. 1 బేల్ (Bale) నందు ఎన్ని రీములు (Reams) ఉంటాయి?</div>
+            <ul class="options-list">
+                <li>A) 10</li>
+                <li>B) 20</li>
+                <li>C) 50</li>
+                <li>D) 100</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans12', this)">Show Answer</button>
+            <div id="ans12" class="answer-box">
+                <strong>సమాధానం:</strong> B) 20 రీములు<br>
+                <small>వివరణ: 1 Bale = 4,800 sheets = 20 reams.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 13 -->
+        <div class="practice-card">
+            <div class="problem-title">13. 10 మంది వ్యక్తులకు 500 గ్రాముల మిఠాయి సరిపోతే, 15 మందికి ఎంత మిఠాయి కావలెను?</div>
+            <ul class="options-list">
+                <li>A) 650 గ్రాములు</li>
+                <li>B) 750 గ్రాములు</li>
+                <li>C) 800 గ్రాములు</li>
+                <li>D) 1000 గ్రాములు</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans13', this)">Show Answer</button>
+            <div id="ans13" class="answer-box">
+                <strong>సమాధానం:</strong> B) 750 గ్రాములు<br>
+                <small>వివరణ: 1 వ్యక్తికి = \(500 / 10 = 50\) గ్రా. 15 మందికి = \(15 \times 50 = 750\) గ్రా.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 14 -->
+        <div class="practice-card">
+            <div class="problem-title">14. ఒక యంత్రం 6 నిమిషాల్లో 120 పేజీలను ప్రింట్ చేయగలదు. 1 నిమిషంలో ఎన్ని పేజీలు ప్రింట్ చేయగలదు?</div>
+            <ul class="options-list">
+                <li>A) 15</li>
+                <li>B) 20</li>
+                <li>C) 25</li>
+                <li>D) 30</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans14', this)">Show Answer</button>
+            <div id="ans14" class="answer-box">
+                <strong>సమాధానం:</strong> B) 20 పేజీలు<br>
+                <small>వివరణ: 1 నిమిషంలో = \(120 / 6 = 20\) పేజీలు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 15 -->
+        <div class="practice-card">
+            <div class="problem-title">15. 2 గ్రోసుల వస్తువుల సంఖ్య ఎంత?</div>
+            <ul class="options-list">
+                <li>A) 288</li>
+                <li>B) 240</li>
+                <li>C) 200</li>
+                <li>D) 144</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans15', this)">Show Answer</button>
+            <div id="ans15" class="answer-box">
+                <strong>సమాధానం:</strong> A) 288<br>
+                <small>వివరణ: 1 గ్రోసు = 144. కావున 2 గ్రోసులు = \(2 \times 144 = 288\).</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 16 -->
+        <div class="practice-card">
+            <div class="problem-title">16. ఒక పనివాడు 5 రోజుల్లో ₹2,500 సంపాదిస్తే, 12 రోజుల్లో ఎంత సంపాదించును?</div>
+            <ul class="options-list">
+                <li>A) ₹5,000</li>
+                <li>B) ₹6,000</li>
+                <li>C) ₹6,500</li>
+                <li>D) ₹7,000</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans16', this)">Show Answer</button>
+            <div id="ans16" class="answer-box">
+                <strong>సమాధానం:</strong> B) ₹6,000<br>
+                <small>వివరణ: 1 రోజు ఆదాయం = \(2500 / 5 = 500\). 12 రోజులకు = \(12 \times 500 = 6000\) రు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 17 -->
+        <div class="practice-card">
+            <div class="problem-title">17. 1 దస్తా నందు ఉండు కాగితాల సంఖ్య ఎంత?</div>
+            <ul class="options-list">
+                <li>A) 12</li>
+                <li>B) 20</li>
+                <li>C) 24</li>
+                <li>D) 30</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans17', this)">Show Answer</button>
+            <div id="ans17" class="answer-box">
+                <strong>సమాధానం:</strong> C) 24 కాగితాలు<br>
+                <small>వివరణ: 1 దస్తా (Quire) = 24 కాగితాలు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 18 -->
+        <div class="practice-card">
+            <div class="problem-title">18. 9 డిజిటల్ వాచ్ ల వెల ₹8,100 అయిన 4 వాచ్ ల వెల ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹3,600</li>
+                <li>B) ₹3,200</li>
+                <li>C) ₹4,000</li>
+                <li>D) ₹2,700</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans18', this)">Show Answer</button>
+            <div id="ans18" class="answer-box">
+                <strong>సమాధానం:</strong> A) ₹3,600<br>
+                <small>వివరణ: 1 వాచ్ వెల = \(8100 / 9 = 900\). 4 వాచ్ లు = \(4 \times 900 = 3600\) రు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 19 -->
+        <div class="practice-card">
+            <div class="problem-title">19. 12 లీటర్ల పెట్రోల్ తో ఒక బైక్ 600 కిమీ ప్రయాణించగలదు. 1 లీటర్ పెట్రోల్ తో ఎంత దూరం వెళ్ళగలదు?</div>
+            <ul class="options-list">
+                <li>A) 40 కిమీ</li>
+                <li>B) 50 కిమీ</li>
+                <li>C) 60 కిమీ</li>
+                <li>D) 45 కిమీ</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans19', this)">Show Answer</button>
+            <div id="ans19" class="answer-box">
+                <strong>సమాధానం:</strong> B) 50 కిమీ<br>
+                <small>వివరణ: 1 లీటరుకు = \(600 / 12 = 50\) కిమీ.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 20 -->
+        <div class="practice-card">
+            <div class="problem-title">20. 500 గ్రాముల నూనె వెల ₹90 అయిన 2 కిలోల నూనె వెల ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹180</li>
+                <li>B) ₹270</li>
+                <li>C) ₹360</li>
+                <li>D) ₹450</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans20', this)">Show Answer</button>
+            <div id="ans20" class="answer-box">
+                <strong>సమాధానం:</strong> C) ₹360<br>
+                <small>వివరణ: 1 కిలో (1000 గ్రా) = \(90 \times 2 = 180\). 2 కిలోలు = \(180 \times 2 = 360\) రు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 21 -->
+        <div class="practice-card">
+            <div class="problem-title">21. 10 బండిళ్లలో ఉన్న మొత్తం కాగితాల సంఖ్య ఎంత? (1 బండిలు = 1 రీము అనగా)</div>
+            <ul class="options-list">
+                <li>A) 2400</li>
+                <li>B) 4800</li>
+                <li>C) 1200</li>
+                <li>D) 9600</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans21', this)">Show Answer</button>
+            <div id="ans21" class="answer-box">
+                <strong>సమాధానం:</strong> B) 4800<br>
+                <small>వివరణ: 1 బండిలు/రీము = 480 కాగితాలు. 10 బండిళ్లు = \(10 \times 480 = 4800\).</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 22 -->
+        <div class="practice-card">
+            <div class="problem-title">22. ఒక సైకిల్ 2 సెకన్లలో 10 మీటర్లు వెళ్తే, 1 నిమిషంలో ఎంత దూరం వెళ్ళును?</div>
+            <ul class="options-list">
+                <li>A) 200 మీటర్లు</li>
+                <li>B) 300 మీటర్లు</li>
+                <li>C) 150 మీటర్లు</li>
+                <li>D) 600 మీటర్లు</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans22', this)">Show Answer</button>
+            <div id="ans22" class="answer-box">
+                <strong>సమాధానం:</strong> B) 300 మీటర్లు<br>
+                <small>వివరణ: 1 సెకనులో = 5 మీ. 1 నిమిషం (60 సెకన్లు) = \(60 \times 5 = 300\) మీటర్లు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 23 -->
+        <div class="practice-card">
+            <div class="problem-title">23. 14 నోట్‌బుక్కుల ధర ₹420 అయిన 9 నోట్‌బుక్కుల ధర ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹270</li>
+                <li>B) ₹300</li>
+                <li>C) ₹240</li>
+                <li>D) ₹210</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans23', this)">Show Answer</button>
+            <div id="ans23" class="answer-box">
+                <strong>సమాధానం:</strong> A) ₹270<br>
+                <small>వివరణ: 1 బుక్ = \(420 / 14 = 30\). 9 బుక్కులు = \(9 \times 30 = 270\) రు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 24 -->
+        <div class="practice-card">
+            <div class="problem-title">24. 1 డజను గుడ్ల ధర ₹72 అయిన 5 గుడ్ల ధర ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹25</li>
+                <li>B) ₹30</li>
+                <li>C) ₹35</li>
+                <li>D) ₹40</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans24', this)">Show Answer</button>
+            <div id="ans24" class="answer-box">
+                <strong>సమాధానం:</strong> B) ₹30<br>
+                <small>వివరణ: 1 గుడ్డు = \(72 / 12 = 6\). 5 గుడ్లు = \(5 \times 6 = 30\) రు.</small>
+            </div>
+        </div>
+
+        <!-- Practice Bit 25 -->
+        <div class="practice-card">
+            <div class="problem-title">25. ఏక వస్తు మార్గంలో మొదటగా కనుగొనవలసినది ఏమిటి?</div>
+            <ul class="options-list">
+                <li>A) మొత్తం వస్తువుల విలువ</li>
+                <li>B) ఒక వస్తువు విలువ</li>
+                <li>C) సగం వస్తువుల విలువ</li>
+                <li>D) ఉచిత విలువ</li>
+            </ul>
+            <button class="btn-answer" onclick="toggleAnswer('ans25', this)">Show Answer</button>
+            <div id="ans25" class="answer-box">
+                <strong>సమాధానం:</strong> B) ఒక వస్తువు విలువ<br>
+                <small>వివరణ: ఒక వస్తువు విలువను కనుగొని దాని ద్వారా కావలసినన్ని వస్తువుల విలువ కనుగొనడాన్నే ఏక వస్తు మార్గం అంటారు.</small>
+            </div>
+        </div>
+
+    </div>
+
     <footer>
         <p>Target DSC 2026</p>
         <p>@Raja Talluri</p>
@@ -448,6 +900,18 @@
     }
 
     toggleSwitch.addEventListener('change', switchTheme, false);
+
+    // Answer Toggle Function
+    function toggleAnswer(id, btn) {
+        const ansBox = document.getElementById(id);
+        if (ansBox.style.display === "block") {
+            ansBox.style.display = "none";
+            btn.textContent = "Show Answer";
+        } else {
+            ansBox.style.display = "block";
+            btn.textContent = "Hide Answer";
+        }
+    }
 </script>
 
 </body>

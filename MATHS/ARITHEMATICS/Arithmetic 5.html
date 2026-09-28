@@ -59,7 +59,7 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 15px;
+            padding: 10px;
             transition: background-color 0.3s, color 0.3s;
             font-size: 19px;
             line-height: 1.8;
@@ -166,7 +166,7 @@
         .card {
             background-color: var(--card-bg);
             border-radius: 12px;
-            padding: 25px;
+            padding: 10px;
             margin-bottom: 20px;
             box-shadow: var(--shadow);
             border: 1px solid var(--border-color);
@@ -193,7 +193,7 @@
         .problem-card {
             background-color: var(--card-bg);
             border-radius: 10px;
-            padding: 20px;
+            padding: 10px;
             margin-bottom: 15px;
             box-shadow: var(--shadow);
             border: 1px solid var(--border-color);
@@ -219,6 +219,41 @@
             font-weight: bold;
             margin-top: 10px;
             margin-left: 10px;
+        }
+
+        .options-list {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+
+        .options-list li {
+            margin-bottom: 6px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .answer-box {
+            display: none;
+            margin-top: 12px;
+            padding: 12px 16px;
+            background-color: rgba(40, 167, 69, 0.08);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+            font-size: 18px;
+            word-wrap: break-word;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            white-space: normal;
+            overflow-x: auto;
         }
 
         ul {
@@ -263,155 +298,437 @@
     </div>
 
     <!-- Solved Problems -->
+    <div class="card">
+        <h2 class="card-title">సాధించిన సమస్యలు (Solved Examples)</h2>
 
-    <div class="problem-card">
-        <div class="problem-title">• సీమా, రీమాలు వరుసగా 2000 రూపాయలు, 3000 రూపాయల పెట్టుబడులతో ఒక వ్యాపారం ప్రారంభించారు. సంవత్సరాంతాన వారు వచ్చిన లాభాన్ని ఏ నిష్పత్తిలో పంచుకొంటారు?</div>
-        <div class="step">సీమా యొక్క పెట్టుబడి $= 2000$</div>
-        <div class="step">రీమా యొక్క పెట్టుబడి $= 3000$</div>
-        <div class="step">ఇద్దరూ సమాన కాలం పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని పెట్టుబడుల నిష్పత్తిలో పంచుకొంటారు.</div>
-        <div class="step">సీమా, రీమాల లాభాల నిష్పత్తి = సీమా పెట్టుబడి : రీమా పెట్టుబడి</div>
-        <div class="step">$= 2000 : 3000$</div>
-        <div class="result">= 2 : 3</div>
+        <div class="problem-card">
+            <div class="problem-title">• సీమా, రీమాలు వరుసగా 2000 రూపాయలు, 3000 రూపాయల పెట్టుబడులతో ఒక వ్యాపారం ప్రారంభించారు. సంవత్సరాంతాన వారు వచ్చిన లాభాన్ని ఏ నిష్పత్తిలో పంచుకొంటారు?</div>
+            <div class="step">సీమా యొక్క పెట్టుబడి $= 2000$</div>
+            <div class="step">రీమా యొక్క పెట్టుబడి $= 3000$</div>
+            <div class="step">ఇద్దరూ సమాన కాలం పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని పెట్టుబడుల నిష్పత్తిలో పంచుకొంటారు.</div>
+            <div class="step">సీమా, రీమాల లాభాల నిష్పత్తి = సీమా పెట్టుబడి : రీమా పెట్టుబడి</div>
+            <div class="step">$= 2000 : 3000$</div>
+            <div class="result">= 2 : 3</div>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title">• జస్వంత్, యశ్వంత్‌లు ఒక్కొక్కరు 5000 రూపాయల పెట్టుబడులతో వ్యాపారం ప్రారంభించారు. జస్వంత్ పెట్టుబడిని 12 నెలలు ఉంచాడు. యశ్వంత్ పెట్టుబడిని 9 నెలలు ఉంచాడు. అయితే వారు వచ్చిన లాభాన్ని ఏ నిష్పత్తిలో పంచుకొంటారు?</div>
+            <div class="step">జస్వంత్ యొక్క పెట్టుబడి $= 5,000$</div>
+            <div class="step">యశ్వంత్ యొక్క పెట్టుబడి $= 5,000$</div>
+            <div class="step">జస్వంత్ వ్యాపారంలో ఉన్న కాలం = 12 నెలలు</div>
+            <div class="step">యశ్వంత్ వ్యాపారంలో ఉన్న కాలం = 9 నెలలు</div>
+            <div class="step">ఇద్దరూ వేరు వేరు కాలాల పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని $\text{పెట్టుబడి} \times \text{కాలం}$ నిష్పత్తిలో పంచుకొంటారు.</div>
+            <div class="step">జస్వంత్, యశ్వంత్‌ల లాభాల నిష్పత్తి = జస్వంత్ పెట్టుబడి $\times$ కాలం : యశ్వంత్ పెట్టుబడి $\times$ కాలం</div>
+            <div class="step">$= 5,000 \times 12 : 5,000 \times 9$</div>
+            <div class="step">$= 60 : 45$</div>
+            <div class="result">= 4 : 3</div>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title">• సంజు 2000 రూపాయలను 12 నెలలు పెట్టుబడిగా, అంజు 3000 రూపాయలను 9 నెలలు పెట్టుబడిగా పెట్టారు. సంవత్సరాంతాన వచ్చే లాభాన్ని వారు ఏ నిష్పత్తిలో పంచుకొంటారు?</div>
+            <div class="step">సంజు యొక్క పెట్టుబడి $= 2,000$</div>
+            <div class="step">అంజు యొక్క పెట్టుబడి $= 3,000$</div>
+            <div class="step">సంజు వ్యాపారంలో ఉన్న కాలం = 12 నెలలు</div>
+            <div class="step">అంజు వ్యాపారంలో ఉన్న కాలం = 9 నెలలు</div>
+            <div class="step">ఇద్దరూ వేరు వేరు కాలాల పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని $\text{పెట్టుబడి} \times \text{కాలం}$ నిష్పత్తిలో పంచుకొంటారు.</div>
+            <div class="step">సంజు, అంజుల లాభాల నిష్పత్తి = సంజు పెట్టుబడి $\times$ కాలం : అంజు పెట్టుబడి $\times$ కాలం</div>
+            <div class="step">$= 2,000 \times 12 : 3,000 \times 9$</div>
+            <div class="step">$= 24 : 27$</div>
+            <div class="result">= 8 : 9</div>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title">• A, B లు 85,000 రూపాయలు, 15,000 రూపాయల పెట్టుబడులతో వ్యాపారం ప్రారంభించారు. 2 yrs తర్వాత వచ్చిన లాభాన్ని వారిద్దరూ ఏ నిష్పత్తిలో పంచుకొంటారు?</div>
+            <div class="step">A యొక్క పెట్టుబడి $= 85,000$</div>
+            <div class="step">B యొక్క పెట్టుబడి $= 15,000$</div>
+            <div class="step">ఇద్దరూ సమాన కాలం పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని పెట్టుబడుల నిష్పత్తిలో పంచుకొంటారు.</div>
+            <div class="step">A, B ల లాభాల నిష్పత్తి = A పెట్టుబడి : B పెట్టుబడి</div>
+            <div class="step">$= 85,000 : 15,000$</div>
+            <div class="step">$= 85 : 15$</div>
+            <div class="result">= 17 : 3</div>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title">• అరుణ్ మరియు వరుణ్‌లు 12,000 రూపాయలు, 18,000 రూపాయల పెట్టుబడులతో ఒక వ్యాపారాన్ని ప్రారంభించారు. సంవత్సరాంతాన 6250 రూపాయల లాభం వస్తే అరుణ్ మరియు వరుణ్‌ల వాటా ఎంత?</div>
+            <div class="step">అరుణ్ యొక్క పెట్టుబడి $= 12,000$</div>
+            <div class="step">వరుణ్ యొక్క పెట్టుబడి $= 18,000$</div>
+            <div class="step">ఇద్దరూ సమాన కాలం పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని పెట్టుబడుల నిష్పత్తిలో పంచుకొంటారు.</div>
+            <div class="step">అరుణ్, వరుణ్‌ల లాభాల నిష్పత్తి = అరుణ్ పెట్టుబడి : వరుణ్ పెట్టుబడి</div>
+            <div class="step">$= 12,000 : 18,000 = 12 : 18 = 2 : 3$</div>
+            <div class="step">లాభంలో అరుణ్ వాటా = 2 భాగాలు, వరుణ్ వాటా = 3 భాగాలు</div>
+            <div class="step">మొత్తం భాగాలు $= 2 + 3 = 5\text{ భాగాలు} = 6250$</div>
+            <div class="step">$1\text{ భాగం} = \frac{6250}{5} = 1250$</div>
+            <div class="step">అరుణ్ వాటా ($2\text{ భాగాలు}$) $= 2 \times 1250 = 2500$</div>
+            <div class="result">వరుణ్ వాటా ($3\text{ భాగాలు}$) $= 3 \times 1250 = 3750$</div>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title">• రామ్ 6000 రూపాయలను 12 నెలలకు, శ్యామ్ 9000 రూపాయలను 9 నెలలు పెట్టుబడిగా పెట్టి సంవత్సరాంతాన వచ్చిన లాభాన్ని పంచుకొనే నిష్పత్తి ఎంత?</div>
+            <div class="step">రామ్ యొక్క పెట్టుబడి $= 6,000$</div>
+            <div class="step">శ్యామ్ యొక్క పెట్టుబడి $= 9,000$</div>
+            <div class="step">రామ్ వ్యాపారంలో ఉన్న కాలం = 12 నెలలు</div>
+            <div class="step">శ్యామ్ వ్యాపారంలో ఉన్న కాలం = 9 నెలలు</div>
+            <div class="step">ఇద్దరూ వేరు వేరు కాలాల పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని $\text{పెట్టుబడి} \times \text{కాలం}$ నిష్పత్తిలో పంచుకొంటారు.</div>
+            <div class="step">రామ్, శ్యామ్‌ల లాభాల నిష్పత్తి = రామ్ పెట్టుబడి $\times$ కాలం : శ్యామ్ పెట్టుబడి $\times$ కాలం</div>
+            <div class="step">$= 6,000 \times 12 : 9,000 \times 9$</div>
+            <div class="step">$= 72 : 81$</div>
+            <div class="result">= 8 : 9</div>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title">• సీత, గీతలు వ్యాపార భాగస్వాములు. సీత 8 మాసాల పాటు 35,000 రూపాయలు, గీత 10 మాసాల పాటు 42,000 రూపాయలు పెట్టుబడులు పెట్టారు. మొత్తం 31,750 రూపాయల లాభం వస్తే సీత మరియు గీతల వాటాలు ఎంత?</div>
+            <div class="step">సీత యొక్క పెట్టుబడి $= 35,000$</div>
+            <div class="step">గీత యొక్క పెట్టుబడి $= 42,000$</div>
+            <div class="step">సీత వ్యాపారంలో ఉన్న కాలం = 8 నెలలు</div>
+            <div class="step">గీత వ్యాపారంలో ఉన్న కాలం = 10 నెలలు</div>
+            <div class="step">సీత, గీతల లాభాల నిష్పత్తి = సీత పెట్టుబడి $\times$ కాలం : గీత పెట్టుబడి $\times$ కాలం</div>
+            <div class="step">$= 35,000 \times 8 : 42,000 \times 10$</div>
+            <div class="step">$= 280 : 420 = 2 : 3$</div>
+            <div class="step">లాభంలో సీత వాటా = 2 భాగాలు, గీత వాటా = 3 భాగాలు</div>
+            <div class="step">మొత్తం లాభం $= 5\text{ భాగాలు} = 31750$</div>
+            <div class="step">$1\text{ భాగం} = 6350$</div>
+            <div class="step">సీత వాటా ($2\text{ భాగాలు}$) $= 2 \times 6350 = 12700$</div>
+            <div class="result">గీత వాటా ($3\text{ భాగాలు}$) $= 3 \times 6350 = 19050$</div>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title">• 9000 రూపాయల పెట్టుబడితో కమల్ వ్యాపారం ప్రారంభించాడు. 5 నెలల తర్వాత 8000 రూపాయల పెట్టుబడితో విమల్ వ్యాపారంలో చేరాడు. సంవత్సరాంతాన వారి మొత్తం లాభం 6970 రూపాయలు అయితే వారి వాటాలు ఎంత?</div>
+            <div class="step">కమల్ యొక్క పెట్టుబడి $= 9,000$</div>
+            <div class="step">విమల్ యొక్క పెట్టుబడి $= 8,000$</div>
+            <div class="step">కమల్ వ్యాపారంలో ఉన్న కాలం = $1\text{ yr} = 12\text{ నెలలు}$</div>
+            <div class="step">విమల్ వ్యాపారంలో ఉన్న కాలం = $12 - 5 = 7\text{ నెలలు}$</div>
+            <div class="step">కమల్, విమల్‌ల లాభాల నిష్పత్తి = కమల్ పెట్టుబడి $\times$ కాలం : విమల్ పెట్టుబడి $\times$ కాలం</div>
+            <div class="step">$= 9,000 \times 12 : 8,000 \times 7$</div>
+            <div class="step">$= 108 : 56 = 27 : 14$</div>
+            <div class="step">మొత్తం లాభం $= 27 + 14 = 41\text{ భాగాలు} = 6970$</div>
+            <div class="step">$1\text{ భాగం} = \frac{6970}{41} = 170$</div>
+            <div class="step">కమల్ వాటా ($27\text{ భాగాలు}$) $= 27 \times 170 = 4590$</div>
+            <div class="result">విమల్ వాటా ($14\text{ భాగాలు}$) $= 14 \times 170 = 2380$</div>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title">• 50,000 రూపాయల పెట్టుబడితో స్వప్న వ్యాపారం ప్రారంభించింది. 6 నెలల తర్వాత బాలు 80,000 రూపాయల పెట్టుబడితో ఆమెతో కలిసాడు. 3 yrs తర్వాత వారికి వచ్చిన లాభం 24,500 రూపాయలలో వారి వాటాలు ఎంత?</div>
+            <div class="step">స్వప్న యొక్క పెట్టుబడి $= 50,000$</div>
+            <div class="step">బాలు యొక్క పెట్టుబడి $= 80,000$</div>
+            <div class="step">స్వప్న వ్యాపారంలో ఉన్న కాలం = $3\text{ yrs} = 36\text{ నెలలు}$</div>
+            <div class="step">బాలు వ్యాపారంలో ఉన్న కాలం = $36 - 6 = 30\text{ నెలలు}$</div>
+            <div class="step">స్వప్న, బాలుల లాభాల నిష్పత్తి = స్వప్న పెట్టుబడి $\times$ కాలం : బాలు పెట్టుబడి $\times$ కాలం</div>
+            <div class="step">$= 50,000 \times 36 : 80,000 \times 30$</div>
+            <div class="step">$= 180 : 240 = 3 : 4$</div>
+            <div class="step">మొత్తం లాభం $= 3 + 4 = 7\text{ భాగాలు} = 24500$</div>
+            <div class="step">$1\text{ భాగం} = 3500$</div>
+            <div class="step">స్వప్న వాటా ($3\text{ భాగాలు}$) $= 3 \times 3500 = 10500$</div>
+            <div class="result">బాలు వాటా ($4\text{ భాగాలు}$) $= 4 \times 3500 = 14000$</div>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title">• 8,000 రూపాయలు, 4,000 రూపాయలు, 8,000 రూపాయలు వరుస పెట్టుబడులతో నవ్య, దివ్య, భవ్యలు వ్యాపారం ప్రారంభించారు. ఆరు నెలల తర్వాత నవ్య వ్యాపారం నుండి వైదొలగింది. మొత్తం మీద 8 నెలల తర్వాత 4005 రూపాయలు లాభం వస్తే వారి వాటాలు ఎంత?</div>
+            <div class="step">నవ్య పెట్టుబడి $= 8,000$ (కాలం = 6 నెలలు)</div>
+            <div class="step">దివ్య పెట్టుబడి $= 4,000$ (కాలం = 8 నెలలు)</div>
+            <div class="step">భవ్య పెట్టుబడి $= 8,000$ (కాలం = 8 నెలలు)</div>
+            <div class="step">నవ్య, దివ్య, భవ్యల లాభాల నిష్పత్తి</div>
+            <div class="step">$= 8000 \times 6 : 4000 \times 8 : 8000 \times 8$</div>
+            <div class="step">$= 48 : 32 : 64 = 3 : 2 : 4$</div>
+            <div class="step">మొత్తం భాగాలు $= 3 + 2 + 4 = 9\text{ భాగాలు} = 4005$</div>
+            <div class="step">$1\text{ భాగం} = 445$</div>
+            <div class="step">నవ్య వాటా ($3\text{ భాగాలు}$) $= 3 \times 445 = 1335$</div>
+            <div class="step">దివ్య వాటా ($2\text{ భాగాలు}$) $= 2 \times 445 = 890$</div>
+            <div class="result">భవ్య వాటా ($4\text{ భాగాలు}$) $= 4 \times 445 = 1780$</div>
+        </div>
+
+        <div class="problem-card">
+            <div class="problem-title">• రూప వ్యాపారం ప్రారంభించిన కొన్ని నెలలకు దీప వ్యాపారంలో చేరెను. వారి పెట్టుబడుల నిష్పత్తి 4 : 5. సంవత్సరాంతాన లాభంలో రూప, దీపల వాటాలు వరుసగా 3300 రూపాయలు, 2750 రూపాయలు అయితే దీప వ్యాపారంలో ఎప్పుడు చేరింది?</div>
+            <div class="step">రూప వ్యాపారంలో ఉన్న కాలం = 12 నెలలు</div>
+            <div class="step">దీప వ్యాపారంలో ఉన్న కాలం $= (12 - x)$ నెలలు</div>
+            <div class="step">రూప, దీపల పెట్టుబడుల నిష్పత్తి $= 4 : 5$</div>
+            <div class="step">రూప, దీపల లాభాల నిష్పత్తి = రూప పెట్టుబడి $\times$ కాలం : దీప పెట్టుబడి $\times$ కాలం</div>
+            <div class="step">$3300 : 2750 = 4 \times 12 : 5 \times (12 - x)$</div>
+            <div class="step">$6 : 5 = 48 : (60 - 5x)$</div>
+            <div class="step">$\frac{6}{5} = \frac{48}{60 - 5x} \Rightarrow 6(60 - 5x) = 5(48)$</div>
+            <div class="step">$360 - 30x = 240 \Rightarrow 30x = 120 \Rightarrow x = 4$</div>
+            <div class="result">దీప 4 నెలల తర్వాత వ్యాపారంలో చేరింది (8 నెలలు వ్యాపారంలో ఉంది).</div>
+        </div>
     </div>
 
-    <div class="problem-card">
-        <div class="problem-title">• జస్వంత్, యశ్వంత్‌లు ఒక్కొక్కరు 5000 రూపాయల పెట్టుబడులతో వ్యాపారం ప్రారంభించారు. జస్వంత్ పెట్టుబడిని 12 నెలలు ఉంచాడు. యశ్వంత్ పెట్టుబడిని 9 నెలలు ఉంచాడు. అయితే వారు వచ్చిన లాభాన్ని ఏ నిష్పత్తిలో పంచుకొంటారు?</div>
-        <div class="step">జస్వంత్ యొక్క పెట్టుబడి $= 5,000$</div>
-        <div class="step">యశ్వంత్ యొక్క పెట్టుబడి $= 5,000$</div>
-        <div class="step">జస్వంత్ వ్యాపారంలో ఉన్న కాలం = 12 నెలలు</div>
-        <div class="step">యశ్వంత్ వ్యాపారంలో ఉన్న కాలం = 9 నెలలు</div>
-        <div class="step">ఇద్దరూ వేరు వేరు కాలాల పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని $\text{పెట్టుబడి} \times \text{కాలం}$ నిష్పత్తిలో పంచుకొంటారు.</div>
-        <div class="step">జస్వంత్, యశ్వంత్‌ల లాభాల నిష్పత్తి = జస్వంత్ పెట్టుబడి $\times$ కాలం : యశ్వంత్ పెట్టుబడి $\times$ కాలం</div>
-        <div class="step">$= 5,000 \times 12 : 5,000 \times 9$</div>
-        <div class="step">$= 60 : 45$</div>
-        <div class="result">= 4 : 3</div>
-    </div>
+    <!-- Practice Bits Section -->
+    <div class="card">
+        <h2 class="card-title">సాధన ప్రశ్నలు (Practice Bits)</h2>
 
-    <div class="problem-card">
-        <div class="problem-title">• సంజు 2000 రూపాయలను 12 నెలలు పెట్టుబడిగా, అంజు 3000 రూపాయలను 9 నెలలు పెట్టుబడిగా పెట్టారు. సంవత్సరాంతాన వచ్చే లాభాన్ని వారు ఏ నిష్పత్తిలో పంచుకొంటారు?</div>
-        <div class="step">సంజు యొక్క పెట్టుబడి $= 2,000$</div>
-        <div class="step">అంజు యొక్క పెట్టుబడి $= 3,000$</div>
-        <div class="step">సంజు వ్యాపారంలో ఉన్న కాలం = 12 నెలలు</div>
-        <div class="step">అంజు వ్యాపారంలో ఉన్న కాలం = 9 నెలలు</div>
-        <div class="step">ఇద్దరూ వేరు వేరు కాలాల పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని $\text{పెట్టుబడి} \times \text{కాలం}$ నిష్పత్తిలో పంచుకొంటారు.</div>
-        <div class="step">సంజు, అంజుల లాభాల నిష్పత్తి = సంజు పెట్టుబడి $\times$ కాలం : అంజు పెట్టుబడి $\times$ కాలం</div>
-        <div class="step">$= 2,000 \times 12 : 3,000 \times 9$</div>
-        <div class="step">$= 24 : 27$</div>
-        <div class="result">= 8 : 9</div>
-    </div>
+        <!-- Bit 1 -->
+        <div class="problem-card">
+            <div class="problem-title">1. A మరియు B లు వరుసగా ₹15,000 మరియు ₹25,000 పెట్టుబడితో ఒక వ్యాపారాన్ని ప్రారంభించారు. సంవత్సరాంతాన వచ్చిన ₹8,000 లాభంలో B యొక్క వాటా ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹3,000</li>
+                <li>B) ₹5,000</li>
+                <li>C) ₹4,000</li>
+                <li>D) ₹4,500</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans1">Show Answer</button>
+            <div id="ans1" class="answer-box">
+                <strong>సమాధానం:</strong> B (₹5,000)<br>
+                <strong>వివరణ:</strong><br>
+                A, B ల లాభాల నిష్పత్తి $= 15000 : 25000 = 3 : 5$<br>
+                మొత్తం భాగాలు $= 3 + 5 = 8\text{ భాగాలు} = 8000 \Rightarrow 1\text{ భాగం} = 1000$<br>
+                B వాటా ($5\text{ భాగాలు}$) $= 5 \times 1000 = ₹5,000$.
+            </div>
+        </div>
 
-    <div class="problem-card">
-        <div class="problem-title">• A, B లు 85,000 రూపాయలు, 15,000 రూపాయల పెట్టుబడులతో వ్యాపారం ప్రారంభించారు. 2 yrs తర్వాత వచ్చిన లాభాన్ని వారిద్దరూ ఏ నిష్పత్తిలో పంచుకొంటారు?</div>
-        <div class="step">A యొక్క పెట్టుబడి $= 85,000$</div>
-        <div class="step">B యొక్క పెట్టుబడి $= 15,000$</div>
-        <div class="step">ఇద్దరూ సమాన కాలం పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని పెట్టుబడుల నిష్పత్తిలో పంచుకొంటారు.</div>
-        <div class="step">A, B ల లాభాల నిష్పత్తి = A పెట్టుబడి : B పెట్టుబడి</div>
-        <div class="step">$= 85,000 : 15,000$</div>
-        <div class="step">$= 85 : 15$</div>
-        <div class="result">= 17 : 3</div>
-    </div>
+        <!-- Bit 2 -->
+        <div class="problem-card">
+            <div class="problem-title">2. P ₹40,000 తో వ్యాపారం ప్రారంభించాడు. 3 నెలల తర్వాత Q ₹60,000 తో చేరాడు. సంవత్సరాంతాన వచ్చిన లాభంలో P, Q ల నిష్పత్తి ఎంత?</div>
+            <ul class="options-list">
+                <li>A) 8 : 9</li>
+                <li>B) 2 : 3</li>
+                <li>C) 1 : 1</li>
+                <li>D) 4 : 3</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans2">Show Answer</button>
+            <div id="ans2" class="answer-box">
+                <strong>సమాధానం:</strong> A (8 : 9)<br>
+                <strong>వివరణ:</strong><br>
+                P కాలం = 12 నెలలు, Q కాలం = $12 - 3 = 9\text{ నెలలు}$<br>
+                లాభాల నిష్పత్తి $= (40000 \times 12) : (60000 \times 9) = 480000 : 540000 = 8 : 9$.
+            </div>
+        </div>
 
-    <div class="problem-card">
-        <div class="problem-title">• అరుణ్ మరియు వరుణ్‌లు 12,000 రూపాయలు, 18,000 రూపాయల పెట్టుబడులతో ఒక వ్యాపారాన్ని ప్రారంభించారు. సంవత్సరాంతాన 6250 రూపాయల లాభం వస్తే అరుణ్ మరియు వరుణ్‌ల వాటా ఎంత?</div>
-        <div class="step">అరుణ్ యొక్క పెట్టుబడి $= 12,000$</div>
-        <div class="step">వరుణ్ యొక్క పెట్టుబడి $= 18,000$</div>
-        <div class="step">ఇద్దరూ సమాన కాలం పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని పెట్టుబడుల నిష్పత్తిలో పంచుకొంటారు.</div>
-        <div class="step">అరుణ్, వరుణ్‌ల లాభాల నిష్పత్తి = అరుణ్ పెట్టుబడి : వరుణ్ పెట్టుబడి</div>
-        <div class="step">$= 12,000 : 18,000 = 12 : 18 = 2 : 3$</div>
-        <div class="step">లాభంలో అరుణ్ వాటా = 2 భాగాలు, వరుణ్ వాటా = 3 భాగాలు</div>
-        <div class="step">మొత్తం భాగాలు $= 2 + 3 = 5\text{ భాగాలు} = 6250$</div>
-        <div class="step">$1\text{ భాగం} = \frac{6250}{5} = 1250$</div>
-        <div class="step">అరుణ్ వాటా ($2\text{ భాగాలు}$) $= 2 \times 1250 = 2500$</div>
-        <div class="result">వరుణ్ వాటా ($3\text{ భాగాలు}$) $= 3 \times 1250 = 3750$</div>
-    </div>
+        <!-- Bit 3 -->
+        <div class="problem-card">
+            <div class="problem-title">3. X మరియు Y లు 3 : 4 నిష్పత్తిలో పెట్టుబడి పెట్టారు. 6 నెలల తర్వాత X తన పెట్టుబడిలో సగం ఉపసంహరించుకున్నాడు. సంవత్సరాంతాన లాభాల నిష్పత్తి ఎంత?</div>
+            <ul class="options-list">
+                <li>A) 3 : 4</li>
+                <li>B) 9 : 16</li>
+                <li>C) 5 : 8</li>
+                <li>D) 3 : 8</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans3">Show Answer</button>
+            <div id="ans3" class="answer-box">
+                <strong>సమాధానం:</strong> B (9 : 16)<br>
+                <strong>వివరణ:</strong><br>
+                X మొత్తం పెట్టుబడి $= (3 \times 6) + (1.5 \times 6) = 18 + 9 = 27$<br>
+                Y మొత్తం పెట్టుబడి $= 4 \times 12 = 48$<br>
+                లాభాల నిష్పత్తి $= 27 : 48 = 9 : 16$.
+            </div>
+        </div>
 
-    <div class="problem-card">
-        <div class="problem-title">• రామ్ 6000 రూపాయలను 12 నెలలకు, శ్యామ్ 9000 రూపాయలను 9 నెలలు పెట్టుబడిగా పెట్టి సంవత్సరాంతాన వచ్చిన లాభాన్ని పంచుకొనే నిష్పత్తి ఎంత?</div>
-        <div class="step">రామ్ యొక్క పెట్టుబడి $= 6,000$</div>
-        <div class="step">శ్యామ్ యొక్క పెట్టుబడి $= 9,000$</div>
-        <div class="step">రామ్ వ్యాపారంలో ఉన్న కాలం = 12 నెలలు</div>
-        <div class="step">శ్యామ్ వ్యాపారంలో ఉన్న కాలం = 9 నెలలు</div>
-        <div class="step">ఇద్దరూ వేరు వేరు కాలాల పాటు వ్యాపారంలో ఉన్నారు కావున లాభాన్ని $\text{పెట్టుబడి} \times \text{కాలం}$ నిష్పత్తిలో పంచుకొంటారు.</div>
-        <div class="step">రామ్, శ్యామ్‌ల లాభాల నిష్పత్తి = రామ్ పెట్టుబడి $\times$ కాలం : శ్యామ్ పెట్టుబడి $\times$ కాలం</div>
-        <div class="step">$= 6,000 \times 12 : 9,000 \times 9$</div>
-        <div class="step">$= 72 : 81$</div>
-        <div class="result">= 8 : 9</div>
-    </div>
+        <!-- Bit 4 -->
+        <div class="problem-card">
+            <div class="problem-title">4. A ₹20,000 తో వ్యాపారం ప్రారంభించగా, B కొన్ని నెలల తర్వాత ₹30,000 తో చేరాడు. సంవత్సరాంతాన లాభాలను 4 : 3 నిష్పత్తిలో పంచుకుంటే, B ఎన్ని నెలల తర్వాత వ్యాపారంలో చేరాడు?</div>
+            <ul class="options-list">
+                <li>A) 3 నెలలు</li>
+                <li>B) 4 నెలలు</li>
+                <li>C) 5 నెలలు</li>
+                <li>D) 6 నెలలు</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans4">Show Answer</button>
+            <div id="ans4" class="answer-box">
+                <strong>సమాధానం:</strong> A (3 నెలలు)<br>
+                <strong>వివరణ:</strong><br>
+                B వ్యాపారంలో ఉన్న కాలం $t$ నెలలు అనుకుందాం.<br>
+                $\frac{20000 \times 12}{30000 \times t} = \frac{4}{3} \Rightarrow \frac{24}{3t} = \frac{4}{3} \Rightarrow t = 9\text{ నెలలు}$<br>
+                B చేరిన సమయం $= 12 - 9 = 3\text{ నెలల తర్వాత}$.
+            </div>
+        </div>
 
-    <div class="problem-card">
-        <div class="problem-title">• సీత, గీతలు వ్యాపార భాగస్వాములు. సీత 8 మాసాల పాటు 35,000 రూపాయలు, గీత 10 మాసాల పాటు 42,000 రూపాయలు పెట్టుబడులు పెట్టారు. మొత్తం 31,750 రూపాయల లాభం వస్తే సీత మరియు గీతల వాటాలు ఎంత?</div>
-        <div class="step">సీత యొక్క పెట్టుబడి $= 35,000$</div>
-        <div class="step">గీత యొక్క పెట్టుబడి $= 42,000$</div>
-        <div class="step">సీత వ్యాపారంలో ఉన్న కాలం = 8 నెలలు</div>
-        <div class="step">గీత వ్యాపారంలో ఉన్న కాలం = 10 నెలలు</div>
-        <div class="step">సీత, గీతల లాభాల నిష్పత్తి = సీత పెట్టుబడి $\times$ కాలం : గీత పెట్టుబడి $\times$ కాలం</div>
-        <div class="step">$= 35,000 \times 8 : 42,000 \times 10$</div>
-        <div class="step">$= 280 : 420 = 2 : 3$</div>
-        <div class="step">లాభంలో సీత వాటా = 2 భాగాలు, గీత వాటా = 3 భాగాలు</div>
-        <div class="step">మొత్తం లాభం $= 5\text{ భాగాలు} = 31750$</div>
-        <div class="step">$1\text{ భాగం} = 6350$</div>
-        <div class="step">సీత వాటా ($2\text{ భాగాలు}$) $= 2 \times 6350 = 12700$</div>
-        <div class="result">గీత వాటా ($3\text{ భాగాలు}$) $= 3 \times 6350 = 19050$</div>
-    </div>
+        <!-- Bit 5 -->
+        <div class="problem-card">
+            <div class="problem-title">5. ముగ్గురు భాగస్వాములు A, B, C ల పెట్టుబడుల నిష్పత్తి 2 : 3 : 5 మరియు వారి కాలాల నిష్పత్తి 4 : 5 : 6 అయితే వారి లాభాల నిష్పత్తి ఎంత?</div>
+            <ul class="options-list">
+                <li>A) 8 : 15 : 30</li>
+                <li>B) 2 : 3 : 5</li>
+                <li>C) 4 : 5 : 6</li>
+                <li>D) 1 : 2 : 3</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans5">Show Answer</button>
+            <div id="ans5" class="answer-box">
+                <strong>సమాధానం:</strong> A (8 : 15 : 30)<br>
+                <strong>వివరణ:</strong><br>
+                లాభాల నిష్పత్తి $= (2 \times 4) : (3 \times 5) : (5 \times 6) = 8 : 15 : 30$.
+            </div>
+        </div>
 
-    <div class="problem-card">
-        <div class="problem-title">• 9000 రూపాయల పెట్టుబడితో కమల్ వ్యాపారం ప్రారంభించాడు. 5 నెలల తర్వాత 8000 రూపాయల పెట్టుబడితో విమల్ వ్యాపారంలో చేరాడు. సంవత్సరాంతాన వారి మొత్తం లాభం 6970 రూపాయలు అయితే వారి వాటాలు ఎంత?</div>
-        <div class="step">కమల్ యొక్క పెట్టుబడి $= 9,000$</div>
-        <div class="step">విమల్ యొక్క పెట్టుబడి $= 8,000$</div>
-        <div class="step">కమల్ వ్యాపారంలో ఉన్న కాలం = $1\text{ yr} = 12\text{ నెలలు}$</div>
-        <div class="step">విమల్ వ్యాపారంలో ఉన్న కాలం = $12 - 5 = 7\text{ నెలలు}$</div>
-        <div class="step">కమల్, విమల్‌ల లాభాల నిష్పత్తి = కమల్ పెట్టుబడి $\times$ కాలం : విమల్ పెట్టుబడి $\times$ కాలం</div>
-        <div class="step">$= 9,000 \times 12 : 8,000 \times 7$</div>
-        <div class="step">$= 108 : 56 = 27 : 14$</div>
-        <div class="step">మొత్తం లాభం $= 27 + 14 = 41\text{ భాగాలు} = 6970$</div>
-        <div class="step">$1\text{ భాగం} = \frac{6970}{41} = 170$</div>
-        <div class="step">కమల్ వాటా ($27\text{ భాగాలు}$) $= 27 \times 170 = 4590$</div>
-        <div class="result">విమల్ వాటా ($14\text{ భాగాలు}$) $= 14 \times 170 = 2380$</div>
-    </div>
+        <!-- Bit 6 -->
+        <div class="problem-card">
+            <div class="problem-title">6. A, B, C లు 2 : 3 : 4 నిష్పత్తిలో పెట్టుబడి పెట్టారు. సంవత్సరాంతాన వచ్చిన ₹18,000 లాభంలో C యొక్క వాటా ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹4,000</li>
+                <li>B) ₹6,000</li>
+                <li>C) ₹8,000</li>
+                <li>D) ₹9,000</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans6">Show Answer</button>
+            <div id="ans6" class="answer-box">
+                <strong>సమాధానం:</strong> C (₹8,000)<br>
+                <strong>వివరణ:</strong><br>
+                మొత్తం భాగాలు $= 2 + 3 + 4 = 9\text{ భాగాలు} = 18000 \Rightarrow 1\text{ భాగం} = 2000$<br>
+                C వాటా ($4\text{ భాగాలు}$) $= 4 \times 2000 = ₹8,000$.
+            </div>
+        </div>
 
-    <div class="problem-card">
-        <div class="problem-title">• 50,000 రూపాయల పెట్టుబడితో స్వప్న వ్యాపారం ప్రారంభించింది. 6 నెలల తర్వాత బాలు 80,000 రూపాయల పెట్టుబడితో ఆమెతో కలిసాడు. 3 yrs తర్వాత వారికి వచ్చిన లాభం 24,500 రూపాయలలో వారి వాటాలు ఎంత?</div>
-        <div class="step">స్వప్న యొక్క పెట్టుబడి $= 50,000$</div>
-        <div class="step">బాలు యొక్క పెట్టుబడి $= 80,000$</div>
-        <div class="step">స్వప్న వ్యాపారంలో ఉన్న కాలం = $3\text{ yrs} = 36\text{ నెలలు}$</div>
-        <div class="step">బాలు వ్యాపారంలో ఉన్న కాలం = $36 - 6 = 30\text{ నెలలు}$</div>
-        <div class="step">స్వప్న, బాలుల లాభాల నిష్పత్తి = స్వప్న పెట్టుబడి $\times$ కాలం : బాలు పెట్టుబడి $\times$ కాలం</div>
-        <div class="step">$= 50,000 \times 36 : 80,000 \times 30$</div>
-        <div class="step">$= 180 : 240 = 3 : 4$</div>
-        <div class="step">మొత్తం లాభం $= 3 + 4 = 7\text{ భాగాలు} = 24500$</div>
-        <div class="step">$1\text{ భాగం} = 3500$</div>
-        <div class="step">స్వప్న వాటా ($3\text{ భాగాలు}$) $= 3 \times 3500 = 10500$</div>
-        <div class="result">బాలు వాటా ($4\text{ భాగాలు}$) $= 4 \times 3500 = 14000$</div>
-    </div>
+        <!-- Bit 7 -->
+        <div class="problem-card">
+            <div class="problem-title">7. A ఒక వ్యాపారాన్ని ₹10,000 తో ప్రారంభించాడు. 4 నెలల తర్వాత B కొంత పెట్టుబడితో చేరాడు. సంవత్సరాంతాన వారి లాభాలు సమానంగా ఉంటే B పెట్టుబడి ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹12,000</li>
+                <li>B) ₹15,000</li>
+                <li>C) ₹16,000</li>
+                <li>D) ₹18,000</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans7">Show Answer</button>
+            <div id="ans7" class="answer-box">
+                <strong>సమాధానం:</strong> B (₹15,000)<br>
+                <strong>వివరణ:</strong><br>
+                A కాలం = 12 నెలలు, B కాలం = 8 నెలలు.<br>
+                $10000 \times 12 = B \times 8 \Rightarrow 120000 = 8B \Rightarrow B = ₹15,000$.
+            </div>
+        </div>
 
-    <div class="problem-card">
-        <div class="problem-title">• 8,000 రూపాయలు, 4,000 రూపాయలు, 8,000 రూపాయలు వరుస పెట్టుబడులతో నవ్య, దివ్య, భవ్యలు వ్యాపారం ప్రారంభించారు. ఆరు నెలల తర్వాత నవ్య వ్యాపారం నుండి వైదొలగింది. మొత్తం మీద 8 నెలల తర్వాత 4005 రూపాయలు లాభం వస్తే వారి వాటాలు ఎంత?</div>
-        <div class="step">నవ్య పెట్టుబడి $= 8,000$ (కాలం = 6 నెలలు)</div>
-        <div class="step">దివ్య పెట్టుబడి $= 4,000$ (కాలం = 8 నెలలు)</div>
-        <div class="step">భవ్య పెట్టుబడి $= 8,000$ (కాలం = 8 నెలలు)</div>
-        <div class="step">నవ్య, దివ్య, భవ్యల లాభాల నిష్పత్తి</div>
-        <div class="step">$= 8000 \times 6 : 4000 \times 8 : 8000 \times 8$</div>
-        <div class="step">$= 48 : 32 : 64 = 3 : 2 : 4$</div>
-        <div class="step">మొత్తం భాగాలు $= 3 + 2 + 4 = 9\text{ భాగాలు} = 4005$</div>
-        <div class="step">$1\text{ భాగం} = 445$</div>
-        <div class="step">నవ్య వాటా ($3\text{ భాగాలు}$) $= 3 \times 445 = 1335$</div>
-        <div class="step">దివ్య వాటా ($2\text{ భాగాలు}$) $= 2 \times 445 = 890$</div>
-        <div class="result">భవ్య వాటా ($4\text{ భాగాలు}$) $= 4 \times 445 = 1780$</div>
-    </div>
+        <!-- Bit 8 -->
+        <div class="problem-card">
+            <div class="problem-title">8. వ్యాపారంలో A పెట్టుబడి B పెట్టుబడికి రెట్టింపు, B పెట్టుబడి C పెట్టుబడికి 3 రెట్లు. వారి లాభాల నిష్పత్తి ఎంత?</div>
+            <ul class="options-list">
+                <li>A) 6 : 3 : 1</li>
+                <li>B) 2 : 3 : 1</li>
+                <li>C) 1 : 3 : 6</li>
+                <li>D) 3 : 2 : 1</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans8">Show Answer</button>
+            <div id="ans8" class="answer-box">
+                <strong>సమాధానం:</strong> A (6 : 3 : 1)<br>
+                <strong>వివరణ:</strong><br>
+                C పెట్టుబడి = 1 అనుకుంటే, B = 3, A = $2 \times 3 = 6$.<br>
+                కావున A : B : C = 6 : 3 : 1.
+            </div>
+        </div>
 
-    <div class="problem-card">
-        <div class="problem-title">• రూప వ్యాపారం ప్రారంభించిన కొన్ని నెలలకు దీప వ్యాపారంలో చేరెను. వారి పెట్టుబడుల నిష్పత్తి 4 : 5. సంవత్సరాంతాన లాభంలో రూప, దీపల వాటాలు వరుసగా 3300 రూపాయలు, 2750 రూపాయలు అయితే దీప వ్యాపారంలో ఎప్పుడు చేరింది?</div>
-        <div class="step">రూప వ్యాపారంలో ఉన్న కాలం = 12 నెలలు</div>
-        <div class="step">దీప వ్యాపారంలో ఉన్న కాలం $= (12 - x)$ నెలలు</div>
-        <div class="step">రూప, దీపల పెట్టుబడుల నిష్పత్తి $= 4 : 5$</div>
-        <div class="step">రూప, దీపల లాభాల నిష్పత్తి = రూప పెట్టుబడి $\times$ కాలం : దీప పెట్టుబడి $\times$ కాలం</div>
-        <div class="step">$3300 : 2750 = 4 \times 12 : 5 \times (12 - x)$</div>
-        <div class="step">$6 : 5 = 48 : (60 - 5x)$</div>
-        <div class="step">$\frac{6}{5} = \frac{48}{60 - 5x} \Rightarrow 6(60 - 5x) = 5(48)$</div>
-        <div class="step">$360 - 30x = 240 \Rightarrow 30x = 120 \Rightarrow x = 4$</div>
-        <div class="result">దీప 4 నెలల తర్వాత వ్యాపారంలో చేరింది (8 నెలలు వ్యాపారంలో ఉంది).</div>
-    </div>
+        <!-- Bit 9 -->
+        <div class="problem-card">
+            <div class="problem-title">9. వర్కింగ్ పార్టనర్ (చేతన భాగస్వామి) గా ఉన్నందుకు A కి మొత్తం లాభంలో 10% కమిషన్ ఇస్తారు. మిగిలిన లాభాన్ని A, B లు 2 : 3 నిష్పత్తిలో పంచుకుంటారు. మొత్తం లాభం ₹50,000 అయితే A కి వచ్చే మొత్తం సొమ్ము ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹18,000</li>
+                <li>B) ₹23,000</li>
+                <li>C) ₹20,000</li>
+                <li>D) ₹25,000</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans9">Show Answer</button>
+            <div id="ans9" class="answer-box">
+                <strong>సమాధానం:</strong> B (₹23,000)<br>
+                <strong>వివరణ:</strong><br>
+                A కమిషన్ $= 10\% \text{ of } 50000 = 5000$.<br>
+                మిగిలిన లాభం $= 50000 - 5000 = 45000$.<br>
+                మిగిలిన లాభంలో A వాటా $= \frac{2}{5} \times 45000 = 18000$.<br>
+                A కి వచ్చే మొత్తం సొమ్ము $= 5000 + 18000 = ₹23,000$.
+            </div>
+        </div>
 
+        <!-- Bit 10 -->
+        <div class="problem-card">
+            <div class="problem-title">10. A, B లు భాగస్వాములు. A పెట్టుబడి ₹50,000 గాను 9 నెలల పాటు, B పెట్టుబడి ₹60,000 గాను 5 నెలల పాటు ఉంది. వారి లాభాల నిష్పత్తి ఎంత?</div>
+            <ul class="options-list">
+                <li>A) 3 : 2</li>
+                <li>B) 15 : 10</li>
+                <li>C) 3 : 1</li>
+                <li>D) 2 : 3</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans10">Show Answer</button>
+            <div id="ans10" class="answer-box">
+                <strong>సమాధానం:</strong> A (3 : 2)<br>
+                <strong>వివరణ:</strong><br>
+                లాభాల నిష్పత్తి $= (50000 \times 9) : (60000 \times 5) = 450000 : 300000 = 3 : 2$.
+            </div>
+        </div>
+
+        <!-- Bit 11 -->
+        <div class="problem-card">
+            <div class="problem-title">11. A తన పెట్టుబడిని 8 నెలలు, B తన పెట్టుబడిని 6 నెలలు ఉంచారు. వారి లాభాల నిష్పత్తి 4 : 3 అయితే వారి పెట్టుబడుల నిష్పత్తి ఎంత?</div>
+            <ul class="options-list">
+                <li>A) 1 : 1</li>
+                <li>B) 2 : 3</li>
+                <li>C) 4 : 3</li>
+                <li>D) 3 : 4</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans11">Show Answer</button>
+            <div id="ans11" class="answer-box">
+                <strong>సమాధానం:</strong> A (1 : 1)<br>
+                <strong>వివరణ:</strong><br>
+                $\frac{C_1 \times 8}{C_2 \times 6} = \frac{4}{3} \Rightarrow \frac{C_1}{C_2} = \frac{4}{3} \times \frac{6}{8} = \frac{24}{24} = 1 : 1$.
+            </div>
+        </div>
+
+        <!-- Bit 12 -->
+        <div class="problem-card">
+            <div class="problem-title">12. A మరియు B లు ₹30,000, ₹40,000 లతో వ్యాపారం ప్రారంభించారు. సంవత్సరాంతాన ₹14,000 లాభం వస్తే A యొక్క వాటా ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹6,000</li>
+                <li>B) ₹8,000</li>
+                <li>C) ₹7,000</li>
+                <li>D) ₹5,000</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans12">Show Answer</button>
+            <div id="ans12" class="answer-box">
+                <strong>సమాధానం:</strong> A (₹6,000)<br>
+                <strong>వివరణ:</strong><br>
+                లాభాల నిష్పత్తి $= 30000 : 40000 = 3 : 4$<br>
+                A వాటా $= \frac{3}{7} \times 14000 = ₹6,000$.
+            </div>
+        </div>
+
+        <!-- Bit 13 -->
+        <div class="problem-card">
+            <div class="problem-title">13. A మొత్తం పెట్టుబడిలో $\frac{1}{3}$ వంతును $\frac{1}{3}$ కాలానికి, B మిగిలిన పెట్టుబడిని పూర్తి కాలానికి ఉంచితే వారి లాభాల నిష్పత్తి ఎంత?</div>
+            <ul class="options-list">
+                <li>A) 1 : 6</li>
+                <li>B) 1 : 3</li>
+                <li>C) 2 : 3</li>
+                <li>D) 1 : 4</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans13">Show Answer</button>
+            <div id="ans13" class="answer-box">
+                <strong>సమాధానం:</strong> A (1 : 6)<br>
+                <strong>వివరణ:</strong><br>
+                మొత్తం పెట్టుబడి = 1, కాలం = 1 అనుకుందాం.<br>
+                A లబ్దం $= \frac{1}{3} \times \frac{1}{3} = \frac{1}{9}$<br>
+                B పెట్టుబడి $= 1 - \frac{1}{3} = \frac{2}{3}$, B కాలం = 1 $\Rightarrow$ B లబ్దం $= \frac{2}{3} \times 1 = \frac{2}{3}$<br>
+                నిష్పత్తి $= \frac{1}{9} : \frac{2}{3} = 1 : 6$.
+            </div>
+        </div>
+
+        <!-- Bit 14 -->
+        <div class="problem-card">
+            <div class="problem-title">14. P, Q, R ల పెట్టుబడుల నిష్పత్తి $\frac{1}{2} : \frac{1}{3} : \frac{1}{4}$. సంవత్సరాంతాన ₹13,000 లాభం వస్తే Q వాటా ఎంత?</div>
+            <ul class="options-list">
+                <li>A) ₹4,000</li>
+                <li>B) ₹6,000</li>
+                <li>C) ₹3,000</li>
+                <li>D) ₹5,000</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans14">Show Answer</button>
+            <div id="ans14" class="answer-box">
+                <strong>సమాధానం:</strong> A (₹4,000)<br>
+                <strong>వివరణ:</strong><br>
+                నిష్పత్తిని సరళీకరించగా $= 6 : 4 : 3$<br>
+                మొత్తం భాగాలు $= 6 + 4 + 3 = 13\text{ భాగాలు} = 13000$<br>
+                Q వాటా ($4\text{ భాగాలు}$) $= 4 \times 1000 = ₹4,000$.
+            </div>
+        </div>
+
+        <!-- Bit 15 -->
+        <div class="problem-card">
+            <div class="problem-title">15. A మరియు B ల పెట్టుబడుల నిష్పత్తి 5 : 6. 8 నెలల తర్వాత A తప్పుకున్నాడు. వారి లాభాల నిష్పత్తి 5 : 9 అయితే B ఎంతకాలం వ్యాపారంలో ఉన్నాడు?</div>
+            <ul class="options-list">
+                <li>A) 12 నెలలు</li>
+                <li>B) 10 నెలలు</li>
+                <li>C) 9 నెలలు</li>
+                <li>D) 8 నెలలు</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans15">Show Answer</button>
+            <div id="ans15" class="answer-box">
+                <strong>సమాధానం:</strong> A (12 నెలలు)<br>
+                <strong>వివరణ:</strong><br>
+                $\frac{5 \times 8}{6 \times t} = \frac{5}{9} \Rightarrow \frac{40}{6t} = \frac{5}{9} \Rightarrow 30t = 360 \Rightarrow t = 12\text{ నెలలు}$.
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <script>
@@ -429,6 +746,27 @@
     }
 
     toggleSwitch.addEventListener('change', switchTheme, false);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var toggleBtns = document.querySelectorAll('.toggle-btn');
+
+        toggleBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var targetId = this.getAttribute('data-target');
+                var box = document.getElementById(targetId);
+
+                if (box) {
+                    if (box.style.display === "none" || box.style.display === "") {
+                        box.style.display = "block";
+                        this.textContent = "Hide Answer";
+                    } else {
+                        box.style.display = "none";
+                        this.textContent = "Show Answer";
+                    }
+                }
+            });
+        });
+    });
 </script>
 
 </body>

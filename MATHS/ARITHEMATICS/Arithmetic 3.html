@@ -208,6 +208,30 @@
             margin-bottom: 8px;
         }
     </style>
+        <style>
+        .answer-box {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent-color, #28a745);
+            border-radius: 4px;
+
+            /* టెక్స్ట్ మరియు MathJax బాక్స్ దాటి బయటకు పోకుండా నిరోధించే కోడ్ */
+            max-width: 100%;
+            overflow-x: auto;            /* పెద్ద లెక్కలు వస్తే బాక్స్ లోపలే స్క్రోల్ అవుతుంది */
+            word-wrap: break-word;        /* పొడవైన పదాలను కిందకి మారుస్తుంది */
+            overflow-wrap: break-word;
+            white-space: normal;
+        }
+
+        /* MathJax ఫార్ములాలు స్క్రీన్ కన్నా పెద్దవైతే బాక్స్ బయటకు రాకుండా చూడటానికి */
+        .answer-box .MathJax {
+            max-width: 100% !important;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
+    
 </head>
 <body>
 
@@ -323,7 +347,457 @@
         <div class="step">$$= \frac{72}{18} \times 1$$</div>
         <div class="result">= 4 cm</div>
     </div>
+    <!-- CSS Style for Fast Toggle -->
+    <style>
+        .answer-box {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent-color, #28a745);
+            border-radius: 4px;
+        }
+    </style>
 
+    <!-- సాధన ప్రశ్నలు (Practice Bits - Representative Fraction) -->
+    <div class="card">
+        <h2 class="card-title">సాధన ప్రశ్నలు (Practice Bits - 25)</h2>
+        
+        <!-- Question 1 -->
+        <div class="problem-card">
+            <div class="problem-title">1. పటంలోని దూరానికి మరియు భూమిపై గల నిజ దూరానికి మధ్య గల నిష్పత్తిని ఏమంటారు?</div>
+            <ul>
+                <li>A) స్కేల్ అంకెల సంఖ్య</li>
+                <li>B) సూచిక భిన్నం (Representative Fraction)</li>
+                <li>C) వైశాల్య నిష్పత్తి</li>
+                <li>D) సమాన భిన్నం</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans1', this)">Show Answer</button>
+            <div id="ans1" class="answer-box">
+                <strong>సమాధానం:</strong> B (సూచిక భిన్నం)<br>
+                <strong>వివరణ:</strong> పటంలోని దూరానికి మరియు నిజ దూరానికి మధ్య ఉన్న నిష్పత్తిని సూచిక భిన్నం (R.F.) అంటారు.
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="problem-card">
+            <div class="problem-title">2. ఒక మ్యాప్‌లో 1 cm అనేది నిజానికి 10 km ను సూచిస్తే, దాని సూచిక భిన్నం (R.F.) ఎంత?</div>
+            <ul>
+                <li>A) 1 : 1000</li>
+                <li>B) 1 : 10000</li>
+                <li>C) 1 : 100000</li>
+                <li>D) 1 : 1000000</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans2', this)">Show Answer</button>
+            <div id="ans2" class="answer-box">
+                <strong>సమాధానం:</strong> D (1 : 1000000)<br>
+                <strong>వివరణ:</strong> \(10\text{ km} = 10 \times 1000 \times 100\text{ cm} = 10,00,000\text{ cm}\). కావున R.F. \(= 1 : 1000000\)
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="problem-card">
+            <div class="problem-title">3. ఒక స్తంభం నిజ ఎత్తు 20 m. పటంలో దాన్ని 5 cm గా గీస్తే స్కేలు ఎంత?</div>
+            <ul>
+                <li>A) 1 : 400</li>
+                <li>B) 1 : 40</li>
+                <li>C) 1 : 4000</li>
+                <li>D) 1 : 200</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans3', this)">Show Answer</button>
+            <div id="ans3" class="answer-box">
+                <strong>సమాధానం:</strong> A (1 : 400)<br>
+                <strong>వివరణ:</strong> \(20\text{ m} = 2000\text{ cm}\). స్కేలు \(= 5 : 2000 = 1 : 400\)
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="problem-card">
+            <div class="problem-title">4. ఒక మ్యాప్ స్కేల్ 1 : 40000. మ్యాప్‌లో రెండు ఊర్ల మధ్య దూరం 5 cm అయితే, నిజ దూరం ఎంత?</div>
+            <ul>
+                <li>A) 2 km</li>
+                <li>B) 20 km</li>
+                <li>C) 200 m</li>
+                <li>D) 4 km</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans4', this)">Show Answer</button>
+            <div id="ans4" class="answer-box">
+                <strong>సమాధానం:</strong> A (2 km)<br>
+                <strong>వివరణ:</strong> నిజ దూరం \(= 5 \times 40000 = 200000\text{ cm} = 2000\text{ m} = 2\text{ km}\)
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="problem-card">
+            <div class="problem-title">5. ఒక మ్యాప్ స్కేలు 1 : 2,00,000. ఇరు ప్రాంతాల నిజ దూరం 50 km అయితే మ్యాప్‌లో ఆ దూరం ఎంత ఉంటుంది?</div>
+            <ul>
+                <li>A) 25 cm</li>
+                <li>B) 10 cm</li>
+                <li>C) 50 cm</li>
+                <li>D) 5 cm</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans5', this)">Show Answer</button>
+            <div id="ans5" class="answer-box">
+                <strong>సమాధానం:</strong> A (25 cm)<br>
+                <strong>వివరణ:</strong> \(1\text{ cm} = 2,00,000\text{ cm} = 2\text{ km}\). కావున మ్యాప్‌లో దూరం \(= \frac{50}{2} = 25\text{ cm}\)
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="problem-card">
+            <div class="problem-title">6. ఒక కీటకాన్ని 500 రెట్లు పెద్దదిగా చూపినప్పుడు దాని పొడవు 10 cm గా కనిపిస్తే, దాని అసలు పొడవు ఎంత?</div>
+            <ul>
+                <li>A) 0.02 cm</li>
+                <li>B) 0.2 cm</li>
+                <li>C) 0.002 cm</li>
+                <li>D) 2 cm</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans6', this)">Show Answer</button>
+            <div id="ans6" class="answer-box">
+                <strong>సమాధానం:</strong> A (0.02 cm)<br>
+                <strong>వివరణ:</strong> అసలు పొడవు \(= \frac{10}{500} = \frac{1}{50} = 0.02\text{ cm}\)
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="problem-card">
+            <div class="problem-title">7. ఒక బిల్డింగ్ ప్లాన్ స్కేలు 1 : 200. ప్లాన్‌లో గది పొడవు 3 cm ఉన్నచో, గది నిజ పొడవు ఎంత?</div>
+            <ul>
+                <li>A) 60 m</li>
+                <li>B) 6 m</li>
+                <li>C) 600 m</li>
+                <li>D) 0.6 m</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans7', this)">Show Answer</button>
+            <div id="ans7" class="answer-box">
+                <strong>సమాధానం:</strong> B (6 m)<br>
+                <strong>వివరణ:</strong> నిజ పొడవు \(= 3 \times 200 = 600\text{ cm} = 6\text{ m}\)
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="problem-card">
+            <div class="problem-title">8. రూట్ మ్యాప్‌లో 1 cm = 25 km గా ఇవ్వబడింది. ఒక వ్యక్తి 150 km ప్రయాణిస్తే మ్యాప్‌లో ఎంత కొలత సూచిస్తుంది?</div>
+            <ul>
+                <li>A) 4 cm</li>
+                <li>B) 8 cm</li>
+                <li>C) 6 cm</li>
+                <li>D) 5 cm</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans8', this)">Show Answer</button>
+            <div id="ans8" class="answer-box">
+                <strong>సమాధానం:</strong> C (6 cm)<br>
+                <strong>వివరణ:</strong> మ్యాప్ కొలత \(= \frac{150}{25} = 6\text{ cm}\)
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="problem-card">
+            <div class="problem-title">9. నమూనా ఇంజన్‌లో స్కేల్ 1 : 50 గా ఉంది. నిజ ఇంజన్ పొడవు 15 మీటర్లు అయితే, నమూనా ఇంజన్ పొడవు ఎంత?</div>
+            <ul>
+                <li>A) 30 cm</li>
+                <li>B) 3 cm</li>
+                <li>C) 300 cm</li>
+                <li>D) 0.3 cm</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans9', this)">Show Answer</button>
+            <div id="ans9" class="answer-box">
+                <strong>సమాధానం:</strong> A (30 cm)<br>
+                <strong>వివరణ:</strong> నిజ పొడవు \(= 15\text{ m} = 1500\text{ cm}\). నమూనా పొడవు \(= \frac{1500}{50} = 30\text{ cm}\)
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="problem-card">
+            <div class="problem-title">10. సూచిక భిన్నంలో (R.F.) లభం (Numerator) విలువ ఎల్లప్పుడూ ఎంత ఉంటుంది?</div>
+            <ul>
+                <li>A) 10</li>
+                <li>B) 100</li>
+                <li>C) 1</li>
+                <li>D) మారుతూ ఉంటుంది</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans10', this)">Show Answer</button>
+            <div id="ans10" class="answer-box">
+                <strong>సమాధానం:</strong> C (1)<br>
+                <strong>వివరణ:</strong> ప్రామాణిక సూచిక భిన్నం (R.F.) ప్రమాణీకరణలో లభం ఎల్లప్పుడూ 1 గా ఉంటుంది.
+            </div>
+        </div>
+
+        <!-- Question 11 -->
+        <div class="problem-card">
+            <div class="problem-title">11. 2 cm = 1 m అనునది ఏ రకమైన సూచిక భిన్నాన్ని సూచిస్తుంది?</div>
+            <ul>
+                <li>A) 1 : 500</li>
+                <li>B) 1 : 50</li>
+                <li>C) 1 : 200</li>
+                <li>D) 1 : 20</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans11', this)">Show Answer</button>
+            <div id="ans11" class="answer-box">
+                <strong>సమాధానం:</strong> B (1 : 50)<br>
+                <strong>వివరణ:</strong> \(2\text{ cm} = 100\text{ cm} \implies 2 : 100 = 1 : 50\)
+            </div>
+        </div>
+
+        <!-- Question 12 -->
+        <div class="problem-card">
+            <div class="problem-title">12. ఒక మ్యాప్ స్కేలు 1 : 5000. మ్యాప్‌లో 0.5 cm దూరం ఎంత నిజ దూరానికి సమానం?</div>
+            <ul>
+                <li>A) 25 m</li>
+                <li>B) 250 m</li>
+                <li>C) 2.5 m</li>
+                <li>D) 25 km</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans12', this)">Show Answer</button>
+            <div id="ans12" class="answer-box">
+                <strong>సమాధానం:</strong> A (25 m)<br>
+                <strong>వివరణ:</strong> నిజ దూరం \(= 0.5 \times 5000 = 2500\text{ cm} = 25\text{ m}\)
+            </div>
+        </div>
+
+        <!-- Question 13 -->
+        <div class="problem-card">
+            <div class="problem-title">13. ఒక మైక్రోచిప్ నమూనా స్కేల్ 20 : 1. చిప్ నిజ పొడవు 0.3 cm అయితే, నమూనాలో పొడవు ఎంత?</div>
+            <ul>
+                <li>A) 0.015 cm</li>
+                <li>B) 6 cm</li>
+                <li>C) 60 cm</li>
+                <li>D) 0.6 cm</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans13', this)">Show Answer</button>
+            <div id="ans13" class="answer-box">
+                <strong>సమాధానం:</strong> B (6 cm)<br>
+                <strong>వివరణ:</strong> నమూనా పొడవు \(= 0.3 \times 20 = 6\text{ cm}\)
+            </div>
+        </div>
+
+        <!-- Question 14 -->
+        <div class="problem-card">
+            <div class="problem-title">14. 1 km నిజ దూరాన్ని పటంలో 4 cm గా చూపితే, ఆ మ్యాప్ యొక్క R.F. ఎంత?</div>
+            <ul>
+                <li>A) 1 : 2500</li>
+                <li>B) 1 : 25000</li>
+                <li>C) 1 : 250000</li>
+                <li>D) 1 : 40000</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans14', this)">Show Answer</button>
+            <div id="ans14" class="answer-box">
+                <strong>సమాధానం:</strong> B (1 : 25000)<br>
+                <strong>వివరణ:</strong> \(1\text{ km} = 100000\text{ cm}\). R.F. \(= 4 : 100000 = 1 : 25000\)
+            </div>
+        </div>
+
+        <!-- Question 15 -->
+        <div class="problem-card">
+            <div class="problem-title">15. ఒక పటంలో 8 cm అనునది 400 m నిజ దూరాన్ని సూచిస్తే స్కేలు ఎంత?</div>
+            <ul>
+                <li>A) 1 : 50</li>
+                <li>B) 1 : 500</li>
+                <li>C) 1 : 5000</li>
+                <li>D) 1 : 50000</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans15', this)">Show Answer</button>
+            <div id="ans15" class="answer-box">
+                <strong>సమాధానం:</strong> C (1 : 5000)<br>
+                <strong>వివరణ:</strong> \(400\text{ m} = 40000\text{ cm}\). స్కేలు \(= 8 : 40000 = 1 : 5000\)
+            </div>
+        </div>
+
+        <!-- Question 16 -->
+        <div class="problem-card">
+            <div class="problem-title">16. ఒక మ్యాప్‌లో 1.5 cm = 3 km గా ఇవ్వబడింది. మ్యాప్‌లో 7.5 cm దూరం నిజానికి ఎంత?</div>
+            <ul>
+                <li>A) 15 km</li>
+                <li>B) 22.5 km</li>
+                <li>C) 12 km</li>
+                <li>D) 18 km</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans16', this)">Show Answer</button>
+            <div id="ans16" class="answer-box">
+                <strong>సమాధానం:</strong> A (15 km)<br>
+                <strong>వివరణ:</strong> \(1.5\text{ cm} = 3\text{ km} \implies 1\text{ cm} = 2\text{ km}\). కావున \(7.5\text{ cm} = 7.5 \times 2 = 15\text{ km}\)
+            </div>
+        </div>
+
+        <!-- Question 17 -->
+        <div class="problem-card">
+            <div class="problem-title">17. నిజ దూరం 12 km గల రెండు స్థలాల మధ్య దూరం పటంలో 3 cm. స్కేలు ఎంత?</div>
+            <ul>
+                <li>A) 1 : 4000</li>
+                <li>B) 1 : 40000</li>
+                <li>C) 1 : 400000</li>
+                <li>D) 1 : 4000000</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans17', this)">Show Answer</button>
+            <div id="ans17" class="answer-box">
+                <strong>సమాధానం:</strong> C (1 : 400000)<br>
+                <strong>వివరణ:</strong> \(12\text{ km} = 12,00,000\text{ cm}\). స్కేలు \(= 3 : 1200000 = 1 : 400000\)
+            </div>
+        </div>
+
+        <!-- Question 18 -->
+        <div class="problem-card">
+            <div class="problem-title">18. స్కేలు 1 : 10,00,000 గా ఉన్న పటంలో రెండు నగరాల మధ్య దూరం 8.5 cm అయితే నిజ దూరం ఎంత?</div>
+            <ul>
+                <li>A) 85 km</li>
+                <li>B) 850 km</li>
+                <li>C) 8.5 km</li>
+                <li>D) 8500 km</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans18', this)">Show Answer</button>
+            <div id="ans18" class="answer-box">
+                <strong>సమాధానం:</strong> A (85 km)<br>
+                <strong>వివరణ:</strong> \(1\text{ cm} = 10\text{ km}\). కావున నిజ దూరం \(= 8.5 \times 10 = 85\text{ km}\)
+            </div>
+        </div>
+
+        <!-- Question 19 -->
+        <div class="problem-card">
+            <div class="problem-title">19. ఒక సెల్ (Cell) పరిమాణాన్ని 10,000 రెట్లు పెంచి చూపినప్పుడు అది 4 cm గా కొలవబడింది. దాని అసలు పరిమాణం ఎంత?</div>
+            <ul>
+                <li>A) 0.0004 cm</li>
+                <li>B) 0.004 cm</li>
+                <li>C) 0.04 cm</li>
+                <li>D) 0.4 cm</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans19', this)">Show Answer</button>
+            <div id="ans19" class="answer-box">
+                <strong>సమాధానం:</strong> A (0.0004 cm)<br>
+                <strong>వివరణ:</strong> నిజ పరిమాణం \(= \frac{4}{10000} = 0.0004\text{ cm}\)
+            </div>
+        </div>
+
+        <!-- Question 20 -->
+        <div class="problem-card">
+            <div class="problem-title">20. మ్యాప్ స్కేల్ 1 cm = 50 m. ఆ మ్యాప్‌లో ఒక పాఠశాల ఆవరణ వైశాల్యం పొడవు 4 cm, వెడల్పు 2 cm గా ఉంటే, నిజ వైశాల్యం ఎంత?</div>
+            <ul>
+                <li>A) 20,000 చ.మీ</li>
+                <li>B) 400 చ.మీ</li>
+                <li>C) 2,000 చ.మీ</li>
+                <li>D) 8,000 చ.మీ</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans20', this)">Show Answer</button>
+            <div id="ans20" class="answer-box">
+                <strong>సమాధానం:</strong> A (20,000 చ.మీ)<br>
+                <strong>వివరణ:</strong> నిజ పొడవు \(= 4 \times 50 = 200\text{ m}\), నిజ వెడల్పు \(= 2 \times 50 = 100\text{ m}\). వైశాల్యం \(= 200 \times 100 = 20,000\text{ sq.m}\)
+            </div>
+        </div>
+
+        <!-- Question 21 -->
+        <div class="problem-card">
+            <div class="problem-title">21. సూచిక భిన్నం (R.F.) ప్రమాణాలు ఏవి?</div>
+            <ul>
+                <li>A) సెంటీమీటర్లు</li>
+                <li>B) మీటర్లు</li>
+                <li>C) కిలోమీటర్లు</li>
+                <li>D) ప్రమాణాలు ఉండవు (Unitless)</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans21', this)">Show Answer</button>
+            <div id="ans21" class="answer-box">
+                <strong>సమాధానం:</strong> D (ప్రమాణాలు ఉండవు)<br>
+                <strong>వివరణ:</strong> R.F. అనేది ఒకే రకమైన కొలతల నిష్పత్తి (సమాన ప్రమాణాలు రద్దవుతాయి), కాబట్టి దీనికి ప్రమాణాలు ఉండవు.
+            </div>
+        </div>
+
+        <!-- Question 22 -->
+        <div class="problem-card">
+            <div class="problem-title">22. 5 cm = 2.5 km అయినచో సూచిక భిన్నం (R.F.) ఎంత?</div>
+            <ul>
+                <li>A) 1 : 50000</li>
+                <li>B) 1 : 5000</li>
+                <li>C) 1 : 25000</li>
+                <li>D) 1 : 500000</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans22', this)">Show Answer</button>
+            <div id="ans22" class="answer-box">
+                <strong>సమాధానం:</strong> A (1 : 50000)<br>
+                <strong>వివరణ:</strong> \(2.5\text{ km} = 250000\text{ cm}\). R.F. \(= 5 : 250000 = 1 : 50000\)
+            </div>
+        </div>
+
+        <!-- Question 23 -->
+        <div class="problem-card">
+            <div class="problem-title">23. ఒక మ్యాప్ స్కేలు 1 : 60000. నిజంగా 4.8 km ఉన్న దూరము మ్యాప్‌లో ఎంత చూపబడుతుంది?</div>
+            <ul>
+                <li>A) 6 cm</li>
+                <li>B) 8 cm</li>
+                <li>C) 4.8 cm</li>
+                <li>D) 12 cm</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans23', this)">Show Answer</button>
+            <div id="ans23" class="answer-box">
+                <strong>సమాధానం:</strong> B (8 cm)<br>
+                <strong>వివరణ:</strong> \(4.8\text{ km} = 480000\text{ cm}\). మ్యాప్ దూరం \(= \frac{480000}{60000} = 8\text{ cm}\)
+            </div>
+        </div>
+
+        <!-- Question 24 -->
+        <div class="problem-card">
+            <div class="problem-title">24. ఒక వస్తువు నమూనా పొడవు 12 cm, దాని స్కేల్ 1 : 15 అయితే నిజ పొడవు ఎంత?</div>
+            <ul>
+                <li>A) 1.8 m</li>
+                <li>B) 18 m</li>
+                <li>C) 180 m</li>
+                <li>D) 0.18 m</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans24', this)">Show Answer</button>
+            <div id="ans24" class="answer-box">
+                <strong>సమాధానం:</strong> A (1.8 m)<br>
+                <strong>వివరణ:</strong> నిజ పొడవు \(= 12 \times 15 = 180\text{ cm} = 1.8\text{ m}\)
+            </div>
+        </div>
+
+        <!-- Question 25 -->
+        <div class="problem-card">
+            <div class="problem-title">25. 2.5 cm = 100 m గా గల స్కేలు యొక R.F. ఎంత?</div>
+            <ul>
+                <li>A) 1 : 400</li>
+                <li>B) 1 : 4000</li>
+                <li>C) 1 : 40000</li>
+                <li>D) 1 : 2500</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans25', this)">Show Answer</button>
+            <div id="ans25" class="answer-box">
+                <strong>సమాధానం:</strong> B (1 : 4000)<br>
+                <strong>వివరణ:</strong> \(100\text{ m} = 10000\text{ cm}\). R.F. \(= 2.5 : 10000 = 1 : 4000\)
+            </div>
+        </div>
+    </div>
+
+    <!-- Optimized High-Speed JavaScript Script -->
+    <script>
+        function toggleAnswer(id, btnElement) {
+            var box = document.getElementById(id);
+            if (box.style.display === "none") {
+                box.style.display = "block";
+                btnElement.textContent = "Hide Answer";
+            } else {
+                box.style.display = "none";
+                btnElement.textContent = "Show Answer";
+            }
+        }
+
+        // Fast Load Execution
+        document.addEventListener("DOMContentLoaded", function() {
+            var boxes = document.querySelectorAll('.answer-box');
+            
+            // Render MathJax first while elements are visible in DOM
+            if (window.MathJax) {
+                MathJax.startup.promise.then(function() {
+                    return MathJax.typesetPromise();
+                }).then(function() {
+                    // Hide boxes after rendering formulas
+                    boxes.forEach(function(box) {
+                        box.style.display = "none";
+                    });
+                });
+            } else {
+                boxes.forEach(function(box) {
+                    box.style.display = "none";
+                });
+            }
+        });
+    </script>
+    
 </div>
 
 <script>

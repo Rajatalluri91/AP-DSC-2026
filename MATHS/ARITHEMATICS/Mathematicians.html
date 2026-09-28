@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>గణిత శాస్త్రవేత్తలు & విశేషాలు</title>
+    <!-- Google Fonts: Mandali for Telugu & Inter for general styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- KaTeX for rendering mathematical formulas -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --heading-color: #1a365d;
+            --highlight-color: #d97706; /* Vibrant Amber/Orange for key terms */
+            --highlight-bg: #fef3c7;
+            --primary-accent: #2563eb;
+            --border-color: #e2e8f0;
+            --table-header-bg: #1e3a8a;
+            --table-header-text: #ffffff;
+            --table-row-even: #f8fafc;
+            --quote-bg: #f0f9ff;
+            --quote-border: #0284c7;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #e2e8f0;
+            --heading-color: #93c5fd;
+            --highlight-color: #f59e0b;
+            --highlight-bg: #372e18;
+            --primary-accent: #3b82f6;
+            --border-color: #334155;
+            --table-header-bg: #1e40af;
+            --table-header-text: #ffffff;
+            --table-row-even: #0f172a;
+            --quote-bg: #172554;
+            --quote-border: #38bdf8;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            padding: 20px;
+            font-size: 1.05rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Layout */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0 30px 0;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        h1.main-title {
+            color: var(--heading-color);
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        /* Theme Switcher Toggle */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-accent);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .toggle-label {
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        /* Grid Layout for Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 200px;
+            background-color: var(--border-color);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .img-placeholder {
+            color: var(--text-color);
+            opacity: 0.6;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--primary-accent);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* Highlighted Text Styles */
+        strong, .highlight {
+            color: var(--highlight-color);
+            
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--primary-accent);
+            font-weight: bold;
+            font-size: 1.4rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* Table Styling */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            color: var(--table-header-text);
+            font-size: 1.05rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--table-row-even);
+        }
+
+        /* Blockquote Styling */
+        blockquote {
+            background-color: var(--quote-bg);
+            border-left: 4px solid var(--quote-border);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        /* Responsive Design Adjustments */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1 class="main-title">గణిత శాస్త్రవేత్తలు & విశేషాలు</h1>
+            <div class="theme-switch-wrapper">
+                <span class="toggle-label"></span>
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+
+        <div class="grid">
+
+            <!-- బ్రహ్మగుప్తుడు -->
+            <div class="card">
+                <div class="card-img-container">
+                    <!-- Image Tag Ready for URL -->
+                    <img src="https://vedicmathschool.org/wp-content/uploads/2020/06/Brahmagupta-1_1_1_1-1024x576.jpg" alt="బ్రహ్మగుప్తుడు">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">బ్రహ్మగుప్తుడు</h2>
+                    <ul>
+                        <li>క్రీ.శ. 7వ శతాబ్దములోనే భారతీయ గణిత శాస్త్రవేత్త <strong>బ్రహ్మగుప్తుడు</strong> తన పుస్తకమైన <strong>'బ్రహ్మస్ఫుట సిద్ధాంతము'</strong> నందు ఋణసంఖ్యల లబ్ధములను మొదటిసారిగా ప్రస్తావించాడు.</li>
+                        <li>ఇతను ఒక సంఖ్య మరియు వాటి వర్గాలతో కూడిన సమస్యల సూత్రీకరణకు ఒక సాధారణ పద్ధతి ఇవ్వడానికి మరియు వాటి సాధన కనుగొనుటకు <strong>ఋణసంఖ్యను ఋణసంఖ్యతో గుణించిన లబ్ధము ధనసంఖ్య</strong> అని నిర్వచించాడు.</li>
+                        <li>బ్రహ్మగుప్తుడు <strong>(598 – 670 AD)</strong> మొట్టమొదటి సారిగా ఋణ సంఖ్యలను సూచించడానికి ప్రత్యేక గుర్తు <strong>(-)</strong> వాడినట్లు తెలుస్తున్నది. ధనాత్మక మరియు రుణాత్మక పరిమాణాలను తెలుసుకోవడానికి కొన్ని సూత్రాలు ప్రతిపాదించాడు.</li>
+                        <li>పూర్ణ సంఖ్యలను సూచించుటకు <strong>'Z'</strong> అనే అక్షరాన్ని జర్మన్లు మొదటిసారిగా వాడారు. 'Z' అంటే జర్మన్ భాషలో <strong>జైలెన్ (Zehlen)</strong>, అనగా <strong>“సంఖ్య”</strong> అని అర్థం.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- జాన్ నేపియర్ -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJqsuq5El0Le17SawmCMC-TAe9g6n_zCXyHFzt6gXO2uauj3nMTS8hAdLq&s=10" alt="జాన్ నేపియర్">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">జాన్ నేపియర్</h2>
+                    <ul>
+                        <li>మెర్కిస్టన్కు చెందిన <strong>జాన్ నేపియర్ 1550వ</strong> సంవత్సరంలో జన్మించాడు. ఆనాటి సంప్రదాయం ప్రకారం అతను <strong>13 సంవత్సరాల</strong> వయస్సులో తన సాధారణ విద్యను అభ్యసించాడు. అయినప్పటికీ అతను కొద్ది కాలంలోనే పాఠశాలకు వెళ్లడం మానివేసి యూరప్ వెళ్ళాడు.</li>
+                        <li>అతను <strong>21 సంవత్సరాల</strong> వయస్సులో స్కాట్లాండుకు తిరిగి వచ్చాడు.</li>
+                        <li><strong>“జాన్ నేపియర్”</strong> ఖగోళశాస్త్రం యొక్క సుదీర్ఘ గణనలు చేయుటలో ఎక్కువ గంటలు గడుపుటలో వున్న సమస్యలను అధిగమించే క్రమంలో <strong>“లాగరిథం”లను</strong> కనుగొన్నాడు.</li>
+                        <li>అతను <strong>“నేపియర్ పట్టీలు”</strong> అని పిలవబడే వాటిని కనుగొన్నాడు, అవి కాలిక్యులేటర్లుగా ఉపయోగించబడే పరికరాలు.</li>
+                        <li><strong>"నేపియర్"</strong> దశాంశ బిందువు వాడకాన్ని ప్రారంభించడం ద్వారా దశాంశ భిన్నం యొక్క ఆలోచనలను విస్తృతం చేశాడు. ఈ పద్ధతి బ్రిటన్ అంతటా చాలా సాధారణమైంది.</li>
+                        <li><strong>“నేపియర్"</strong> గణితం మరియు ఖగోళ శాస్త్రంలో చేసిన కృషికి ప్రత్యేకంగా గుర్తింపు పొందాడు.</li>
+                        <li>నేపియర్ <strong>1617వ</strong> సంవత్సరంలో మరణించాడు.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- యూక్లిడ్ -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="https://image.slidesharecdn.com/euclidsgeometry-150908141129-lva1-app6892/75/Euclids-geometry-1-2048.jpg" alt="యూక్లిడ్">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">యూక్లిడ్</h2>
+                    <ul>
+                        <li>యూక్లిడ్ <strong>(323–283 BC)</strong> ఒక గ్రీకు గణిత శాస్త్రవేత్త.</li>
+                        <li>ఆయన <strong>“రేఖాగణిత పితామహుడు”</strong>గా ప్రసిద్ధి చెందాడు.</li>
+                        <li>ఆయన <strong>“ఎలిమెంట్స్”</strong> అనే పేరుతో ఒక పుస్తకాన్ని రచించాడు. ఇది రేఖాగణితాన్ని గురించి వివరించే <strong>13 పుస్తకాల</strong> సమాహారం.</li>
+                        <li>గణిత శాస్త్ర చరిత్రలో <strong>“ఎలిమెంట్స్"</strong> అత్యంత ప్రభావితమైన రచన.</li>
+                        <li>ఆయన తన పుస్తకాల్లో అనేక స్వీకృతాలను ఉపయోగించి అనేక సిద్ధాంతాలను వివరించారు. ఈ సిద్ధాంతాలు <strong>యూక్లిడియన్ జ్యామితి</strong> అధ్యయనంలో ఇప్పటికీ ఉపయోగించబడుతున్నాయి.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ఆర్యభట్ట -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="https://cdn.educba.com/academy/wp-content/uploads/2023/12/Biography-of-Aryabhatta-1.jpg" alt="ఆర్యభట్ట">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">ఆర్యభట్ట</h2>
+                    <ul>
+                        <li>ప్రముఖ గణిత శాస్త్రవేత్త ఆర్యభట్టగారు <strong>(456-550 క్రీ.శ)</strong> π విలువను <strong>3.1416</strong> గా గణించారు.</li>
+                        <li>ఆయన తన గణిత పద 6లో <strong>"త్రిభుజస్య ఫల శరీరం సమదాలకోటి భుజార్ధన సంవర్గః"</strong> అనగా త్రిభుజ వైశాల్యం దాని భూమి, ఎత్తుల లబ్దంలో సగానికి సమానం అని అర్థం అనే సూత్రంను వివరించారు.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Dr. C.R. రావు -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCsz_3rEXxXXlpdeKYzyJMN0yLgmB1auxIudxSr_ZIuyrCQyTVfPVGyCgC&s=10" alt="Dr. C.R. రావు">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Dr. కాలియంపూడి రాధాకృష్ణరావు (C.R.రావు)</h2>
+                    <ul>
+                        <li>డాక్టర్ C.R. రావు ప్రముఖ <strong>సాంఖ్యక శాస్త్రజ్ఞుడు</strong>.</li>
+                        <li>ఈయన రచించిన <strong>"థియరీ ఆఫ్ ఎస్టిమేషన్"</strong> అనే గ్రంథము ప్రాచుర్యము పొందినది.</li>
+                        <li>ఈయన <strong>క్రామర్ - రావు ఇనీక్వాలిటీ</strong> మరియు <strong>ఫిషర్ - రావు సిద్ధాంతాలను</strong> రూపొందించారు.</li>
+                        <li>గూడూరు, నూజివీడు, నందిగామ, విశాఖపట్నంలో ఆయన పాఠశాల విద్యను పూర్తి చేసారు.</li>
+                        <li>ఆంధ్ర విశ్వవిద్యాలయం నుండి గణితశాస్త్రంలో <strong>M.A.</strong> చేసారు.</li>
+                        <li>ఆయన సర్ ఆర్.ఎ. ఫిషర్ ఆధ్వర్యంలో <strong>Ph.D</strong> డిగ్రీ పొందారు.</li>
+                        <li>గణితశాస్త్ర నోబెల్ గా ప్రాముఖ్యం పొందిన <strong>'అంతర్జాతీయ స్టాటిస్టిక్స్ పురస్కారం' 2023లో</strong> లభించింది.</li>
+                        <li>వీరు <strong>2023 ఆగస్టు 22న</strong> మరణించారు.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- థేల్స్ -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="https://anthroholic.com/wp-content/uploads/2025/07/Thales-of-Miletus-Biography-by-Anthroholic.webp" alt="థేల్స్">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">థేల్స్</h2>
+                    <p>థేల్స్ ఒక ప్రఖ్యాత <strong>గ్రీకు గణిత శాస్త్రవేత్త</strong>. అతనిచే కనుగొనబడిన 5 ప్రముఖ జ్యామితీయ సిద్ధాంతాలు అత్యంత పేరు గాంచాయి:</p>
+                    <ul>
+                        <li>1. వ్యాసం వృత్తాన్ని రెండు సమాన భాగాలుగా విభజిస్తుంది.</li>
+                        <li>2. ఒక త్రిభుజంలో సమాన భుజాలకు ఎదురుగా ఉండే కోణాలు సమానం.</li>
+                        <li>3. రెండు సరళరేఖలు ఖండించుకున్నప్పుడు ఏర్పడే ఎదురెదురు కోణాలు సమానం.</li>
+                        <li>4. అర్ధవృత్తంలోని కోణం లంబకోణం.</li>
+                        <li>5. ఒక భూమి, భూమి అంత్య బిందువుల వద్ద కోణాలు ఇచ్చినపుడు త్రిభుజాన్ని ఏర్పరచగలం.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- శకుంతలా దేవి -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnXFd8HPL4PWhhSBAWLP-efb4lZEkbhDpdSIcbcdr9gYpc_gXF8l582MA&s=10" alt="శకుంతలా దేవి">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">శకుంతలా దేవి</h2>
+                    <ul>
+                        <li>శకుంతలాదేవి <strong>(4 నవంబరు 1929 – 21 ఏప్రిల్ 2013)</strong> ఒక భారత కవయిత్రి మరియు ఆలోచించి గణన చేసే మానవ యంత్రం.</li>
+                        <li>ఆమె <strong>"మానవ కంప్యూటర్"</strong>గా పిలవబడ్డారు.</li>
+                        <li><strong>1982లో</strong> ఈమె ప్రతిభ గిన్నీస్ పుస్తకంలో నమోదు అయింది.</li>
+                        <li>ఈమె రెండు 13 అంకెల సంఖ్యలను గుణించి <strong>28 సెకనులలో</strong> జవాబు చెప్పింది. కంప్యూటర్ కంటే ముందుగా ఈ జవాబు చెప్పింది.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- జ్యామితి -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="https://miro.medium.com/1*kYb-zGbyK2J4rmda-qAD2w.jpeg" alt="జ్యామితి">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">జ్యామితి (Geometry)</h2>
+                    <ul>
+                        <li>జ్యామితి అనునది అత్యంత విశిష్టమైన స్వభావం కలిగినదిగా చెప్పవచ్చు.</li>
+                        <li>జ్యామితి అనే పదం గ్రీకు భాషయందు <strong>'GEOMETRON'</strong> అనే పదం నుండి సేకరింపబడి <strong>'GEOMETRY'</strong> గా మార్పు చెంది తెలుగులో <strong>'జ్యామితి'</strong> అయ్యింది.</li>
+                        <li><strong>'GEO'</strong> అనగా భూమి. <strong>'Metron'</strong> అనగా మాపనం. అనగా <strong>భూ కొలత</strong> అని అర్థం. భూ కొలతలకు వినియోగింపబడే శాస్త్రమే జ్యామితి.</li>
+                        <li>మొదట్లో మన పూర్వీకులు పొడవులు, కోణాలు, వైశాల్యాలు, ఘనపరిమాణాలు కొలుచుటకు, నిర్మాణాలకు, జ్యోతిష్య శాస్త్రానికి, హస్తకళా నైపుణ్యానికి వినియోగించారు.</li>
+                        <li>పూర్వకాలంలో భారతదేశం నుండి ఆర్యభట్ట, బ్రహ్మగుప్తుడు తదితర గణిత శాస్త్రవేత్తలు జ్యామితి అభివృద్ధి కోసం తమ సేవలు అందించారు.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ప్రశాంత చంద్ర మహలనోబిస్ -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="https://getbengal.com/wp-content/uploads/2022/05/Prasanta-Mahalanobis-2022.jpg" alt="ప్రశాంత చంద్ర మహలనోబిస్">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">ప్రశాంత చంద్ర మహలనోబిస్</h2>
+                    <ul>
+                        <li>ప్రశాంత చంద్ర మహలనోబిస్ <strong>(29 జూన్ 1893 - 28 జూన్ 1972)</strong> భారతీయ సాంఖ్యక శాస్త్రవేత్త.</li>
+                        <li>అతను <strong>ఇండియన్ స్టాటిస్టికల్ ఇనిస్టిట్యూట్</strong>ను కలకత్తాలో స్థాపించారు.</li>
+                        <li>భారత దేశంలో ఈయన <strong>ఆధునిక సాంఖ్యక శాస్త్ర పితామహునిగా</strong> పేరు పొందాడు.</li>
+                        <li>ఈయన <strong>'నేషనల్ శాంపిల్ సర్వేలు'</strong> ప్రపంచ ఖ్యాతిని పొందాయి.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- శ్రీనివాస రామానుజన్ -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-tD-KI_tzVBCWv414rMPEyePV03pIcaWRotfSg7dz5jXhQfnLvxr1LLWA&s=10" alt="శ్రీనివాస రామానుజన్">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">శ్రీనివాస రామానుజన్</h2>
+                    <ul>
+                        <li>శ్రీనివాస రామానుజన్ <strong>(22.12.1887 - 26.04.1920)</strong> సంఖ్యా సిద్ధాంతంలో భారతీయ మేధావి.</li>
+                        <li><strong>ఫెలో ఆఫ్ రాయల్ సొసైటీ (ఇంగ్లాండ్)</strong>కు ఎన్నికైన మొదటి భారతీయుడు.</li>
+                        <li><strong>1729</strong> రామానుజన్ సంఖ్య.</li>
+                        <li>ప్రతి సంవత్సరం <strong>జాతీయ గణిత దినోత్సవం</strong> అతని పుట్టినరోజు <strong>(డిసెంబరు 22)</strong> న జరుపుకుంటారు.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- సున్నాను కనుగొన్నది భారతీయులేనా? & పైథాగరస్ -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="https://vedicmathschool.org/wp-content/uploads/2021/07/Pythagoras-Greek-philosopher.jpg" alt="సున్నా మరియు పైథాగరస్">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">సున్నా & పైథాగరస్</h2>
+                    <h3 style="color: var(--primary-accent); margin-bottom: 8px;">సున్నాను కనుగొన్నది భారతీయులేనా?</h3>
+                    <p>పురాతన భారతీయ రాత ప్రతి <strong>భక్షాళిలో</strong> మనం ఈ రోజు ఉపయోగిస్తున్న <strong>'సున్నా'</strong> గుర్తు యొక్క మూలం చుక్కలుగా గుర్తించబడింది. ఇది ప్రపంచంలోనే అతి పురాతనమైనది.</p>
+                    <br>
+                    <h3 style="color: var(--primary-accent); margin-bottom: 8px;">పైథాగరస్</h3>
+                    <ul>
+                        <li>గ్రీస్లోని <strong>'పైథాగరియన్'</strong> ప్రసిద్ధ గణిత శాస్త్రజ్ఞుడు మరియు తత్వవేత్త పైథాగరస్ <strong>(క్రీ.పూ 569 - క్రీ.పూ 479)</strong> యొక్క అనుచరులు.</li>
+                        <li><strong>400 బి.సి.లో</strong>, అకరణీయం కాని సంఖ్యలను మొదటిసారి కనుగొన్నారు. ఈ సంఖ్యలను <strong>కరణీయ సంఖ్యలు (కరణీయులు)</strong> అని పిలుస్తారు. ఎందుకంటే అవి పూర్ణసంఖ్యల నిష్పత్తి రూపంలో రాయలేవు.</li>
+                        <li>పైథాగరియన్, గ్రీస్ కు చెందిన <strong>హిప్పాకస్</strong> చేత కరణీయ సంఖ్యల ఆవిష్కరణ చుట్టూ అనేక కల్పిత గాథలు ఉన్నాయి. ఎందుకంటే $\sqrt{2}$ కరణీయ సంఖ్య అని కనుగొనడం వల్లగాని, లేదా $\sqrt{2}$ గురించి రహస్యాన్ని పైథాగరియన్ శాఖ వెలుపలి వ్యక్తులకు వెల్లడించడం వల్లగాని, అన్ని కల్పిత గాథలలో, హిప్పాకస్ ముగింపు ఒక దురదృష్టకర గాథ.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ఆర్. డెడికెండ్, జె. కాంటర్ & ఆర్కిమెడిస్ -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqUSQ89PLh6w1fmsnue1_HapPMy6PJfkvmcqA2IzMq4hzS5BASOEni5gm_&s=10" alt="ఆర్కిమెడిస్ & ఇతర శాస్త్రవేత్తలు">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">డెడికెండ్, కాంటర్ & ఆర్కిమెడిస్</h2>
+                    <h3 style="color: var(--primary-accent); margin-bottom: 8px;">ఆర్. డెడికెండ్ & జె. కాంటర్</h3>
+                    <p>1870 లలో ఇద్దరు జర్మన్ గణిత శాస్త్రవేత్తలు <strong>కాంటర్ (1845 - 1918)</strong> మరియు <strong>డెడికెండ్ (1831 - 1916)</strong> ఇలా చెప్పారు: "ప్రతి వాస్తవ సంఖ్యకు అనుగుణంగా, వాస్తవ సంఖ్యా రేఖపై ఒక బిందువు ఉంటుంది మరియు సంఖ్యారేఖలోని ప్రతి బిందువుకు అనుగుణంగా, ఒక ప్రత్యేక వాస్తవ సంఖ్య ఉంటుంది".</p>
+                    <br>
+                    <h3 style="color: var(--primary-accent); margin-bottom: 8px;">ఆర్కిమెడిస్</h3>
+                    <ul>
+                        <li>గ్రీకు మేధావి ఆర్కిమెడిస్ <strong>(క్రీ.పూ. 287 - క్రీ.పూ. 212)</strong> π యొక్క దశాంశ విస్తరణలో అంకెలను గణించిన మొదటి వ్యక్తి.</li>
+                        <li>అతను <strong>$3.140845 < \pi < 3.142857$</strong> అని సూచించారు.</li>
+                        <li>ఆర్యభట్ట గొప్ప భారతీయ గణిత శాస్త్రజ్ఞుడు మరియు ఖగోళ శాస్త్రవేత్త. ఇతను π యొక్క విలువను నాలుగు దశాంశ స్థానాలకు సవరించి <strong>3.1416</strong> అని కనుగొన్నారు.</li>
+                        <li>హైస్పీడు కంప్యూటర్లు మరియు ఆధునిక అల్గారిథమ్లను ఉపయోగించి π యొక్క విలువ <strong>1.24 బిలియన్ల</strong> దశాంశ స్థానాల వరకు లెక్కించారు.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- భాస్కర - II (Full Width) -->
+            <div class="card full-width">
+                <div class="card-content">
+                    <h2 class="card-title">భాస్కర - II</h2>
+                    <ul>
+                        <li>భాస్కర-II ప్రాచీన భారతదేశపు ప్రసిద్ధ గణిత శాస్త్రజ్ఞుడు.</li>
+                        <li>అతను <strong>1150 A.D.లో 36 సంవత్సరాల</strong> వయస్సులో <strong>'సిద్ధాంత శిరోమణి'</strong> గ్రంథాన్ని రాశాడు.</li>
+                        <li>ఈ రచన (సుమారు 1450 శ్లోకాలను కలిగి ఉంది) <strong>నాలుగు భాగాలుగా</strong> విభజించబడింది:
+                            <ol style="margin-left: 20px; margin-top: 5px;">
+                                <strong>లీలావతి (ARITHMETIC)</strong> లో 278 శ్లోకాలు ఉన్నాయి.</li><BR>
+                                <strong>బీజగణితం (ALGEBRA)</strong> లో 213 శ్లోకాలు ఉన్నాయి.</li><BR>
+                                <strong>గోళాధ్యాయ (గోళ / ఖగోళ భూగోళం)</strong> 451 శ్లోకాలను కలిగి ఉంది.</li><BR>
+                                <strong>గ్రహగణిత (గ్రహాల గణితం)</strong>లో 501 శ్లోకాలు ఉన్నాయి.</li><BR>
+                            </ol>
+                        </li>
+                        <li>ఒక చరరాశిలో రేఖీయ సమీకరణాలు (సామాన్య సమీకరణాలు), ఒకటి కంటే ఎక్కువ చరరాశులలో రేఖీయ సమీకరణాలు వాటి సాధనల మీద ఎక్కువ పరిశోధనలు చేసారు.</li>
+                    </ul>
+                    <blockquote>
+                        <strong>భాస్కర - II లీలావతి గణితంలో వ్రాసిన ఒక సమస్య:</strong><br>
+                        “తేనెటీగల సమూహంలో ఐదవ భాగం కదంబ పువ్వు మీద, మూడవవంతు సిలిండా పువ్వు మీద విశ్రాంతి తీసుకుంది. ఈ రెండు సంఖ్యల మధ్య తేడాకు మూడు రెట్లు తేనెటీగలు క్రుతాజా పువ్వుపైకి ఎగిరాయి. మరియు ఒక తేనెటీగ ఒంటరిగా గాలిలో ఉండిపోయింది. అయిన సమూహంలో ఎన్ని తేనెటీగలు ఉన్నాయి?”
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- దత్తాత్రేయ రామచంద్ర కాప్రేకర్ (Full Width) -->
+            <div class="card full-width">
+                <div class="card-content">
+                    <h2 class="card-title">దత్తాత్రేయ రామచంద్ర కాప్రేకర్ (1905-1986)</h2>
+                    <p><strong>కాప్రేకర్ స్థిరాంకము 6174:</strong> ఏదైనా 4 అంకెల సంఖ్యను తీసుకొనుము. దానిని ఆరోహణ క్రమములోను, అవరోహణ క్రమములోనూ వ్రాయుము. వాటి భేదము వ్రాయుము. మరల ఆ భేదమును ఆరోహణ, అవరోహణ క్రమములో వ్రాసి భేదము కనుగొనుము. మరల మరల చేస్తూ ఉండగా చివరకు <strong>6174</strong> వస్తుంది.</p>
+                    
+                    <h4 style="margin-top: 15px; color: var(--primary-accent);">ఉదాహరణ : 1326 తీసుకోండి</h4>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>వరుస</th>
+                                    <th>విధానం</th>
+                                    <th>ఫలితం</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>1</strong></td>
+                                    <td>అవరోహణ క్రమము : <br> ఆరోహణ క్రమము : <br> <strong>భేదము</strong></td>
+                                    <td>6821 <br> 1236 <br> <strong>5085</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2</strong></td>
+                                    <td>మరల అవరోహణ క్రమము : <br> ఆరోహణ క్రమము : <br> <strong>భేదము</strong></td>
+                                    <td>8550 <br> 0558 <br> <strong>7992</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3</strong></td>
+                                    <td>మరల అవరోహణ క్రమము : <br> ఆరోహణ క్రమము : <br> <strong>భేదము</strong></td>
+                                    <td>9972 <br> 2799 <br> <strong>7173</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4</strong></td>
+                                    <td>మరల అవరోహణ క్రమము : <br> ఆరోహణ క్రమము : <br> <strong>భేదము</strong></td>
+                                    <td>7731 <br> 1377 <br> <strong>6354</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>5</strong></td>
+                                    <td>మరల అవరోహణ క్రమము : <br> ఆరోహణ క్రమము : <br> <strong>భేదము</strong></td>
+                                    <td>6543 <br> 3456 <br> <strong>3087</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>6</strong></td>
+                                    <td>మరల అవరోహణ క్రమము : <br> ఆరోహణ క్రమము : <br> <strong>భేదము</strong></td>
+                                    <td>8730 <br> 0378 <br> <strong>8532</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>7</strong></td>
+                                    <td>మరల అవరోహణ క్రమము : <br> ఆరోహణ క్రమము : <br> <strong>భేదము</strong></td>
+                                    <td>8532 <br> 2358 <br> <strong>6174</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>8</strong></td>
+                                    <td>మరల అవరోహణ క్రమము : <br> ఆరోహణ క్రమము : <br> <strong>భేదము</strong></td>
+                                    <td>7641 <br> 1467 <br> <strong>6174</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <ul>
+                        <li>డి.ఆర్. కాప్రేకర్ గారు <strong>17 జనవరి 1905</strong> సంవత్సరంలో ముంబాయికి ఉత్తరాన 100 కి.మీ దూరంలో ఉన్న దహను ప్రాంతంలో జన్మించారు.</li>
+                        <li>ఈయన ఒక పాఠశాలలో ఉపాధ్యాయుడిగా పనిచేస్తూ, సంఖ్యా వినోదంపై విభిన్న సంఖ్యల లక్షణాలను కనిపెట్టారు.</li>
+                        <li>ఈయన పరిశోధనలలో <strong>హర్షద్ సంఖ్యలు, సెల్ఫ్ సంఖ్యలు, దేవెన్ సంఖ్యలు</strong> మొదలైనవి కనుగొన్నారు.</li>
+                        <li>డి.ఆర్. కాప్రేకర్ గారు స్వతస్సిద్ధంగా గణితాన్ని అభ్యసించిన ఒక ప్రఖ్యాత భారత గణితశాస్త్రవేత్త. ఈయన సంఖ్యాశాస్త్రం పైన విశేష పరిశోధనలు చేశారు.</li>
+                        <li><strong>1929 సంవత్సరంలో</strong> ముంబాయి విశ్వవిద్యాలయం నుండి బ్యాచిలర్ డిగ్రీ పొందారు.</li>
+                        <li>ఈయన తన మొత్తం విద్యాభ్యాస కాలంలో (1930 నుండి 1960 వరకు) ఎక్కడా నియత విద్యాభ్యాసాన్ని కొనసాగించలేదు.</li>
+                        <li>మహారాష్ట్రలోని <strong>నాసిక్ పాఠశాల ఉపాధ్యాయునిగా</strong> కూడా పనిచేశారు.</li>
+                        <li>వీరు <strong>రెకరింగ్ డెసిమల్స్, మ్యాజిక్ స్క్వేర్ మరియు ఇంటిజర్స్ విత్ స్పెషల్ ప్రాపర్టీస్</strong> అనే పుస్తకాలను రాసి ప్రచురించడం జరిగింది.</li>
+                        <li>ఈయన <strong>'గణితానంద్'</strong> అనే పేరుతో కూడా సుపరిచితులే. ఈయన <strong>1986లో</strong> మరణించారు.</li>
+                        <li>కాప్రేకర్ <strong>1949వ సంవత్సరంలో 6174</strong> అనే ఒక ప్రత్యేక ధర్మాన్ని కలిగిన సంఖ్యను కనుగొన్నారు. దీనినే <strong>కాప్రేకర్ స్థిరాంకము</strong> అని అంటారు.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- హెరాన్ -->
+            <div class="card full-width">
+                <div class="card-content">
+                    <h2 class="card-title">హెరాన్</h2>
+                    <ul>
+                        <li>హెరాన్ <strong>(10 C.E. – 75 C.E.)</strong> ఈజిప్టులోని అలెగ్జాండ్రియాలో క్రీ.శ. 10వ సంవత్సరంలో జన్మించాడు.</li>
+                        <li>అతను అనువర్తిత గణితం మీద పని చేశాడు.</li>
+                        <li>గణితం మరియు భౌతిక శాస్త్ర విషయాలపై ఆయన రచనలు చాలా విస్తృతమైనవి మరియు వైవిధ్యభరితమైనవి, ఈ రంగాలలో అతను ఒక విజ్ఞాన సర్వస్వ రచయితగా పరిగణించబడ్డాడు.</li>
+                        <li>అతని జ్యామితీయ రచనలు ఎక్కువగా <strong>మూడు పుస్తకాలలో</strong> వ్రాసిన క్షేత్రగణిత సమస్యలపై సాగాయి.</li>
+                        <li>మొదటి పుస్తకం చతురస్రాలు, దీర్ఘచతురస్రాలు, త్రిభుజాలు, ట్రెపీజియడ్లు (సమలంబ చతుర్భుజాలు) వివిధ ఇతర ప్రత్యేక చతుర్భుజాలు, క్రమ బహుభుజులు, వృత్తాల వైశాల్యాలు, స్థూపాలు, శంకువులు, గోళాల ఉపరితల వైశాల్యాలు మొదలైన వాటి గురించి వివరిస్తుంది.</li>
+                        <li>ఈ పుస్తకంలో, మూడు భుజాల ఆధారంగా త్రిభుజ వైశాల్యానికి ప్రసిద్ధ సూత్రాన్ని హెరాన్ పొందుపరిచాడు.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- పితామహులు & బిరుదులు (Full Width) -->
+            <div class="card full-width">
+                <div class="card-content">
+                    <h2 class="card-title">పితామహులు & బిరుదులు</h2>
+                    
+                    <h3 style="color: var(--primary-accent); margin: 15px 0 10px 0;">గణితశాస్త్ర పితామహులు:</h3>
+                    <ul>
+                        <li>రేఖాగణిత పితామహుడు — <strong>యూక్లిడ్</strong></li>
+                        <li>నిరూపక రేఖాగణిత పితామహుడు — <strong>రెనెడెకార్డె</strong></li>
+                        <li>బీజగణిత పితామహుడు — <strong>డయాఫాంటస్</strong></li>
+                        <li>సాంఖ్యకశాస్త్ర పితామహుడు — <strong>సర్ రోనాల్డ్ ఎ.ఫిషర్</strong></li>
+                        <li>భారతదేశ సాంఖ్యకశాస్త్ర పితామహుడు — <strong>P.C. మహలనోబిస్</strong></li>
+                        <li>కంప్యూటర్ పితామహుడు — <strong>చార్లెస్ బాబేజ్</strong></li>
+                        <li>ఆధునిక కంప్యూటర్ పితామహుడు — <strong>న్యూమన్</strong></li>
+                        <li>ఆధునిక గణిత భాష (సమితులు) కు మూలపురుషుడు — <strong>జార్జి కాంటర్</strong></li>
+                        <li>π విలువను మొదట గణించినవారు — <strong>ఆర్కిమెడిస్</strong></li>
+                        <li>వృత్త వైశాల్యము సూత్రము కనుగొన్నవారు — <strong>ఆర్కిమెడిస్</strong></li>
+                        <li>పై కంప్యూటర్ ను ఆవిష్కరించినది — <strong>చార్లెస్ బాబేజ్</strong></li>
+                        <li>పై దినోత్సవము — <strong>మార్చి 14</strong></li>
+                        <li>π విలువను 3.1416 గా ప్రతిపాదించిన భారతీయ శాస్త్రవేత్త — <strong>ఆర్యభట్ట</strong></li>
+                        <li>π విలువ 32 దశాంశాల వరకు కనుగొన్న మొట్టమొదటి భారతీయ శాస్త్రవేత్త — <strong>భాస్కరాచార్య - II</strong></li>
+                        <li>π =√10గా <strong>బ్రహ్మగుప్తుడు</strong> ఉపయోగించాడు.</li>
+                        <li>π = 3927/1250 ఉపయోగించిన భారతీయ శాస్త్రవేత్త — <strong>భాస్కరాచార్య - II</strong></li>
+                        <li>π ఒక <strong>కరణీయ సంఖ్య</strong>.</li>
+                        <li>22/7 ఒక <strong>అకరణీయ సంఖ్య</strong>.</li>
+                    </ul>
+
+                    <h3 style="color: var(--primary-accent); margin: 20px 0 10px 0;">గణిత బిరుదులు:</h3>
+                    <ul>
+                        <li><strong>'గణితత్రయం'</strong> — ఆర్కిమెడిస్, న్యూటన్, కార్ల్ ఫెడరిక్ గాస్</li>
+                        <li><strong>గణిత శాస్త్రవేత్తలలో యువరాజు</strong> — గాస్ (అంకశ్రేఢిలో n పదాల మొత్తం కనుగొన్నాడు)</li>
+                        <li><strong>'గణిత బ్రహ్మ' మరియు అంక విద్యాసార్</strong> — లక్కోజు సంజీవరాయశర్మ</li>
+                        <li><strong>మానవ కంప్యూటర్</strong> — శకుంతలాదేవి</li>
+                        <li><strong>తొలి మహిళా గణిత శాస్త్రవేత్త</strong> — హిపాటియా</li>
+                        <li><strong>రామానుజన్ సంఖ్య</strong> = <strong>1729</strong> (రెండు వేర్వేరు ఘనాల మొత్తంగా రాయగలిగే చిన్న సంఖ్య: $1729 = 9^3 + 10^3 = 1^3 + 12^3$)</li>
+                        <li><strong>కాప్రేకర్ స్థిరాంకము</strong> = <strong>6174</strong></li>
+                        <li>మహారాష్ట్రకి చెందిన ఆధునిక గణిత శాస్త్రవేత్త <strong>దత్తాత్రేయ రామచంద్ర కాప్రేకర్</strong> సెల్ఫ్ నంబర్లు, జనరేటెడ్ నంబర్లు కనుగొన్నారు.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- గణిత రచనలు & గమనిక (Full Width Table) -->
+            <div class="card full-width">
+                <div class="card-content">
+                    <h2 class="card-title">గణిత రచనలు</h2>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>రచన / గ్రంథం</th>
+                                    <th>రచయిత / శాస్త్రవేత్త</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>ఆర్యభట్టీయం</strong></td><td>ఆర్యభట్ట</td></tr>
+                                <tr><td><strong>మహాభాస్కరీయ, లఘు భాస్కరీయ, 'ఆర్యభట్టీయ భాష్య'</strong></td><td>భాస్కరాచార్య - I</td></tr>
+                                <tr><td><strong>సిద్ధాంత శిరోమణి, కరణ కుతూహలం</strong></td><td>భాస్కరాచార్య - II</td></tr>
+                                <tr><td><strong>బ్రహ్మస్ఫుట సిద్ధాంతము - ఖండ ఖాధ్యక</strong></td><td>బ్రహ్మగుప్తుడు</td></tr>
+                                <tr><td><strong>పంచ సిద్ధాంతిక</strong></td><td>వారాహమిహిరుడు</td></tr>
+                                <tr><td><strong>గణితసార సంగ్రహణం (సంస్కృతం)</strong></td><td>మహావీరుడు</td></tr>
+                                <tr><td><strong>గణితసార సంగ్రహణం (తెలుగు)</strong></td><td>పావులూరి మల్లన</td></tr>
+                                <tr><td><strong>'ది మెజరిమెంట్ ఆఫ్ సర్కిల్'</strong></td><td>ఆర్కిమెడిస్</td></tr>
+                                <tr><td><strong>ది థియరీ ఆఫ్ ఎస్టిమేషన్</strong></td><td>సి.ఆర్. రావు</td></tr>
+                                <tr><td><strong>వేద గణితము</strong></td><td>శ్రీ భారతీకృష్ణ తీర్థ</td></tr>
+                                <tr><td><strong>'ది ఎలిమెంట్స్'</strong></td><td>యూక్లిడ్</td></tr>
+                                <tr><td><strong>ది థియరీ ఆఫ్ ఇన్ఫినిట్ సెట్</strong></td><td>జార్జ్ కాంటర్</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 style="color: var(--primary-accent); margin-top: 20px;">గమనిక (నోట్):</h3>
+                    <ul>
+                        <li>1. పైథాగరస్ సిద్ధాంతాన్ని పైథాగరస్ కంటే ముందే తెలిపిన ప్రాచీన భారతీయ శాస్త్రవేత్త <strong>'బౌద్ధాయనుడు'</strong>.</li>
+                        <li>2. <strong>'బౌద్ధాయనుడు'</strong> నిరూపణ ఇవ్వలేదు.</li>
+                        <li>3. పైథాగరస్ సిద్ధాంతానికి లాక్షణిక ఉపపత్తి ఇచ్చిన భారతీయ శాస్త్రవేత్త <strong>భాస్కరాచార్య - II (12వ శతాబ్ది)</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Theme Switcher Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+        });
+    </script>
+</body>
+</html>
+```eof

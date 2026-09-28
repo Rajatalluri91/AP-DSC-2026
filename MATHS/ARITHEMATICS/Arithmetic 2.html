@@ -229,6 +229,17 @@
             background-color: rgba(0, 86, 179, 0.1);
             color: var(--primary-color);
         }
+        
+    <!-- CSS Style for Fast Toggle -->
+   
+        .answer-box {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent-color, #007bff);
+            border-radius: 4px;
+        }
+   
     </style>
 </head>
 <body>
@@ -963,9 +974,447 @@
         <div class="result">= 325 మంది</div>
     </div>
 
-</div>
 
-<script>
+    <!-- సాధన ప్రశ్నలు (Practice Bits - 25) -->
+    <div class="card">
+        <h2 class="card-title">సాధన ప్రశ్నలు (Practice Bits - 25)</h2>
+        
+        <!-- Question 1 -->
+        <div class="problem-card">
+            <div class="problem-title">1. \(a : b = 4 : 5\) మరియు \(b : c = 10 : 13\) అయితే \(a : c\) విలువ ఎంత?</div>
+            <ul>
+                <li>A) 4 : 13</li>
+                <li>B) 8 : 13</li>
+                <li>C) 5 : 13</li>
+                <li>D) 40 : 13</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans1', this)">Show Answer</button>
+            <div id="ans1" class="answer-box">
+                <strong>సమాధానం:</strong> B (8 : 13)<br>
+                <strong>వివరణ:</strong> \(\frac{a}{c} = \frac{a}{b} \times \frac{b}{c} = \frac{4}{5} \times \frac{10}{13} = \frac{8}{13}\)
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="problem-card">
+            <div class="problem-title">2. 9 మరియు 25 ల మధ్యమ అనుపాతం (Mean Proportional) ఎంత?</div>
+            <ul>
+                <li>A) 15</li>
+                <li>B) 16</li>
+                <li>C) 225</li>
+                <li>D) 34</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans2', this)">Show Answer</button>
+            <div id="ans2" class="answer-box">
+                <strong>సమాధానం:</strong> A (15)<br>
+                <strong>వివరణ:</strong> \(b = \sqrt{ac} = \sqrt{9 \times 25} = \sqrt{225} = 15\)
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="problem-card">
+            <div class="problem-title">3. 12, 18 ల తృతీయ అనుపాతం (Third Proportional) ను కనుగొనండి.</div>
+            <ul>
+                <li>A) 24</li>
+                <li>B) 27</li>
+                <li>C) 36</li>
+                <li>D) 54</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans3', this)">Show Answer</button>
+            <div id="ans3" class="answer-box">
+                <strong>సమాధానం:</strong> B (27)<br>
+                <strong>వివరణ:</strong> \(c = \frac{b^2}{a} = \frac{18 \times 18}{12} = 27\)
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="problem-card">
+            <div class="problem-title">4. 6, 14, 15 ల చతుర్థ అనుపాతం (Fourth Proportional) ఎంత?</div>
+            <ul>
+                <li>A) 35</li>
+                <li>B) 28</li>
+                <li>C) 42</li>
+                <li>D) 21</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans4', this)">Show Answer</button>
+            <div id="ans4" class="answer-box">
+                <strong>సమాధానం:</strong> A (35)<br>
+                <strong>వివరణ:</strong> \(d = \frac{bc}{a} = \frac{14 \times 15}{6} = 35\)
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="problem-card">
+            <div class="problem-title">5. \(5 : 7\) మరియు \(4 : 9\) ల బహుళ నిష్పత్తి (Compound Ratio) ఎంత?</div>
+            <ul>
+                <li>A) 20 : 63</li>
+                <li>B) 9 : 16</li>
+                <li>C) 45 : 28</li>
+                <li>D) 35 : 36</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans5', this)">Show Answer</button>
+            <div id="ans5" class="answer-box">
+                <strong>సమాధానం:</strong> A (20 : 63)<br>
+                <strong>వివరణ:</strong> \(\frac{5 \times 4}{7 \times 9} = \frac{20}{63}\)
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="problem-card">
+            <div class="problem-title">6. \(3 : 5\) యొక్క విలోమ నిష్పత్తికి వర్గ నిష్పత్తి (Duplicate Ratio) కనుగొనండి.</div>
+            <ul>
+                <li>A) 9 : 25</li>
+                <li>B) 25 : 9</li>
+                <li>C) 5 : 3</li>
+                <li>D) 15 : 25</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans6', this)">Show Answer</button>
+            <div id="ans6" class="answer-box">
+                <strong>సమాధానం:</strong> B (25 : 9)<br>
+                <strong>వివరణ:</strong> విలోమ నిష్పత్తి \(5 : 3\), దీని వర్గ నిష్పత్తి \(5^2 : 3^2 = 25 : 9\)
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="problem-card">
+            <div class="problem-title">7. రెండు సంఖ్యల నిష్పత్తి \(3 : 4\). వాటి మొత్తం 140 అయితే, వాటిలో పెద్ద సంఖ్య ఏది?</div>
+            <ul>
+                <li>A) 60</li>
+                <li>B) 80</li>
+                <li>C) 100</li>
+                <li>D) 70</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans7', this)">Show Answer</button>
+            <div id="ans7" class="answer-box">
+                <strong>సమాధానం:</strong> B (80)<br>
+                <strong>వివరణ:</strong> మొత్తం భాగాలు \(3 + 4 = 7\); పెద్ద సంఖ్య \(= \frac{4}{7} \times 140 = 80\)
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="problem-card">
+            <div class="problem-title">8. ₹2400 లను A, B, C లకు \(2 : 3 : 5\) నిష్పత్తిలో పంచితే, B వాటా ఎంత?</div>
+            <ul>
+                <li>A) ₹480</li>
+                <li>B) ₹720</li>
+                <li>C) ₹1200</li>
+                <li>D) ₹600</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans8', this)">Show Answer</button>
+            <div id="ans8" class="answer-box">
+                <strong>సమాధానం:</strong> B (₹720)<br>
+                <strong>వివరణ:</strong> మొత్తం భాగాలు \(2+3+5=10\); B వాటా \(= \frac{3}{10} \times 2400 = 720\)
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="problem-card">
+            <div class="problem-title">9. 2 గంటలకు మరియు 40 నిమిషాలకు గల నిష్పత్తి ఎంత?</div>
+            <ul>
+                <li>A) 1 : 20</li>
+                <li>B) 3 : 1</li>
+                <li>C) 1 : 3</li>
+                <li>D) 2 : 40</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans9', this)">Show Answer</button>
+            <div id="ans9" class="answer-box">
+                <strong>సమాధానం:</strong> B (3 : 1)<br>
+                <strong>వివరణ:</strong> 2 గంటలు \(= 120\) నిమిషాలు; నిష్పత్తి \(= 120 : 40 = 3 : 1\)
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="problem-card">
+            <div class="problem-title">10. 12 మంది మనుషులు ఒక పనిని 20 రోజులలో పూర్తి చేయగలరు. అదే పనిని 15 మంది మనుషులు ఎన్ని రోజులలో పూర్తి చేయగలరు?</div>
+            <ul>
+                <li>A) 16 రోజులు</li>
+                <li>B) 25 రోజులు</li>
+                <li>C) 18 రోజులు</li>
+                <li>D) 12 రోజులు</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans10', this)">Show Answer</button>
+            <div id="ans10" class="answer-box">
+                <strong>సమాధానం:</strong> A (16 రోజులు)<br>
+                <strong>వివరణ:</strong> విలోమానుపాతం: \(\frac{12 \times 20}{15} = 16\) రోజులు
+            </div>
+        </div>
+
+        <!-- Question 11 -->
+        <div class="problem-card">
+            <div class="problem-title">11. \(A : B = 2 : 3\), \(B : C = 4 : 5\) అయితే \(A : B : C\) ఎంత?</div>
+            <ul>
+                <li>A) 8 : 12 : 15</li>
+                <li>B) 2 : 4 : 5</li>
+                <li>C) 6 : 9 : 15</li>
+                <li>D) 8 : 10 : 15</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans11', this)">Show Answer</button>
+            <div id="ans11" class="answer-box">
+                <strong>సమాధానం:</strong> A (8 : 12 : 15)<br>
+                <strong>వివరణ:</strong> \(A : B = 2 \times 4 : 3 \times 4 = 8 : 12\); \(B : C = 4 \times 3 : 5 \times 3 = 12 : 15\). కావున \(A : B : C = 8 : 12 : 15\)
+            </div>
+        </div>
+
+        <!-- Question 12 -->
+        <div class="problem-card">
+            <div class="problem-title">12. \(2A = 3B = 4C\) అయితే \(A : B : C\) ఎంత?</div>
+            <ul>
+                <li>A) 2 : 3 : 4</li>
+                <li>B) 4 : 3 : 2</li>
+                <li>C) 6 : 4 : 3</li>
+                <li>D) 3 : 4 : 6</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans12', this)">Show Answer</button>
+            <div id="ans12" class="answer-box">
+                <strong>సమాధానం:</strong> C (6 : 4 : 3)<br>
+                <strong>వివరణ:</strong> \(A : B : C = \frac{1}{2} : \frac{1}{3} : \frac{1}{4}\). 2, 3, 4 ల క.సా.గు 12 చే గుణించగా: \(6 : 4 : 3\)
+            </div>
+        </div>
+
+        <!-- Question 13 -->
+        <div class="problem-card">
+            <div class="problem-title">13. \(16 : 81\) యొక్క వర్గమూల నిష్పత్తి (Sub-duplicate Ratio) ఎంత?</div>
+            <ul>
+                <li>A) 4 : 9</li>
+                <li>B) 2 : 3</li>
+                <li>C) 256 : 6561</li>
+                <li>D) 8 : 27</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans13', this)">Show Answer</button>
+            <div id="ans13" class="answer-box">
+                <strong>సమాధానం:</strong> A (4 : 9)<br>
+                <strong>వివరణ:</strong> వర్గమూల నిష్పత్తి \(= \sqrt{16} : \sqrt{81} = 4 : 9\)
+            </div>
+        </div>
+
+        <!-- Question 14 -->
+        <div class="problem-card">
+            <div class="problem-title">14. \(2 : 3\) యొక్క ఘన నిష్పత్తి (Triplicate Ratio) ఎంత?</div>
+            <ul>
+                <li>A) 4 : 9</li>
+                <li>B) 8 : 27</li>
+                <li>C) 6 : 9</li>
+                <li>D) 16 : 81</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans14', this)">Show Answer</button>
+            <div id="ans14" class="answer-box">
+                <strong>సమాధానం:</strong> B (8 : 27)<br>
+                <strong>వివరణ:</strong> ఘన నిష్పత్తి \(= 2^3 : 3^3 = 8 : 27\)
+            </div>
+        </div>
+
+        <!-- Question 15 -->
+        <div class="problem-card">
+            <div class="problem-title">15. రెండు సంఖ్యల నిష్పత్తి \(5 : 8\). వాటి భేదం 36 అయితే, ఆ సంఖ్యలలో చిన్న సంఖ్య ఎంత?</div>
+            <ul>
+                <li>A) 60</li>
+                <li>B) 96</li>
+                <li>C) 48</li>
+                <li>D) 72</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans15', this)">Show Answer</button>
+            <div id="ans15" class="answer-box">
+                <strong>సమాధానం:</strong> A (60)<br>
+                <strong>వివరణ:</strong> భాగాల భేదం \(= 8 - 5 = 3\). \(3 \text{ భాగాలు} = 36 \implies 1 \text{ భాగం} = 12\). చిన్న సంఖ్య \(= 5 \times 12 = 60\)
+            </div>
+        </div>
+
+        <!-- Question 16 -->
+        <div class="problem-card">
+            <div class="problem-title">16. ఒక తరగతిలో బాలురు, బాలికల నిష్పత్తి \(4 : 5\). బాలుర సంఖ్య 24 అయితే, మొత్తం విద్యార్థుల సంఖ్య ఎంత?</div>
+            <ul>
+                <li>A) 30</li>
+                <li>B) 54</li>
+                <li>C) 45</li>
+                <li>D) 60</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans16', this)">Show Answer</button>
+            <div id="ans16" class="answer-box">
+                <strong>సమాధానం:</strong> B (54)<br>
+                <strong>వివరణ:</strong> \(4 \text{ భాగాలు} = 24 \implies 1 \text{ భాగం} = 6\). మొత్తం భాగాలు \(= 4 + 5 = 9 \implies 9 \times 6 = 54\)
+            </div>
+        </div>
+
+        <!-- Question 17 -->
+        <div class="problem-card">
+            <div class="problem-title">17. 50 పైసలు మరియు ₹5 ల మధ్య గల నిష్పత్తి ఎంత?</div>
+            <ul>
+                <li>A) 1 : 10</li>
+                <li>B) 10 : 1</li>
+                <li>C) 1 : 2</li>
+                <li>D) 5 : 50</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans17', this)">Show Answer</button>
+            <div id="ans17" class="answer-box">
+                <strong>సమాధానం:</strong> A (1 : 10)<br>
+                <strong>వివరణ:</strong> ₹5 \(= 500 \text{ పైసలు}\). నిష్పత్తి \(= 50 : 500 = 1 : 10\)
+            </div>
+        </div>
+
+        <!-- Question 18 -->
+        <div class="problem-card">
+            <div class="problem-title">18. \(\frac{x}{5} = \frac{y}{8}\) అయితే \((x + 5) : (y + 8)\) ఎంత?</div>
+            <ul>
+                <li>A) 3 : 5</li>
+                <li>B) 13 : 8</li>
+                <li>C) 5 : 8</li>
+                <li>D) 8 : 5</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans18', this)">Show Answer</button>
+            <div id="ans18" class="answer-box">
+                <strong>సమాధానం:</strong> C (5 : 8)<br>
+                <strong>వివరణ:</strong> \(x = 5k, y = 8k\) అనుకొని ప్రతిక్షేపించగా \(\frac{5k+5}{8k+8} = \frac{5(k+1)}{8(k+1)} = \frac{5}{8}\)
+            </div>
+        </div>
+
+        <!-- Question 19 -->
+        <div class="problem-card">
+            <div class="problem-title">19. 8, 12, 14, 21 లు అనుపాతంలో ఉన్నాయా?</div>
+            <ul>
+                <li>A) అవును</li>
+                <li>B) కాదు</li>
+                <li>C) చెప్పలేము</li>
+                <li>D) ఏదీ కాదు</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans19', this)">Show Answer</button>
+            <div id="ans19" class="answer-box">
+                <strong>సమాధానం:</strong> A (అవును)<br>
+                <strong>వివరణ:</strong> అంత్యముల లబ్ధం \(= 8 \times 21 = 168\); మధ్యముల లబ్ధం \(= 12 \times 14 = 168\). రెండూ సమానం కావున అనుపాతంలో ఉన్నాయి.
+            </div>
+        </div>
+
+        <!-- Question 20 -->
+        <div class="problem-card">
+            <div class="problem-title">20. ఒక సంచిలో ₹1, 50 పైసలు, 25 పైసల నాణేలు одина సంఖ్యలో ఉన్నాయి. మొత్తం సొమ్ము ₹175 అయితే, మొత్తం నాణేల సంఖ్య ఎంత?</div>
+            <ul>
+                <li>A) 100</li>
+                <li>B) 200</li>
+                <li>C) 300</li>
+                <li>D) 150</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans20', this)">Show Answer</button>
+            <div id="ans20" class="answer-box">
+                <strong>సమాధానం:</strong> C (300)<br>
+                <strong>వివరణ:</strong> నాణేల సంఖ్య సమం \(x\). గుంపు విలువ \(= 1.00x + 0.50x + 0.25x = 1.75x = 175 \implies x = 100\). ప్రతీ రకం 100 కావున మొత్తం నాణేలు \(= 300\)
+            </div>
+        </div>
+
+        <!-- Question 21 -->
+        <div class="problem-card">
+            <div class="problem-title">21. 7 : 11 లలోని ప్రతి పదానికి ఏ సంఖ్యను కూడితే ఆ నిష్పత్తి 3 : 4 గా మారుతుంది?</div>
+            <ul>
+                <li>A) 5</li>
+                <li>B) 4</li>
+                <li>C) 3</li>
+                <li>D) 2</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans21', this)">Show Answer</button>
+            <div id="ans21" class="answer-box">
+                <strong>సమాధానం:</strong> A (5)<br>
+                <strong>వివరణ:</strong> \(\frac{7+x}{11+x} = \frac{3}{4} \implies 28 + 4x = 33 + 3x \implies x = 5\)
+            </div>
+        </div>
+
+        <!-- Question 22 -->
+        <div class="problem-card">
+            <div class="problem-title">22. ఒక చతురస్రం యొక్క భుజముల నిష్పత్తి 2 : 3 అయితే, వాటి వైశాల్యాల నిష్పత్తి ఎంత?</div>
+            <ul>
+                <li>A) 2 : 3</li>
+                <li>B) 4 : 9</li>
+                <li>C) 8 : 27</li>
+                <li>D) 16 : 81</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans22', this)">Show Answer</button>
+            <div id="ans22" class="answer-box">
+                <strong>సమాధానం:</strong> B (4 : 9)<br>
+                <strong>వివరణ:</strong> వైశాల్యాల నిష్పత్తి \(= a_1^2 : a_2^2 = 2^2 : 3^2 = 4 : 9\)
+            </div>
+        </div>
+
+        <!-- Question 23 -->
+        <div class="problem-card">
+            <div class="problem-title">23. 15 లీటర్ల మిశ్రమంలో పాలు, నీళ్ల నిష్పత్తి 2 : 1. దీనికి ఎంత నీటిని కలిపితే నిష్పత్తి 1 : 2 అవుతుంది?</div>
+            <ul>
+                <li>A) 10 లీటర్లు</li>
+                <li>B) 15 లీటర్లు</li>
+                <li>C) 5 లీటర్లు</li>
+                <li>D) 20 లీటర్లు</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans23', this)">Show Answer</button>
+            <div id="ans23" class="answer-box">
+                <strong>సమాధానం:</strong> B (15 లీటర్లు)<br>
+                <strong>వివరణ:</strong> పాలు \(= 10\) లీటర్లు, నీరు \(= 5\) లీటర్లు. కొత్త నిష్పత్తి \(1 : 2\) కావలెనంటే పాలు \(10\) లీటర్లకు నీరు \(20\) లీటర్లు ఉండాలి. ఆల్రెడీ \(5\) లీటర్లు ఉన్నవి కావున కలపాల్సిన నీరు \(= 20 - 5 = 15\) లీటర్లు.
+            </div>
+        </div>
+
+        <!-- Question 24 -->
+        <div class="problem-card">
+            <div class="problem-title">24. \(A : B = 3 : 4\), \(B : C = 5 : 6\), \(C : D = 11 : 9\) అయితే \(A : D\) విలువ ఎంత?</div>
+            <ul>
+                <li>A) 55 : 72</li>
+                <li>B) 33 : 24</li>
+                <li>C) 15 : 24</li>
+                <li>D) 11 : 18</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans24', this)">Show Answer</button>
+            <div id="ans24" class="answer-box">
+                <strong>సమాధానం:</strong> A (55 : 72)<br>
+                <strong>వివరణ:</strong> \(\frac{A}{D} = \frac{A}{B} \times \frac{B}{C} \times \frac{C}{D} = \frac{3}{4} \times \frac{5}{6} \times \frac{11}{9} = \frac{55}{72}\)
+            </div>
+        </div>
+
+        <!-- Question 25 -->
+        <div class="problem-card">
+            <div class="problem-title">25. 0.4 మరియు 0.9 ల మధ్యమ అనుపాతం ఎంత?</div>
+            <ul>
+                <li>A) 0.6</li>
+                <li>B) 0.36</li>
+                <li>C) 0.5</li>
+                <li>D) 0.12</li>
+            </ul>
+            <button class="btn" onclick="toggleAnswer('ans25', this)">Show Answer</button>
+            <div id="ans25" class="answer-box">
+                <strong>సమాధానం:</strong> A (0.6)<br>
+                <strong>వివరణ:</strong> మధ్యమ అనుపాతం \(= \sqrt{0.4 \times 0.9} = \sqrt{0.36} = 0.6\)
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Optimized High-Speed JavaScript Script -->
+    <script>
+        function toggleAnswer(id, btnElement) {
+            var box = document.getElementById(id);
+            if (box.style.display === "none") {
+                box.style.display = "block";
+                btnElement.textContent = "Hide Answer";
+            } else {
+                box.style.display = "none";
+                btnElement.textContent = "Show Answer";
+            }
+        }
+
+        // Fast Load Execution
+        document.addEventListener("DOMContentLoaded", function() {
+            var boxes = document.querySelectorAll('.answer-box');
+            
+            // Render MathJax first while elements are visible in DOM
+            if (window.MathJax) {
+                MathJax.startup.promise.then(function() {
+                    return MathJax.typesetPromise();
+                }).then(function() {
+                    // Hide boxes after rendering formulas
+                    boxes.forEach(function(box) {
+                        box.style.display = "none";
+                    });
+                });
+            } else {
+                boxes.forEach(function(box) {
+                    box.style.display = "none";
+                });
+            }
+        });
+        
+        
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
     const modeText = document.getElementById('mode-text');
 

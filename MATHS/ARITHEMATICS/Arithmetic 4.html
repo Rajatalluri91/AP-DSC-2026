@@ -691,6 +691,549 @@
         <div class="result">అసలు విలువ = 30,000 రూపాయలు</div>
     </div>
 
+    <!-- CSS Style for Answer Overflow Fix and Fast Toggle -->
+    <style>
+        .answer-box {
+            display: none;
+            margin-top: 10px;
+            padding: 12px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent-color, #28a745);
+            border-radius: 4px;
+            max-width: 100%;
+            overflow-x: auto;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: normal;
+        }
+
+        .answer-box .MathJax {
+            max-width: 100% !important;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
+
+    <!-- సాధన ప్రశ్నలు (Practice Bits - PERCENTAGES) -->
+    <div class="card">
+        <h2 class="card-title">సాధన ప్రశ్నలు (Practice Bits - Percentages)</h2>
+        
+        <!-- Question 1 -->
+        <div class="problem-card">
+            <div class="problem-title">1. 'Percentage' అను పదం ఏ భాష నుండి ఉద్భవించింది?</div>
+            <ul>
+                <li>A) గ్రీకు</li>
+                <li>B) లాటిన్</li>
+                <li>C) ఫ్రెంచ్</li>
+                <li>D) ఇంగ్లీష్</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans1">Show Answer</button>
+            <div id="ans1" class="answer-box">
+                <strong>సమాధానం:</strong> B (లాటిన్)<br>
+                <strong>వివరణ:</strong> PERCENTAGE అనే పదం లాటిన్ భాష నుండి ఉద్భవించింది. దీని అర్థం 'Out of One Hundred'.
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="problem-card">
+            <div class="problem-title">2. 0.625 ను శాతంగా మార్చగా వచ్చు విలువ ఎంత?</div>
+            <ul>
+                <li>A) 6.25%</li>
+                <li>B) 0.625%</li>
+                <li>C) 62.5%</li>
+                <li>D) 625%</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans2">Show Answer</button>
+            <div id="ans2" class="answer-box">
+                <strong>సమాధానం:</strong> C (62.5%)<br>
+                <strong>వివరణ:</strong> దశాంశాన్ని శాతంగా మార్చుటకు 100% చే గుణించాలి.<br>
+                \(0.625 \times 100\% = 62.5\%\)
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="problem-card">
+            <div class="problem-title">3. 0.125 యొక్క నిష్పత్తి రూపం ఏది?</div>
+            <ul>
+                <li>A) 1 : 8</li>
+                <li>B) 1 : 4</li>
+                <li>C) 1 : 125</li>
+                <li>D) 1 : 80</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans3">Show Answer</button>
+            <div id="ans3" class="answer-box">
+                <strong>సమాధానం:</strong> A (1 : 8)<br>
+                <strong>వివరణ:</strong> \(0.125 = \frac{125}{1000} = \frac{1}{8}\). కావున నిష్పత్తి రూపం = 1 : 8.
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="problem-card">
+            <div class="problem-title">4. \(3\frac{3}{4}\) ను శాత రూపంలో వ్రాయగా ఎంత వస్తుంది?</div>
+            <ul>
+                <li>A) 37.5%</li>
+                <li>B) 375%</li>
+                <li>C) 300%</li>
+                <li>D) 150%</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans4">Show Answer</button>
+            <div id="ans4" class="answer-box">
+                <strong>సమాధానం:</strong> B (375%)<br>
+                <strong>వివరణ:</strong> \(3\frac{3}{4} = \frac{15}{4}\). శాత రూపం \(= \frac{15}{4} \times 100\% = 375\%\).
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="problem-card">
+            <div class="problem-title">5. 3 : 16 నిష్పత్తిని శాతంగా మార్చగా ఎంత?</div>
+            <ul>
+                <li>A) 18.75%</li>
+                <li>B) 16.3%</li>
+                <li>C) 18.25%</li>
+                <li>D) 20%</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans5">Show Answer</button>
+            <div id="ans5" class="answer-box">
+                <strong>సమాధానం:</strong> A (18.75%)<br>
+                <strong>వివరణ:</strong> \(\frac{3}{16} \times 100\% = \frac{300}{16}\% = 18.75\%\).
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="problem-card">
+            <div class="problem-title">6. 250 లో 20% ఎంత?</div>
+            <ul>
+                <li>A) 25</li>
+                <li>B) 40</li>
+                <li>C) 50</li>
+                <li>D) 60</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans6">Show Answer</button>
+            <div id="ans6" class="answer-box">
+                <strong>సమాధానం:</strong> C (50)<br>
+                <strong>వివరణ:</strong> \(\frac{20}{100} \times 250 = 50\).
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="problem-card">
+            <div class="problem-title">7. ఒక రీము కాగితాలలో 80% అనగా ఎన్ని కాగితాలు?</div>
+            <ul>
+                <li>A) 400</li>
+                <li>B) 384</li>
+                <li>C) 480</li>
+                <li>D) 320</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans7">Show Answer</button>
+            <div id="ans7" class="answer-box">
+                <strong>సమాధానం:</strong> B (384)<br>
+                <strong>వివరణ:</strong> ఒక రీము = 480 కాగితాలు. \(\frac{80}{100} \times 480 = 384\) కాగితాలు.
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="problem-card">
+            <div class="problem-title">8. 24 km లలో \(8\frac{1}{3}\%\) ఎంత?</div>
+            <ul>
+                <li>A) 3 km</li>
+                <li>B) 4 km</li>
+                <li>C) 2 km</li>
+                <li>D) 1.5 km</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans8">Show Answer</button>
+            <div id="ans8" class="answer-box">
+                <strong>సమాధానం:</strong> C (2 km)<br>
+                <strong>వివరణ:</strong> \(8\frac{1}{3}\% = \frac{25}{3}\%\). \(\frac{25}{3 \times 100} \times 24 = \frac{1}{12} \times 24 = 2\text{ km}\).
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="problem-card">
+            <div class="problem-title">9. 84% ను సూక్ష్మ నిష్పత్తి రూపంలో తెలపండి.</div>
+            <ul>
+                <li>A) 21 : 25</li>
+                <li>B) 42 : 50</li>
+                <li>C) 84 : 100</li>
+                <li>D) 21 : 50</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans9">Show Answer</button>
+            <div id="ans9" class="answer-box">
+                <strong>సమాధానం:</strong> A (21 : 25)<br>
+                <strong>వివరణ:</strong> \(84\% = \frac{84}{100} = \frac{21}{25} \implies 21 : 25\).
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="problem-card">
+            <div class="problem-title">10. 2400 రూపాయల కన్నా 2000 రూపాయలు ఎంత శాతం తక్కువ?</div>
+            <ul>
+                <li>A) \(20\%\)</li>
+                <li>B) \(16\frac{2}{3}\%\)</li>
+                <li>C) \(15\%\)</li>
+                <li>D) \(12\frac{1}{2}\%\)</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans10">Show Answer</button>
+            <div id="ans10" class="answer-box">
+                <strong>సమాధానం:</strong> B (\(16\frac{2}{3}\%\))<br>
+                <strong>వివరణ:</strong> తగ్గుదల \(= 2400 - 2000 = 400\). తగ్గుదల శాతం \(= \frac{400}{2400} \times 100\% = \frac{100}{6}\% = 16\frac{2}{3}\%\).
+            </div>
+        </div>
+
+        <!-- Question 11 -->
+        <div class="problem-card">
+            <div class="problem-title">11. ఒక సంఖ్యలో 25% విలువ 40 అయితే ఆ సంఖ్య ఏది?</div>
+            <ul>
+                <li>A) 120</li>
+                <li>B) 160</li>
+                <li>C) 200</li>
+                <li>D) 100</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans11">Show Answer</button>
+            <div id="ans11" class="answer-box">
+                <strong>సమాధానం:</strong> B (160)<br>
+                <strong>వివరణ:</strong> \(25\% = 40 \implies 100\% = \frac{100}{25} \times 40 = 160\).
+            </div>
+        </div>
+
+        <!-- Question 12 -->
+        <div class="problem-card">
+            <div class="problem-title">12. ఒక సంఖ్యను 20% తగ్గించగా దాని విలువ 32 అయినచో ఆ సంఖ్య ఏది?</div>
+            <ul>
+                <li>A) 40</li>
+                <li>B) 48</li>
+                <li>C) 50</li>
+                <li>D) 38</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans12">Show Answer</button>
+            <div id="ans12" class="answer-box">
+                <strong>సమాధానం:</strong> A (40)<br>
+                <strong>వివరణ:</strong> 20% తగ్గించగా మిగిలేది \(80\% = 32\). కావున \(100\% = \frac{100}{80} \times 32 = 40\).
+            </div>
+        </div>
+
+        <!-- Question 13 -->
+        <div class="problem-card">
+            <div class="problem-title">13. 120 అనే సంఖ్యను 25% పెంచినచో దాని నూతన విలువ ఎంత?</div>
+            <ul>
+                <li>A) 140</li>
+                <li>B) 145</li>
+                <li>C) 150</li>
+                <li>D) 160</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans13">Show Answer</button>
+            <div id="ans13" class="answer-box">
+                <strong>సమాధానం:</strong> C (150)<br>
+                <strong>వివరణ:</strong> \(100\% = 120 \implies 125\% = \frac{125}{100} \times 120 = 150\).
+            </div>
+        </div>
+
+        <!-- Question 14 -->
+        <div class="problem-card">
+            <div class="problem-title">14. 12 గంటలను 4 రోజులలో శాతముగా తెలపండి.</div>
+            <ul>
+                <li>A) 12.5%</li>
+                <li>B) 25%</li>
+                <li>C) 15%</li>
+                <li>D) 10%</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans14">Show Answer</button>
+            <div id="ans14" class="answer-box">
+                <strong>సమాధానం:</strong> A (12.5%)<br>
+                <strong>వివరణ:</strong> 4 రోజులు = 96 గంటలు. శాతం \(= \frac{12}{96} \times 100\% = 12.5\%\).
+            </div>
+        </div>
+
+        <!-- Question 15 -->
+        <div class="problem-card">
+            <div class="problem-title">15. ముకేష్ ఆదాయం అశోక్ ఆదాయం కంటే 20% ఎక్కువ అయితే, అశోక్ ఆదాయం ముకేష్ ఆదాయం కంటే ఎంత శాతం తక్కువ?</div>
+            <ul>
+                <li>A) 20%</li>
+                <li>B) \(16\frac{2}{3}\%\)</li>
+                <li>C) 25%</li>
+                <li>D) \(18\frac{1}{2}\%\)</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans15">Show Answer</button>
+            <div id="ans15" class="answer-box">
+                <strong>సమాధానం:</strong> B (\(16\frac{2}{3}\%\))<br>
+                <strong>వివరణ:</strong> అశోక్ = 100, ముకేష్ = 120. తక్కువ శాతం \(= \frac{20}{120} \times 100\% = 16\frac{2}{3}\%\).
+            </div>
+        </div>
+
+        <!-- Question 16 -->
+        <div class="problem-card">
+            <div class="problem-title">16. ఒక పరీక్షలో పాస్ మార్కులు 35%. ఒక విద్యార్థి 32% మార్కులు పొంది 6 మార్కులతో ఫెయిల్ అయితే, ఆ పరీక్ష గరిష్ట మార్కులు ఎన్ని?</div>
+            <ul>
+                <li>A) 300</li>
+                <li>B) 200</li>
+                <li>C) 150</li>
+                <li>D) 250</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans16">Show Answer</button>
+            <div id="ans16" class="answer-box">
+                <strong>సమాధానం:</strong> B (200)<br>
+                <strong>వివరణ:</strong> శాతం తేడా \(= 35\% - 32\% = 3\%\). \(3\% = 6 \implies 100\% = \frac{100}{3} \times 6 = 200\).
+            </div>
+        </div>
+
+        <!-- Question 17 -->
+        <div class="problem-card">
+            <div class="problem-title">17. మహేష్ చొక్కాలో \(\frac{3}{5}\) వంతు, సురేష్ చొక్కాలో \(\frac{3}{4}\) వంతు నూలు కలదు. ఎవరి చొక్కాలో నూలు శాతం తక్కువ?</div>
+            <ul>
+                <li>A) సురేష్</li>
+                <li>B) మహేష్</li>
+                <li>C) ఇద్దరిదీ సమానం</li>
+                <li>D) చెప్పలేము</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans17">Show Answer</button>
+            <div id="ans17" class="answer-box">
+                <strong>సమాధానం:</strong> B (మహేష్)<br>
+                <strong>వివరణ:</strong> మహేష్ \(= \frac{3}{5} = 60\%\), సురేష్ \(= \frac{3}{4} = 75\%\). కావున మహేష్ చొక్కాలో నూలు శాతం తక్కువ.
+            </div>
+        </div>
+
+        <!-- Question 18 -->
+        <div class="problem-card">
+            <div class="problem-title">18. 150 మంది విద్యార్థులలో వర్షం వలన 25 మంది హాజరు కాలేదు. హాజరైన విద్యార్థుల శాతం ఎంత?</div>
+            <ul>
+                <li>A) \(83\frac{1}{3}\%\)</li>
+                <li>B) \(80\%\)</li>
+                <li>C) \(75\%\)</li>
+                <li>D) \(85\frac{2}{3}\%\)</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans18">Show Answer</button>
+            <div id="ans18" class="answer-box">
+                <strong>సమాధానం:</strong> A (\(83\frac{1}{3}\%\))<br>
+                <strong>వివరణ:</strong> హాజరైన వారు \(= 150 - 25 = 125\). శాతం \(= \frac{125}{150} \times 100\% = 83\frac{1}{3}\%\).
+            </div>
+        </div>
+
+        <!-- Question 19 -->
+        <div class="problem-card">
+            <div class="problem-title">19. ఒక బుట్టలో 50% అరటి, 15% కమలా పండ్లు ఉన్నాయి. మిగిలినవి మామిడి పండ్లయితే వాటి శాతమెంత?</div>
+            <ul>
+                <li>A) 25%</li>
+                <li>B) 30%</li>
+                <li>C) 35%</li>
+                <li>D) 40%</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans19">Show Answer</button>
+            <div id="ans19" class="answer-box">
+                <strong>సమాధానం:</strong> C (35%)<br>
+                <strong>వివరణ:</strong> మామిడి శాతం \(= 100\% - (50\% + 15\%) = 100\% - 65\% = 35\%\).
+            </div>
+        </div>
+
+        <!-- Question 20 -->
+        <div class="problem-card">
+            <div class="problem-title">20. IPL లో ఒక జట్టు 20 మ్యాచులాడి 25% గెలిచింది. ఆ జట్టు ఓడిపోయిన మ్యాచులు ఎన్ని?</div>
+            <ul>
+                <li>A) 5</li>
+                <li>B) 10</li>
+                <li>C) 12</li>
+                <li>D) 15</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans20">Show Answer</button>
+            <div id="ans20" class="answer-box">
+                <strong>సమాధానం:</strong> D (15)<br>
+                <strong>వివరణ:</strong> ఓడిన మ్యాచుల శాతం \(= 100\% - 25\% = 75\%\). మ్యాచులు \(= \frac{75}{100} \times 20 = 15\).
+            </div>
+        </div>
+
+        <!-- Question 21 -->
+        <div class="problem-card">
+            <div class="problem-title">21. ప్రతి గ్రాము బంగారానికి 0.25 గ్రాముల వెండిని కలిపితే, బంగారంలో వెండి శాతమెంత?</div>
+            <ul>
+                <li>A) 2.5%</li>
+                <li>B) 25%</li>
+                <li>C) 0.25%</li>
+                <li>D) 50%</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans21">Show Answer</button>
+            <div id="ans21" class="answer-box">
+                <strong>సమాధానం:</strong> B (25%)<br>
+                <strong>వివరణ:</strong> 1 గ్రాముకు 0.25 గ్రాములు కావున, శాతం \(= \frac{0.25}{1} \times 100\% = 25\%\).
+            </div>
+        </div>
+
+        <!-- Question 22 -->
+        <div class="problem-card">
+            <div class="problem-title">22. 2,400 జనాభా గల గ్రామంలో 60% స్త్రీలు ఉన్నచో పురుషుల జనాభా ఎంత?</div>
+            <ul>
+                <li>A) 1440</li>
+                <li>B) 960</li>
+                <li>C) 1000</li>
+                <li>D) 840</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans22">Show Answer</button>
+            <div id="ans22" class="answer-box">
+                <strong>సమాధానం:</strong> B (960)<br>
+                <strong>వివరణ:</strong> పురుషుల శాతం \(= 100\% - 60\% = 40\%\). పురుషుల సంఖ్య \(= \frac{40}{100} \times 2400 = 960\).
+            </div>
+        </div>
+
+        <!-- Question 23 -->
+        <div class="problem-card">
+            <div class="problem-title">23. ఒక వస్తువు ధర ₹40 నుండి ₹50 కి పెరిగినచో పెరుగుదల శాతమెంత?</div>
+            <ul>
+                <li>A) 20%</li>
+                <li>B) 25%</li>
+                <li>C) 10%</li>
+                <li>D) 15%</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans23">Show Answer</button>
+            <div id="ans23" class="answer-box">
+                <strong>సమాధానం:</strong> B (25%)<br>
+                <strong>వివరణ:</strong> పెరుగుదల \(= 10\). పెరుగుదల శాతం \(= \frac{10}{40} \times 100\% = 25\%\).
+            </div>
+        </div>
+
+        <!-- Question 24 -->
+        <div class="problem-card">
+            <div class="problem-title">24. ఒక యంత్రం విలువ ₹10,000. దాని తరుగుదల రేటు 5% అయిన 1 సంవత్సరం తర్వాత దాని విలువెంత?</div>
+            <ul>
+                <li>A) ₹9,500</li>
+                <li>B) ₹9,000</li>
+                <li>C) ₹9,800</li>
+                <li>D) ₹8,500</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans24">Show Answer</button>
+            <div id="ans24" class="answer-box">
+                <strong>సమాధానం:</strong> A (₹9,500)<br>
+                <strong>వివరణ:</strong> 1 yr తర్వాత విలువ \(= 10000 \times \frac{95}{100} = 9500\) రూపాయలు.
+            </div>
+        </div>
+
+        <!-- Question 25 -->
+        <div class="problem-card">
+            <div class="problem-title">25. ఒక గ్రామం జనాభా ప్రతి ఏటా 6% పెరుగుతుంది. ప్రస్తుత జనాభా 17,490 అయితే 1 సంవత్సరం క్రితం జనాభా ఎంత?</div>
+            <ul>
+                <li>A) 16,000</li>
+                <li>B) 16,500</li>
+                <li>C) 15,000</li>
+                <li>D) 16,200</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans25">Show Answer</button>
+            <div id="ans25" class="answer-box">
+                <strong>సమాధానం:</strong> B (16,500)<br>
+                <strong>వివరణ:</strong> 1 సం|| క్రితం జనాభా \(= 17490 \times \frac{100}{106} = 165 \times 100 = 16,500\).
+            </div>
+        </div>
+
+        <!-- Question 26 -->
+        <div class="problem-card">
+            <div class="problem-title">26. 25 మీ ఎత్తున్న భవనం పైనుండి పడేసిన బంతి ప్రతిసారి మునుపటి ఎత్తులో 90% ఎగురును. 2 సార్లు పడి ఎగిరిన తర్వాత అది ఎంత ఎత్తు వరకు వెళ్లును?</div>
+            <ul>
+                <li>A) 20.25 మీ</li>
+                <li>B) 22.5 మీ</li>
+                <li>C) 18.5 మీ</li>
+                <li>D) 20 మీ</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans26">Show Answer</button>
+            <div id="ans26" class="answer-box">
+                <strong>సమాధానం:</strong> A (20.25 మీ)<br>
+                <strong>వివరణ:</strong> ఎత్తు \(= 25 \times \frac{90}{100} \times \frac{90}{100} = 25 \times 0.9 \times 0.9 = 20.25\text{ m}\).
+            </div>
+        </div>
+
+        <!-- Question 27 -->
+        <div class="problem-card">
+            <div class="problem-title">27. ఒక సంఖ్యను 20% పెంచి, తర్వాత 20% తగ్గించినచో ఆ సంఖ్యలో వచ్చే మొత్తం మార్పు ఎంత?</div>
+            <ul>
+                <li>A) మార్పు ఉండదు</li>
+                <li>B) 4% పెరుగుదల</li>
+                <li>C) 4% తరుగుదల</li>
+                <li>D) 2% తరుగుదల</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans27">Show Answer</button>
+            <div id="ans27" class="answer-box">
+                <strong>సమాధానం:</strong> C (4% తరుగుదల)<br>
+                <strong>వివరణ:</strong> \(100 \times \frac{120}{100} \times \frac{80}{100} = 96\). తరుగుదల శాతం \(= 100\% - 96\% = 4\%\).
+            </div>
+        </div>
+
+        <!-- Question 28 -->
+        <div class="problem-card">
+            <div class="problem-title">28. ఒక ఉద్యోగి జీతంలో 10% తగ్గించారు. అతనికి పూర్వ జీతం రావలెనన్న ఎంత శాతం పెంచాలి?</div>
+            <ul>
+                <li>A) 10%</li>
+                <li>B) \(11\frac{1}{9}\%\)</li>
+                <li>C) \(12\frac{1}{2}\%\)</li>
+                <li>D) 9%</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans28">Show Answer</button>
+            <div id="ans28" class="answer-box">
+                <strong>సమాధానం:</strong> B (\(11\frac{1}{9}\%\))<br>
+                <strong>వివరణ:</strong> తగ్గిన జీతం = 90. పెంచాల్సిన శాతం \(= \frac{10}{90} \times 100\% = 11\frac{1}{9}\%\).
+            </div>
+        </div>
+
+        <!-- Question 29 -->
+        <div class="problem-card">
+            <div class="problem-title">29. ఒక వ్యక్తి బరువు 8% తగ్గగా 65.6 kg అయినచో అతని అసలు బరువు ఎంత?</div>
+            <ul>
+                <li>A) 70 kg</li>
+                <li>B) 72 kg</li>
+                <li>C) 80 kg</li>
+                <li>D) 82 kg</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans29">Show Answer</button>
+            <div id="ans29" class="answer-box">
+                <strong>సమాధానం:</strong> D (82 kg)<br>
+                <strong>వివరణ:</strong> మిగిలిన బరువు \(= 92\% = 65.6\text{ kg}\). అసలు బరువు \(100\% = \frac{65.6}{92} \times 100 = 82\text{ kg}\).
+            </div>
+        </div>
+
+        <!-- Question 30 -->
+        <div class="problem-card">
+            <div class="problem-title">30. ఒక వస్తువు విలువ ప్రతి ఏటా 20% తగ్గును. 2 సం||ల తర్వాత దాని విలువ ₹19,200 అయిన అసలు విలువ ఎంత?</div>
+            <ul>
+                <li>A) ₹25,000</li>
+                <li>B) ₹30,000</li>
+                <li>C) ₹28,000</li>
+                <li>D) ₹32,000</li>
+            </ul>
+            <button class="btn toggle-btn" data-target="ans30">Show Answer</button>
+            <div id="ans30" class="answer-box">
+                <strong>సమాధానం:</strong> B (₹30,000)<br>
+                <strong>వివరణ:</strong> \(X \times \frac{80}{100} \times \frac{80}{100} = 19200 \implies X \times \frac{64}{100} = 19200 \implies X = 30,000\).
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var toggleBtns = document.querySelectorAll('.toggle-btn');
+
+            toggleBtns.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var targetId = this.getAttribute('data-target');
+                    var box = document.getElementById(targetId);
+
+                    if (box) {
+                        if (box.style.display === "none" || box.style.display === "") {
+                            box.style.display = "block";
+                            this.textContent = "Hide Answer";
+                        } else {
+                            box.style.display = "none";
+                            this.textContent = "Show Answer";
+                        }
+                    }
+                });
+            });
+
+            if (window.MathJax) {
+                MathJax.startup.promise.then(function () {
+                    return MathJax.typesetPromise();
+                }).catch(function (err) {
+                    console.log('MathJax Error:', err);
+                });
+            }
+        });
+    </script>
+
+   
 </div>
 
 <script>
