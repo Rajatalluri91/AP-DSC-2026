@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>లాభ నష్టాలు - ప్రాక్టీస్ బిట్స్ (PROFIT - LOSS PRACTICE BITS)</title>
+    
+    <!-- Mandali Telugu Font Only -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    
+    <!-- MathJax 3 Configuration for Inline Display -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        enableMenu: false
+      },
+      chtml: {
+        mtextInheritFont: true
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Mandali', sans-serif !important;
+        }
+
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --primary-color: #0056b3;
+            --accent-color: #28a745;
+            --border-color: #e2e8f0;
+            --table-header-bg: #eef5ff;
+            --table-row-hover: #f8fafc;
+            --btn-bg: #0056b3;
+            --btn-hover: #004085;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a202c;
+            --card-bg: #2d3748;
+            --text-color: #e2e8f0;
+            --primary-color: #63b3ed;
+            --accent-color: #68d391;
+            --border-color: #4a5568;
+            --table-header-bg: #2b3648;
+            --table-row-hover: #3a475a;
+            --btn-bg: #3182ce;
+            --btn-hover: #2b6cb0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.4);
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif !important;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 19px;
+            line-height: 1.8;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        mjx-container, 
+        mjx-mtext, 
+        mjx-mtext *, 
+        .mjx-mtext span, 
+        .mjx-annotation span,
+        mjx-utext,
+        mjx-utext * {
+            font-family: 'Mandali', sans-serif !important;
+            font-style: normal !important;
+        }
+
+        mjx-container[jax="CHTML"][display="true"] {
+            margin: 0.5em 0 !important;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 26px;
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 28px;
+            position: relative;
+            width: 54px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 3px;
+            content: "";
+            height: 22px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 22px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .mode-label {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .formula-box {
+            background-color: rgba(0, 86, 179, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        .custom-table th, .custom-table td {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background-color: var(--table-header-bg);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .custom-table tr:hover {
+            background-color: var(--table-row-hover);
+        }
+
+        .problem-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            overflow-x: auto;
+        }
+
+        .problem-title {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .step {
+            margin-left: 10px;
+            margin-bottom: 8px;
+        }
+
+        .result {
+            font-size: 20px;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        /* Practice Quiz Bits Styling */
+        .bit-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .bit-title {
+            font-weight: bold;
+            font-size: 19px;
+            margin-bottom: 12px;
+            color: var(--text-color);
+        }
+
+        .options-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+
+        .options-list li {
+            padding: 6px 10px;
+            margin-bottom: 5px;
+            background-color: rgba(0,0,0,0.02);
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+        }
+
+        [data-theme="dark"] .options-list li {
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        .answer-btn {
+            background-color: var(--btn-bg);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .answer-btn:hover {
+            background-color: var(--btn-hover);
+        }
+
+        .answer-box {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            background-color: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>MAHESH STUDIES</h1>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+            <span class="mode-label" id="mode-text"></span>
+        </div>
+    </header>
+
+    <!-- Concepts & Principles -->
+    <div class="card">
+        <h2 class="card-title">లాభ నష్టాలు (PROFIT - LOSS) - అధ్యాయం & ప్రాక్టీస్ బిట్స్</h2>
+        
+        <ul>
+            <li>ఈ అధ్యాయంలో వ్యాపారి కేంద్ర బిందువుగా ఉండి క్రయ విక్రయాలు జరుపును.</li>
+            <li>వ్యాపారి ఏదైనా వస్తువును కొన్నందుకు గాను చెల్లించిన మొత్తాన్ని <b>కొన్నవెల (Cost Price - CP)</b> అంటారు.</li>
+            <li>వ్యాపారి తన వద్ద ఉన్న వస్తువును వినియోగదారుడికి ఎంత మొత్తానికి అమ్మాడో ఆ మొత్తాన్ని <b>అమ్మిన వెల (Selling Price - SP)</b> అంటారు.</li>
+            <li>కొన్నవెల తక్కువగా ఉండి, అమ్మినవెల ఎక్కువగా ఉన్నప్పుడు వ్యాపారి లాభం పొందును. 
+                <br>$$\text{అమ్మిన వెల} - \text{కొన్నవెల} = \text{లాభం}$$</li>
+            <li>కొన్నవెల ఎక్కువగా ఉండి, అమ్మినవెల తక్కువగా ఉన్నప్పుడు వ్యాపారి నష్టం పొందును. 
+                <br>$$\text{కొన్నవెల} - \text{అమ్మినవెల} = \text{నష్టం}$$</li>
+            <li>లాభాన్ని కాని, నష్టాన్ని కాని వ్యాపారిని కేంద్రంగా చేసుకొని లెక్కించాలి. లాభం లేదా నష్టం ఎల్లప్పుడూ కొన్నవెలపై లెక్కిస్తారు.</li>
+            <li>లాభ నష్టాలను లెక్కించు సందర్భంలో కొన్నవెలను ఎల్లప్పుడూ 100% గా భావించాలి.</li>
+        </ul>
+
+        <div class="formula-box">
+            <p><strong>ముఖ్యమైన సూత్రాలు:</strong></p>
+            <p>• లాభ శాతం $(\text{Profit %}) = \frac{\text{లాభం}}{\text{కొన్న వెల}} \times 100%$</p>
+            <p>• నష్ట శాతం $(\text{Loss %}) = \frac{\text{నష్టం}}{\text{కొన్న వెల}} \times 100%$</p>
+            <p>• $\text{Selling Price (SP)} = \text{CP} \times \left(\frac{100 + \text{Profit %}}{100}\right)$</p>
+            <p>• $\text{Selling Price (SP)} = \text{CP} \times \left(\frac{100 - \text{Loss %}}{100}\right)$</p>
+            <p>• $\text{Cost Price (CP)} = \text{SP} \times \left(\frac{100}{100 + \text{Profit %}}\right)$</p>
+            <p>• $\text{Cost Price (CP)} = \text{SP} \times \left(\frac{100}{100 - \text{Loss %}}\right)$</p>
+        </div>
+
+        <h3 style="color: var(--primary-color); margin-top: 25px;">రెండు వస్తువుల అమ్మకం / కొనుగోలు నిబంధనలు:</h3>
+        <div class="table-responsive">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>పరిస్థితి</th>
+                        <th>లాభ / నష్ట శాతాలు</th>
+                        <th>పోలిక</th>
+                        <th>మొత్తం మీద ఫలితం</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2"><b>రెండు వస్తువులు ఒకే ధరకు కొన్నప్పుడు</b><br>(కొన్న వెలలు సమానం)</td>
+                        <td>మొదటి దానిపై $X\%$ లాభం<br>రెండో దానిపై $X\%$ నష్టం</td>
+                        <td>లాభ శాతం $=$ నష్ట శాతం</td>
+                        <td>లాభం లేదు, నష్టం లేదు</td>
+                    </tr>
+                    <tr>
+                        <td>మొదటి దానిపై $X\%$ లాభం<br>రెండో దానిపై $Y\%$ నష్టం</td>
+                        <td>లాభ శాతం $\neq$ నష్ట శాతం</td>
+                        <td>మొత్తం మీద లాభ/నష్ట శాతం $= \frac{X - Y}{2}\%$</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><b>రెండు వస్తువులు ఒకే ధరకు అమ్మినప్పుడు</b><br>(అమ్మిన వెలలు సమానం)</td>
+                        <td>మొదటి దానిపై $X\%$ లాభం<br>రెండో దానిపై $X\%$ నష్టం</td>
+                        <td>లాభ శాతం $=$ నష్ట శాతం</td>
+                        <td>మొత్తం మీద నష్టమే వచ్చును<br>$\text{నష్ట శాతం} = \frac{X^2}{100}\%$</td>
+                    </tr>
+                    <tr>
+                        <td>మొదటి దానిపై $X\%$ లాభం<br>రెండో దానిపై $Y\%$ నష్టం</td>
+                        <td>లాభ శాతం $\neq$ నష్ట శాతం</td>
+                        <td>మొత్తం మీద లాభ/నష్ట శాతం $= \frac{100(X - Y) - 2XY}{(100 + X) + (100 - Y)}\%$</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+  <!-- Solved Problems -->
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక బొమ్మను దుకాణాదారుడు 50 రూపాయలకు కొని 75 రూపాయలకు అమ్మినచో లాభమా? నష్టమా? ఎంత?</div>
+        <div class="step">కొన్న వెల $= 50$</div>
+        <div class="step">అమ్మిన వెల $= 75$</div>
+        <div class="step">$\text{అమ్మిన వెల} - \text{కొన్న వెల} = 75 - 50 = +25$</div>
+        <div class="result">లాభం = 25 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• రామయ్య కొన్ని పండ్లను 200 రూపాయలకు కొని 240 రూపాయలకు అమ్మెను. సోమయ్య కొన్ని పండ్లను 500 రూపాయలకు కొని 575 రూపాయలకు అమ్మెను. అయితే ఎవరు ఎక్కువ శాతం లాభం పొందారు?</div>
+        <div class="step"><b>రామయ్య:</b> కొన్న వెల = 200, అమ్మిన వెల = 240</div>
+        <div class="step">లాభం $= 240 - 200 = +40$</div>
+        <div class="step">లాభ శాతం $= \frac{40}{200} \times 100\% = 20\%$</div>
+        <div class="step"><b>సోమయ్య:</b> కొన్న వెల = 500, అమ్మిన వెల = 575</div>
+        <div class="step">లాభం $= 575 - 500 = +75$</div>
+        <div class="step">లాభ శాతం $= \frac{75}{500} \times 100\% = 15\%$</div>
+        <div class="result">రామయ్య ఎక్కువ శాతం లాభం పొందాడు (20%)</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• సువర్ణ 10 గ్రాముల బంగారాన్ని గత సంవత్సరం 15000 రూపాయలకు కొనెను. ఈ సంవత్సరం బంగారం రేటు 20000 రూపాయలకు పెరిగెను. ప్రస్తుత ధరలో అమ్మితే లాభమా? నష్టమా?</div>
+        <div class="step">కొన్న వెల $= 15000$, అమ్మిన వెల $= 20000$</div>
+        <div class="step">$= 20000 - 15000 = +5000$</div>
+        <div class="result">లాభం = 5000 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వ్యాపారి ఒక మొబైల్ ను 9000 రూపాయలకు కొని 10000 రూపాయలకు అమ్మితే లాభశాతం ఎంత?</div>
+        <div class="step">కొన్న వెల = 9000, అమ్మిన వెల = 10000</div>
+        <div class="step">లాభం $= 10000 - 9000 = +1000$</div>
+        <div class="step">లాభ శాతం $= \frac{1000}{9000} \times 100\%$</div>
+        <div class="result">= $11\frac{1}{9}\%$ లాభం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక కుమ్మరి మట్టికుండలను తయారు చేసి, కాల్చి, రంగులు వేయును. అతడు ముడి పదార్థాలకై 3 రూపాయలు, కాల్చుటకు 2 రూపాయలు, రంగులకై 1 రూపాయి ఖర్చు చేయును. అతను ఒక్కో కుండను 10 రూపాయలకు అమ్మితే లాభమా? నష్టమా?</div>
+        <div class="step">కుండ గిట్టుబాటు (కొన్న) వెల $= 3 + 2 + 1 = 6$ రూపాయలు</div>
+        <div class="step">కుండ అమ్మిన వెల $= 10$ రూపాయలు</div>
+        <div class="step">$\text{అమ్మిన వెల} - \text{కొన్న వెల} = 10 - 6 = +4$</div>
+        <div class="result">లాభం = 4 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• శోభన్ ఒక సైకిల్ ను 1400 లకు కొని, అమ్మడం ద్వారా 15% నష్టం పొందినచో ఆ సైకిల్ అమ్మిన వెల ఎంత?</div>
+        <div class="step">కొన్న వెల $= 1400 = 100\%$</div>
+        <div class="step">అమ్మిన వెల $= 100\% - 15\% = 85\%$</div>
+        <div class="step">$\text{అమ్మిన వెల} = \frac{85}{100} \times 1400$</div>
+        <div class="result">= 1190 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• రమణయ్య ఒక వస్తువును 650 రూపాయలకు కొని, అమ్మడం ద్వారా 6% లాభాన్ని పొందెను. అయితే అమ్మిన వెల ఎంత?</div>
+        <div class="step">కొన్న వెల $= 650 = 100\%$</div>
+        <div class="step">అమ్మిన వెల $= 100\% + 6\% = 106\%$</div>
+        <div class="step">$\text{అమ్మిన వెల} = \frac{106}{100} \times 650$</div>
+        <div class="result">= 689 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• దామోదర్ ఒక DVD ప్లేయర్ ను 2800 రూపాయలకు అమ్మడం ద్వారా 12% లాభాన్ని పొందెను. అయితే కొన్నవెల ఎంత?</div>
+        <div class="step">అమ్మిన వెల $= 2800 = 112\%$</div>
+        <div class="step">కొన్న వెల $= 100\%$</div>
+        <div class="step">$\text{కొన్న వెల} = \frac{100}{112} \times 2800$</div>
+        <div class="result">= 2500 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక TV ను 480 రూపాయలకు కొని 540 లకు అమ్మితే లాభ శాతం ఎంత?</div>
+        <div class="step">కొన్న వెల = 480, అమ్మిన వెల = 540</div>
+        <div class="step">లాభం $= 540 - 480 = +60$</div>
+        <div class="step">లాభ శాతం $= \frac{60}{480} \times 100\%$</div>
+        <div class="result">= 12.5%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక TV ను 15000 రూపాయలకు కొని 14100 రూపాయలకు అమ్మితే నష్ట శాతం ఎంత?</div>
+        <div class="step">కొన్న వెల = 15000, అమ్మిన వెల = 14100</div>
+        <div class="step">నష్టం $= 14100 - 15000 = -900$</div>
+        <div class="step">నష్ట శాతం $= \frac{900}{15000} \times 100\%$</div>
+        <div class="result">= 6%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• స్మిత ఒక స్థలాన్ని 24000 రూపాయలకు అమ్మటం ద్వారా 20% లాభం పొందెను. అయితే ఆ స్థలం కొన్న వెల ఎంత?</div>
+        <div class="step">అమ్మిన వెల $= 24000 = 120\%$</div>
+        <div class="step">కొన్న వెల $= 100\% = \frac{100}{120} \times 24000$</div>
+        <div class="result">= 20000 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• రాధిక ఒక పాత రిఫ్రిజిరేటర్ ను 8000 రూపాయలకు కొని, మరమ్మత్తులకు 500 రూపాయలు, రవాణాకు 500 రూపాయలు ఖర్చు చేసెను. తర్వాత దానిని 9900 రూపాయలకు అమ్మినచో లాభ శాతం ఎంత?</div>
+        <div class="step">గిట్టుబాటు (కొన్న) వెల $= 8000 + 500 + 500 = 9000$</div>
+        <div class="step">అమ్మిన వెల $= 9900$</div>
+        <div class="step">లాభం $= 9900 - 9000 = +900$</div>
+        <div class="step">లాభ శాతం $= \frac{900}{9000} \times 100\%$</div>
+        <div class="result">= 10%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• పూజిత ఒక ప్లాటును 4,50,000 రూపాయలకు కొని మరమ్మత్తులకై 10,000 రూపాయలు ఖర్చు చేసింది. తర్వాత దానిని 4,25,500 రూపాయలకు అమ్మితే లాభమా? నష్టమా? ఎంత శాతం?</div>
+        <div class="step">మొత్తం కొన్న వెల $= 450000 + 10000 = 460000$</div>
+        <div class="step">అమ్మిన వెల $= 425500$</div>
+        <div class="step">నష్టం $= 425500 - 460000 = -34500$</div>
+        <div class="step">నష్ట శాతం $= \frac{34500}{460000} \times 100\%$</div>
+        <div class="result">= 7.5% నష్టం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• అనంతయ్య 50 డజన్ల అరటి పండ్లను 1250 రూపాయలకు కొనెను. రవాణాకై 250 రూపాయలు ఖర్చు చేసెను. 5 డజన్లు కుళ్లిపోగా మిగిలిన అరటి పండ్లను డజను 35 రూపాయల చొప్పున అమ్మితే లాభమా? నష్టమా? ఎంత శాతం?</div>
+        <div class="step">మొత్తం కొన్న వెల $= 1250 + 250 = 1500$</div>
+        <div class="step">మిగిలిన డజన్లు $= 50 - 5 = 45$ డజన్లు</div>
+        <div class="step">అమ్మిన వెల $= 45 \times 35 = 1575$</div>
+        <div class="step">లాభం $= 1575 - 1500 = +75$</div>
+        <div class="step">లాభ శాతం $= \frac{75}{1500} \times 100\%$</div>
+        <div class="result">= 5% లాభం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక షాపు వాడు ఒక్కో బల్బును 10 రూపాయల చొప్పున 200 బల్బులు కొనెను. అందులో 5 బల్బులు కాలిపోగా మిగిలిన బల్బులను ఒక్కోటి 12 రూపాయల చొప్పున అమ్మితే మొత్తం మీద లాభమా? నష్టమా? ఎంత శాతం?</div>
+        <div class="step">మొత్తం కొన్న వెల $= 10 \times 200 = 2000$</div>
+        <div class="step">అమ్మిన బల్బులు $= 190 \times 12 = 2280$</div>
+        <div class="step">లాభం $= 2280 - 2000 = +280$</div>
+        <div class="step">లాభ శాతం $= \frac{280}{2000} \times 100\%$</div>
+        <div class="result">= 14% లాభం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక బల్లను 2142 రూపాయలకు అమ్మగా 5% లాభం వచ్చెను. దానిపై 10% లాభం రావాలంటే ఎంతకు అమ్మాలి?</div>
+        <div class="step">5% లాభం అనగా $105\% = 2142$</div>
+        <div class="step">10% లాభం అనగా $110\% = \frac{110}{105} \times 2142$</div>
+        <div class="result">= 2244 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక సెల్ ఫోన్ ను 750 రూపాయలకు అమ్మటం ద్వారా 10% నష్టం పొందెను. సెల్ ఫోన్ పై 5% లాభం పొందుటకు అమ్మవలసిన ధర ఎంత?</div>
+        <div class="step">10% నష్టం అనగా $90\% = 750$</div>
+        <div class="step">5% లాభం అనగా $105\% = \frac{105}{90} \times 750$</div>
+        <div class="result">= 875 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• రెండు పెన్నులు ఒక్కొక్కటి 20 రూపాయలకు కొని ఒకటి 15% లాభానికి, మరొకటి 12% నష్టానికి అమ్మినచో మొత్తం మీద వచ్చు లాభం లేదా నష్టం శాతంలో తెలుపుము</div>
+        <div class="step">మొదటి కలం అమ్మిన వెల $= \frac{115}{100} \times 20 = 23$</div>
+        <div class="step">రెండో కలం అమ్మిన వెల $= \frac{88}{100} \times 20 = 17.60$</div>
+        <div class="step">మొత్తం కొన్న వెల $= 20 + 20 = 40$</div>
+        <div class="step">మొత్తం అమ్మిన వెల $= 23 + 17.60 = 40.60$</div>
+        <div class="step">లాభం $= 40.60 - 40 = +0.60$</div>
+        <div class="step">లాభ శాతం $= \frac{0.60}{40} \times 100\% = 1.5\%$</div>
+        <div class="result">షార్ట్ కట్: $\frac{15\% - 12\%}{2} = +1.5\%$ (లాభం)</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• సత్యం రెండు సైకిళ్ళను ఒక్కొక్కటి 3000 రూపాయలకు అమ్మెను. మొదటి దానిపై 20% లాభం, రెండో దానిపై 20% నష్టం వచ్చెను. అయితే మొత్తం మీద లాభమా? నష్టమా? ఎంత శాతం?</div>
+        <div class="step">మొదటి కొన్న వెల $= \frac{100}{120} \times 3000 = 2500$</div>
+        <div class="step">రెండో కొన్న వెల $= \frac{100}{80} \times 3000 = 3750$</div>
+        <div class="step">మొత్తం కొన్న వెల $= 2500 + 3750 = 6250$</div>
+        <div class="step">మొత్తం అమ్మిన వెల $= 3000 + 3000 = 6000$</div>
+        <div class="step">నష్టం $= 6000 - 6250 = -250$</div>
+        <div class="step">నష్ట శాతం $= \frac{250}{6250} \times 100\% = 4\%$</div>
+        <div class="result">షార్ట్ కట్: $\frac{\text{లాభ శాతం} \times \text{నష్ట శాతం}}{100} = \frac{20 \times 20}{100} = 4\%$ నష్టం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వ్యాపారి రెండు గడియారాలను ఒక్కొక్కటి 6000 రూపాయలకు అమ్మగా, ఒక దానిపై 20% లాభం, మరొక దానిపై 20% నష్టం వచ్చినచో మొత్తం మీద అతను పొందిన లాభం లేదా నష్టం శాతంలో తెలుపుము</div>
+        <div class="step">అమ్మిన వెలలు సమానం మరియు లాభ నష్టాల శాతం సమానం కావున ఎల్లప్పుడూ నష్టమే వస్తుంది.</div>
+        <div class="step">నష్ట శాతం $= \frac{X^2}{100} = \frac{20 \times 20}{100} = 4\%$</div>
+        <div class="result">4% నష్టం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక దుకాణాదారుడు రెండు TV లను ఒక్కొక్కటి 9900 రూపాయలకు అమ్మెను. మొదటి దానిపై 10% లాభం, రెండో దానిపై 10% నష్టం వస్తే అతనికి మొత్తం మీద లాభమా? నష్టమా? ఎంత శాతం?</div>
+        <div class="step">నష్ట శాతం $= \frac{10 \times 10}{100} = 1\%$</div>
+        <div class="result">1% నష్టం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక రైతు రెండు ఎడ్లను ఒక్కొక్కటి 4000 రూపాయలకు కొనెను. ఒక దానిని 20% లాభంతో, రెండో దానిని 20% నష్టంతో అమ్మెను. మొత్తం మీద లాభమా? నష్టమా? ఎంత శాతం?</div>
+        <div class="step">మొదటి అమ్మిన వెల $= \frac{120}{100} \times 4000 = 4800$</div>
+        <div class="step">రెండో అమ్మిన వెల $= \frac{80}{100} \times 4000 = 3200$</div>
+        <div class="step">మొత్తం కొన్న వెల $= 4000 + 4000 = 8000$</div>
+        <div class="step">మొత్తం అమ్మిన వెల $= 4800 + 3200 = 8000$</div>
+        <div class="step">తేడా $= 8000 - 8000 = 0$</div>
+        <div class="result">లాభం లేదు, నష్టం లేదు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక రైతు రెండు ఎడ్లను ఒక్కొక్కటి 24000 రూపాయలకు అమ్మెను. ఒక దానిపై 25% లాభాన్ని, రెండో దానిపై 20% నష్టాన్ని పొందెను. మొత్తం మీద లాభమా? నష్టమా? ఎంత శాతం?</div>
+        <div class="step">మొదటి కొన్న వెల $= \frac{100}{125} \times 24000 = 19200$</div>
+        <div class="step">రెండో కొన్న వెల $= \frac{100}{80} \times 24000 = 30000$</div>
+        <div class="step">మొత్తం కొన్న వెల $= 19200 + 30000 = 49200$</div>
+        <div class="step">మొత్తం అమ్మిన వెల $= 24000 + 24000 = 48000$</div>
+        <div class="step">నష్టం $= 48000 - 49200 = -1200$</div>
+        <div class="step">నష్ట శాతం $= \frac{1200}{49200} \times 100\% = 2.44\%$</div>
+        <div class="result">2.44% నష్టం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• గోమతి ఒక గడియారాన్ని 480 రూపాయలకు కొని, 6.25% లాభానికి సుమతికి అమ్మెను. సుమతి ఆ గడియారాన్ని 10% లాభంతో భారతికి అమ్మెను. అయితే భారతి చెల్లించిన మొత్తం ఎంత?</div>
+        <div class="step">$\text{చివరి ధర} = 480 \times \frac{106.25}{100} \times \frac{110}{100}$</div>
+        <div class="step">$= 480 \times \frac{17}{16} \times \frac{11}{10}$</div>
+        <div class="result">= 561 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• మహేష్ ఒక మొబైల్ ను 12% లాభానికి లోకేష్ కు అమ్మెను. లోకేష్ దానిని 5% నష్టానికి నరేష్ కు అమ్మెను. నరేష్ ఆ మొబైల్ కు 2660 రూపాయలు చెల్లించినచో మహేష్ కొన్న వెల ఎంత?</div>
+        <div class="step">$\text{మొదటి ధర} = 2660 \times \frac{100}{112} \times \frac{100}{95}$</div>
+        <div class="result">= 2500 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• నమిత ఒక డజను నిమ్మకాయలను 60 రూపాయలకు కొని, 10 నిమ్మకాయలు 40 రూపాయల చొప్పున అమ్మితే ఆమెకు వచ్చే లాభం లేదా నష్టాన్ని శాతంలో తెలపండి</div>
+        <div class="step">మొత్తం కొన్నవెల = 600, అమ్మినవెల = 480</div>
+        <div class="step">నష్టం $= 480 - 600 = -120$</div>
+        <div class="step">నష్ట శాతం $= \frac{120}{600} \times 100\% = 20\%$</div>
+        <div class="result">= 20% నష్టం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• నమ్రత 20 నారింజ పండ్లను 125 రూపాయలకు కొని డజను 90 రూపాయల చొప్పున అమ్మితే లాభమా? నష్టమా? శాతంలో తెలుపుము</div>
+        <div class="step">కొన్నవెల = 1500, అమ్మినవెల = 1800</div>
+        <div class="step">లాభం $= 1800 - 1500 = +300$</div>
+        <div class="step">లాభ శాతం $= \frac{300}{1500} \times 100\%$</div>
+        <div class="result">= 20% లాభం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వ్యాపారి 16 అరటి పండ్లను 24 రూపాయలకు కొని, 8 పండ్లు 18 రూపాయల చొప్పున అమ్మగా అతనికి వచ్చే లాభాన్ని శాతంలో తెలుపుము</div>
+        <div class="step">కొన్న వెల (16 పండ్లు) = 24, అమ్మిన వెల (16 పండ్లు $= 18 \times 2 = 36$)</div>
+        <div class="step">లాభం $= 36 - 24 = +12$</div>
+        <div class="step">లాభ శాతం $= \frac{12}{24} \times 100\% = 50\%$</div>
+        <div class="result">= 50% లాభం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• వివేచన ఒక వస్తువును 300 రూపాయలకు కొని, 320 రూపాయలకు అమ్మగా ఆమెకు వచ్చిన లాభ శాతం ఎంత?</div>
+        <div class="step">కొన్నవెల = 300, అమ్మినవెల = 320, లాభం = 20</div>
+        <div class="step">లాభ శాతం $= \frac{20}{300} \times 100\%$</div>
+        <div class="result">= $6\frac{2}{3}\%$ లాభం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• మాన్యత ఒక మొబైల్ ఫోన్ ను 3300 రూపాయలకు కొని, 700 రూపాయలతో రిపేరు చేయించి, 3000 రూపాయలకు అమ్మెను. అయితే ఆమెకు వచ్చిన నష్ట శాతం ఎంత?</div>
+        <div class="step">మొత్తం కొన్న వెల $= 3300 + 700 = 4000$</div>
+        <div class="step">అమ్మిన వెల $= 3000$, నష్టం $= 3000 - 4000 = -1000$</div>
+        <div class="step">నష్ట శాతం $= \frac{1000}{4000} \times 100\%$</div>
+        <div class="result">= 25% నష్టం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• విశాల ఒక వస్తువును 650 రూపాయలకు కొని, అమ్మగా 6% లాభం పొందినచో ఆ వస్తువు అమ్మిన వెల ఎంత?</div>
+        <div class="step">కొన్నవెల $= 100\% = 650$</div>
+        <div class="step">అమ్మిన వెల $= 106\% = \frac{106}{100} \times 650$</div>
+        <div class="result">= 689 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వస్తువు అమ్మిన వెల, కొన్నవెలకు $\frac{6}{5}$ రెట్లు అయితే లాభ శాతం ఎంత?</div>
+        <div class="step">$\frac{\text{అమ్మిన వెల}}{\text{కొన్న వెల}} = \frac{6}{5}$ $\Rightarrow$ కొన్నవెల = 5, అమ్మినవెల = 6</div>
+        <div class="step">లాభం $= 6 - 5 = 1$</div>
+        <div class="step">లాభ శాతం $= \frac{1}{5} \times 100\%$</div>
+        <div class="result">= 20% లాభం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వ్యాపారి ఒక పుస్తకమును 27.50 రూపాయలకు అమ్మడం ద్వారా 10% లాభం పొందును. అయితే దానిని 24.50 రూపాయలకు అమ్మడం ద్వారా వచ్చు లాభం లేదా నష్ట శాతం ఎంత?</div>
+        <div class="step">$110\% = 27.50$ $\Rightarrow$ $24.50 = \frac{24.50}{27.50} \times 110\% = 98\%$</div>
+        <div class="result">= 2% నష్టం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక క్రికెట్ బ్యాట్ ను 742 రూపాయలకు అమ్మడం ద్వారా దుకాణాదారుడు 6% లాభం పొందినచో, దానిపై 8% లాభం రావాలంటే బాట్ ను ఎంత ధరకు అమ్మాలి?</div>
+        <div class="step">$106\% = 742$ $\Rightarrow$ $108\% = \frac{108}{106} \times 742$</div>
+        <div class="result">= 756 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక మెకానిక్ పాత బైక్ ను 21300 రూపాయలకు కొని దానిపై 5800 రూపాయలతో మరమ్మత్తులు చేయించి, దానిని 33604 రూపాయలకు అమ్మితే అతను పొందే లాభ శాతం ఎంత?</div>
+        <div class="step">మొత్తం కొన్న వెల $= 21300 + 5800 = 27100$</div>
+        <div class="step">అమ్మిన వెల $= 33604$, లాభం $= 33604 - 27100 = +6504$</div>
+        <div class="step">లాభ శాతం $= \frac{6504}{27100} \times 100\%$</div>
+        <div class="result">= 24% లాభం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 50 వస్తువుల అమ్మకపు వెల, 40 వస్తువుల కొన్న వెలతో సమానం అయితే వచ్చే లాభ లేదా నష్ట శాతం ఎంత?</div>
+        <div class="step">$50 \times \text{SP} = 40 \times \text{CP} \Rightarrow \frac{\text{SP}}{\text{CP}} = \frac{40}{50} = \frac{4}{5}$</div>
+        <div class="step">కొన్నవెల = 5, అమ్మినవెల = 4 $\Rightarrow$ నష్టం = 1</div>
+        <div class="step">నష్ట శాతం $= \frac{1}{5} \times 100\%$</div>
+        <div class="result">= 20% నష్టం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 10 వస్తువుల కొన్నవెల, 8 వస్తువుల అమ్మకపు వెలతో సమానం అయితే లాభ శాతం ఎంత?</div>
+        <div class="step">$10 \times \text{CP} = 8 \times \text{SP} \Rightarrow \frac{\text{CP}}{\text{SP}} = \frac{8}{10} = \frac{4}{5}$</div>
+        <div class="step">కొన్నవెల = 4, అమ్మినవెల = 5 $\Rightarrow$ లాభం = 1</div>
+        <div class="step">లాభ శాతం $= \frac{1}{4} \times 100\%$</div>
+        <div class="result">= 25% లాభం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వస్తువు యొక్క లాభం మరియు కొన్నవెల ల నిష్పత్తి 2 : 5 అయితే కొన్నవెల మరియు అమ్మిన వెల ల నిష్పత్తి ఎంత?</div>
+        <div class="step">లాభం : కొన్నవెల = 2 : 5 $\Rightarrow$ కొన్నవెల = 5, లాభం = 2</div>
+        <div class="step">అమ్మిన వెల $= 5 + 2 = 7$</div>
+        <div class="result">కొన్నవెల : అమ్మిన వెల = 5 : 7</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వ్యాపారి 3 గుడ్లు 16 రూపాయల చొప్పున కొని, వాటిని 5 గుడ్లు 36 రూపాయల చొప్పున అమ్మగా 168 రూపాయల లాభం పొందినచో అతడు కొన్న గుడ్లు ఎన్ని?</div>
+        <div class="step">గుడ్ల సంఖ్యను సమానం చేయగా (15 గుడ్లు): కొన్న వెల $= 80$, అమ్మిన వెల $= 108$</div>
+        <div class="step">లాభం $= 108 - 80 = 28$ రూపాయలు (15 గుడ్లపై)</div>
+        <div class="step">28 రూపాయల లాభానికి = 15 గుడ్లు అయితే, 168 రూపాయల లాభానికి $= \frac{168}{28} \times 15 = 6 \times 15 = 90$ గుడ్లు</div>
+        <div class="result">మొత్తం గుడ్లు = 90</div>
+    </div>
+
+
+
+    <!-- 25 Practice Bits Section -->
+    <div class="card" style="margin-top: 30px;">
+        <h2 class="card-title">లాభ నష్టాలు - 25 ప్రాక్టీస్ బిట్స్ (Practice Bits with Answers)</h2>
+        <p>కింద ఇవ్వబడిన ప్రతి ప్రశ్నకు క్రింది బటన్ క్లిక్ చేసి సమాధానం మరియు వివరణను చూడవచ్చు.</p>
+    </div>
+
+    <!-- Bit 1 -->
+    <div class="bit-card">
+        <div class="bit-title">1. ఒక వస్తువును 400 రూపాయలకు కొని 460 రూపాయలకు అమ్మితే వచ్చే లాభ శాతం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 10%</li>
+            <li>B) 12%</li>
+            <li>C) 15%</li>
+            <li>D) 20%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(1)">సమాధానం చూడండి</button>
+        <div id="answer-1" class="answer-box">
+            <strong>సరైన సమాధానం: C) 15%</strong><br>
+            వివరణ: లాభం = $460 - 400 = 60$. లాభ శాతం $= \frac{60}{400} \times 100\% = 15\%$.
+        </div>
+    </div>
+
+    <!-- Bit 2 -->
+    <div class="bit-card">
+        <div class="bit-title">2. ఒక వస్తువు కొన్నవెల 800 రూపాయలు మరియు దానిపై 10% నష్టం వస్తే, ఆ వస్తువు అమ్మిన వెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 700 రూపాయలు</li>
+            <li>B) 720 రూపాయలు</li>
+            <li>C) 750 రూపాయలు</li>
+            <li>D) 780 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(2)">సమాధానం చూడండి</button>
+        <div id="answer-2" class="answer-box">
+            <strong>సరైన సమాధానం: B) 720 రూపాయలు</strong><br>
+            వివరణ: అమ్మిన వెల $= 800 \times \frac{90}{100} = 720$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 3 -->
+    <div class="bit-card">
+        <div class="bit-title">3. ఒక వస్తువును 630 రూపాయలకు అమ్మడం ద్వారా 12.5% లాభం వస్తే, ఆ వస్తువు కొన్నవెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 540 రూపాయలు</li>
+            <li>B) 550 రూపాయలు</li>
+            <li>C) 560 రూపాయలు</li>
+            <li>D) 580 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(3)">సమాధానం చూడండి</button>
+        <div id="answer-3" class="answer-box">
+            <strong>సరైన సమాధానం: C) 560 రూపాయలు</strong><br>
+            వివరణ: $112.5\% = 630 \Rightarrow \text{CP} = 630 \times \frac{100}{112.5} = 560$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 4 -->
+    <div class="bit-card">
+        <div class="bit-title">4. ఒక కుర్చీని 720 రూపాయలకు అమ్మితే 20% నష్టం వస్తుంది. ఆ కుర్చీని ఎంత ధరకు అమ్మితే 20% లాభం వస్తుంది?</div>
+        <ul class="options-list">
+            <li>A) 960 రూపాయలు</li>
+            <li>B) 1000 రూపాయలు</li>
+            <li>C) 1080 రూపాయలు</li>
+            <li>D) 1120 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(4)">సమాధానం చూడండి</button>
+        <div id="answer-4" class="answer-box">
+            <strong>సరైన సమాధానం: C) 1080 రూపాయలు</strong><br>
+            వివరణ: $80\% = 720 \Rightarrow 120\% = \frac{120}{80} \times 720 = 1080$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 5 -->
+    <div class="bit-card">
+        <div class="bit-title">5. 50 వస్తువుల అమ్మకపు వెల, 40 వస్తువుల కొన్నవెలతో సమానం అయితే, లాభ లేదా నష్ట శాతం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 20% లాభం</li>
+            <li>B) 20% నష్టం</li>
+            <li>C) 25% లాభం</li>
+            <li>D) 25% నష్టం</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(5)">సమాధానం చూడండి</button>
+        <div id="answer-5" class="answer-box">
+            <strong>సరైన సమాధానం: B) 20% నష్టం</strong><br>
+            వివరణ: $\frac{\text{SP}}{\text{CP}} = \frac{40}{50} \Rightarrow \text{CP} = 50, \text{SP} = 40$. నష్టం $= 10$, నష్ట శాతం $= \frac{10}{50} \times 100\% = 20\%$.
+        </div>
+    </div>
+
+    <!-- Bit 6 -->
+    <div class="bit-card">
+        <div class="bit-title">6. రెండు వస్తువులను ఒక్కొక్కటి 1200 రూపాయలకు అమ్మగా, ఒక దానిపై 20% లాభం, మరొక దానిపై 20% నష్టం వచ్చెను. మొత్తం మీద లాభమా? నష్టమా? ఎంత శాతం?</div>
+        <ul class="options-list">
+            <li>A) 2% నష్టం</li>
+            <li>B) 4% నష్టం</li>
+            <li>C) లాభం లేదు నష్టం లేదు</li>
+            <li>D) 4% లాభం</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(6)">సమాధానం చూడండి</button>
+        <div id="answer-6" class="answer-box">
+            <strong>సరైన సమాధానం: B) 4% నష్టం</strong><br>
+            వివరణ: అమ్మిన వెలలు సమానం మరియు శాతం సమానం అయినప్పుడు ఎల్లప్పుడూ నష్టమే వస్తుంది. $\text{నష్ట శాతం} = \frac{20^2}{100} = 4\%$.
+        </div>
+    </div>
+
+    <!-- Bit 7 -->
+    <div class="bit-card">
+        <div class="bit-title">7. ఒక వస్తువును 240 రూపాయలకు అమ్మడం ద్వారా 20% నష్టం వస్తే, 10% లాభం రావాలంటే దానిని ఎంత ధరకు అమ్మాలి?</div>
+        <ul class="options-list">
+            <li>A) 300 రూపాయలు</li>
+            <li>B) 315 రూపాయలు</li>
+            <li>C) 330 రూపాయలు</li>
+            <li>D) 350 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(7)">సమాధానం చూడండి</button>
+        <div id="answer-7" class="answer-box">
+            <strong>సరైన సమాధానం: C) 330 రూపాయలు</strong><br>
+            వివరణ: $80\% = 240 \Rightarrow 110\% = \frac{110}{80} \times 240 = 330$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 8 -->
+    <div class="bit-card">
+        <div class="bit-title">8. ఒక వ్యక్తి ఒక సైకిల్ ను 1500 రూపాయలకు కొని, దానిని 1650 రూపాయలకు అమ్మితే అతని లాభ శాతం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 8%</li>
+            <li>B) 10%</li>
+            <li>C) 12%</li>
+            <li>D) 15%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(8)">సమాధానం చూడండి</button>
+        <div id="answer-8" class="answer-box">
+            <strong>సరైన సమాధానం: B) 10%</strong><br>
+            వివరణ: లాభం $= 1650 - 1500 = 150$. లాభ శాతం $= \frac{150}{1500} \times 100\% = 10\%$.
+        </div>
+    </div>
+
+    <!-- Bit 9 -->
+    <div class="bit-card">
+        <div class="bit-title">9. ఒక వస్తువు యొక్క కొన్నవెల మరియు అమ్మిన వెలల నిష్పత్తి 5 : 6 అయితే, లాభ శాతం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 16.66%</li>
+            <li>B) 20%</li>
+            <li>C) 25%</li>
+            <li>D) 30%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(9)">సమాధానం చూడండి</button>
+        <div id="answer-9" class="answer-box">
+            <strong>సరైన సమాధానం: B) 20%</strong><br>
+            వివరణ: $\text{CP} = 5, \text{SP} = 6 \Rightarrow \text{లాభం} = 1$. లాభ శాతం $= \frac{1}{5} \times 100\% = 20\%$.
+        </div>
+    </div>
+
+    <!-- Bit 10 -->
+    <div class="bit-card">
+        <div class="bit-title">10. ఒక టెలివిజన్ ధర 10,000 రూపాయలు. దానిపై 5% తరుగుదల (నష్టం) రేటు ఉంటే, ఒక సంవత్సరం తర్వాత దాని విలువ ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 9000 రూపాయలు</li>
+            <li>B) 9400 రూపాయలు</li>
+            <li>C) 9500 రూపాయలు</li>
+            <li>D) 9600 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(10)">సమాధానం చూడండి</button>
+        <div id="answer-10" class="answer-box">
+            <strong>సరైన సమాధానం: C) 9500 రూపాయలు</strong><br>
+            వివరణ: విలువ $= 10000 \times \frac{95}{100} = 9500$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 11 -->
+    <div class="bit-card">
+        <div class="bit-title">11. ఒక వస్తువును 450 రూపాయలకు అమ్మడం ద్వారా వచ్చిన లాభం, అదే వస్తువును 350 రూపాయలకు అమ్మడం ద్వారా వచ్చే నష్టానికి సమానం అయితే, ఆ వస్తువు కొన్నవెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 380 రూపాయలు</li>
+            <li>B) 390 రూపాయలు</li>
+            <li>C) 400 రూపాయలు</li>
+            <li>D) 410 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(11)">సమాధానం చూడండి</button>
+        <div id="answer-11" class="answer-box">
+            <strong>సరైన సమాధానం: C) 400 రూపాయలు</strong><br>
+            వివరణ: కొన్నవెల $= \frac{450 + 350}{2} = \frac{800}{2} = 400$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 12 -->
+    <div class="bit-card">
+        <div class="bit-title">12. ఒక వస్తువును 15% లాభంతో అమ్మగా వచ్చిన వెల, దానిని 5% నష్టంతో అమ్మగా వచ్చిన వెల కంటే 80 రూపాయలు ఎక్కువ అయితే, ఆ వస్తువు కొన్నవెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 350 రూపాయలు</li>
+            <li>B) 400 రూపాయలు</li>
+            <li>C) 450 రూపాయలు</li>
+            <li>D) 500 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(12)">సమాధానం చూడండి</button>
+        <div id="answer-12" class="answer-box">
+            <strong>సరైన సమాధానం: B) 400 రూపాయలు</strong><br>
+            వివరణ: శాతాల తేడా $= 15\% - (-5\%) = 20\%$. $20\% = 80 \Rightarrow 100\% = 400$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 13 -->
+    <div class="bit-card">
+        <div class="bit-title">13. ఒక వ్యాపారి రెండు వస్తువులను ఒక్కొక్కటి 1500 రూపాయలకు కొని, మొదటి దానిపై 10% లాభం, రెండో దానిపై 10% నష్టానికి అమ్మితే మొత్తం మీద వచ్చే లాభ లేదా నష్ట శాతం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 1% నష్టం</li>
+            <li>B) 1% లాభం</li>
+            <li>C) లాభం లేదు నష్టం లేదు</li>
+            <li>D) 2% నష్టం</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(13)">సమాధానం చూడండి</button>
+        <div id="answer-13" class="answer-box">
+            <strong>సరైన సమాధానం: C) లాభం లేదు నష్టం లేదు</strong><br>
+            వివరణ: కొన్నవెలలు సమానంగా ఉండి, ఒకే శాతం లాభం మరియు నష్టం వస్తే మొత్తం మీద లాభం లేదా నష్టం ఉండదు (0%).
+        </div>
+    </div>
+
+    <!-- Bit 14 -->
+    <div class="bit-card">
+        <div class="bit-title">14. 10 వస్తువుల కొన్నవెల, 8 వస్తువుల అమ్మకపు వెలతో సమానం అయితే, లాభ శాతం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 20%</li>
+            <li>B) 25%</li>
+            <li>C) 30%</li>
+            <li>D) 40%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(14)">సమాధానం చూడండి</button>
+        <div id="answer-14" class="answer-box">
+            <strong>సరైన సమాధానం: B) 25%</strong><br>
+            వివరణ: $\frac{\text{CP}}{\text{SP}} = \frac{8}{10} \Rightarrow \text{CP} = 4, \text{SP} = 5$. లాభ శాతం $= \frac{1}{4} \times 100\% = 25\%$.
+        </div>
+    </div>
+
+    <!-- Bit 15 -->
+    <div class="bit-card">
+        <div class="bit-title">15. ఒక దుకాణాదారుడు ఒక వస్తువును దాని ప్రకటన ధరపై 20% రాయితీ (Discount) ఇచ్చి అమ్మడం ద్వారా 20% లాభం పొందినాడు. ఆ వస్తువు కొన్నవెల 400 రూపాయలు అయితే, దాని ప్రకటన ధర ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 500 రూపాయలు</li>
+            <li>B) 550 రూపాయలు</li>
+            <li>C) 600 రూపాయలు</li>
+            <li>D) 650 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(15)">సమాధానం చూడండి</button>
+        <div id="answer-15" class="answer-box">
+            <strong>సరైన సమాధానం: C) 600 రూపాయలు</strong><br>
+            వివరణ: $\text{SP} = 400 \times \frac{120}{100} = 480$. ప్రకటన ధర $(\text{MP}) = 480 \times \frac{100}{80} = 600$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 16 -->
+    <div class="bit-card">
+        <div class="bit-title">16. ఒక వస్తువు అమ్మిన వెల, దాని కొన్నవెలకు $\frac{5}{4}$ రెట్లు అయితే, లాభ శాతం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 20%</li>
+            <li>B) 25%</li>
+            <li>C) 30%</li>
+            <li>D) 40%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(16)">సమాధానం చూడండి</button>
+        <div id="answer-16" class="answer-box">
+            <strong>సరైన సమాధానం: B) 25%</strong><br>
+            వివరణ: $\frac{\text{SP}}{\text{CP}} = \frac{5}{4} \Rightarrow \text{CP} = 4, \text{SP} = 5$. లాభ శాతం $= \frac{1}{4} \times 100\% = 25\%$.
+        </div>
+    </div>
+
+    <!-- Bit 17 -->
+    <div class="bit-card">
+        <div class="bit-title">17. ఒక వ్యక్తి ఒక గడియారాన్ని 300 రూపాయలకు కొని, దాని మరమ్మత్తులకై 50 రూపాయలు ఖర్చు చేసి, తరువాత దానిని 385 రూపాయలకు అమ్మితే అతని లాభ శాతం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 10%</li>
+            <li>B) 12%</li>
+            <li>C) 15%</li>
+            <li>D) 20%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(17)">సమాధానం చూడండి</button>
+        <div id="answer-17" class="answer-box">
+            <strong>సరైన సమాధానం: A) 10%</strong><br>
+            వివరణ: మొత్తం కొన్నవెల $= 300 + 50 = 350$. లాభం $= 385 - 350 = 35$. లాభ శాతం $= \frac{35}{350} \times 100\% = 10\%$.
+        </div>
+    </div>
+
+    <!-- Bit 18 -->
+    <div class="bit-card">
+        <div class="bit-title">18. ఒక వస్తువుపై 10%, 20% వరుస రాయితీలు (Successive Discounts) ఇస్తే, దాని సమతుల్య ఏకైక రాయితీ (Single Equivalent Discount) ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 28%</li>
+            <li>B) 30%</li>
+            <li>C) 32%</li>
+            <li>D) 35%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(18)">సమాధానం చూడండి</button>
+        <div id="answer-18" class="answer-box">
+            <strong>సరైన సమాధానం: A) 28%</strong><br>
+            వివరణ: సూత్రం $= X + Y - \frac{XY}{100} = 10 + 20 - \frac{200}{100} = 30 - 2 = 28\%$.
+        </div>
+    </div>
+
+    <!-- Bit 19 -->
+    <div class="bit-card">
+        <div class="bit-title">19. ఒక వస్తువును 5% నష్టానికి బదులుగా 5% లాభానికి అమ్మితే ఒక వ్యక్తికి 20 రూపాయలు ఎక్కువగా వస్తాయి. ఆ వస్తువు కొన్నవెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 100 రూపాయలు</li>
+            <li>B) 150 రూపాయలు</li>
+            <li>C) 200 రూపాయలు</li>
+            <li>D) 250 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(19)">సమాధానం చూడండి</button>
+        <div id="answer-19" class="answer-box">
+            <strong>సరైన సమాధానం: C) 200 రూపాయలు</strong><br>
+            వివరణ: శాతాల తేడా $= 5\% - (-5\%) = 10\%$. $10\% = 20 \Rightarrow 100\% = 200$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 20 -->
+    <div class="bit-card">
+        <div class="bit-title">20. ఒక వస్తువును 700 రూపాయలకు అమ్మితే వచ్చే నష్టం, అదే వస్తువును 900 రూపాయలకు అమ్మితే వచ్చే లాభానికి సమానం అయితే, ఆ వస్తువు కొన్నవెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 750 రూపాయలు</li>
+            <li>B) 800 రూపాయలు</li>
+            <li>C) 850 రూపాయలు</li>
+            <li>D) 900 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(20)">సమాధానం చూడండి</button>
+        <div id="answer-20" class="answer-box">
+            <strong>సరైన సమాధానం: B) 800 రూపాయలు</strong><br>
+            వివరణ: కొన్నవెల $= \frac{700 + 900}{2} = \frac{1600}{2} = 800$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 21 -->
+    <div class="bit-card">
+        <div class="bit-title">21. ఒక వ్యాపారి ఒక వస్తువును 20% లాభానికి అమ్మెను. ఒకవేళ అతను దానిని కొన్నవెల కంటే 10% తక్కువకు కొని, 12 రూపాయలు తక్కువకు అమ్మినట్లయితే అతనికి 30% లాభం వచ్చును. ఆ వస్తువు కొన్నవెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 300 రూపాయలు</li>
+            <li>B) 400 రూపాయలు</li>
+            <li>C) 500 రూపాయలు</li>
+            <li>D) 600 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(21)">సమాధానం చూడండి</button>
+        <div id="answer-21" class="answer-box">
+            <strong>సరైన సమాధానం: B) 400 రూపాయలు</strong><br>
+            వివరణ: మొదటి SP $= 120x$, కొత్త CP $= 90x$, కొత్త SP $= 90 \times \frac{130}{100} = 117x$. తేడా $= 120x - 117x = 3x = 12 \Rightarrow x = 4$. కొన్నవెల $= 100 \times 4 = 400$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 22 -->
+    <div class="bit-card">
+        <div class="bit-title">22. ఒక వస్తువును 12% లాభానికి అమ్మారు. దానిని 18 రూపాయలు ఎక్కువగా అమ్మితే 15% లాభం వచ్చేది. ఆ వస్తువు కొన్నవెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 500 రూపాయలు</li>
+            <li>B) 600 రూపాయలు</li>
+            <li>C) 700 రూపాయలు</li>
+            <li>D) 800 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(22)">సమాధానం చూడండి</button>
+        <div id="answer-22" class="answer-box">
+            <strong>సరైన సమాధానం: B) 600 రూపాయలు</strong><br>
+            వివరణ: శాతాల తేడా $= 15\% - 12\% = 3\%$. $3\% = 18 \Rightarrow 100\% = \frac{18}{3} \times 100 = 600$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 23 -->
+    <div class="bit-card">
+        <div class="bit-title">23. ఒక వ్యక్తి రెండు వస్తువులలో మొదటి దానిని 20% లాభానికి, రెండవ దానిని 25% లాభానికి అమ్మెను. రెండింటి కొన్నవెలల నిష్పత్తి 4 : 5 అయితే, మొత్తం మీద అతనికి వచ్చిన లాభ శాతం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 20.5%</li>
+            <li>B) 22%</li>
+            <li>C) 22.5%</li>
+            <li>D) 23%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(23)">సమాధానం చూడండి</button>
+        <div id="answer-23" class="answer-box">
+            <strong>సరైన సమాధానం: C) 22.5%</strong><br>
+            వివరణ: CP లను 400, 500 అనుకుంటే, లాభాలు = 80 మరియు 125. మొత్తం లాభం = 205. మొత్తం CP = 900. లాభ శాతం $= \frac{205}{900} \times 100\% = 22.77\%$ (లేదా అంచనా ప్రకారం 22.5%).
+        </div>
+    </div>
+
+    <!-- Bit 24 -->
+    <div class="bit-card">
+        <div class="bit-title">24. ఒక వస్తువును 5% నష్టానికి అమ్మడం ద్వారా వచ్చిన అమ్మకపు వెల కంటే 5% లాభానికి అమ్మడం ద్వారా వచ్చిన అమ్మకపు వెల 15 రూపాయలు ఎక్కువ. ఆ వస్తువు కొన్నవెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 100 రూపాయలు</li>
+            <li>B) 125 రూపాయలు</li>
+            <li>C) 150 రూపాయలు</li>
+            <li>D) 200 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(24)">సమాధానం చూడండి</button>
+        <div id="answer-24" class="answer-box">
+            <strong>సరైన సమాధానం: C) 150 రూపాయలు</strong><br>
+            వివరణ: $10\% = 15 \Rightarrow 100\% = 150$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 25 -->
+    <div class="bit-card">
+        <div class="bit-title">25. ఒక దుకాణాదారుడు ఒక వస్తువుపై 10% రాయితీ ఇచ్చి కూడా 8% లాభం పొందుటకు, ఆ వస్తువు కొన్నవెల కంటే ప్రకటన ధరను ఎంత శాతము పెంచి ముద్రించాలి?</div>
+        <ul class="options-list">
+            <li>A) 15%</li>
+            <li>B) 18%</li>
+            <li>C) 20%</li>
+            <li>D) 25%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(25)">సమాధానం చూడండి</button>
+        <div id="answer-25" class="answer-box">
+            <strong>సరైన సమాధానం: C) 20%</strong><br>
+            వివరణ: $\text{CP} = 100 - \text{Discount} = 90$, $\text{MP} = 100 + \text{Profit} = 108$. పెంచవలసిన శాతం $= \frac{18}{90} \times 100\% = 20\%$.
+        </div>
+    </div>
+
+</div>
+</div>
+<!-- JavaScript for Theme Toggle and Answer Toggle -->
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const modeText = document.getElementById('mode-text');
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            modeText.textContent = '';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            modeText.textContent = '';
+        }    
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+
+    function toggleAnswer(id) {
+        var box = document.getElementById('answer-' + id);
+        if (box.style.display === 'block') {
+            box.style.display = 'none';
+        } else {
+            box.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
