@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>చక్ర వడ్డీ (COMPOUND INTEREST) - పూర్తి అధ్యాయం</title>
+    
+    <!-- Mandali Telugu Font Only -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    
+    <!-- MathJax 3 Configuration for Inline Display -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        enableMenu: false
+      },
+      chtml: {
+        mtextInheritFont: true
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Mandali', sans-serif !important;
+        }
+
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --primary-color: #0056b3;
+            --accent-color: #28a745;
+            --border-color: #e2e8f0;
+            --table-header-bg: #eef5ff;
+            --table-row-hover: #f8fafc;
+            --btn-bg: #0056b3;
+            --btn-hover: #004085;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a202c;
+            --card-bg: #2d3748;
+            --text-color: #e2e8f0;
+            --primary-color: #63b3ed;
+            --accent-color: #68d391;
+            --border-color: #4a5568;
+            --table-header-bg: #2b3648;
+            --table-row-hover: #3a475a;
+            --btn-bg: #3182ce;
+            --btn-hover: #2b6cb0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.4);
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif !important;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 19px;
+            line-height: 1.8;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        mjx-container, 
+        mjx-mtext, 
+        mjx-mtext *, 
+        .mjx-mtext span, 
+        .mjx-annotation span,
+        mjx-utext,
+        mjx-utext * {
+            font-family: 'Mandali', sans-serif !important;
+            font-style: normal !important;
+        }
+
+        mjx-container[jax="CHTML"][display="true"] {
+            margin: 0.5em 0 !important;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 26px;
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 28px;
+            position: relative;
+            width: 54px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 3px;
+            content: "";
+            height: 22px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 22px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .mode-label {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .formula-box {
+            background-color: rgba(0, 86, 179, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        .custom-table th, .custom-table td {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background-color: var(--table-header-bg);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .custom-table tr:hover {
+            background-color: var(--table-row-hover);
+        }
+
+        .problem-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            overflow-x: auto;
+        }
+
+        .problem-title {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .step {
+            margin-left: 10px;
+            margin-bottom: 8px;
+        }
+
+        .result {
+            font-size: 20px;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .bit-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .bit-title {
+            font-weight: bold;
+            font-size: 19px;
+            margin-bottom: 12px;
+            color: var(--text-color);
+        }
+
+        .options-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+
+        .options-list li {
+            padding: 6px 10px;
+            margin-bottom: 5px;
+            background-color: rgba(0,0,0,0.02);
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+        }
+
+        [data-theme="dark"] .options-list li {
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        .answer-btn {
+            background-color: var(--btn-bg);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .answer-btn:hover {
+            background-color: var(--btn-hover);
+        }
+
+        .answer-box {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            background-color: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>చక్ర వడ్డీ (COMPOUND INTEREST)</h1>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+            <span class="mode-label" id="mode-text"></span>
+        </div>
+    </header>
+
+    <!-- Concepts & Principles -->
+    <div class="card">
+        <h2 class="card-title">సిద్ధాంతం & సూత్రాలు</h2>
+        
+        <ul>
+            <li>అప్పుగా ఇచ్చిన సొమ్ముపై నిర్ణీత కాలానికి వచ్చే వడ్డీని లెక్కించి, ఆ తర్వాత వడ్డీని అసలుకి కలిపి ఆ మొత్తంపై తిరిగి తర్వాతి కాలంలో వడ్డీ లెక్కించు విధానాన్ని <b>చక్ర వడ్డీ</b> అంటారు.</li>
+            <li>చక్ర వడ్డీ అనగా <b>వడ్డీ పై వడ్డీ</b>.</li>
+            <li>బారు వడ్డీ ప్రతీ సంవత్సరం ఒకేలా ఉంటుంది, కానీ చక్ర వడ్డీ కాలంతో పాటు పెరుగుతూ ఉంటుంది.</li>
+            <li>అప్పు తీసుకొన్న మొదటి సంవత్సరం బారు వడ్డీ, చక్ర వడ్డీలు ఒకేలా ఉంటాయి.</li>
+            <li>కాలం 1 సంవత్సరం ఐనప్పుడు చక్రవడ్డీ, సాధారణ వడ్డీ సమానం ($C.I = S.I$). కాలం ఒక సంవత్సరం కంటే ఎక్కువైనప్పుడు చక్రవడ్డీ బారువడ్డీ కంటే ఎక్కువగా ఉంటుంది ($C.I > S.I$).</li>
+        </ul>
+
+        <div class="formula-box">
+            <p><strong>ముఖ్యమైన సూత్రాలు:</strong></p>
+            <p>• చక్ర వడ్డీ ప్రకారం మొత్తం $(A) = P\left(1 + \frac{R}{100}\right)^n$</p>
+            <p>• చక్రవడ్డీ $(C.I) = P\left(1 + \frac{R}{100}\right)^n - P$</p>
+            <p>• ఇక్కడ: $P = \text{అసలు}$, $R = \text{వడ్డీ రేటు}$, $n / N = \text{సంవత్సరాల సంఖ్య}$, $A = \text{మొత్తం}$, $C.I = \text{చక్ర వడ్డీ}$</p>
+        </div>
+
+        <!-- Conversion Table for Time Periods -->
+        <h3 style="color: var(--primary-color); margin-top: 25px;">వివిధ కాల వ్యవధులకు చక్ర వడ్డీ లెక్క కట్టే పద్ధతి:</h3>
+        <div class="table-responsive">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>కాల వ్యవధి</th>
+                        <th>1 సంవత్సరం</th>
+                        <th>6 నెలలు (అర్థ సంవత్సరం)</th>
+                        <th>3 నెలలు (త్రైమాసికం)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>సంవత్సరంలో ఉండే కాల వ్యవధుల సంఖ్య</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>వడ్డీ లెక్కించే కాల వ్యవధి</td>
+                        <td>సంవత్సరానికి ఒకసారి</td>
+                        <td>6 నెలలకు ఒకసారి</td>
+                        <td>3 నెలలకు ఒకసారి</td>
+                    </tr>
+                    <tr>
+                        <td><strong>వడ్డీ రేటు (Ex: 10%)</strong></td>
+                        <td>10% (1 పర్యాయం)</td>
+                        <td>5% (2 పర్యాయాలు)</td>
+                        <td>2.5% (4 పర్యాయాలు)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>వడ్డీ రేటు (Ex: 20%)</strong></td>
+                        <td>20% (1 పర్యాయం)</td>
+                        <td>10% (2 పర్యాయాలు)</td>
+                        <td>5% (4 పర్యాయాలు)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>వడ్డీ రేటు (Ex: 30%)</strong></td>
+                        <td>30% (1 పర్యాయం)</td>
+                        <td>15% (2 పర్యాయాలు)</td>
+                        <td>7.5% (4 పర్యాయాలు)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>వడ్డీ రేటు (Ex: 40%)</strong></td>
+                        <td>40% (1 పర్యాయం)</td>
+                        <td>20% (2 పర్యాయాలు)</td>
+                        <td>10% (4 పర్యాయాలు)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Difference Formulas -->
+        <div class="formula-box" style="margin-top: 20px;">
+            <p><strong>చక్రవడ్డీ మరియు బారువడ్డీల తేడా (Difference - D):</strong></p>
+            <p>• 1 సంవత్సరానికి, తేడా $(D) = 0$</p>
+            <p>• 2 సంవత్సరాలకు, తేడా $(D) = \frac{PR^2}{100^2}$</p>
+            <p>• 3 సంవత్సరాలకు, తేడా $(D) = \frac{PR^2(300 + R)}{100^3}$</p>
+        </div>
+    </div>
+
+    <!-- Solved Problems Section -->
+    <div class="card">
+        <h2 class="card-title">ఉదాహరణ లెక్కలు (Solved Problems)</h2>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 5000 రూపాయలను సంవత్సరానికి 8% వడ్డీ రేటున 2 సంవత్సరాలు బ్యాంకులో పొదుపు చేసినచో వచ్చే చక్ర వడ్డీ ఎంత? మొత్తం ఎంత?</div>
+        <div class="step">$P = 5000$, $R = 8\%$, $N = 2$</div>
+        <div class="step">మొత్తం $(A) = 5000 \times \frac{108}{100} \times \frac{108}{100} = 5832$</div>
+        <div class="step">చక్రవడ్డీ $= \text{మొత్తం} - \text{అసలు} = 5832 - 5000 = 832$</div>
+        <div class="result">మొత్తం = 5832 రూ, చక్రవడ్డీ = 832 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 12600 రూపాయలను సంవత్సరానికి 10% వడ్డీ రేటున 2 సంవత్సరాలకు వడ్డీ సంవత్సరానికి ఒకసారి లెక్క కట్టగా వచ్చే చక్ర వడ్డీ ఎంత? మొత్తం ఎంత?</div>
+        <div class="step">$P = 12600$, $R = 10\%$, $N = 2$</div>
+        <div class="step">మొత్తం $(A) = 12600 \times \frac{110}{100} \times \frac{110}{100} = 15246$</div>
+        <div class="step">చక్రవడ్డీ $= 15246 - 12600 = 2646$</div>
+        <div class="result">మొత్తం = 15246 రూ, చక్రవడ్డీ = 2646 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 8000 రూపాయలపై 5% వడ్డీ రేటు చొప్పున ప్రతీ సంవత్సరానికొకసారి వడ్డీ కడితే 2 సంవత్సరాలకు అయ్యే చక్ర వడ్డీ మొత్తం ఎంత?</div>
+        <div class="step">$P = 8000$, $R = 5\%$, $N = 2$</div>
+        <div class="step">మొత్తం $(A) = 8000 \times \frac{105}{100} \times \frac{105}{100} = 8820$</div>
+        <div class="step">చక్రవడ్డీ $= 8820 - 8000 = 820$</div>
+        <div class="result">మొత్తం = 8820 రూ, చక్రవడ్డీ = 820 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 6400 లకు సంవత్సరానికి $7\frac{1}{2}\%$ వడ్డీరేటు చొప్పున 2 సంవత్సరాలకు అయ్యే చక్రవడ్డీ ఎంత?</div>
+        <div class="step">$P = 6400$, $R = 7.5\%$, $N = 2$</div>
+        <div class="step">మొత్తం $(A) = 6400 \times \frac{107.5}{100} \times \frac{107.5}{100} = 7396$</div>
+        <div class="step">చక్రవడ్డీ $= 7396 - 6400 = 996$</div>
+        <div class="result">చక్రవడ్డీ = 996 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 20000 రూపాయలను సంవత్సరానికి 5% వడ్డీ రేటున 6 సంవత్సరాలకు వడ్డీ సంవత్సరానికి ఒకసారి లెక్క కట్టగా వచ్చే చక్ర వడ్డీ ఎంత? మొత్తం ఎంత?</div>
+        <div class="step">$P = 20000$, $R = 5\%$, $N = 6$</div>
+        <div class="step">మొత్తం $(A) = 20000 \times (1.05)^6 = 26801.91$</div>
+        <div class="step">చక్రవడ్డీ $= 26801.91 - 20000 = 6801.91$</div>
+        <div class="result">మొత్తం = 26801.91 రూ, చక్రవడ్డీ = 6801.91 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 1000 రూపాయలపై సంవత్సరానికి వడ్డీ రేటు 10% చొప్పున అర్ధ సంవత్సరానికి ఒకసారి చక్రవడ్డీ లెక్క కట్టగా ఒక సంవత్సరంలో వచ్చే చక్ర వడ్డీ ఎంత?</div>
+        <div class="step">$P = 1000$, అర్ధ సంవత్సరానికి రేటు $R = 5\%$, కాల వ్యవధులు $N = 2$</div>
+        <div class="step">మొత్తం $(A) = 1000 \times \frac{105}{100} \times \frac{105}{100} = 1102.50$</div>
+        <div class="step">చక్రవడ్డీ $= 1102.50 - 1000 = 102.50$</div>
+        <div class="result">చక్రవడ్డీ = 102.50 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 62500 లకు $1\frac{1}{2}$ సంవత్సరానికి 8% చక్రవడ్డీ చొప్పున 6 నెలలకు ఒకసారి వడ్డీ లెక్కించే పద్ధతిలో అయ్యే వడ్డీ ఎంత?</div>
+        <div class="step">$P = 62500$, అర్ధ సంవత్సరానికి రేటు $R = 4\%$, కాల వ్యవధులు $N = 3$</div>
+        <div class="step">మొత్తం $(A) = 62500 \times \left(\frac{104}{100}\right)^3 = 70304$</div>
+        <div class="step">చక్రవడ్డీ $= 70304 - 62500 = 7804$</div>
+        <div class="result">చక్రవడ్డీ = 7804 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 15625 సొమ్ముపై 6 నెలలకొకసారి వడ్డీ లెక్కించే పద్ధతిలో 8% వడ్డీ రేటున $1\frac{1}{2}$ సంవత్సరాలకు అయ్యే చక్రవడ్డీ ఎంత?</div>
+        <div class="step">$P = 15625$, అర్ధ సంవత్సరానికి రేటు $R = 4\%$, కాల వ్యవధులు $N = 3$</div>
+        <div class="step">మొత్తం $(A) = 15625 \times (1.04)^3 = 17576$</div>
+        <div class="step">చక్రవడ్డీ $= 17576 - 15625 = 1951$</div>
+        <div class="result">చక్రవడ్డీ = 1951 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• కొంత మొత్తమును 4% వడ్డీ రేటు చొప్పున ప్రతీ 6 నెలలకు చక్ర వడ్డీ లెక్క కట్టుచూ రెండు సంవత్సరాలకు అప్పు తెచ్చెను. అయితే కాల వ్యవధులు ఎన్ని? వడ్డీ రేటు ఎంత?</div>
+        <div class="step">వడ్డీ రేటు సంవత్సరానికి 4% కావున ఆరు నెలలకు $R = 2\%$</div>
+        <div class="step">2 సంవత్సరాల కాలంలో ఉండే 6 నెలల సంఖ్య (కాల వ్యవధులు) $= 4$</div>
+        <div class="result">కాల వ్యవధులు = 4, వడ్డీ రేటు = 2% (ప్రతి 6 నెలలకు)</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 1000 రూపాయలను 10% వడ్డీ రేటు చొప్పున త్రైమాసికంగా తిరిగి వడ్డీ కట్టు పద్ధతిన 1 సంవత్సర కాలానికి అయ్యే చక్ర వడ్డీని కనుగొనుము</div>
+        <div class="step">$P = 1000$, త్రైమాసికానికి రేటు $R = 2.5\%$, కాల వ్యవధులు $N = 4$</div>
+        <div class="step">మొత్తం $(A) = 1000 \times (1.025)^4 = 1103.81$</div>
+        <div class="step">చక్రవడ్డీ $= 1103.81 - 1000 = 103.81$</div>
+        <div class="result">చక్రవడ్డీ $\approx 103$ రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 31250 లు 8% చక్రవడ్డీ చొప్పున 2 సంవత్సరాల 9 నెలలకు అయ్యే వడ్డీ ఎంత?</div>
+        <div class="step">$P = 31250$, సంవత్సరానికి $R = 8\%$, 9 నెలలకు రేటు $= 8\% \times \frac{9}{12} = 6\%$</div>
+        <div class="step">మొత్తం $(A) = 31250 \times \frac{108}{100} \times \frac{108}{100} \times \frac{106}{100} = 38637$</div>
+        <div class="step">చక్రవడ్డీ $= 38637 - 31250 = 7387$</div>
+        <div class="result">చక్రవడ్డీ = 7387 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• రమణయ్య తన అవసరాల నిమిత్తం 5120 రూపాయలను $12\frac{1}{2}\%$ వడ్డీతో సంవత్సరానికి ఒకసారి వడ్డీ లెక్క కట్టు చొప్పున అప్పు తెచ్చెను. 2 సంవత్సరాల 9 నెలల తర్వాత అప్పు తీర్చుటకు ఎంత సొమ్ము చెల్లించవలెను? చక్రవడ్డీ ఎంత?</div>
+        <div class="step">$P = 5120$, సంవత్సరానికి $R = 12.5\%$, 9 నెలలకు $R = 12.5\% \times \frac{9}{12} = 9.375\%$</div>
+        <div class="step">మొత్తం $(A) = 5120 \times \frac{112.5}{100} \times \frac{112.5}{100} \times \frac{109.375}{100} = 7087.50$</div>
+        <div class="step">చక్రవడ్డీ $= 7087.50 - 5120 = 1967.50$</div>
+        <div class="result">చెల్లించవలసిన మొత్తం = 7087.50 రూ, చక్రవడ్డీ = 1967.50 రూ</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 10000 రూపాయలను $8\frac{1}{2}\%$ చొప్పున సంవత్సరానికి ఒకసారి వడ్డీ తిరిగి లెక్క కట్టు పద్ధతిలో పొదుపు చేసినచో 1 సంవత్సరం 3 నెలల కాలంలో వచ్చే చక్రవడ్డీ ఎంత?</div>
+        <div class="step">$P = 10000$, సంవత్సరానికి $R = 8.5\%$, 3 నెలలకు $R = 8.5\% \times \frac{3}{12} = 2.125\%$</div>
+        <div class="step">మొత్తం $(A) = 10000 \times \frac{108.5}{100} \times \frac{102.125}{100} = 11080.56$</div>
+        <div class="step">చక్రవడ్డీ $= 11080.56 - 10000 = 1080.56$</div>
+        <div class="result">చక్రవడ్డీ = 1080.56 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• స్కూటర్ కొనే నిమిత్తం సనైట బ్యాంక్ నుండి 26400 రూపాయలను 15% వడ్డీ రేటు చొప్పున సంవత్సరానికి ఒకసారి వడ్డీ కట్టు పద్ధతిలో చక్రవడ్డీ అప్పు తెచ్చింది. 2 సంవత్సరాల 4 నెలల తర్వాత అప్పు మొత్తం తీర్చాలంటే ఆమె చెల్లించవలసిన మొత్తం ఎంత?</div>
+        <div class="step">$P = 26400$, సంవత్సరానికి $R = 15\%$, 4 నెలలకు $R = 15\% \times \frac{4}{12} = 5\%$</div>
+        <div class="step">మొత్తం $(A) = 26400 \times \frac{115}{100} \times \frac{115}{100} \times \frac{105}{100} = 36659.70$</div>
+        <div class="result">చెల్లించవలసిన మొత్తం = 36659.70 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• కొంత మొత్తం 8% వడ్డీ రేటు చొప్పున ప్రతీ 6 నెలలకు చక్రవడ్డీ లెక్కించు పద్దతిన $1\frac{1}{2}$ సంవత్సరాలకు అప్పు తెచ్చినచో, కాల వ్యవధులు ఎన్ని? వడ్డీ రేటు ఎంత?</div>
+        <div class="step">వడ్డీ రేటు సంవత్సరానికి 8% కావున ఆరు నెలలకు $R = 4\%$</div>
+        <div class="step">$1\frac{1}{2}$ సంవత్సరాల కాలంలో ఉండే 6 నెలల సంఖ్య (కాల వ్యవధులు) $= 3$</div>
+        <div class="result">కాల వ్యవధులు = 3, వడ్డీ రేటు = 4% (ప్రతి 6 నెలలకు)</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 12000 రూపాయలను 10% సంవత్సర వడ్డీ రేటు చొప్పున 6 నెలలకొకసారి చక్ర వడ్డీ తిరిగి లెక్క కట్టే పద్ధతిలో అప్పు తెచ్చినచో $1\frac{1}{2}$ సంవత్సరాలలో చెల్లించాల్సిన మొత్తం ఎంత?</div>
+        <div class="step">$P = 12000$, ఆరు నెలలకు రేటు $R = 5\%$, కాల వ్యవధులు $N = 3$</div>
+        <div class="step">మొత్తం $(A) = 12000 \times (1.05)^3 = 13891.50$</div>
+        <div class="result">చెల్లించాల్సిన మొత్తం = 13891.50 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 6500 రూపాయలపై మొదటి సంవత్సరం 5% వడ్డీ రేటు చొప్పున, రెండో సంవత్సరం 6% వడ్డీ రేటు చొప్పున ప్రతీ సంవత్సరం వడ్డీ తిరగ కట్టే విధానంలో 2 సంవత్సరాలకు అయ్యే చక్ర వడ్డీని, మొత్తాన్ని కనుగొనుము</div>
+        <div class="step">$P = 6500$, $R_1 = 5\%$, $R_2 = 6\%$</div>
+        <div class="step">మొత్తం $(A) = 6500 \times \frac{105}{100} \times \frac{106}{100} = 7234.50$</div>
+        <div class="step">చక్రవడ్డీ $= 7234.50 - 6500 = 734.50$</div>
+        <div class="result">మొత్తం = 7234.50 రూ, చక్రవడ్డీ = 734.50 రూ</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• కొంత సొమ్ముపై 2 సంవత్సరాలకు 4% వడ్డీరేటున అయ్యే చక్రవడ్డీ 510 అయితే అదే కాలానికి అయ్యే సాధారణ వడ్డీ ఎంత?</div>
+        <div class="step">చక్రవడ్డీ $C.I = 510$, $T = 2$, $R = 4\%$</div>
+        <div class="step">సూత్రం ద్వారా అసలు $P = 6250$ అని వస్తుంది</div>
+        <div class="step">సాధారణ వడ్డీ $S.I = \frac{6250 \times 2 \times 4}{100} = 500$</div>
+        <div class="result">సాధారణ వడ్డీ = 500 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 16000 రూపాయలపై మొదటి సంవత్సరం 6% చొప్పున, రెండో సంవత్సరం 8% చొప్పున ప్రతీ సంవత్సరం వడ్డీ తిరగకట్టిన 2 సంవత్సరాలకు అయ్యే చక్ర వడ్డీతో అగు మొత్తం ఎంత?</div>
+        <div class="step">$P = 16000$, $R_1 = 6\%$, $R_2 = 8\%$</div>
+        <div class="step">మొత్తం $(A) = 16000 \times \frac{106}{100} \times \frac{108}{100} = 18316.80$</div>
+        <div class="step">చక్రవడ్డీ $= 18316.80 - 16000 = 2316.80$</div>
+        <div class="result">మొత్తం = 18316.80 రూ, చక్రవడ్డీ = 2316.80 రూ</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 50000 సొమ్ముపై మొదటి సంవత్సరానికి 8% మరియు రెండో సంవత్సరానికి 9% చక్రవడ్డీ రేటు చొప్పున 2 సంవత్సరాల తర్వాత అయ్యే మొత్తం ఎంత?</div>
+        <div class="step">$P = 50000$, $R_1 = 8\%$, $R_2 = 9\%$</div>
+        <div class="step">మొత్తం $(A) = 50000 \times \frac{108}{100} \times \frac{109}{100} = 5 \times 108 \times 109 = 58860$</div>
+        <div class="result">మొత్తం = 58860 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• కొంత మొత్తంపై 2 సంవత్సరాలకు 15% వడ్డీ రేటు చొప్పున చక్రవడ్డీ మరియు బారువడ్డీల తేడా 180 అయితే మొత్తం ఎంత?</div>
+        <div class="step">తేడా $D = 180$, $R = 15\%$</div>
+        <div class="step">$D = \frac{PR^2}{100^2} \Rightarrow 180 = \frac{P \times 15^2}{100^2} \Rightarrow P = 8000$</div>
+        <div class="result">అసలు ($P$) = 8000 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• కొంత సొమ్ముపై 10% వడ్డీరేటు చొప్పున 2 సంవత్సరాలకి అయ్యే చక్ర వడ్డీ, సాధారణ వడ్డీల తేడా 556 అయితే ఆ సొమ్ము ఎంత?</div>
+        <div class="step">తేడా $D = 556$, $R = 10\%$</div>
+        <div class="step">$556 = \frac{P \times 10^2}{100^2} \Rightarrow P = 55600$</div>
+        <div class="result">అసలు ($P$) = 55600 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 2,000 లపై 2 సంవత్సరాలకు 8% వడ్డీరేటు చొప్పున అయ్యే చక్రవడ్డీ మరియు బారువడ్డీల మధ్య తేడా ఎంత?</div>
+        <div class="step">$P = 2000$, $R = 8\%$</div>
+        <div class="step">తేడా $D = \frac{2000 \times 8^2}{100^2} = \frac{2000 \times 64}{10000} = 12.80$</div>
+        <div class="result">తేడా = 12.80 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 20,000 లపై 2 సంవత్సరాలకు 10% వడ్డీరేటు చొప్పున అయ్యే చక్రవడ్డీ మరియు బారువడ్డీల మధ్య తేడా ఎంత?</div>
+        <div class="step">$P = 20000$, $R = 10\%$</div>
+        <div class="step">తేడా $D = \frac{20000 \times 10^2}{100^2} = 200$</div>
+        <div class="result">తేడా = 200 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• భాను యూనియన్ బ్యాంకు నుండి 80000 రూపాయలను 10% వడ్డీ రేటు చొప్పున అప్పు తీసుకొనెను. A) $1\frac{1}{2}$ సంవత్సరాల తర్వాత చెల్లించే మొత్తం ఎంత? B) 6 నెలలకొకసారి వడ్డీ తిరగ కట్టే విధానంలో $1\frac{1}{2}$ సంవత్సరాల తర్వాత చెల్లించే మొత్తం ఎంత? C) రెండింటి బేధం ఎంత?</div>
+        <div class="step">$P = 80000$, సంవత్సరానికి $R = 10\%$</div>
+        <div class="step">A) వార్షిక పద్ధతిలో మొత్తం $= 80000 \times \frac{110}{100} \times \frac{105}{100} = 92400$</div>
+        <div class="step">B) అర్ధ సంవత్సర పద్ధతిలో ($R = 5\%$, $N = 3$): మొత్తం $= 80000 \times (1.05)^3 = 92610$</div>
+        <div class="step">C) భేదం $= 92610 - 92400 = 210$</div>
+        <div class="result">A) 92400 రూ, B) 92610 రూ, C) భేదం = 210 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• కీర్తి ఒక వడ్డీ వ్యాపారి నుండి 12000 రూపాయలను 6% వడ్డీ రేటు చొప్పున సాధారణ వడ్డీకి 2 సంవత్సరాల కాలానికి అప్పుగా తీసుకొన్నది. కిరణ్ అంతే మొత్తాన్ని, అదే కాలానికి అదే వ్యాపారి నుండి 6% వడ్డీ రేటు చొప్పున సంవత్సరానికి ఒకసారి వడ్డీ కట్టే విధానంలో చక్ర వడ్డీకి అప్పుగా తీసుకొన్నాడు. అయితే ఇరువురి మధ్య బేధం ఎంత?</div>
+        <div class="step">కీర్తి (సాధారణ వడ్డీ $I$) $= \frac{12000 \times 2 \times 6}{100} = 1440$</div>
+        <div class="step">కిరణ్ (చక్రవడ్డీ మొత్తం $A$) $= 12000 \times \left(\frac{106}{100}\right)^2 = 13483.20 \Rightarrow C.I = 1483.20$</div>
+        <div class="step">ఇరువురి మధ్య బేధం $= 1483.20 - 1440 = 43.20$</div>
+        <div class="result">వడ్డీల బేధం = 43.20 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• భారతి 12500 రూపాయలను 12% వడ్డీ రేటు చొప్పున 3 సంవత్సరాల కాలానికి సాధారణ వడ్డీకి అప్పు తీసుకొన్నది. హారతి అదే మొత్తాన్ని అదే కాలానికి 10% వడ్డీ చొప్పున సంవత్సరానికి ఒకసారి వడ్డీ కట్టు విధానంలో చక్ర వడ్డీ అప్పు తెచ్చింది. ఆ ఇద్దరిలో ఎవరు ఎక్కువ వడ్డీని చెల్లిస్తారు? ఎంత ఎక్కువ వడ్డీని చెల్లిస్తారు?</div>
+        <div class="step">భారతి సాధారణ వడ్డీ $= \frac{12500 \times 3 \times 12}{100} = 4500$</div>
+        <div class="step">హారతి చక్రవడ్డీ మొత్తం $= 12500 \times (1.1)^3 = 16637.50 \Rightarrow C.I = 16637.50 - 12500 = 4137.50$</div>
+        <div class="step">భేదం $= 4500 - 4137.50 = 362.50$</div>
+        <div class="result">భారతి రూ. 362.50 ఎక్కువగా చెల్లిస్తుంది</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఇందుమతి తన ఇంటి మరమ్మత్తుల కొరకు ఇండియన్ బ్యాంకు నుండి 15000 రూపాయలు అప్పుగా తీసుకొన్నది. ఆమె సంవత్సరానికి 9% వడ్డీ రేటు చొప్పున 8 సంవత్సరాల కాలానికి అప్పు తీసుకోన్నచో ఆమె ప్రతి నెల ఎంత మొత్తం (EMI) చెల్లించాలి?</div>
+        <div class="step">$P = 15000$, $R = 9\%$, $N = 8$ సంవత్సరాలు</div>
+        <div class="step">మొత్తం $(A) = 15000 \times (1.09)^8 = 29888$</div>
+        <div class="step">మొత్తం నెలలు $= 8 \times 12 = 96$ నెలలు</div>
+        <div class="step">$\text{EMI} = \frac{\text{మొత్తం}}{\text{నెలలు}} = \frac{29888}{96} = 311.33$</div>
+        <div class="result">ప్రతి నెల చెల్లించవలసిన మొత్తం (EMI) = 311 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఫాతిమా ఒక ఫైనాన్సు సంస్థ నుండి కారును కొనడానికి 47000 రూపాయలను 17% వడ్డీ రేటుతో 5 సంవత్సరాలకు సాధారణ వడ్డీకి అప్పు తీసుకొన్నది. అయితే ఆమె ఆ సంస్థకు ఎంత మొత్తం చెల్లించాలి? ఆ మొత్తాన్ని సమాన వాయిదాలలో చెల్లించాలంటే ఆమె ప్రతి నేలా ఎంత మొత్తం (EMI) చెల్లించాలి?</div>
+        <div class="step">$P = 47000$, $T = 5$, $R = 17\%$</div>
+        <div class="step">సాధారణ వడ్డీ $I = \frac{47000 \times 5 \times 17}{100} = 39950$</div>
+        <div class="step">మొత్తం $= 47000 + 39950 = 86950$</div>
+        <div class="step">$\text{EMI} = \frac{86950}{60\text{ months}} = 1449.16$</div>
+        <div class="result">చెల్లించవలసిన మొత్తం = 86950 రూ, EMI = 1449.16 రూపాయలు</div>
+    </div>
+
+    <!-- 25 Practice Bits Section -->
+    <div class="card" style="margin-top: 30px;">
+        <h2 class="card-title">చక్ర వడ్డీ - 25 ప్రాక్టీస్ బిట్స్ (Practice Bits)</h2>
+        <p>కింద ఇవ్వబడిన ప్రతి ప్రశ్నకు క్రింది బటన్ క్లిక్ చేసి సమాధానం మరియు వివరణను చూడవచ్చు.</p>
+    </div>
+
+    <!-- Bit 1 -->
+    <div class="bit-card">
+        <div class="bit-title">1. చక్ర వడ్డీ అనగా ఏమిటి?</div>
+        <ul class="options-list">
+            <li>A) అసలుపై మాత్రమే వచ్చే వడ్డీ</li>
+            <li>B) వడ్డీ పై వడ్డీ</li>
+            <li>C) సమాన వడ్డీ</li>
+            <li>D) ఏదీ కాదు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(1)">సమాధానం చూడండి</button>
+        <div id="answer-1" class="answer-box">
+            <strong>సరైన సమాధానం: B) వడ్డీ పై వడ్డీ</strong><br>
+            వివరణ: చక్ర వడ్డీ విధానంలో గడచిన కాలపు వడ్డీని అసలుకు కలిపి దానిపై మళ్లీ వడ్డీ లెక్కకడతారు.
+        </div>
+    </div>
+
+    <!-- Bit 2 -->
+    <div class="bit-card">
+        <div class="bit-title">2. 1000 రూపాయలపై సంవత్సరానికి 10% వడ్డీ రేటు చొప్పున 2 సంవత్సరాలకు అయ్యే చక్ర వడ్డీ ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 200 రూపాయలు</li>
+            <li>B) 210 రూపాయలు</li>
+            <li>C) 220 రూపాయలు</li>
+            <li>D) 250 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(2)">సమాధానం చూడండి</button>
+        <div id="answer-2" class="answer-box">
+            <strong>సరైన సమాధానం: B) 210 రూపాయలు</strong><br>
+            వివరణ: $A = 1000 \times \frac{110}{100} \times \frac{110}{100} = 1210$. చక్రవడ్డీ $= 1210 - 1000 = 210$ రూ.
+        </div>
+    </div>
+
+    <!-- Bit 3 -->
+    <div class="bit-card">
+        <div class="bit-title">3. అప్పు తీసుకొన్న ఏ సంవత్సరంలో బారు వడ్డీ మరియు చక్ర వడ్డీలు సమానంగా ఉంటాయి?</div>
+        <ul class="options-list">
+            <li>A) మొదటి సంవత్సరం</li>
+            <li>B) రెండవ సంవత్సరం</li>
+            <li>C) చివరి సంవత్సరం</li>
+            <li>D) ఎప్పుడూ ఉండవు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(3)">సమాధానం చూడండి</button>
+        <div id="answer-3" class="answer-box">
+            <strong>సరైన సమాధానం: A) మొదటి సంవత్సరం</strong><br>
+            వివరణ: అప్పు తీసుకొన్న మొదటి సంవత్సరం బారు వడ్డీ మరియు చక్ర వడ్డీలు ఒకేలా ఉంటాయి.
+        </div>
+    </div>
+
+    <!-- Bit 4 -->
+    <div class="bit-card">
+        <div class="bit-title">4. సంవత్సరానికి ఒకసారి వడ్డీ లెక్కించే పద్ధతిలో, వడ్డీని అర్ధ సంవత్సరానికి ఒకసారి (6 నెలలకు ఒకసారి) లెక్క కడితే 1 సంవత్సరంలో కాల వ్యవధుల సంఖ్య ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 1</li>
+            <li>B) 2</li>
+            <li>C) 3</li>
+            <li>D) 4</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(4)">సమాధానం చూడండి</button>
+        <div id="answer-4" class="answer-box">
+            <strong>సరైన సమాధానం: B) 2</strong><br>
+            వివరణ: 1 సంవత్సరంలో రెండు 6 నెలల కాల వ్యవధులు ఉంటాయి.
+        </div>
+    </div>
+
+    <!-- Bit 5 -->
+    <div class="bit-card">
+        <div class="bit-title">5. వార్షిక వడ్డీ రేటు 20% అయితే, అర్ధ సంవత్సరానికి ఒకసారి వడ్డీ లెక్కించే పద్ధతిలో వర్తించే వడ్డీ రేటు ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 5%</li>
+            <li>B) 10%</li>
+            <li>C) 15%</li>
+            <li>D) 20%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(5)">సమాధానం చూడండి</button>
+        <div id="answer-5" class="answer-box">
+            <strong>సరైన సమాధానం: B) 10%</strong><br>
+            వివరణ: అర్ధ సంవత్సరానికి రేటు సగం అవుతుంది ($20\% / 2 = 10\%$).
+        </div>
+    </div>
+
+    <!-- Bit 6 -->
+    <div class="bit-card">
+        <div class="bit-title">6. త్రైమాసికంగా (3 నెలలకు ఒకసారి) వడ్డీ లెక్కించే పద్ధతిలో 1 సంవత్సరంలో కాల వ్యవధుల సంఖ్య ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 1</li>
+            <li>B) 2</li>
+            <li>C) 3</li>
+            <li>D) 4</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(6)">సమాధానం చూడండి</button>
+        <div id="answer-6" class="answer-box">
+            <strong>సరైన సమాధానం: D) 4</strong><br>
+            వివరణ: 1 సంవత్సరంలో నాలుగు 3 నెలల (త్రైమాసిక) భాగాలు ఉంటాయి.
+        </div>
+    </div>
+
+    <!-- Bit 7 -->
+    <div class="bit-card">
+        <div class="bit-title">7. వార్షిక వడ్డీ రేటు 40% అయితే, త్రైమాసిక విధానంలో వర్తించే వడ్డీ రేటు ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 5%</li>
+            <li>B) 10%</li>
+            <li>C) 15%</li>
+            <li>D) 20%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(7)">సమాధానం చూడండి</button>
+        <div id="answer-7" class="answer-box">
+            <strong>సరైన సమాధానం: B) 10%</strong><br>
+            వివరణ: త్రైమాసికానికి రేటు నాలుగో వంతు అవుతుంది ($40\% / 4 = 10\%$).
+        </div>
+    </div>
+
+    <!-- Bit 8 -->
+    <div class="bit-card">
+        <div class="bit-title">8. 2 సంవత్సరాలకు గాను చక్రవడ్డీ మరియు బారువడ్డీల మధ్య తేడా కనుగొనే సూత్రం ఏది?</div>
+        <ul class="options-list">
+            <li>A) $\frac{PR}{100}$</li>
+            <li>B) $\frac{PR^2}{100^2}$</li>
+            <li>C) $\frac{PR(300+R)}{100^3}$</li>
+            <li>D) $\frac{P^2R}{100}$</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(8)">సమాధానం చూడండి</button>
+        <div id="answer-8" class="answer-box">
+            <strong>సరైన సమాధానం: B) $\frac{PR^2}{100^2}$</strong><br>
+            వివరణ: 2 సంవత్సరాలకు చక్రవడ్డీ, బారువడ్డీల తేడా సూత్రం $D = \frac{PR^2}{100^2}$.
+        </div>
+    </div>
+
+    <!-- Bit 9 -->
+    <div class="bit-card">
+        <div class="bit-title">9. 3 సంవత్సరాలకు గాను చక్రవడ్డీ మరియు బారువడ్డీల మధ్య తేడా కనుగొనే సూత్రం ఏది?</div>
+        <ul class="options-list">
+            <li>A) $\frac{PR^2(300+R)}{100^3}$</li>
+            <li>B) $\frac{PR^2}{100^2}$</li>
+            <li>C) $\frac{PQR}{100}$</li>
+            <li>D) $\frac{PR^3}{100^3}$</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(9)">సమాధానం చూడండి</button>
+        <div id="answer-9" class="answer-box">
+            <strong>సరైన సమాధానం: A) $\frac{PR^2(300+R)}{100^3}$</strong><br>
+            వివరణ: 3 సంవత్సరాల తేడా కనుగొనుటకు ఈ సూత్రం వాడతారు.
+        </div>
+    </div>
+
+    <!-- Bit 10 -->
+    <div class="bit-card">
+        <div class="bit-title">10. కాలం 1 సంవత్సరం కంటే ఎక్కువగా ఉన్నప్పుడు బారువడ్డీ మరియు చక్రవడ్డీల మధ్య సంబంధం ఏమిటి?</div>
+        <ul class="options-list">
+            <li>A) $C.I = S.I$</li>
+            <li>B) $C.I < S.I$</li>
+            <li>C) $C.I > S.I$</li>
+            <li>D) ఏదీ కాదు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(10)">సమాధానం చూడండి</button>
+        <div id="answer-10" class="answer-box">
+            <strong>సరైన సమాధానం: C) $C.I > S.I$</strong><br>
+            వివరణ: కాలం 1 సంవత్సరం దాటిన తర్వాత ఎల్లప్పుడూ చక్రవడ్డీ, బారువడ్డీ కంటే ఎక్కువగా ఉంటుంది.
+        </div>
+    </div>
+
+    <!-- Bit 11 -->
+    <div class="bit-card">
+        <div class="bit-title">11. 20000 లపై 2 సంవత్సరాలకు 10% వడ్డీరేటు చొప్పున అయ్యే చక్రవడ్డీ మరియు బారువడ్డీల మధ్య తేడా ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 100 రూపాయలు</li>
+            <li>B) 150 రూపాయలు</li>
+            <li>C) 200 రూపాయలు</li>
+            <li>D) 250 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(11)">సమాధానం చూడండి</button>
+        <div id="answer-11" class="answer-box">
+            <strong>సరైన సమాధానం: C) 200 రూపాయలు</strong><br>
+            వివరణ: $D = \frac{20000 \times 10^2}{100^2} = 200$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 12 -->
+    <div class="bit-card">
+        <div class="bit-title">12. చక్రవడ్డీ లెక్కించునప్పుడు మొత్తం కనుగొనుటకు వాడే సాధారణ సూత్రం ఏది?</div>
+        <ul class="options-list">
+            <li>A) $A = P + \frac{TR}{100}$</li>
+            <li>B) $A = P\left(1 + \frac{R}{100}\right)^n$</li>
+            <li>C) $A = P \times n \times R$</li>
+            <li>D) $A = P - I$</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(12)">సమాధానం చూడండి</button>
+        <div id="answer-12" class="answer-box">
+            <strong>సరైన సమాధానం: B) $A = P\left(1 + \frac{R}{100}\right)^n$</strong><br>
+            వివరణ: చక్రవడ్డీ మొత్తం కనుగొనే ప్రామాణిక సూత్రం ఇది.
+        </div>
+    </div>
+
+    <!-- Bit 13 -->
+    <div class="bit-card">
+        <div class="bit-title">13. EMI అనగా అర్థం ఏమిటి?</div>
+        <ul class="options-list">
+            <li>A) Equal Monthly Installment (సమాన నెలవారీ వాయిదా)</li>
+            <li>B) Estimated Money Interest</li>
+            <li>C) Effective Market Index</li>
+            <li>D) Extra Monthly Income</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(13)">సమాధానం చూడండి</button>
+        <div id="answer-13" class="answer-box">
+            <strong>సరైన సమాధానం: A) Equal Monthly Installment (సమాన నెలవారీ వాయిదా)</strong><br>
+            వివరణ: రుణం తీర్చేందుకు చెల్లించే సమాన నెలవారీ వాయిదాలను EMI అంటారు.
+        </div>
+    </div>
+
+    <!-- Bit 14 -->
+    <div class="bit-card">
+        <div class="bit-title">14. 2000 రూపాయలపై 2 సంవత్సరాలకు 8% వడ్డీరేటు చొప్పున అయ్యే చక్రవడ్డీ మరియు బారువడ్డీల మధ్య తేడా ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 10.50 రూ</li>
+            <li>B) 12.80 రూ</li>
+            <li>C) 14.20 రూ</li>
+            <li>D) 16.00 రూ</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(14)">సమాధానం చూడండి</button>
+        <div id="answer-14" class="answer-box">
+            <strong>సరైన సమాధానం: B) 12.80 రూ</strong><br>
+            వివరణ: $D = \frac{2000 \times 8^2}{100^2} = \frac{2000 \times 64}{10000} = 12.80$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 15 -->
+    <div class="bit-card">
+        <div class="bit-title">15. 1 సంవత్సర కాలానికి చక్రవడ్డీ మరియు సాధారణ వడ్డీల మధ్య తేడా ఎంత ఉంటుంది?</div>
+        <ul class="options-list">
+            <li>A) సున్నా (0)</li>
+            <li>B) 1</li>
+            <li>C) రేటుకు సమానం</li>
+            <li>D) అసలుకు సమానం</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(15)">సమాధానం చూడండి</button>
+        <div id="answer-15" class="answer-box">
+            <strong>సరైన సమాధానం: A) సున్నా (0)</strong><br>
+            వివరణ: మొదటి సంవత్సరానికి చక్రవడ్డీ, బారువడ్డీ సమానం కావున తేడా సున్నా.
+        </div>
+    </div>
+
+    <!-- Bit 16 -->
+    <div class="bit-card">
+        <div class="bit-title">16. ఒక వ్యక్తి అప్పు తెచ్చినప్పుడు బారు వడ్డీ ఏ విధంగా మారుతుంది?</div>
+        <ul class="options-list">
+            <li>A) ప్రతి సంవత్సరం పెరుగుతుంది</li>
+            <li>B) ప్రతి సంవత్సరం ఒకేలా ఉంటుంది</li>
+            <li>C) ప్రతి సంవత్సరం తగ్గుతుంది</li>
+            <li>D) కాలంతో సంబంధం లేదు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(16)">సమాధానం చూడండి</button>
+        <div id="answer-16" class="answer-box">
+            <strong>సరైన సమాధానం: B) ప్రతి సంవత్సరం ఒకేలా ఉంటుంది</strong><br>
+            వివరణ: బారు వడ్డీ ఎల్లప్పుడూ అసలుపైనే లెక్కించబడుతుంది కాబట్టి ప్రతీ సంవత్సరం స్థిరంగా ఉంటుంది.
+        </div>
+    </div>
+
+    <!-- Bit 17 -->
+    <div class="bit-card">
+        <div class="bit-title">17. చక్రవడ్డీ కనుగొనే సూత్రం క్రింది వాటిలో ఏది?</div>
+        <ul class="options-list">
+            <li>A) $A + P$</li>
+            <li>B) $P\left(1 + \frac{R}{100}\right)^n - P$</li>
+            <li>C) $\frac{PTR}{100}$</li>
+            <li>D) $A \times P$</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(17)">సమాధానం చూడండి</button>
+        <div id="answer-17" class="answer-box">
+            <strong>సరైన సమాధానం: B) $P\left(1 + \frac{R}{100}\right)^n - P$</strong><br>
+            వివరణ: మొత్తం నుండి అసలును తీసివేస్తే చక్రవడ్డీ వస్తుంది.
+        </div>
+    </div>
+
+    <!-- Bit 18 -->
+    <div class="bit-card">
+        <div class="bit-title">18. 8000 రూపాయలపై 5% వడ్డీ రేటు చొప్పున 2 సంవత్సరాలకు అయ్యే చక్రవడ్డీ ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 800 రూ</li>
+            <li>B) 820 రూ</li>
+            <li>C) 850 రూ</li>
+            <li>D) 900 రూ</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(18)">సమాధానం చూడండి</button>
+        <div id="answer-18" class="answer-box">
+            <strong>సరైన సమాధానం: B) 820 రూ</strong><br>
+            వివరణ: $A = 8000 \times \frac{105}{100} \times \frac{105}{100} = 8820 \Rightarrow C.I = 8820 - 8000 = 820$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 19 -->
+    <div class="bit-card">
+        <div class="bit-title">19. 12600 రూపాయలపై 10% వడ్డీ రేటుతో 2 సంవత్సరాలకు చక్రవడ్డీ ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 2400 రూ</li>
+            <li>B) 2500 రూ</li>
+            <li>C) 2646 రూ</li>
+            <li>D) 2700 రూ</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(19)">సమాధానం చూడండి</button>
+        <div id="answer-19" class="answer-box">
+            <strong>సరైన సమాధానం: C) 2646 రూ</strong><br>
+            వివరణ: $A = 12600 \times \frac{110}{100} \times \frac{110}{100} = 15246 \Rightarrow C.I = 15246 - 12600 = 2646$.
+        </div>
+    </div>
+
+    <!-- Bit 20 -->
+    <div class="bit-card">
+        <div class="bit-title">20. కొంత సొమ్ముపై 2 సంవత్సరాలకు 15% వడ్డీ రేటు చొప్పున చక్రవడ్డీ, బారువడ్డీల తేడా 180 అయితే ఆ అసలు ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 7000 రూ</li>
+            <li>B) 7500 రూ</li>
+            <li>C) 8000 రూ</li>
+            <li>D) 8500 రూ</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(20)">సమాధానం చూడండి</button>
+        <div id="answer-20" class="answer-box">
+            <strong>సరైన సమాధానం: C) 8000 రూ</strong><br>
+            వివరణ: $180 = \frac{P \times 15^2}{100^2} \Rightarrow P = 8000$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 21 -->
+    <div class="bit-card">
+        <div class="bit-title">21. EMI లెక్కించునప్పుడు హారంలో ఏమి తీసుకోవాలి?</div>
+        <ul class="options-list">
+            <li>A) సంవత్సరాల సంఖ్య</li>
+            <li>B) మొత్తం నెలల సంఖ్య (Months)</li>
+            <li>C) వడ్డీ శాతం</li>
+            <li>D) రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(21)">సమాధానం చూడండి</button>
+        <div id="answer-21" class="answer-box">
+            <strong>సరైన సమాధానం: B) మొత్తం నెలల సంఖ్య (Months)</strong><br>
+            వివరణ: $\text{EMI} = \frac{\text{మొత్తం}}{\text{నెలల సంఖ్య}}$ సూత్రం ద్వారా కడతారు.
+        </div>
+    </div>
+
+    <!-- Bit 22 -->
+    <div class="bit-card">
+        <div class="bit-title">22. 50000 సొమ్ముపై మొదటి సంవత్సరానికి 8% మరియు రెండో సంవత్సరానికి 9% చక్రవడ్డీ రేటు చొప్పున 2 సంవత్సరాల తర్వాత అయ్యే మొత్తం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 55000 రూ</li>
+            <li>B) 57000 రూ</li>
+            <li>C) 58860 రూ</li>
+            <li>D) 60000 రూ</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(22)">సమాధానం చూడండి</button>
+        <div id="answer-22" class="answer-box">
+            <strong>సరైన సమాధానం: C) 58860 రూ</strong><br>
+            వివరణ: $A = 50000 \times \frac{108}{100} \times \frac{109}{100} = 5 \times 108 \times 109 = 58860$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 23 -->
+    <div class="bit-card">
+        <div class="bit-title">23. ఒక సొమ్ముపై 2 సంవత్సరాలకు 4% వడ్డీరేటున అయ్యే చక్రవడ్డీ 510 అయితే అదే కాలానికి సాధారణ వడ్డీ ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 450 రూ</li>
+            <li>B) 480 రూ</li>
+            <li>C) 500 రూ</li>
+            <li>D) 510 రూ</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(23)">సమాధానం చూడండి</button>
+        <div id="answer-23" class="answer-box">
+            <strong>సరైన సమాధానం: C) 500 రూ</strong><br>
+            వివరణ: అసలు $P = 6250$ అని కనుగొని, $S.I = \frac{6250 \times 2 \times 4}{100} = 500$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 24 -->
+    <div class="bit-card">
+        <div class="bit-title">24. చక్ర వడ్డీ విధానంలో వడ్డీ ఎవరిపై లెక్కించబడుతుంది?</div>
+        <ul class="options-list">
+            <li>A) కేవలం అసలుపై మాత్రమే</li>
+            <li>B) అసలు మరియు ఇంతకుముందు చేరిన వడ్డీ కలిపిన మొత్తంపై</li>
+            <li>C) కేవలం వడ్డీపై మాత్రమే</li>
+            <li>D) డిస్కౌంట్ పై</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(24)">సమాధానం చూడండి</button>
+        <div id="answer-24" class="answer-box">
+            <strong>సరైన సమాధానం: B) అసలు మరియు ఇంతకుముందు చేరిన వడ్డీ కలిపిన మొత్తంపై</strong><br>
+            వివరణ: ప్రతి కాల గడువు ముగిసేసరికి వడ్డీ అసలుతో కలిసి కొత్త మొత్తం ఏర్పడుతుంది, దానిపై తదుపరి వడ్డీ లెక్కించబడుతుంది.
+        </div>
+    </div>
+
+    <!-- Bit 25 -->
+    <div class="bit-card">
+        <div class="bit-title">25. కొంత సొమ్ముపై 10% వడ్డీరేటు చొప్పున 2 సంవత్సరాలకి అయ్యే చక్ర వడ్డీ, సాధారణ వడ్డీల తేడా 556 అయితే ఆ సొమ్ము ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 50000 రూ</li>
+            <li>B) 55600 రూ</li>
+            <li>C) 60000 రూ</li>
+            <li>D) 65000 రూ</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(25)">సమాధానం చూడండి</button>
+        <div id="answer-25" class="answer-box">
+            <strong>సరైన సమాధానం: B) 55600 రూ</strong><br>
+            వివరణ: $556 = \frac{P \times 10^2}{100^2} \Rightarrow P = 55600$ రూపాయలు.
+        </div>
+    </div>
+
+</div>
+
+<!-- JavaScript for Theme Toggle and Answer Toggle -->
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const modeText = document.getElementById('mode-text');
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            modeText.textContent = '';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            modeText.textContent = '';
+        }    
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+
+    function toggleAnswer(id) {
+        var box = document.getElementById('answer-' + id);
+        if (box.style.display === 'block') {
+            box.style.display = 'none';
+        } else {
+            box.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
