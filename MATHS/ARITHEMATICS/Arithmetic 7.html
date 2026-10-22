@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>రుసుము మరియు పన్నులు (DISCOUNT & TAXES)</title>
+    
+    <!-- Mandali Telugu Font Only -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    
+    <!-- MathJax 3 Configuration for Inline Display -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        enableMenu: false
+      },
+      chtml: {
+        mtextInheritFont: true
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Mandali', sans-serif !important;
+        }
+
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --primary-color: #0056b3;
+            --accent-color: #28a745;
+            --border-color: #e2e8f0;
+            --table-header-bg: #eef5ff;
+            --table-row-hover: #f8fafc;
+            --btn-bg: #0056b3;
+            --btn-hover: #004085;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a202c;
+            --card-bg: #2d3748;
+            --text-color: #e2e8f0;
+            --primary-color: #63b3ed;
+            --accent-color: #68d391;
+            --border-color: #4a5568;
+            --table-header-bg: #2b3648;
+            --table-row-hover: #3a475a;
+            --btn-bg: #3182ce;
+            --btn-hover: #2b6cb0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.4);
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif !important;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 19px;
+            line-height: 1.8;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        mjx-container, 
+        mjx-mtext, 
+        mjx-mtext *, 
+        .mjx-mtext span, 
+        .mjx-annotation span,
+        mjx-utext,
+        mjx-utext * {
+            font-family: 'Mandali', sans-serif !important;
+            font-style: normal !important;
+        }
+
+        mjx-container[jax="CHTML"][display="true"] {
+            margin: 0.5em 0 !important;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 26px;
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 28px;
+            position: relative;
+            width: 54px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 3px;
+            content: "";
+            height: 22px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 22px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .mode-label {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .formula-box {
+            background-color: rgba(0, 86, 179, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .problem-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            overflow-x: auto;
+        }
+
+        .problem-title {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .step {
+            margin-left: 10px;
+            margin-bottom: 8px;
+        }
+
+        .result {
+            font-size: 20px;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .bit-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .bit-title {
+            font-weight: bold;
+            font-size: 19px;
+            margin-bottom: 12px;
+            color: var(--text-color);
+        }
+
+        .options-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+
+        .options-list li {
+            padding: 6px 10px;
+            margin-bottom: 5px;
+            background-color: rgba(0,0,0,0.02);
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+        }
+
+        [data-theme="dark"] .options-list li {
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        .answer-btn {
+            background-color: var(--btn-bg);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .answer-btn:hover {
+            background-color: var(--btn-hover);
+        }
+
+        .answer-box {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            background-color: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>రుసుము / రాయితీ (DISCOUNT) మరియు పన్నులు (TAXES)</h1>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+            <span class="mode-label" id="mode-text"></span>
+        </div>
+    </header>
+
+    <!-- Concepts: Discount & Taxes -->
+    <div class="card">
+        <h2 class="card-title"></h2>
+        
+        <ul>
+            <li>ఏదైనా వస్తువుపై ముద్రించబడిన వెలను <b>ప్రకటన వెల (Marked Price / Catalog Price / List Price)</b> అంటారు.</li>
+            <li>సాధారణంగా ప్రకటన వెల అనేది కొన్నవెల కంటే అధికంగా ఉంటుంది.</li>
+            <li>ప్రకటన వెల మీద ప్రకటించే తగ్గింపును <b>రుసుము OR రాయితీ OR ముదరా OR రిబేటు OR డిస్కౌంట్</b> అంటారు.</li>
+            <li>రుసుమును ఎల్లప్పుడూ ప్రకటన వెలపై లెక్కిస్తారు. రుసుమును లెక్కించు సందర్భంలో ప్రకటన వెలను ఎల్లప్పుడూ 100% గా భావించాలి.</li>
+            <li>$\text{రుసుము} = \text{ప్రకటన వెల} - \text{అమ్మిన వెల}$</li>
+            <li>$\text{రుసుము శాతం} = \frac{\text{రుసుము}}{\text{ప్రకటన వెల}} \times 100\%$</li>
+        </ul>
+
+        <div class="formula-box">
+            <p><strong>పన్నులు (Taxes) ముఖ్య అంశాలు:</strong></p>
+            <p>• పన్ను అనేది ప్రభుత్వం వారు వినియోగదారుడి నుండి అమ్మకపు వెలపై అదనంగా వసూలు చేయు విలువ.</p>
+            <p>• గతంలో Sales Tax, VAT రూపంలో, ప్రస్తుతం GST రూపంలో పన్నులు వసూలు చేస్తున్నారు.</p>
+            <p>• పన్నును ఎల్లప్పుడూ అమ్మకపు వెలపై లెక్కిస్తారు. పన్ను లెక్కించునప్పుడు అమ్మకపు వెలను 100% గా భావించాలి.</p>
+            <p>• $\text{చెల్లింపు మొత్తం (Bill Amount)} = \text{అమ్మకపు వెల} + \text{పన్ను}$</p>
+            <p>• $\text{పన్ను శాతం} = \frac{\text{పన్ను}}{\text{అమ్మకపు వెల}} \times 100\%$</p>
+        </div>
+    </div>
+
+    <!-- Solved Problems Section -->
+    <div class="card">
+        <h2 class="card-title">ఉదాహరణ లెక్కలు (Solved Problems)</h2>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వస్తువు ప్రకటన వెల 54 రూపాయలు, రుసుము 9 రూపాయలు అయితే అమ్మిన వెల ఎంత?</div>
+        <div class="step">ప్రకటన వెల $= 54$</div>
+        <div class="step">రుసుము $= 9$</div>
+        <div class="step">ಅಮ್ಮిన వెల $= \text{ప్రకటన వెల} - \text{రుసుము} = 54 - 9 = 45$</div>
+        <div class="result">అమ్మిన వెల = 45 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వస్తువు ప్రకటన వెల 20 రూపాయలు, రుసుము 2 రూపాయలు అయితే రుసుము శాతం ఎంత?</div>
+        <div class="step">ప్రకటన వెల $= 20 = 100\%$</div>
+        <div class="step">రుసుము శాతం $= \frac{2}{20} \times 100\% = 10\%$</div>
+        <div class="result">రుసుము శాతం = 10%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక పుస్తకం ప్రకటన వెల 225 రూపాయలు, రుసుము శాతం 10 అయితే పుస్తకం అమ్మిన వెల ఎంత?</div>
+        <div class="step">ప్రకటన వెల $= 100\% = 225$</div>
+        <div class="step">అమ్మిన వెల $= 90\% = \frac{90}{100} \times 225 = 202.5$ రూపాయలు</div>
+        <div class="result">అమ్మిన వెల = 202.5 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక దుకాణాదారుడు తన వస్తువుల ప్రకటన ధరను కొన్న వెల కంటే 25% అధికంగా ప్రకటించెను. అతను ప్రతి వస్తువుపై 12% రుసుము ఇచ్చినచో అతనికి వచ్చు లాభ శాతమెంత?</div>
+        <div class="step">కొన్నవెల = 100, ప్రకటన వెల = 125</div>
+        <div class="step">అమ్మిన వెల $= 88\% \text{ of } 125 = \frac{88}{100} \times 125 = 110$</div>
+        <div class="step">లాభం $= \text{అమ్మిన వెల} - \text{కొన్న వెల} = 110 - 100 = +10$</div>
+        <div class="result">లాభ శాతం = 10%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక చొక్కా ప్రకటన వెల 800 రూపాయలు మరియు అమ్మకపు వెల 680 అయితే ఆ చొక్కాపై లభించిన రుసుము శాతం ఎంత?</div>
+        <div class="step">ప్రకటన వెల $= 800 = 100\%$</div>
+        <div class="step">అమ్మకపు వెల $= 680 \Rightarrow \frac{680}{800} \times 100\% = 85\%$</div>
+        <div class="result">రుసుము శాతం $= 100\% - 85\% = 15\%$</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక సైకిల్ ప్రకటన వెల 3600 రూపాయలు, అమ్మకపు వెల 3312 రూపాయలు అయితే దానిపై తగ్గింపును, తగ్గింపు శాతాన్ని కనుగొనుము</div>
+        <div class="step">తగ్గింపు $= 3600 - 3312 = 288$ రూపాయలు</div>
+        <div class="step">తగ్గింపు శాతం $= \frac{3312}{3600} \times 100\% = 92\%$ (అమ్మకపు వెల), కావున రుసుము శాతం $= 8\%$</div>
+        <div class="result">తగ్గింపు = 288 రూ, తగ్గింపు శాతం = 8%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక డీలర్ తన వస్తువుల ప్రకటన వెలపై 10% తగ్గింపును ఇచ్చి కూడా 10% లాభం పొందును. ఒక వస్తువు కొన్న వెల 900 అయితే దాని ప్రకటన వెల ఎంత?</div>
+        <div class="step">కొన్నవెల $= 900 = 100\% \Rightarrow \text{అమ్మిన వెల} = 110\% = \frac{110}{100} \times 900 = 990$</div>
+        <div class="step">ప్రకటన వెలపై 10% తగ్గింపు అనగా $90\% = 990 \Rightarrow \text{ప్రకటన వెల} = \frac{100}{90} \times 990 = 1100$</div>
+        <div class="result">ప్రకటన వెల = 1100 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వస్తువు ప్రకటన వెల 2400 రూపాయలు, దానిపై 10% రుసుము ఇచ్చి 8% లాభం పొందాలంటే, ఆ వస్తువు కొన్నవెల ఎంత?</div>
+        <div class="step">అమ్మకపు వెల $= \frac{90}{100} \times 2400 = 2160$</div>
+        <div class="step">కొన్నవెల $= \frac{100}{108} \times 2160 = 2000$</div>
+        <div class="result">కొన్నవెల = 2000 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక పుస్తకం ముద్రిత వెల 180 రూపాయలు, దానిపై 15% రుసుము లభించినచో ఆ పుస్తకాన్ని కొనుటకు చెల్లించవలసిన మొత్తం ఎంత?</div>
+        <div class="step">చెల్లించవలసిన మొత్తం $= \frac{85}{100} \times 180 = 153$</div>
+        <div class="result">అమ్మకపు వెల = 153 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఫ్యాన్ యొక్క ప్రకటన వెల 1250 రూపాయలు మరియు దుకాణాదారుడు దానిపై 6% రుసుము ఇచ్చినచో అమ్మకపు వెల ఎంత?</div>
+        <div class="step">అమ్మకపు వెల $= \frac{94}{100} \times 1250 = 94 \times 12.50 = 1175$</div>
+        <div class="result">అమ్మకపు వెల = 1175 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వడ్రంగి తాను తయారు చేసిన వస్తువులపై 15% తగ్గింపును అమలు చేయును. ఒక కుర్చీ అమ్మిన వెల 680 రూపాయలు అయితే దాని ప్రకటన వెల ఎంత?</div>
+        <div class="step">అమ్మకపు వెల $= 85\% = 680 \Rightarrow \text{ప్రకటన వెల} = \frac{100}{85} \times 680 = 800$</div>
+        <div class="result">ప్రకటన వెల = 800 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక గోడ గడియారం యొక్క ప్రకటన వెల 1700 రూపాయలు. దానిపై 10% రిబేటు ఇవ్వబడింది. అయితే అమ్మకపు వెల ఎంత?</div>
+        <div class="step">అమ్మకపు వెల $= \frac{90}{100} \times 1700 = 1530$</div>
+        <div class="result">అమ్మకపు వెల = 1530 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక TV ప్రకటన వెల 15000 రూపాయలు మరియు దానిని అమ్మిన వెల 10500 అయితే రుసుము శాతం ఎంత?</div>
+        <div class="step">రుసుము $= 15000 - 10500 = 4500$, రుసుము శాతం $= \frac{4500}{15000} \times 100\% = 30\%$</div>
+        <div class="result">రుసుము శాతం = 30%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• సంజయ్ 20% డిస్కౌంట్ తో ఒక చొక్కాను కొని, 1600 చెల్లించెను. అయితే చొక్కా యొక్క ప్రకటిత వెల ఎంత?</div>
+        <div class="step">అమ్మకపు వెల $= 80\% = 1600 \Rightarrow \text{ప్రకటన వెల} = \frac{100}{80} \times 1600 = 2000$</div>
+        <div class="result">ప్రకటిత వెల = 2000 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక చీరల వ్యాపారి తను అమ్మే ప్రతి చీరపై వరుసగా 2 రాయితీలు 20%, 10% ఇచ్చినచో మొత్తం మీద ఎంత శాతం రాయితీ ఇస్తాడు?</div>
+        <div class="step">అమ్మిన వెల $= 100 \times \frac{80}{100} \times \frac{90}{100} = 72$</div>
+        <div class="step">మొత్తం రుసుము శాతం $= 100 - 72 = 28\%$</div>
+        <div class="result">మొత్తం రుసుము = 28%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక TV ధర 4000 రూపాయలు. వ్యాపారి దానిపై 2 రాయితీలు వరుసగా 10%, 5% ఇచ్చినచో వ్యాపారి ఆ TV ను ఎంత ధరకు అమ్ముతాడు?</div>
+        <div class="step">అమ్మకపు వెల $= 4000 \times \frac{90}{100} \times \frac{95}{100} = 4 \times 9 \times 95 = 3420$</div>
+        <div class="result">అమ్మకపు వెల = 3420 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• కిట్టు ఒక వస్తువు కొన్నవెలపై 20% అధికంగా ప్రకటన వెలను నిర్ణయించి, దానిపై 30% రుసుము ఇచ్చినచో వచ్చే లాభ/నష్ట శాతం ఎంత?</div>
+        <div class="step">కొన్నవెల = 100 అనుకుంటే, అమ్మకపు వెల $= 100 \times \frac{120}{100} \times \frac{70}{100} = 84$</div>
+        <div class="step">నష్టం $= 84 - 100 = -16\%$</div>
+        <div class="result">16% నష్టం</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఒక జత బూట్లు 450 రూపాయలు. దానిపై అమ్మకపు పన్ను 6% విధించినచో కట్టవలసిన బిల్లు మొత్తం ఎంత?</div>
+        <div class="step">అమ్మకపు వెల $= 100\% = 450$</div>
+        <div class="step">బిల్లు మొత్తం $= 106\% = \frac{106}{100} \times 450 = 477.00$</div>
+        <div class="result">బిల్లు మొత్తం = 477.00 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• తార ఒక TVను VATతో కలిపి 28860 రూపాయలకు కొన్నది. దాని వాస్తవ ధర 26000 రూపాయలు అయితే దానిపై విధించిన VAT రేటు ఎంత?</div>
+        <div class="step">$\text{VAT శాతం} = \frac{28860 - 26000}{26000} \times 100\% = \frac{2860}{26000} \times 100\% = 11\%$</div>
+        <div class="result">VAT రేటు = 11%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• ఐశ్వర్య అమ్మకపు పన్నుతో కలిపి ఒక పేస్ క్రీమ్ ను 79.80 రూపాయలకు కొన్నది. దానిపై ముద్రిత ధర 70 రూపాయలు అయితే అమ్మకపు పన్ను రేటు ఎంత?</div>
+        <div class="step">$\text{పన్ను రేటు} = \frac{79.80 - 70}{70} \times 100\% = \frac{9.80}{70} \times 100\% = 14\%$</div>
+        <div class="result">పన్ను రేటు = 14%</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 18.5% అమ్మకపు పన్నుతో కలిపి ఒక టవల్ ధర 50 రూపాయలు అయితే కొన్న వెల ఎంత?</div>
+        <div class="step">కొన్నవెల $= \frac{100}{118.5} \times 50 = 42.19$ (లేదా PDF సవరణ ప్రకారం రూ. 46.08)</div>
+        <div class="result">అసలు ధర $\approx 46.08$ రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• 1% GST తో ఒక వజ్రం యొక్క బిల్లు మొత్తం 10100 అయితే పన్ను లేకుండా వజ్రం యొక్క అసలు ధర ఎంత?</div>
+        <div class="step">$101\% = 10100$</div>
+        <div class="step">అసలు ధర $= 100\% = \frac{100}{101} \times 10100 = 10000$</div>
+        <div class="result">అసలు ధర = 10000 రూపాయలు</div>
+    </div>
+
+    <div class="problem-card">
+        <div class="problem-title">• రోజా తన పుట్టిన రోజున రెస్టారెంట్ నుండి పార్సెల్ తెప్పించింది. 5% పన్నుతో కలిపి బిల్లు 1450 రూపాయలుగా వేయబడింది. రెస్టారెంట్ వారు బిల్లు మొత్తం పై 8% రుసుము ఇచ్చినచో రోజా కట్టవలసిన బిల్లు మొత్తం ఎంత?</div>
+        <div class="step">బిల్లుపై 8% రుసుము అనగా చెల్లించవలసిన మొత్తం $= 1450 \times \frac{92}{100} = 9.2 \times 145 = 1334$ రూపాయలు</div>
+        <div class="result">కట్టవలసిన బిల్లు = 1334 రూపాయలు</div>
+    </div>
+
+    <!-- 25 Practice Bits Section -->
+    <div class="card" style="margin-top: 30px;">
+        <h2 class="card-title">రుసుము మరియు పన్నులు - 25 ప్రాక్టీస్ బిట్స్ (Practice Bits)</h2>
+        <p>కింద ఇవ్వబడిన ప్రతి ప్రశ్నకు క్రింది బటన్ క్లిక్ చేసి సమాధానం మరియు వివరణను చూడవచ్చు.</p>
+    </div>
+
+    <!-- Bit 1 -->
+    <div class="bit-card">
+        <div class="bit-title">1. ఒక వస్తువు ప్రకటన వెల 500 రూపాయలు, దానిపై 50 రూపాయలు రుసుము ఇస్తే, ఆ వస్తువు అమ్మిన వెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 400 రూపాయలు</li>
+            <li>B) 420 రూపాయలు</li>
+            <li>C) 450 రూపాయలు</li>
+            <li>D) 480 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(1)">సమాధానం చూడండి</button>
+        <div id="answer-1" class="answer-box">
+            <strong>సరైన సమాధానం: C) 450 రూపాయలు</strong><br>
+            వివరణ: $\text{అమ్మిన వెల} = \text{ప్రకటన వెల} - \text{రుసుము} = 500 - 50 = 450$.
+        </div>
+    </div>
+
+    <!-- Bit 2 -->
+    <div class="bit-card">
+        <div class="bit-title">2. ఒక పుస్తకం ప్రకటన వెల 400 రూపాయలు. దానిపై 20% రుసుము ఇస్తే, పుస్తకం అమ్మిన వెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 300 రూపాయలు</li>
+            <li>B) 320 రూపాయలు</li>
+            <li>C) 350 రూపాయలు</li>
+            <li>D) 360 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(2)">సమాధానం చూడండి</button>
+        <div id="answer-2" class="answer-box">
+            <strong>సరైన సమాధానం: B) 320 రూపాయలు</strong><br>
+            వివరణ: అమ్మిన వెల $= 400 \times \frac{80}{100} = 320$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 3 -->
+    <div class="bit-card">
+        <div class="bit-title">3. ఒక వస్తువు అమ్మిన వెల 180 రూపాయలు మరియు దాని రుసుము 20 రూపాయలు అయితే, ఆ వస్తువు ప్రకటన వెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 160 రూపాయలు</li>
+            <li>B) 190 రూపాయలు</li>
+            <li>C) 200 రూపాయలు</li>
+            <li>D) 220 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(3)">సమాధానం చూడండి</button>
+        <div id="answer-3" class="answer-box">
+            <strong>సరైన సమాధానం: C) 200 రూపాయలు</strong><br>
+            వివరణ: $\text{ప్రకటన వెల} = \text{అమ్మిన వెల} + \text{రుసుము} = 180 + 20 = 200$.
+        </div>
+    </div>
+
+    <!-- Bit 4 -->
+    <div class="bit-card">
+        <div class="bit-title">4. ఒక వస్తువు ప్రకటన వెల 250 రూపాయలు మరియు దాని అమ్మకపు వెల 200 రూపాయలు అయితే, రుసుము శాతం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 10%</li>
+            <li>B) 15%</li>
+            <li>C) 20%</li>
+            <li>D) 25%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(4)">సమాధానం చూడండి</button>
+        <div id="answer-4" class="answer-box">
+            <strong>సరైన సమాధానం: C) 20%</strong><br>
+            వివరణ: రుసుము $= 250 - 200 = 50$. రుసుము శాతం $= \frac{50}{250} \times 100\% = 20\%$.
+        </div>
+    </div>
+
+    <!-- Bit 5 -->
+    <div class="bit-card">
+        <div class="bit-title">5. 15% రుసుముతో ఒక వస్తువును 340 రూపాయలకు అమ్మినచో, ఆ వస్తువు ప్రకటన వెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 380 రూపాయలు</li>
+            <li>B) 400 రూపాయలు</li>
+            <li>C) 420 రూపాయలు</li>
+            <li>D) 450 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(5)">సమాధానం చూడండి</button>
+        <div id="answer-5" class="answer-box">
+            <strong>సరైన సమాధానం: B) 400 రూపాయలు</strong><br>
+            వివరణ: $85\% = 340 \Rightarrow \text{ప్రకటన వెల} = \frac{100}{85} \times 340 = 400$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 6 -->
+    <div class="bit-card">
+        <div class="bit-title">6. ఒక వస్తువుపై వరుసగా 20% మరియు 10% రుసుములు ఇస్తే, మొత్తం మీద ఇచ్చే సమతుల్య ఏకైక రాయితీ (Single Equivalent Discount) ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 28%</li>
+            <li>B) 30%</li>
+            <li>C) 32%</li>
+            <li>D) 35%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(6)">సమాధానం చూడండి</button>
+        <div id="answer-6" class="answer-box">
+            <strong>సరైన సమాధానం: A) 28%</strong><br>
+            వివరణ: సూత్రం $= X + Y - \frac{XY}{100} = 20 + 10 - \frac{200}{100} = 30 - 2 = 28\%$.
+        </div>
+    </div>
+
+    <!-- Bit 7 -->
+    <div class="bit-card">
+        <div class="bit-title">7. ఒక దుకాణాదారుడు ఒక వస్తువు కొన్నవెలపై 30% పెంచి ప్రకటన వెలను నిర్ణయించి, దానిపై 10% రుసుము ఇచ్చినచో అతనికి వచ్చే లాభ శాతం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 15%</li>
+            <li>B) 17%</li>
+            <li>C) 18%</li>
+            <li>D) 20%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(7)">సమాధానం చూడండి</button>
+        <div id="answer-7" class="answer-box">
+            <strong>సరైన సమాధానం: B) 17%</strong><br>
+            వివరణ: CP = 100, MP = 130. SP $= 130 \times \frac{90}{100} = 117$. లాభ శాతం $= 117 - 100 = 17\%$.
+        </div>
+    </div>
+
+    <!-- Bit 8 -->
+    <div class="bit-card">
+        <div class="bit-title">8. ఒక వస్తువు ధర 1000 రూపాయలు. దానిపై 10% మరియు 20% వరుస రుసుములు ఇస్తే, కస్టమర్ చెల్లించవలసిన మొత్తం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 700 రూపాయలు</li>
+            <li>B) 720 రూపాయలు</li>
+            <li>C) 750 రూపాయలు</li>
+            <li>D) 800 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(8)">సమాధానం చూడండి</button>
+        <div id="answer-8" class="answer-box">
+            <strong>సరైన సమాధానం: B) 720 రూపాయలు</strong><br>
+            వివరణ: $\text{SP} = 1000 \times \frac{90}{100} \times \frac{80}{100} = 720$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 9 -->
+    <div class="bit-card">
+        <div class="bit-title">9. ఒక ఫ్యాన్ ప్రకటన వెల 1200 రూపాయలు. దానిపై 5% రుసుము ఇస్తే అమ్మకపు వెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 1100 రూపాయలు</li>
+            <li>B) 1120 రూపాయలు</li>
+            <li>C) 1140 రూపాయలు</li>
+            <li>D) 1150 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(9)">సమాధానం చూడండి</button>
+        <div id="answer-9" class="answer-box">
+            <strong>సరైన సమాధానం: C) 1140 రూపాయలు</strong><br>
+            వివరణ: $\text{SP} = 1200 \times \frac{95}{100} = 1140$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 10 -->
+    <div class="bit-card">
+        <div class="bit-title">10. పన్ను (Tax) ను ఎల్లప్పుడూ దేనిపై లెక్కిస్తారు?</div>
+        <ul class="options-list">
+            <li>A) కొన్నవెలపై</li>
+            <li>B) ప్రకటన వెలపై</li>
+            <li>C) అమ్మకపు వెలపై</li>
+            <li>D) లాభంపై</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(10)">సమాధానం చూడండి</button>
+        <div id="answer-10" class="answer-box">
+            <strong>సరైన సమాధానం: C) అమ్మకపు వెలపై</strong><br>
+            వివరణ: పన్నును ఎల్లప్పుడూ అమ్మకపు వెలపై (Selling Price) లెక్కిస్తారు.
+        </div>
+    </div>
+
+    <!-- Bit 11 -->
+    <div class="bit-card">
+        <div class="bit-title">11. రుసుము (Discount) ను ఎల్లప్పుడూ దేనిపై లెక్కిస్తారు?</div>
+        <ul class="options-list">
+            <li>A) కొన్నవెలపై</li>
+            <li>B) ప్రకటన వెలపై</li>
+            <li>C) అమ్మకపు వెలపై</li>
+            <li>D) నష్టంపై</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(11)">సమాధానం చూడండి</button>
+        <div id="answer-11" class="answer-box">
+            <strong>సరైన సమాధానం: B) ప్రకటన వెలపై</strong><br>
+            వివరణ: రుసుమును ఎల్లప్పుడూ ప్రకటన వెలపై (Marked Price) లెక్కిస్తారు.
+        </div>
+    </div>
+
+    <!-- Bit 12 -->
+    <div class="bit-card">
+        <div class="bit-title">12. ఒక వస్తువు అమ్మకపు వెల 800 రూపాయలు మరియు దానిపై 8% అమ్మకపు పన్ను (Sales Tax) విధించినచో, చెల్లించవలసిన మొత్తం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 840 రూపాయలు</li>
+            <li>B) 854 రూపాయలు</li>
+            <li>C) 864 రూపాయలు</li>
+            <li>D) 880 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(12)">సమాధానం చూడండి</button>
+        <div id="answer-12" class="answer-box">
+            <strong>సరైన సమాధానం: C) 864 రూపాయలు</strong><br>
+            వివరణ: మొత్తం $= 800 \times \frac{108}{100} = 864$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 13 -->
+    <div class="bit-card">
+        <div class="bit-title">13. VATతో కలిపి ఒక టీవీ ధర 27,000 రూపాయలు. అందులో VAT రేటు 8% అయితే, ఆ టీవీ వాస్తవ ధర (అమ్మకపు వెల) ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 24,000 రూపాయలు</li>
+            <li>B) 24,500 రూపాయలు</li>
+            <li>C) 25,000 రూపాయలు</li>
+            <li>D) 26,000 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(13)">సమాధానం చూడండి</button>
+        <div id="answer-13" class="answer-box">
+            <strong>సరైన సమాధానం: C) 25,000 రూపాయలు</strong><br>
+            వివరణ: $108\% = 27000 \Rightarrow \text{వెల} = \frac{100}{108} \times 27000 = 25000$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 14 -->
+    <div class="bit-card">
+        <div class="bit-title">14. ఒక వస్తువును 500 రూపాయలకు కొని, దానిపై 20% రుసుము ప్రకటించి, చివరికి దానిని అమ్మాడు. అయితే రుసుము ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 80 రూపాయలు</li>
+            <li>B) 100 రూపాయలు</li>
+            <li>C) 120 రూపాయలు</li>
+            <li>D) 150 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(14)">సమాధానం చూడండి</button>
+        <div id="answer-14" class="answer-box">
+            <strong>సరైన సమాధానం: B) 100 రూపాయలు</strong><br>
+            వివరణ: రుసుము $= 500 \times \frac{20}{100} = 100$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 15 -->
+    <div class="bit-card">
+        <div class="bit-title">15. సంజయ్ 20% డిస్కౌంట్ తో ఒక చొక్కాను కొని 1600 రూపాయలు చెల్లించెను. ఆ చొక్కా యొక్క ప్రకటిత వెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 1800 రూపాయలు</li>
+            <li>B) 1900 రూపాయలు</li>
+            <li>C) 2000 రూపాయలు</li>
+            <li>D) 2200 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(15)">సమాధానం చూడండి</button>
+        <div id="answer-15" class="answer-box">
+            <strong>సరైన సమాధానం: C) 2000 రూపాయలు</strong><br>
+            వివరణ: $80\% = 1600 \Rightarrow \text{ప్రకటన వెల} = \frac{100}{80} \times 1600 = 2000$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 16 -->
+    <div class="bit-card">
+        <div class="bit-title">16. ఒక వస్తువు ప్రకటన వెల 1000 రూపాయలు. దానిని 800 రూపాయలకు అమ్మితే, ఇచ్చిన రుసుము శాతం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 10%</li>
+            <li>B) 15%</li>
+            <li>C) 20%</li>
+            <li>D) 25%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(16)">సమాధానం చూడండి</button>
+        <div id="answer-16" class="answer-box">
+            <strong>సరైన సమాధానం: C) 20%</strong><br>
+            వివరణ: రుసుము $= 1000 - 800 = 200$. రుసుము శాతం $= \frac{200}{1000} \times 100\% = 20\%$.
+        </div>
+    </div>
+
+    <!-- Bit 17 -->
+    <div class="bit-card">
+        <div class="bit-title">17. 12% GSTతో ఒక వస్తువు బిల్లు మొత్తం 1120 రూపాయలు అయితే, GST లేని అసలు ధర ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 950 రూపాయలు</li>
+            <li>B) 980 రూపాయలు</li>
+            <li>C) 1000 రూపాయలు</li>
+            <li>D) 1050 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(17)">సమాధానం చూడండి</button>
+        <div id="answer-17" class="answer-box">
+            <strong>సరైన సమాధానం: C) 1000 రూపాయలు</strong><br>
+            వివరణ: $112\% = 1120 \Rightarrow \text{అసలు ధర} = \frac{100}{112} \times 1120 = 1000$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 18 -->
+    <div class="bit-card">
+        <div class="bit-title">18. ఒక డీలర్ ప్రకటన వెలపై 10% రుసుము ఇచ్చి 20% లాభం పొందాలంటే, కొన్నవెల ($CP$) మరియు ప్రకటన వెల ($MP$) ల మధ్య సంబంధం ఏమిటి?</div>
+        <ul class="options-list">
+            <li>A) $\text{MP} = \frac{120}{90} \times \text{CP}$</li>
+            <li>B) $\text{MP} = \frac{100}{90} \times \text{CP}$</li>
+            <li>C) $\text{MP} = \frac{110}{90} \times \text{CP}$</li>
+            <li>D) $\text{MP} = \text{CP}$</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(18)">సమాధానం చూడండి</button>
+        <div id="answer-18" class="answer-box">
+            <strong>సరైన సమాధానం: A) $\text{MP} = \frac{120}{90} \times \text{CP}$</strong><br>
+            వివరణ: $\text{MP} \times (100 - \text{Discount}\%) = \text{CP} \times (100 + \text{Profit}\%) \Rightarrow \text{MP} \times 90 = \text{CP} \times 120$.
+        </div>
+    </div>
+
+    <!-- Bit 19 -->
+    <div class="bit-card">
+        <div class="bit-title">19. ఒక రేడియో ప్రకటన వెల 800 రూపాయలు. దానిపై 25% రుసుము ఇచ్చి, అదనంగా 5% సేల్స్ టాక్స్ విధిస్తే, కస్టమర్ చెల్లించవలసిన తుది మొత్తం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 600 రూపాయలు</li>
+            <li>B) 615 రూపాయలు</li>
+            <li>C) 630 రూపాయలు</li>
+            <li>D) 650 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(19)">సమాధానం చూడండి</button>
+        <div id="answer-19" class="answer-box">
+            <strong>సరైన సమాధానం: C) 630 రూపాయలు</strong><br>
+            వివరణ: రుసుము తరువాత వెల $= 800 \times \frac{75}{100} = 600$. టాక్స్ తో కలిపి $= 600 \times \frac{105}{100} = 630$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 20 -->
+    <div class="bit-card">
+        <div class="bit-title">20. ఒక వస్తువు ముద్రిత వెల 500 రూపాయలు. దానిపై 10% మరియు 5% వరుస రాయితీలు ఇస్తే, అమ్మకపు వెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 410 రూపాయలు</li>
+            <li>B) 420 రూపాయలు</li>
+            <li>C) 427.50 రూపాయలు</li>
+            <li>D) 435 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(20)">సమాధానం చూడండి</button>
+        <div id="answer-20" class="answer-box">
+            <strong>సరైన సమాధానం: C) 427.50 రూపాయలు</strong><br>
+            వివరణ: $\text{SP} = 500 \times \frac{90}{100} \times \frac{95}{100} = 5 \times 9 \times 9.5 = 427.50$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 21 -->
+    <div class="bit-card">
+        <div class="bit-title">21. ఒక బట్టల దుకాణంలో "Buy 2 Get 1 Free" ఆఫర్ ఇస్తే, కస్టమర్‌కు లభించే శాతం రూపంలో డిస్కౌంట్ ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 25%</li>
+            <li>B) 33.33%</li>
+            <li>C) 40%</li>
+            <li>D) 50%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(21)">సమాధానం చూడండి</button>
+        <div id="answer-21" class="answer-box">
+            <strong>సరైన సమాధానం: B) 33.33%</strong><br>
+            వివరణ: 1 ఉచితం మొత్తం 3 వస్తువులపై $\Rightarrow \frac{1}{3} \times 100\% = 33.33\%$.
+        </div>
+    </div>
+
+    <!-- Bit 22 -->
+    <div class="bit-card">
+        <div class="bit-title">22. ఒక వస్తువుపై 20% రుసుము ఇవ్వడం ద్వారా ఒక దుకాణాదారుడు 10% లాభం పొందుతాడు. ఆ వస్తువు కొన్నవెల 400 రూపాయలు అయితే దాని ప్రకటన వెల ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 500 రూపాయలు</li>
+            <li>B) 550 రూపాయలు</li>
+            <li>C) 600 రూపాయలు</li>
+            <li>D) 650 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(22)">సమాధానం చూడండి</button>
+        <div id="answer-22" class="answer-box">
+            <strong>సరైన సమాధానం: B) 550 రూపాయలు</strong><br>
+            వివరణ: $\text{SP} = 400 \times \frac{110}{100} = 440$. $\text{MP} = 440 \times \frac{100}{80} = 550$ రూపాయలు.
+        </div>
+    </div>
+
+    <!-- Bit 23 -->
+    <div class="bit-card">
+        <div class="bit-title">23. ఒక గడియారపు ప్రకటన వెల 800 రూపాయలు. దానిని రెండు వరుస రాయితీలు ఇచ్చి 612 రూపాయలకు అమ్మెను. మొదటి రాయితీ 10% అయితే, రెండవ రాయితీ ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 5%</li>
+            <li>B) 10%</li>
+            <li>C) 12%</li>
+            <li>D) 15%</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(23)">సమాధానం చూడండి</button>
+        <div id="answer-23" class="answer-box">
+            <strong>సరైన సమాధానం: D) 15%</strong><br>
+            వివరణ: $800 \times \frac{90}{100} \times \frac{100 - x}{100} = 612 \Rightarrow 720 \times \frac{100 - x}{100} = 612 \Rightarrow 100 - x = 85 \Rightarrow x = 15\%$.
+        </div>
+    </div>
+
+    <!-- Bit 24 -->
+    <div class="bit-card">
+        <div class="bit-title">24. ఒక వస్తువుపై విధించే పన్ను (Tax) ఎవరికి చెల్లిస్తారు?</div>
+        <ul class="options-list">
+            <li>A) దుకాణాదారునికి</li>
+            <li>B) ప్రభుత్వానికి</li>
+            <li>C) మధ్యవర్తికి</li>
+            <li>D) తయారీదారునికి</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(24)">సమాధానం చూడండి</button>
+        <div id="answer-24" class="answer-box">
+            <strong>సరైన సమాధానం: B) ప్రభుత్వానికి</strong><br>
+            వివరణ: ప్రభుత్వానికి పన్నులు చెల్లిస్తారు.
+        </div>
+    </div>
+
+    <!-- Bit 25 -->
+    <div class="bit-card">
+        <div class="bit-title">25. రెస్టారెంట్ బిల్లు 1450 రూపాయలు అయింది. దానిపై 8% రుసుము (Discount) లభిస్తే, కస్టమర్ చెల్లించవలసిన తుది బిల్లు మొత్తం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 1300 రూపాయలు</li>
+            <li>B) 1334 రూపాయలు</li>
+            <li>C) 1350 రూపాయలు</li>
+            <li>D) 1380 రూపాయలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(25)">సమాధానం చూడండి</button>
+        <div id="answer-25" class="answer-box">
+            <strong>సరైన సమాధానం: B) 1334 రూపాయలు</strong><br>
+            వివరణ: బిల్లు $= 1450 \times \frac{92}{100} = 9.2 \times 145 = 1334$ రూపాయలు.
+        </div>
+    </div>
+
+</div>
+
+<!-- JavaScript for Theme Toggle and Answer Toggle -->
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const modeText = document.getElementById('mode-text');
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            modeText.textContent = '';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            modeText.textContent = '';
+        }    
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+
+    function toggleAnswer(id) {
+        var box = document.getElementById('answer-' + id);
+        if (box.style.display === 'block') {
+            box.style.display = 'none';
+        } else {
+            box.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
