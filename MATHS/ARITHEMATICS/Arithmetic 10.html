@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>కాలం - పని (TIME - WORK)</title>
+    
+    <!-- Mandali Telugu Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    
+    <!-- MathJax 3 Configuration for Math Formulas -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        enableMenu: false
+      },
+      chtml: {
+        mtextInheritFont: true
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Mandali', sans-serif !important;
+        }
+
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --primary-color: #0056b3;
+            --accent-color: #28a745;
+            --border-color: #e2e8f0;
+            --btn-bg: #0056b3;
+            --btn-hover: #004085;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a202c;
+            --card-bg: #2d3748;
+            --text-color: #e2e8f0;
+            --primary-color: #63b3ed;
+            --accent-color: #68d391;
+            --border-color: #4a5568;
+            --btn-bg: #3182ce;
+            --btn-hover: #2b6cb0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.4);
+        }
+
+        body {
+            font-family: 'Mandali', sans-serif !important;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 19px;
+            line-height: 1.8;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        mjx-container, 
+        mjx-mtext, 
+        mjx-mtext *, 
+        .mjx-mtext span, 
+        .mjx-annotation span,
+        mjx-utext,
+        mjx-utext * {
+            font-family: 'Mandali', sans-serif !important;
+            font-style: normal !important;
+        }
+
+        mjx-container[jax="CHTML"][display="true"] {
+            margin: 0.5em 0 !important;
+            overflow-x: auto;
+            overflow-y: hidden;
+            max-width: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 26px;
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 28px;
+            position: relative;
+            width: 54px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 3px;
+            content: "";
+            height: 22px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 22px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .mode-label {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 5px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .card-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .formula-box {
+            background-color: rgba(0, 86, 179, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .problem-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            overflow-x: auto;
+        }
+
+        .problem-title {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+            word-break: break-word;
+        }
+
+        .step {
+            margin-left: 10px;
+            margin-bottom: 8px;
+            overflow-x: auto;
+        }
+
+        .result {
+            font-size: 20px;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .img-container {
+            text-align: center;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .img-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .bit-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent-color);
+            overflow-x: auto;
+        }
+
+        .bit-title {
+            font-weight: bold;
+            font-size: 19px;
+            margin-bottom: 12px;
+            color: var(--text-color);
+            word-break: break-word;
+        }
+
+        .options-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+
+        .options-list li {
+            padding: 6px 10px;
+            margin-bottom: 5px;
+            background-color: rgba(0,0,0,0.02);
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            word-break: break-word;
+        }
+
+        [data-theme="dark"] .options-list li {
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        .answer-btn {
+            background-color: var(--btn-bg);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .answer-btn:hover {
+            background-color: var(--btn-hover);
+        }
+
+        .answer-box {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            background-color: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+            overflow-x: auto; /* Fixes overflow issue */
+            word-break: break-word;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>MAHESH STUDIES</h1>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider"></div>
+            </label>
+            <span class="mode-label" id="mode-text">Day Mode</span>
+        </div>
+    </header>
+
+    <!-- Concepts & Principles Section -->
+    <div class="card">
+        <h2 class="card-title">కాలం - పని (TIME - WORK) - ప్రాథమిక సూత్రాలు</h2>
+        
+        <ul>
+            <li>పని చేయుటలో పని వారు మరియు కాలం విలోమానుపాతంలో ఉంటాయి.</li>
+            <li>పని చేయుటలో పని వారి సామర్థ్యం మరియు కాలం విలోమానుపాతంలో ఉంటాయి.</li>
+            <li>ఒకే విధమైన పనిని A ఎక్కువ రోజుల్లో, B తక్కువ రోజుల్లో చేయగలిగితే; A యొక్క పని సామర్థ్యం తక్కువని, B యొక్క సామర్థ్యం ఎక్కువని భావించవచ్చు.</li>
+            <li>ఒక వ్యక్తి ఒక పనిని $N$ రోజులలో పూర్తి చేసినచో, అతను 1 రోజులో చేయు పని $= \frac{1}{N}$ వంతు.</li>
+            <li>ఒక వ్యక్తి 1 రోజులో $\frac{1}{N}$ వంతు పని చేసినచో, మొత్తం పని పూర్తి కావడానికి పట్టు కాలం $= N$ రోజులు.</li>
+        </ul>
+
+        <div class="formula-box">
+            <p><strong>ముఖ్యమైన సూత్రాలు:</strong></p>
+            <p>• $\text{No. of days} = \frac{\text{Total work units}}{\text{No. of units completed per day}}$</p>
+            <p>• $\text{No. of units completed per day} = \frac{\text{Total work units}}{\text{No. of days}}$</p>
+            <p>• $M_1 \times D_1 \times T_1 = M_2 \times D_2 \times T_2$ (మనుషులు, రోజులు మరియు సమయం ఉన్నప్పుడు)</p>
+        </div>
+
+        <!-- SVG Diagram: Inverse Relation -->
+        <div class="img-container">
+            <svg width="320" height="120" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+                <rect width="320" height="120" rx="10" fill="#eef5ff" stroke="#0056b3" stroke-width="2"/>
+                <text x="160" y="35" font-family="'Mandali', sans-serif" font-size="18" font-weight="bold" fill="#0056b3" text-anchor="middle">పనివారు ↔ కాలం సంబంధం</text>
+                <text x="80" y="70" font-family="'Mandali', sans-serif" font-size="16" fill="#2c3e50" text-anchor="middle">పనివారు పెరిగితే (↑)</text>
+                <text x="80" y="95" font-family="'Mandali', sans-serif" font-size="16" fill="#28a745" text-anchor="middle">రోజులు తగ్గుతాయి (↓)</text>
+                <text x="240" y="70" font-family="'Mandali', sans-serif" font-size="16" fill="#2c3e50" text-anchor="middle">పనివారు తగ్గితే (↓)</text>
+                <text x="240" y="95" font-family="'Mandali', sans-serif" font-size="16" fill="#dc3545" text-anchor="middle">రోజులు పెరుగుతాయి (↑)</text>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Solved Problems Section -->
+    <div class="card">
+        <h2 class="card-title">ఉదాహరణ లెక్కలు (Solved Problems)</h2>
+    </div>
+
+    <!-- Problem 1 -->
+    <div class="problem-card">
+        <div class="problem-title">• ఒక వ్యక్తి ఒక రోజులో చేయు పని $\frac{1}{7}$ వంతు అయితే మొత్తం పని ఎన్ని రోజులలో పూర్తి అగును?</div>
+        <div class="step">$\frac{1}{7}$ వంతు పనికి అవసరమయ్యే రోజుల సంఖ్య $= 1$ రోజు</div>
+        <div class="step">$\frac{7}{7}$ (మొత్తం) పనికి అవసరమయ్యే రోజుల సంఖ్య $= \frac{7}{1} \times 1 = 7$ రోజులు</div>
+        <div class="result">మొత్తం రోజులు = 7 రోజులు</div>
+    </div>
+
+    <!-- Problem 2 -->
+    <div class="problem-card">
+        <div class="problem-title">• యామిని ఒక పనిని 18 రోజులలో పూర్తి చేయును. అయితే ఆమె 8 రోజులలో చేసే పని ఎంత?</div>
+        <div class="step">18 రోజులలో అయ్యే పని $= 1$ (మొత్తం)</div>
+        <div class="step">8 రోజులలో అయ్యే పని $= \frac{8}{18} \times 1 = \frac{4}{9}$ వంతు</div>
+        <div class="result">8 రోజులలో జరిగే పని = $\frac{4}{9}$ వంతు</div>
+    </div>
+
+    <!-- Problem 3 -->
+    <div class="problem-card">
+        <div class="problem-title">• హంస ఒక పనిని 25 రోజులలో పూర్తి చేయగలదు. అయితే 10 రోజుల పని జరిగిన తర్వాత ఇంకా ఎంత పని మిగిలి ఉంటుంది?</div>
+        <div class="step">10 రోజుల పని జరిగింది కావున ఇంకా 15 రోజుల పని మిగిలి ఉంది</div>
+        <div class="step">25 రోజులలో అయ్యే పని $= 1$ (మొత్తం)</div>
+        <div class="step">15 రోజులలో అయ్యే పని $= \frac{15}{25} \times 1 = \frac{3}{5}$ వంతు</div>
+        <div class="result">మిగిలిన పని = $\frac{3}{5}$ వంతు</div>
+    </div>
+
+    <!-- Problem 4 -->
+    <div class="problem-card">
+        <div class="problem-title">• $\frac{3}{5}$ వంతు పనిని ఒక కార్మికుడు 12 రోజులలో పూర్తి చేసినచో మొత్తం పనిని ఎన్ని రోజులలో పూర్తి చేయును?</div>
+        <div class="step">$\frac{3}{5}$ వంతు పనికి అవసరమయ్యే రోజుల సంఖ్య $= 12$</div>
+        <div class="step">1 (మొత్తం) పనికి అవసరమయ్యే రోజుల సంఖ్య $= 12 \times \frac{5}{3} = 20$ రోజులు</div>
+        <div class="result">మొత్తం రోజులు = 20 రోజులు</div>
+    </div>
+
+    <!-- Problem 5 -->
+    <div class="problem-card">
+        <div class="problem-title">• $\frac{3}{7}$ వంతు పనిని 9 రోజులలో పూర్తి చేసినచో, మిగిలిన పనిని ఎన్ని రోజులలో పూర్తి చేయవచ్చు?</div>
+        <div class="step">మిగిలిన పని $= 1 - \frac{3}{7} = \frac{4}{7}$ వంతు</div>
+        <div class="step">$\frac{3}{7}$ వంతు పనికి అవసరమయ్యే రోజుల సంఖ్య $= 9$</div>
+        <div class="step">$\frac{4}{7}$ వంతు పనికి అవసరమయ్యే రోజుల సంఖ్య $= \frac{4}{3} \times 9 = 12$ రోజులు</div>
+        <div class="result">మిగిలిన పనికి పట్టు రోజులు = 12 రోజులు</div>
+    </div>
+
+    <!-- Problem 6 -->
+    <div class="problem-card">
+        <div class="problem-title">• ఒక కొళాయి 50లీ సామర్థ్యం గల ఒక ట్యాంక్ ను 5 గంటలలో నింపినచో, 75లీ సామర్థ్యం గల వేరొక ట్యాంక్ ను నింపుటకు ఎంత కాలం పట్టును?</div>
+        <div class="step">50లీ ట్యాంక్ నింపుటకు అవసరమయ్యే సమయం $= 5$ గంటలు</div>
+        <div class="step">75లీ ట్యాంక్ నింపుటకు అవసరమయ్యే సమయం $= \frac{75}{50} \times 5 = 7.5$ గంటలు (లేదా $7\frac{1}{2}$ గంటలు)</div>
+        <div class="result">అవసరమయ్యే సమయం = $7\frac{1}{2}$ గంటలు</div>
+    </div>
+
+    <!-- Problem 7 -->
+    <div class="problem-card">
+        <div class="problem-title">• ఒక ట్యాంక్ ను నింపుటకు 6 కొళాయిలకు 1 గంట 20 నిముషాల కాలం పట్టును. అవే కొళాయిలు 5 మాత్రమే వదిలితే ఆ ట్యాంక్ ఎంత కాలంలో నిండును?</div>
+        <div class="step">1 గంట 20 నిముషాలు $= 80$ నిముషాలు</div>
+        <div class="step">6 కొళాయిలతో ట్యాంక్ నింపుటకు సమయం $= 80$ నిముషాలు</div>
+        <div class="step">5 కొళాయిలతో నింపుటకు సమయం $= \frac{6}{5} \times 80 = 96$ నిముషాలు</div>
+        <div class="result">సమయం = 1 గంట 36 నిముషాలు</div>
+    </div>
+
+    <!-- Problem 8 -->
+    <div class="problem-card">
+        <div class="problem-title">• ఒక ట్యాంక్ ను 5 కొళాయిలు $1\frac{1}{2}$ గంటల కాలంలో నింపును. అదే ట్యాంక్ ను $\frac{1}{2}$ గంటలో నింపాలంటే అటువంటి కొలాయిలు ఎన్ని కావలెను?</div>
+        <div class="step">$1\frac{1}{2}$ గంటలు $= 90$ నిముషాలు, $\frac{1}{2}$ గంట $= 30$ నిముషాలు</div>
+        <div class="step">90 నిముషాలలో ట్యాంక్ నింపుటకు కొళాయిలు $= 5$</div>
+        <div class="step">30 నిముషాలలో నింపుటకు కావలసిన కొళాయిలు $= \frac{90}{30} \times 5 = 15$ కొళాయిలు</div>
+        <div class="result">కావలసిన కొళాయిల సంఖ్య = 15</div>
+    </div>
+
+    <!-- Problem 9 -->
+    <div class="problem-card">
+        <div class="problem-title">• $(x+1)$ మంది పనివారు ఒక పనిని $(x+1)$ రోజులలో చేయగలరు. అయితే అదే పనిని $(x+2)$ మంది ఎంత కాలంలో చేయగలరు?</div>
+        <div class="step">$(x+1)$ మందికి పని పూర్తి చేయుటకు రోజులు $= (x+1)$</div>
+        <div class="step">$(x+2)$ మందికి అవసరమయ్యే రోజులు $= \frac{x+1}{x+2} \times (x+1) = \frac{(x+1)^2}{x+2}$ రోజులు</div>
+        <div class="result">రోజుల సంఖ్య = $\frac{(x+1)^2}{x+2}$ రోజులు</div>
+    </div>
+
+    <!-- Problem 10 -->
+    <div class="problem-card">
+        <div class="problem-title">• నవత ట్రాన్స్ పోర్ట్ సంస్థ వద్ద కొన్ని పార్సిల్లు రవాణాకు సిద్ధంగా ఉన్నాయి. 36 మంది పనివారిని నియమిస్తే 12 రోజులలో రవాణా జరుగును. అయితే 18 మంది పనివారు మాత్రమే ఉన్నచో ఆ పని పూర్తగుటకు ఎన్ని రోజులు పట్టును?</div>
+        <div class="step">36 మందికి పని పూర్తి చేయుటకు రోజులు $= 12$</div>
+        <div class="step">18 మందికి పని పూర్తి చేయుటకు రోజులు $= \frac{36}{18} \times 12 = 24$ రోజులు</div>
+        <div class="result">పట్టు రోజులు = 24 రోజులు</div>
+    </div>
+
+    <!-- Problem 11 -->
+    <div class="problem-card">
+        <div class="problem-title">• ఒక పనిని 30 మంది మనుషులు 17 రోజులలో పూర్తి చేయగలరు. అదే పనిని 10 రోజులలో పూర్తి చేయుటకు కావలసిన అదనపు మనుషుల సంఖ్య ఎంత?</div>
+        <div class="step">17 రోజులలో పని పూర్తగుటకు మనుషులు $= 30$</div>
+        <div class="step">10 రోజులలో పని పూర్తగుటకు మనుషులు $= \frac{17}{10} \times 30 = 51$ మంది</div>
+        <div class="step">అదనంగా అవసరమయ్యే మనుషులు $= 51 - 30 = 21$ మంది</div>
+        <div class="result">అదనపు మనుషులు = 21 మంది</div>
+    </div>
+
+    <!-- Problem 12 -->
+    <div class="problem-card">
+        <div class="problem-title">• ఒక బావిని 18 మంది 10 రోజులలో త్రవ్వగలరు. వారు 4 రోజులు పని చేసిన తర్వాత మిగిలిన పనిని మరో 4 రోజులలో పూర్తి చేయాలంటే ఎంత మంది కూలీలు అదనంగా అవసరం అవుతారు?</div>
+        <div class="step">18 మందికి మిగిలిన రోజులు $= 10 - 4 = 6$ రోజులు</div>
+        <div class="step">6 రోజులలో పూర్తి చేయడానికి కూలీలు $= 18$ మంది</div>
+        <div class="step">4 రోజులలో పూర్తి చేయడానికి కావలసిన కూలీలు $= \frac{6}{4} \times 18 = 27$ మంది</div>
+        <div class="step">అదనంగా అవసరమయ్యే కూలీల సంఖ్య $= 27 - 18 = 9$ మంది</div>
+        <div class="result">అదనపు కూలీలు = 9 మంది</div>
+    </div>
+
+    <!-- Problem 13 -->
+    <div class="problem-card">
+        <div class="problem-title">• 36 మంది కూలీలు ఒక గోడను 12 రోజులలో నిర్మిస్తారు. అదే గోడను 16 మంది కూలీలు ఎన్ని రోజులలో నిర్మిస్తారు?</div>
+        <div class="step">36 మందికి అవసరమయ్యే రోజులు $= 12$</div>
+        <div class="step">16 మందికి అవసరమయ్యే రోజులు $= \frac{36}{16} \times 12 = 27$ రోజులు</div>
+        <div class="result">రోజుల సంఖ్య = 27 రోజులు</div>
+    </div>
+
+    <!-- Problem 14 -->
+    <div class="problem-card">
+        <div class="problem-title">• ఒక పాఠశాలలో 45 నిముషాల కాల వ్యవధితో 8 పీరియడ్లు జరుగును. ఒక రోజులో 6 పీరియడ్లు మాత్రమే ఉండాలంటే ఒక్కో పీరియడ్ కు ఎంత సమయం కేటాయించాలి?</div>
+        <div class="step">8 పీరియడ్ల విధానంలో ఒక్కో పీరియడ్ సమయం $= 45$ నిముషాలు</div>
+        <div class="step">6 పీరియడ్ల విధానంలో ఒక్కో పీరియడ్ సమయం $= \frac{8}{6} \times 45 = 60$ నిముషాలు (1 గంట)</div>
+        <div class="result">పీరియడ్ సమయం = 60 నిముషాలు</div>
+    </div>
+
+    <!-- LCM Model Combined Problems -->
+    <div class="card">
+        <h3 style="color: var(--primary-color);">LCM మోడల్ సమస్యలు (కలసి చేసే పనులు):</h3>
+    </div>
+
+    <!-- Problem 15 -->
+    <div class="problem-card">
+        <div class="problem-title">• అమల ఒక పనిని 36 రోజులలో, విమల అదే పనిని 45 రోజులలో చేయగలరు. అయితే వారిద్దరూ కలిసి ఆ పనిని ఎన్ని రోజులలో చేయగలరు?</div>
+        <div class="step">36 మరియు 45 ల క.సా.గు (LCM) $= 180$ యూనిట్లు (మొత్తం పని)</div>
+        <div class="step">అమల 1 రోజు పని $= \frac{180}{36} = 5$ యూనిట్లు</div>
+        <div class="step">విమల 1 రోజు పని $= \frac{180}{45} = 4$ యూనిట్లు</div>
+        <div class="step">ఇద్దరూ కలిసి 1 రోజులో చేయు పని $= 5 + 4 = 9$ యూనిట్లు</div>
+
+        <!-- SVG Diagram: Amala & Vimala LCM Method -->
+        <div class="img-container">
+            <svg width="240" height="180" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+                <!-- Circles -->
+                <circle cx="60" cy="40" r="25" fill="none" stroke="#dc3545" stroke-width="3"/>
+                <text x="60" y="46" font-family="'Mandali', sans-serif" font-size="18" font-weight="bold" fill="#dc3545" text-anchor="middle">36</text>
+                
+                <circle cx="180" cy="40" r="25" fill="none" stroke="#dc3545" stroke-width="3"/>
+                <text x="180" y="46" font-family="'Mandali', sans-serif" font-size="18" font-weight="bold" fill="#dc3545" text-anchor="middle">45</text>
+                
+                <!-- Lines -->
+                <line x1="60" y1="65" x2="110" y2="120" stroke="#212529" stroke-width="2"/>
+                <line x1="180" y1="65" x2="130" y2="120" stroke="#212529" stroke-width="2"/>
+                
+                <text x="75" y="100" font-family="'Mandali', sans-serif" font-size="16" font-weight="bold" fill="#0056b3">5</text>
+                <text x="120" y="100" font-family="'Mandali', sans-serif" font-size="16" font-weight="bold" fill="#0056b3">+</text>
+                <text x="160" y="100" font-family="'Mandali', sans-serif" font-size="16" font-weight="bold" fill="#0056b3">4</text>
+                
+                <!-- Square LCM -->
+                <rect x="90" y="120" width="60" height="45" fill="none" stroke="#0056b3" stroke-width="3"/>
+                <text x="120" y="148" font-family="'Mandali', sans-serif" font-size="18" font-weight="bold" fill="#0056b3" text-anchor="middle">180</text>
+                <text x="120" y="175" font-family="'Mandali', sans-serif" font-size="12" fill="#6c757d" text-anchor="middle">LCM</text>
+            </svg>
+        </div>
+
+        <div class="step">వారిద్దరూ కలిసి చేయుటకు రోజులు $= \frac{180}{5+4} = \frac{180}{9} = 20$ రోజులు</div>
+        <div class="result">ఇద్దరూ కలిసి పూర్తిచేసే రోజులు = 20 రోజులు</div>
+    </div>
+
+    <!-- Problem 16 -->
+    <div class="problem-card">
+        <div class="problem-title">• విక్రమ్ మరియు అక్రమ్ లు కలిసి ఒక పనిని 12 రోజులలో పూర్తి చేయగలరు. విక్రమ్ ఒక్కడే ఆ పనిని 20 రోజులలో పూర్తి చేసినచో, అక్రమ్ ఒక్కడే ఆ పనిని ఎన్ని రోజులలో పూర్తి చేయగలడు?</div>
+        <div class="step">12 మరియు 20 ల క.సా.గు (LCM) $= 60$ యూనిట్లు</div>
+        <div class="step">ఇద్దరి 1 రోజు పని $= \frac{60}{12} = 5$ యూనిట్లు</div>
+        <div class="step">విక్రమ్ 1 రోజు పని $= \frac{60}{20} = 3$ యూనిట్లు</div>
+        <div class="step">అక్రమ్ 1 రోజు పని $= 5 - 3 = 2$ యూనిట్లు</div>
+        <div class="step">అక్రమ్ ఒక్కడే చేయుటకు రోజులు $= \frac{60}{5-3} = \frac{60}{2} = 30$ రోజులు</div>
+        <div class="result">అక్రమ్ ఒక్కడే పూర్తి చేయు రోజులు = 30 రోజులు</div>
+    </div>
+
+    <!-- Problem 17 -->
+    <div class="problem-card">
+        <div class="problem-title">• సంయుక్త ఒక పనిని 36 రోజులలో, వియుక్త అదే పనిని 45 రోజులలో చేయగలిగితే వారి సామర్థ్యాల నిష్పత్తి ఎంత?</div>
+        <div class="step">సంయుక్త రోజులు $= 36$, వియుక్త రోజులు $= 45$</div>
+        <div class="step">సామర్థ్యం అనేది కాలానికి విలోమానుపాతంలో ఉండును.</div>
+        <div class="step">సంయుక్త, వియుక్తల సామర్థ్యాల నిష్పత్తి $= 45 : 36 = 5 : 4$</div>
+        <div class="result">సామర్థ్యాల నిష్పత్తి = 5 : 4</div>
+    </div>
+
+    <!-- Problem 18 -->
+    <div class="problem-card">
+        <div class="problem-title">• ఒక పనిని 8 మంది పురుషులు లేదా 12 మంది స్త్రీలు 20 రోజులలో పూర్తి చేయుదురు. అదే పనిని 6 గురు స్త్రీలు మరియు 12 మంది పురుషులు కలిసి పూర్తి చేయుటకు ఎన్ని రోజులు పట్టును?</div>
+        <div class="step">8M = 12F $\Rightarrow M = \frac{12}{8}F = \frac{3}{2}F$</div>
+        <div class="step">8 మంది పురుషులు $(8M) = 12F$ పనిని 20 రోజులలో పూర్తి చేయుదురు</div>
+        <div class="step">6 గురు స్త్రీలు + 12 మంది పురుషులు $= 6F + 12M = 6F + 12\left(\frac{3}{2}F\right) = 6F + 18F = 24F$</div>
+        <div class="step">12F కి రోజులు $= 20$ రోజులు</div>
+        <div class="step">24F కి అవసరమయ్యే రోజులు $= \frac{12}{24} \times 20 = 10$ రోజులు</div>
+        <div class="result">పట్టు రోజులు = 10 రోజులు</div>
+    </div>
+
+    <!-- 25 Practice Bits Section -->
+    <div class="card" style="margin-top: 30px;">
+        <h2 class="card-title">కాలం - పని - 25 ప్రాక్టీస్ బిట్స్ (Practice Bits)</h2>
+        <p>కింద ఇవ్వబడిన ప్రతి ప్రశ్నకు క్రింది బటన్ క్లిక్ చేసి సమాధానం మరియు వివరణను చూడవచ్చు.</p>
+    </div>
+
+    <!-- Bit 1 -->
+    <div class="bit-card">
+        <div class="bit-title">1. పనివారి సంఖ్య మరియు పని పూర్తయ్యే కాలం (రోజులు) ఏ అనుపాతంలో ఉంటాయి?</div>
+        <ul class="options-list">
+            <li>A) ప్రత్యక్ష అనుపాతం</li>
+            <li>B) విలోమానుపాతం</li>
+            <li>C) సమాన అనుపాతం</li>
+            <li>D) ఏదీ కాదు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(1)">సమాధానం చూడండి</button>
+        <div id="answer-1" class="answer-box">
+            <strong>సరైన సమాధానం: B) విలోమానుపాతం</strong><br>
+            వివరణ: పనివారి సంఖ్య పెరిగితే పని పూర్తయ్యే రోజులు తగ్గుతాయి, కావున ఇవి విలోమానుపాతంలో ఉంటాయి.
+        </div>
+    </div>
+
+    <!-- Bit 2 -->
+    <div class="bit-card">
+        <div class="bit-title">2. A ఒక పనిని 10 రోజులలో చేయగలడు. అతను 1 రోజులో చేయు పని ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 10 వంతు</li>
+            <li>B) $\frac{1}{10}$ వంతు</li>
+            <li>C) 5 వంతు</li>
+            <li>D) $\frac{1}{2}$ వంతు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(2)">సమాధానం చూడండి</button>
+        <div id="answer-2" class="answer-box">
+            <strong>సరైన సమాధానం: B) $\frac{1}{10}$ వంతు</strong><br>
+            వివరణ: ఒక పనిని $N$ రోజులలో చేస్తే, 1 రోజు పని $= \frac{1}{N}$ వంతు అగును.
+        </div>
+    </div>
+
+    <!-- Bit 3 -->
+    <div class="bit-card">
+        <div class="bit-title">3. ఒక కార్మికుడు 1 రోజులో $\frac{1}{15}$ వంతు పని చేసినచో, మొత్తం పనిని ఎన్ని రోజులలో పూర్తి చేయును?</div>
+        <ul class="options-list">
+            <li>A) 10 రోజులు</li>
+            <li>B) 12 రోజులు</li>
+            <li>C) 15 రోజులు</li>
+            <li>D) 20 రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(3)">సమాధానం చూడండి</button>
+        <div id="answer-3" class="answer-box">
+            <strong>సరైన సమాధానం: C) 15 రోజులు</strong><br>
+            వివరణ: 1 రోజు పని $\frac{1}{15}$ అయితే, మొత్తం పనికి 15 రోజులు పట్టును.
+        </div>
+    </div>
+
+    <!-- Bit 4 -->
+    <div class="bit-card">
+        <div class="bit-title">4. ఒక పనిని A 12 రోజుల్లో, B 24 రోజుల్లో పూర్తి చేయగలరు. ఇద్దరూ కలిసి ఆ పనిని ఎన్ని రోజుల్లో పూర్తి చేస్తారు?</div>
+        <ul class="options-list">
+            <li>A) 6 రోజులు</li>
+            <li>B) 8 రోజులు</li>
+            <li>C) 10 రోజులు</li>
+            <li>D) 18 రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(4)">సమాధానం చూడండి</button>
+        <div id="answer-4" class="answer-box">
+            <strong>సరైన సమాధానం: B) 8 రోజులు</strong><br>
+            వివరణ: సూత్రం $= \frac{A \times B}{A + B} = \frac{12 \times 24}{12 + 24} = \frac{288}{36} = 8$ రోజులు.
+        </div>
+    </div>
+
+    <!-- Bit 5 -->
+    <div class="bit-card">
+        <div class="bit-title">5. 12 మంది మనుషులు ఒక పనిని 10 రోజులలో చేయగలరు. అదే పనిని 15 మంది మనుషులు ఎన్ని రోజులలో చేస్తారు?</div>
+        <ul class="options-list">
+            <li>A) 6 రోజులు</li>
+            <li>B) 8 రోజులు</li>
+            <li>C) 10 రోజులు</li>
+            <li>D) 12 రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(5)">సమాధానం చూడండి</button>
+        <div id="answer-5" class="answer-box">
+            <strong>సరైన సమాధానం: B) 8 రోజులు</strong><br>
+            వివరణ: $M_1 D_1 = M_2 D_2 \Rightarrow 12 \times 10 = 15 \times D_2 \Rightarrow D_2 = \frac{120}{15} = 8$ రోజులు.
+        </div>
+    </div>
+
+    <!-- Bit 6 -->
+    <div class="bit-card">
+        <div class="bit-title">6. A, B ల పని పూర్తి చేసే రోజుల నిష్పత్తి 3 : 4 అయితే, వారి పని సామర్థ్యాల నిష్పత్తి ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 3 : 4</li>
+            <li>B) 4 : 3</li>
+            <li>C) 9 : 16</li>
+            <li>D) 1 : 2</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(6)">సమాధానం చూడండి</button>
+        <div id="answer-6" class="answer-box">
+            <strong>సరైన సమాధానం: B) 4 : 3</strong><br>
+            వివరణ: కాలం మరియు సామర్థ్యం విలోమానుపాతంలో ఉంటాయి, కావున నిష్పత్తి తిరగబడుతుంది ($4 : 3$).
+        </div>
+    </div>
+
+    <!-- Bit 7 -->
+    <div class="bit-card">
+        <div class="bit-title">7. ఒక కుళాయి ట్యాంక్ ను 6 గంటల్లో నింపగలదు. అయితే 1 గంటలో అది నింపే ట్యాంక్ భాగం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) $\frac{1}{2}$</li>
+            <li>B) $\frac{1}{3}$</li>
+            <li>C) $\frac{1}{6}$</li>
+            <li>D) $\frac{1}{4}$</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(7)">సమాధానం చూడండి</button>
+        <div id="answer-7" class="answer-box">
+            <strong>సరైన సమాధానం: C) $\frac{1}{6}$</strong><br>
+            వివరణ: మొత్తం సమయం 6 గంటలు కావున 1 గంటలో $\frac{1}{6}$ వంతు నిండును.
+        </div>
+    </div>
+
+    <!-- Bit 8 -->
+    <div class="bit-card">
+        <div class="bit-title">8. 20 మంది కూలీలు ఒక గోడను 6 రోజుల్లో కడితే, 30 మంది కూలీలు ఆ గోడను ఎన్ని రోజుల్లో కడతారు?</div>
+        <ul class="options-list">
+            <li>A) 3 రోజులు</li>
+            <li>B) 4 రోజులు</li>
+            <li>C) 5 రోజులు</li>
+            <li>D) 8 రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(8)">సమాధానం చూడండి</button>
+        <div id="answer-8" class="answer-box">
+            <strong>సరైన సమాధానం: B) 4 రోజులు</strong><br>
+            వివరణ: $20 \times 6 = 30 \times D_2 \Rightarrow D_2 = \frac{120}{30} = 4$ రోజులు.
+        </div>
+    </div>
+
+    <!-- Bit 9 -->
+    <div class="bit-card">
+        <div class="bit-title">9. $\frac{2}{5}$ వంతు పనిని 8 రోజులలో చేసినచో, మొత్తం పనిని ఎన్ని రోజులలో పూర్తి చేయవచ్చు?</div>
+        <ul class="options-list">
+            <li>A) 16 రోజులు</li>
+            <li>B) 18 రోజులు</li>
+            <li>C) 20 రోజులు</li>
+            <li>D) 25 రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(9)">సమాధానం చూడండి</button>
+        <div id="answer-9" class="answer-box">
+            <strong>సరైన సమాధానం: C) 20 రోజులు</strong><br>
+            వివరణ: మొత్తం రోజులు $= 8 \times \frac{5}{2} = 20$ రోజులు.
+        </div>
+    </div>
+
+    <!-- Bit 10 -->
+    <div class="bit-card">
+        <div class="bit-title">10. 4 మంది పురుషులు లేదా 6 మంది స్త్రీలు ఒక పనిని 12 రోజుల్లో చేయగలరు. అయితే 2 మంది పురుషులు మరియు 3 మంది స్త్రీలు కలిసి ఆ పనిని ఎన్ని రోజుల్లో చేస్తారు?</div>
+        <ul class="options-list">
+            <li>A) 8 రోజులు</li>
+            <li>B) 10 రోజులు</li>
+            <li>C) 12 రోజులు</li>
+            <li>D) 15 రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(10)">సమాధానం చూడండి</button>
+        <div id="answer-10" class="answer-box">
+            <strong>సరైన సమాధానం: C) 12 రోజులు</strong><br>
+            వివరణ: $4M = 6F \Rightarrow 2M = 3F$. కావున $2M + 3F = 3F + 3F = 6F$. 6F కి 12 రోజులు పట్టును.
+        </div>
+    </div>
+
+    <!-- Bit 11 -->
+    <div class="bit-card">
+        <div class="bit-title">11. A ఒక పనిని 15 రోజులలో, B అదే పనిని 10 రోజులలో చేయగలరు. B 5 రోజులు పని చేసి వెళ్ళిపోతే, మిగిలిన పనిని A ఎన్ని రోజులలో పూర్తి చేయును?</div>
+        <ul class="options-list">
+            <li>A) $5\frac{1}{2}$ రోజులు</li>
+            <li>B) $7\frac{1}{2}$ రోజులు</li>
+            <li>C) 8 రోజులు</li>
+            <li>D) 10 రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(11)">సమాధానం చూడండి</button>
+        <div id="answer-11" class="answer-box">
+            <strong>సరైన సమాధానం: B) $7\frac{1}{2}$ రోజులు</strong><br>
+            వివరణ: B 5 రోజుల పని $= \frac{5}{10} = \frac{1}{2}$. మిగిలిన పని $= \frac{1}{2}$. A రోజులు $= 15 \times \frac{1}{2} = 7.5$ రోజులు.
+        </div>
+    </div>
+
+    <!-- Bit 12 -->
+    <div class="bit-card">
+        <div class="bit-title">12. రోజుకు 6 గంటల చొప్పున పనిచేస్తూ 10 మంది ఒక పనిని 12 రోజుల్లో పూర్తి చేసిన, రోజుకు 8 గంటలు పనిచేస్తూ 15 మంది ఆ పనిని ఎన్ని రోజుల్లో చేస్తారు?</div>
+        <ul class="options-list">
+            <li>A) 4 రోజులు</li>
+            <li>B) 6 రోజులు</li>
+            <li>C) 8 రోజులు</li>
+            <li>D) 9 రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(12)">సమాధానం చూడండి</button>
+        <div id="answer-12" class="answer-box">
+            <strong>సరైన సమాధానం: B) 6 రోజులు</strong><br>
+            వివరణ: $M_1 D_1 T_1 = M_2 D_2 T_2 \Rightarrow 10 \times 12 \times 6 = 15 \times D_2 \times 8 \Rightarrow D_2 = 6$ రోజులు.
+        </div>
+    </div>
+
+    <!-- Bit 13 -->
+    <div class="bit-card">
+        <div class="bit-title">13. ఒక హాస్టల్ లో 50 మంది విద్యార్థులకు 30 రోజులకు సరిపడా ఆహారం ఉంది. 10 మంది విద్యార్థులు పెరిగిన ఆ ఆహారం ఎన్ని రోజులకు వస్తుంది?</div>
+        <ul class="options-list">
+            <li>A) 20 రోజులు</li>
+            <li>B) 25 రోజులు</li>
+            <li>C) 28 రోజులు</li>
+            <li>D) 35 రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(13)">సమాధానం చూడండి</button>
+        <div id="answer-13" class="answer-box">
+            <strong>సరైన సమాధానం: B) 25 రోజులు</strong><br>
+            వివరణ: $50 \times 30 = 60 \times D_2 \Rightarrow D_2 = \frac{1500}{60} = 25$ రోజులు.
+        </div>
+    </div>
+
+    <!-- Bit 14 -->
+    <div class="bit-card">
+        <div class="bit-title">14. A యొక్క పని సామర్థ్యం B కంటే రెండింతలు. B ఒక పనిని 12 రోజుల్లో చేస్తే, ఇద్దరూ కలిసి ఆ పనిని ఎన్ని రోజుల్లో చేస్తారు?</div>
+        <ul class="options-list">
+            <li>A) 3 రోజులు</li>
+            <li>B) 4 రోజులు</li>
+            <li>C) 6 రోజులు</li>
+            <li>D) 8 రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(14)">సమాధానం చూడండి</button>
+        <div id="answer-14" class="answer-box">
+            <strong>సరైన సమాధానం: B) 4 రోజులు</strong><br>
+            వివరణ: B రోజులు $= 12$, A రోజులు $= 6$. ఇద్దరూ కలిస్తే $= \frac{12 \times 6}{18} = 4$ రోజులు.
+        </div>
+    </div>
+
+    <!-- Bit 15 -->
+    <div class="bit-card">
+        <div class="bit-title">15. ఒక ట్యాంక్ ను A పైప్ 10 గంటల్లో నింపగలదు, B పైప్ 15 గంటల్లో ఖాళీ చేయగలదు. రెండూ ఒకేసారి తెరిస్తే ట్యాంక్ నిండటానికి పట్టు సమయం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 20 గంటలు</li>
+            <li>B) 25 గంటలు</li>
+            <li>C) 30 గంటలు</li>
+            <li>D) 35 గంటలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(15)">సమాధానం చూడండి</button>
+        <div id="answer-15" class="answer-box">
+            <strong>సరైన సమాధానం: C) 30 గంటలు</strong><br>
+            వివరణ: సూత్రం $= \frac{A \times B}{B - A} = \frac{10 \times 15}{15 - 10} = \frac{150}{5} = 30$ గంటలు.
+        </div>
+    </div>
+
+    <!-- Bit 16 -->
+    <div class="bit-card">
+        <div class="bit-title">16. 36 మంది కూలీలు 12 రోజులలో చేసే పనిని, 16 మంది కూలీలు ఎన్ని రోజులలో చేస్తారు?</div>
+        <ul class="options-list">
+            <li>A) 20 రోజులు</li>
+            <li>B) 24 రోజులు</li>
+            <li>C) 27 రోజులు</li>
+            <li>D) 30 రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(16)">సమాధానం చూడండి</button>
+        <div id="answer-16" class="answer-box">
+            <strong>సరైన సమాధానం: C) 27 రోజులు</strong><br>
+            వివరణ: $\frac{36}{16} \times 12 = 27$ రోజులు.
+        </div>
+    </div>
+
+    <!-- Bit 17 -->
+    <div class="bit-card">
+        <div class="bit-title">17. 8 పీరియడ్ల విధానంలో ఒక్కో పీరియడ్ సమయం 45 నిముషాలు. 6 పీరియడ్లు ఉంటే ఒక్కో పీరియడ్ సమయం ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 50 నిముషాలు</li>
+            <li>B) 55 నిముషాలు</li>
+            <li>C) 60 నిముషాలు</li>
+            <li>D) 65 నిముషాలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(17)">సమాధానం చూడండి</button>
+        <div id="answer-17" class="answer-box">
+            <strong>సరైన సమాధానం: C) 60 నిముషాలు</strong><br>
+            వివరణ: $\frac{8}{6} \times 45 = 60$ నిముషాలు.
+        </div>
+    </div>
+
+    <!-- Bit 18 -->
+    <div class="bit-card">
+        <div class="bit-title">18. అమల 36 రోజుల్లో, విమల 45 రోజుల్లో ఒక పనిని చేస్తే ఇద్దరూ కలిసి ఎన్ని రోజుల్లో చేస్తారు?</div>
+        <ul class="options-list">
+            <li>A) 18 రోజులు</li>
+            <li>B) 20 రోజులు</li>
+            <li>C) 22 రోజులు</li>
+            <li>D) 25 రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(18)">సమాధానం చూడండి</button>
+        <div id="answer-18" class="answer-box">
+            <strong>సరైన సమాధానం: B) 20 రోజులు</strong><br>
+            వివరణ: $\text{LCM} = 180$, ఇద్దరి 1 రోజు పని $= 5 + 4 = 9 \Rightarrow \frac{180}{9} = 20$ రోజులు.
+        </div>
+    </div>
+
+    <!-- Bit 19 -->
+    <div class="bit-card">
+        <div class="bit-title">19. A, B కలిసి ఒక పనిని 12 రోజుల్లో, A ఒక్కడే 20 రోజుల్లో చేస్తే, B ఒక్కడే ఎన్ని రోజుల్లో చేస్తాడు?</div>
+        <ul class="options-list">
+            <li>A) 25 రోజులు</li>
+            <li>B) 30 రోజులు</li>
+            <li>C) 35 రోజులు</li>
+            <li>D) 40 రోజులు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(19)">సమాధానం చూడండి</button>
+        <div id="answer-19" class="answer-box">
+            <strong>సరైన సమాధానం: B) 30 రోజులు</strong><br>
+            వివరణ: $\text{LCM} = 60$, B 1 రోజు పని $= 5 - 3 = 2 \Rightarrow \frac{60}{2} = 30$ రోజులు.
+        </div>
+    </div>
+
+    <!-- Bit 20 -->
+    <div class="bit-card">
+        <div class="bit-title">20. ఒక బావిని 18 మంది 10 రోజులలో త్రవ్వగలరు. 4 రోజులు పనిచేసాక మిగిలిన పనిని 4 రోజుల్లో పూర్తి చేయాలంటే ఎంతమంది అదనపు కూలీలు కావాలి?</div>
+        <ul class="options-list">
+            <li>A) 6 మంది</li>
+            <li>B) 8 మంది</li>
+            <li>C) 9 మంది</li>
+            <li>D) 12 మంది</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(20)">సమాధానం చూడండి</button>
+        <div id="answer-20" class="answer-box">
+            <strong>సరైన సమాధానం: C) 9 మంది</strong><br>
+            వివరణ: కావలసిన మొత్తం కూలీలు $= \frac{6}{4} \times 18 = 27$. అదనపు కూలీలు $= 27 - 18 = 9$ మంది.
+        </div>
+    </div>
+
+    <!-- Bit 21 -->
+    <div class="bit-card">
+        <div class="bit-title">21. 30 మంది మనుషులు 17 రోజుల్లో చేసే పనిని 10 రోజుల్లో చేయుటకు కావలసిన అదనపు మనుషుల సంఖ్య ఎంత?</div>
+        <ul class="options-list">
+            <li>A) 15 మంది</li>
+            <li>B) 21 మంది</li>
+            <li>C) 30 మంది</li>
+            <li>D) 51 మంది</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(21)">సమాధానం చూడండి</button>
+        <div id="answer-21" class="answer-box">
+            <strong>సరైన సమాధానం: B) 21 మంది</strong><br>
+            వివరణ: మొత్తం మనుషులు $= \frac{17}{10} \times 30 = 51$. అదనపు మనుషులు $= 51 - 30 = 21$ మంది.
+        </div>
+    </div>
+
+    <!-- Bit 22 -->
+    <div class="bit-card">
+        <div class="bit-title">22. 5 కొళాయిలు 90 నిముషాల్లో నింపే ట్యాంక్ ను 30 నిముషాల్లో నింపాలంటే ఎన్ని కొళాయిలు కావాలి?</div>
+        <ul class="options-list">
+            <li>A) 10</li>
+            <li>B) 12</li>
+            <li>C) 15</li>
+            <li>D) 18</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(22)">సమాధానం చూడండి</button>
+        <div id="answer-22" class="answer-box">
+            <strong>సరైన సమాధానం: C) 15</strong><br>
+            వివరణ: $\frac{90}{30} \times 5 = 15$ కొళాయిలు.
+        </div>
+    </div>
+
+    <!-- Bit 23 -->
+    <div class="bit-card">
+        <div class="bit-title">23. 6 కొళాయిలు 80 నిముషాల్లో నింపే ట్యాంక్ ను 5 కొళాయిలు ఎంత కాలంలో నింపుతాయి?</div>
+        <ul class="options-list">
+            <li>A) 1 గంట 20 నిమిషాలు</li>
+            <li>B) 1 గంట 30 నిమిషాలు</li>
+            <li>C) 1 గంట 36 నిమిషాలు</li>
+            <li>D) 1 గంట 40 నిమిషాలు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(23)">సమాధానం చూడండి</button>
+        <div id="answer-23" class="answer-box">
+            <strong>సరైన సమాధానం: C) 1 గంట 36 నిమిషాలు</strong><br>
+            వివరణ: $\frac{6}{5} \times 80 = 96$ నిముషాలు $= 1$ గంట 36 నిమిషాలు.
+        </div>
+    </div>
+
+    <!-- Bit 24 -->
+    <div class="bit-card">
+        <div class="bit-title">24. హంస ఒక పనిని 25 రోజుల్లో చేయగలదు. 10 రోజుల పని తర్వాత మిగిలిన పని ఎంత?</div>
+        <ul class="options-list">
+            <li>A) $\frac{2}{5}$ వంతు</li>
+            <li>B) $\frac{3}{5}$ వంతు</li>
+            <li>C) $\frac{1}{2}$ వంతు</li>
+            <li>D) $\frac{4}{5}$ వంతు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(24)">సమాధానం చూడండి</button>
+        <div id="answer-24" class="answer-box">
+            <strong>సరైన సమాధానం: B) $\frac{3}{5}$ వంతు</strong><br>
+            వివరణ: మిగిలిన రోజులు 15 కావున మిగిలిన పని $= \frac{15}{25} = \frac{3}{5}$ వంతు.
+        </div>
+    </div>
+
+    <!-- Bit 25 -->
+    <div class="bit-card">
+        <div class="bit-title">25. యామిని ఒక పనిని 18 రోజుల్లో చేస్తే, 8 రోజుల్లో ఆమె చేసే పని ఎంత?</div>
+        <ul class="options-list">
+            <li>A) $\frac{2}{9}$ వంతు</li>
+            <li>B) $\frac{4}{9}$ వంతు</li>
+            <li>C) $\frac{5}{9}$ వంతు</li>
+            <li>D) $\frac{1}{2}$ వంతు</li>
+        </ul>
+        <button class="answer-btn" onclick="toggleAnswer(25)">సమాధానం చూడండి</button>
+        <div id="answer-25" class="answer-box">
+            <strong>సరైన సమాధానం: B) $\frac{4}{9}$ వంతు</strong><br>
+            వివరణ: 8 రోజుల పని $= \frac{8}{18} = \frac{4}{9}$ వంతు.
+        </div>
+    </div>
+
+</div>
+
+<!-- JavaScript for Theme Toggle and Answer Toggle -->
+<script>
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const modeText = document.getElementById('mode-text');
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            modeText.textContent = 'Dark Mode';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            modeText.textContent = 'Day Mode';
+        }    
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+
+    function toggleAnswer(id) {
+        var box = document.getElementById('answer-' + id);
+        if (box.style.display === 'block') {
+            box.style.display = 'none';
+        } else {
+            box.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
