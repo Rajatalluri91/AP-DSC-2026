@@ -1,1 +1,384 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7th Class Social - విశ్వం మరియు భూమి</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+<style>
+:root {
+ --bg-color:#f4f7f6; --card-bg:#ffffff; --text-color:#2c3e50;
+ --heading-color:#1a5276; --sub-heading:#117a65; --accent-color:#e67e22;
+ --border-color:#d6dbdf; --table-header:#2980b9; --table-header-text:#ffffff;
+ --box-bg:#ebf5fb; --strong-color:#c0392b; --shadow:0 4px 15px rgba(0,0,0,.1);
+ --player-bg: rgba(255, 255, 255, 0.95);
+}
+[data-theme="dark"] {
+ --bg-color:#1a1a2e; --card-bg:#16213e; --text-color:#e0e0e0;
+ --heading-color:#4ee1a0; --sub-heading:#5dade2; --accent-color:#f39c12;
+ --border-color:#0f3460; --table-header:#0f3460; --table-header-text:#ffffff;
+ --box-bg:#0f3460; --strong-color:#ff7675; --shadow:0 4px 15px rgba(0,0,0,.5);
+ --player-bg: rgba(22, 33, 62, 0.95);
+}
+*{box-sizing:border-box}
+body{font-family:'Mandali',sans-serif;background:var(--bg-color);color:var(--text-color);margin:0;padding:10px;transition:all .3s ease;line-height:1.7;font-size:17px;padding-bottom: 110px;}
+.container{max-width:900px;margin:0 auto;background:var(--card-bg);padding:5px;border-radius:8px;box-shadow:var(--shadow);width:100%;overflow-x:hidden}
+.header{display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--heading-color);padding-bottom:10px;margin-bottom:15px;flex-wrap:wrap;gap:10px}
+.main-title{color:var(--heading-color);margin:5px 0 0;font-size:22px}
+.theme-switch-wrapper{display:flex;align-items:center}
+.theme-switch{display:inline-block;height:26px;position:relative;width:50px}
+.theme-switch input{display:none}
+.slider{background:#ccc;bottom:0;cursor:pointer;left:0;position:absolute;right:0;top:0;transition:.4s;border-radius:34px}
+.slider:before{background:#fff;bottom:3px;content:"";height:20px;left:3px;position:absolute;transition:.4s;width:20px;border-radius:50%}
+input:checked+.slider{background:var(--accent-color)}
+input:checked+.slider:before{transform:translateX(24px)}
+h1,h2,h3{color:var(--heading-color)}
+h2{border-left:4px solid var(--accent-color);padding-left:8px;margin-top:20px;font-size:20px}
+strong{color:var(--strong-color);font-weight:bold}
+ul{list-style-type:square;padding-left:18px;margin:10px 0}
+ol{padding-left:18px;margin:10px 0}
+li{margin-bottom:8px}
+.flowchart{background:var(--box-bg);border:2px dashed var(--heading-color);padding:10px 5px;border-radius:8px;margin:15px 0;text-align:center;font-size:15px}
+.flowchart-node{display:inline-block;background:var(--card-bg);border:1px solid var(--border-color);padding:4px 8px;margin:3px 2px;border-radius:4px;font-weight:bold}
+.table-responsive{width:100%;overflow-x:auto;margin:15px 0}
+table{width:100%;border-collapse:collapse}
+table,th,td{border:1px solid var(--border-color)}
+th{background:var(--table-header);color:var(--table-header-text);padding:8px;text-align:left;font-size:16px}
+td{padding:8px;font-size:15px}
+.question-card{background:var(--box-bg);border-left:4px solid var(--accent-color);padding:10px 8px;margin-bottom:12px;border-radius:0 8px 8px 0}
+.bit-tag{background:var(--accent-color);color:#fff;font-size:12px;padding:2px 6px;border-radius:4px;display:inline-block;margin-bottom:5px}
+.options{display:grid;grid-template-columns:1fr;gap:5px;margin-top:8px;font-size:16px}
+@media(min-width:480px){.options{grid-template-columns:1fr 1fr}}
+.ans-key{font-weight:bold;color:var(--sub-heading);margin-top:6px;font-size:16px}
 
+/* Modern Sticky Audio Player UI */
+.audio-player-bar {
+ position: fixed;
+ bottom: 0;
+ left: 0;
+ width: 100%;
+ background: var(--player-bg);
+ backdrop-filter: blur(10px);
+ -webkit-backdrop-filter: blur(10px);
+ border-top: 2px solid var(--accent-color);
+ box-shadow: 0 -5px 25px rgba(0,0,0,0.2);
+ padding: 10px 15px;
+ z-index: 1000;
+ display: flex;
+ flex-direction: column;
+ gap: 8px;
+ max-width: 900px;
+ left: 50%;
+ transform: translateX(-50%);
+ border-radius: 12px 12px 0 0;
+}
+
+.player-main {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 12px;
+}
+
+.play-btn {
+ background: var(--accent-color);
+ border: none;
+ color: #fff;
+ width: 42px;
+ height: 42px;
+ border-radius: 50%;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 18px;
+ transition: transform 0.2s, background-color 0.2s;
+ flex-shrink: 0;
+ box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.play-btn:hover {
+ transform: scale(1.05);
+}
+
+.progress-container {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+ gap: 4px;
+}
+
+.progress-bar-wrapper {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+}
+
+.timeline {
+ width: 100%;
+ height: 6px;
+ background: var(--border-color);
+ border-radius: 4px;
+ outline: none;
+ cursor: pointer;
+ accent-color: var(--accent-color);
+}
+
+.time-text {
+ font-size: 12px;
+ color: var(--text-color);
+ font-weight: bold;
+ font-family: sans-serif;
+ min-width: 35px;
+ text-align: center;
+}
+
+.player-right-controls {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+}
+
+.speed-dropdown {
+ background: var(--box-bg);
+ color: var(--text-color);
+ border: 1px solid var(--border-color);
+ border-radius: 6px;
+ padding: 4px 6px;
+ font-size: 13px;
+ font-weight: bold;
+ cursor: pointer;
+ outline: none;
+ font-family: 'Mandali', sans-serif;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="header">
+ <div>
+  <span style="color:var(--accent-color);font-weight:bold;font-size:14px">7వ తరగతి - సోషల్ స్టడీస్</span>
+  <h1 class="main-title">I. మన విశ్వం: 1. విశ్వం మరియు భూమి</h1>
+ </div>
+ <div class="theme-switch-wrapper">
+  <span style="margin-right:8px;font-weight:bold;font-size:14px">🌙 / ☀️</span>
+  <label class="theme-switch" for="checkbox">
+   <input type="checkbox" id="checkbox"><span class="slider"></span>
+  </label>
+ </div>
+</header>
+
+<h2>విశ్వం మరియు భూమి - వర్గీకరణ</h2>
+<div class="flowchart">
+ <span class="flowchart-node">విశ్వం</span> ➔
+ <span class="flowchart-node">సౌర కుటుంబం</span> ➔
+ <span class="flowchart-node">పర్యావరణం</span> ➔
+ <span class="flowchart-node">కాలుష్య కారకాలు</span> ➔
+ <span class="flowchart-node">విపత్తులు</span><br><br>
+ <span class="flowchart-node">పర్యావరణం ➔ సహజ &amp; మానవ నిర్మిత</span><br>
+ <span class="flowchart-node">సహజ ➔ నిర్జీవమైనవి (శిలావరణం, జలావరణం, వాతావరణం) &amp; సజీవమైనవి (జీవావరణం)</span>
+</div>
+
+<h2>విశ్వం (Universe)</h2>
+<ul>
+ <li>ఊహించలేని అనేక అంశాలు కలిగి ఉన్న విస్తారమైన అంతరిక్షంను <strong>విశ్వం</strong> అంటారు.</li>
+ <li>ఇందులో <strong>సూర్యుడు</strong>, <strong>గ్రహాలు</strong>, <strong>పాలుపుంత (Milky Way)</strong> అనే గెలాక్సీ మరియు ఇతర <strong>నక్షత్ర వీధులు</strong> ఉన్నాయి.</li>
+ <li>విశ్వం ఎంత పెద్దదో ఎవరికీ తెలియదు. విశ్వం వ్యాప్తి <strong>అనంతమైనది</strong>.</li>
+ <li>విశ్వం (యూనివర్స్) అనే పదం <strong>'యూనివర్సమ్'</strong> అనే <strong>లాటిన్ పదం</strong> నుండి ఏర్పడింది. దీని అర్థం <strong>మొత్తం పదార్థం (Matter)</strong> మరియు <strong>మొత్తం అంతరిక్షం (Space)</strong>.</li>
+</ul>
+<div class="question-card">
+ <span class="bit-tag">AP TET - 20-10-2024 (S2)</span><br>
+ <strong>★ 'విశ్వం' (యూనివర్స్) అనే పదం దీనినుండి ఉద్భవించింది:</strong>
+ <div class="options"><div>1. గ్రీకు</div><div>2. అరామిక్</div><div>3. లాటిన్</div><div>4. సంస్కృతం</div></div>
+ <div class="ans-key">జవాబు: 3. లాటిన్</div>
+</div>
+<ul>
+ <li>విశ్వం ప్రతి సెకనుకు <strong>70 కి.మీ.</strong> మేర విస్తరిస్తున్నది.</li>
+ <li>విశ్వం గురించి అధ్యయనం చేయు శాస్త్రాన్ని <strong>ఖగోళశాస్త్రం (ఆస్ట్రానమీ)</strong> అని అంటారు. దీనికి గల विभिन्न పేర్లు:
+  <div class="table-responsive"><table>
+   <tr><th>రష్యన్ భాషలో</th><td><strong>కాస్మాలజీ (Cosmology)</strong></td></tr>
+   <tr><th>ఆంగ్ల భాషలో</th><td><strong>ఆస్ట్రానమీ (Astronomy)</strong></td></tr>
+  </table></div>
+ </li>
+ <li>నక్షత్రాలు, గ్రహాలు ఇతర సహజ ఖగోళ పదార్థాలను అధ్యయనం చేయు శాస్త్రవేత్తను <strong>ఖగోళ శాస్త్రవేత్త (ఆస్ట్రానమర్)</strong> అని అంటారు.</li>
+ <li>ఖగోళ శాస్త్ర పరిశోధనలను ప్రారంభించినది <strong>ఇటలీ</strong> ఖగోళ శాస్త్రవేత్త <strong>గెలీలియో</strong>.</li>
+ <li>ఇతను <strong>టెలిస్కోప్</strong> ను రూపొందించాడు. ఈ పరికరం ద్వారా ఆకాశంలో మొదటిసారి చూసినప్పుడు అనేక తెలియని అద్భుత దృశ్యాలు గమనించాడు.</li>
+ <li>గెలీలియో కాలం నుండి నేటివరకు అనేక మంది విశ్వం గురించి అధ్యయనం చేశారు. విశ్వం యొక్క ఆవిర్భావం గురించి ఇంతవరకు సరైన అవగాహన ఏర్పడలేదు.</li>
+</ul>
+
+<h2>విశ్వం ఆవిర్భావం : మహావిస్ఫోటన (బిగ్ బ్యాంగ్) సిద్ధాంతం</h2>
+<ul>
+ <li>విశ్వం ఆవిర్భావం గురించి అనేక సిద్ధాంతాలు ప్రతిపాదించబడ్డాయి. వాటిలో ఒకటి <strong>'బిగ్ బ్యాంగ్ సిద్ధాంతం'</strong>.</li>
+ <li>దీన్ని మొదట బెల్జియం దేశానికి చెందిన ఖగోళ శాస్త్రవేత్త <strong>జార్జెస్ లిమైటర్</strong> ప్రతిపాదించాడు.</li>
+ <li>ప్రస్తుత విశ్వం <strong>13.7 బిలియన్ సంవత్సరాల క్రితం</strong> చిన్న అణువు నుండి ప్రారంభమై నేటికి విస్తరిస్తున్నదని ఇతను ప్రతిపాదించాడు.</li>
+ <li>ఈ చిన్న అణువు ఒక చిన్న బంతివలె ఉండి అనంతమైన <strong>ఉష్ణోగ్రత</strong> మరియు <strong>సాంద్రతను</strong> కలిగి ఉందని ప్రతిపాదించాడు.</li>
+ <li>ఈ అణువు యొక్క ఉష్ణోగ్రత మరియు సాంద్రత పెరిగి అది పేలిపోయి విశ్వమంతా చిన్న ముక్కలుగా విసిరివేయబడింది.</li>
+ <li>ఫలితంగా విశ్వంలో <strong>నక్షత్రాలు</strong>, <strong>గెలాక్సీలు</strong>, <strong>గ్రహాలు</strong>, <strong>ఉపగ్రహాలు</strong>, అనేక ఖగోళ వస్తువులు ఏర్పడ్డాయి.</li>
+ <li>ఇలా ఏర్పడిన ఈ విశ్వం నేటికి విస్తరిస్తున్నది.</li>
+ <li>ఖగోళ శాస్త్రవేత్తల అంచనా ప్రకారం విశ్వంలో కనీసం <strong>125 బిలియన్ల గెలాక్సీలు</strong> ఉన్నాయి.</li>
+ <li>ఒక గెలాక్సీ నుండి మరొక గెలాక్సీ మధ్య <strong>1,20,000 కాంతి సంవత్సరాల</strong> దూరం ఉంది.</li>
+ <li>కాంతి సంవత్సరం అనేది దూరాలను కొలుచుటకు ఉపయోగించు ఒక పెద్ద యూనిట్. కాంతి ఒక సంవత్సరం కాలంలో ప్రయాణించు దూరాన్ని <strong>కాంతిసంవత్సరం</strong> అని అంటారు.</li>
+</ul>
+<div class="question-card">
+ <span class="bit-tag">AP TET - 19-10-2024 (S2)</span><br>
+ <strong>★ 'కాంతి సంవత్సరం' అనేది దీనికి ఒక ప్రమాణం:</strong>
+ <div class="options"><div>1. దూరం</div><div>2. కాలం</div><div>3. శక్తి</div><div>4. వాతావరణ పీడనం</div></div>
+ <div class="ans-key">జవాబు: 1. దూరం</div>
+</div>
+<ul>
+ <li>కాంతి సెకనుకు <strong>3 లక్షల కి.మీ.</strong> వేగంతో ప్రయాణిస్తుంది.</li>
+ <li>ప్రస్తుతం మనం నివసిస్తున్న సౌర కుటుంబ వ్యవస్థ <strong>పాలుపుంత (Milky Way)</strong> అనే గెలాక్సీలో ఉంది.</li>
+</ul>
+
+<h2>EXPECTED QUESTIONS (విశ్వం &amp; బిగ్ బ్యాంగ్)</h2>
+<div class="question-card"><strong>1. విశ్వం అనే పదముకు ఆధారమైన పదం:</strong><div class="options"><div>1) యూనిసోమ్ (ఫ్రెంచ్)</div><div>2) యూనివర్సమ్ (లాటిన్)</div><div>3) యునైటర్ (గ్రీకు)</div><div>4) యూనియం (స్పానిష్)</div></div><div class="ans-key">జవాబు: ( 2 )</div></div>
+<div class="question-card"><strong>2. ఖగోళశాస్త్రంను రష్యన్ భాషలో ఈ విధంగా పిలుస్తారు:</strong><div class="options"><div>1) ఆస్ట్రానమీ</div><div>2) కాస్మాలజీ</div><div>3) యూర్సాలజీ</div><div>4) ఆస్ట్రాలజీ</div></div><div class="ans-key">జవాబు: ( 2 )</div></div>
+<div class="question-card"><strong>3. ఖగోళశాస్త్ర పరిశోధనను మొదట ప్రారంభించినది:</strong><div class="options"><div>1) లిమైటర్</div><div>2) గెలీలియో</div><div>3) టాలమీ</div><div>4) కోపర్నికస్</div></div><div class="ans-key">జవాబు: ( 2 )</div></div>
+<div class="question-card"><strong>4. విశ్వ ఆవిర్భావంను వివరించు మహావిస్ఫోటన సిద్ధాంతంను ప్రతిపాదించినది:</strong><div class="options"><div>1) జార్జెస్ లిమైటర్</div><div>2) గెలీలియో</div><div>3) టాలమీ</div><div>4) కోపర్నికస్</div></div><div class="ans-key">జవాబు: ( 1 )</div></div>
+<div class="question-card"><strong>5. ఈ క్రింది వానిలో గెలీలియో కనుగొన్న పరికరం:</strong><div class="options"><div>1) మైక్రోస్కోప్</div><div>2) క్రెనియోస్కోప్</div><div>3) ఆస్ట్రోస్కోప్</div><div>4) టెలిస్కోప్</div></div><div class="ans-key">జవాబు: ( 4 )</div></div>
+<div class="question-card"><strong>6. కాంతి సంవత్సరం అనేది దీనిని కొలుచుటకు ఉపయోగిస్తారు:</strong><div class="options"><div>1) కాలం</div><div>2) బరువు</div><div>3) వేగం</div><div>4) దూరం</div></div><div class="ans-key">జవాబు: ( 4 )</div></div>
+<div class="question-card"><strong>7. కాంతి యొక్క వేగం సెకనుకు:</strong><div class="options"><div>1) 1 లక్ష కి.మీ.</div><div>2) 2 లక్షల కి.మీ.</div><div>3) 3 లక్షల కి.మీ.</div><div>4) 4 లక్షల కి.మీ.</div></div><div class="ans-key">జవాబు: ( 3 )</div></div>
+<div class="question-card"><strong>8. మనం నివసిస్తున్న సౌరవ్యవస్థ ఈ క్రింది గెలాక్సీలో ఉంది:</strong><div class="options"><div>1) సన్ఫ్లవర్</div><div>2) ఆండ్రోమెడా</div><div>3) పాలుపుంత</div><div>4) బ్లాక్ ఐ</div></div><div class="ans-key">జవాబు: ( 3 )</div></div>
+
+<h2>సౌర కుటుంబం (Solar System) &amp; ఆవిర్భావం</h2>
+<ul>
+ <li>మనం నివసిస్తున్న సౌర వ్యవస్థ <strong>సూర్యుడు</strong> మరియు <strong>ఎనిమిది గ్రహాలతో</strong> ఏర్పడింది.</li>
+ <li>సౌర వ్యవస్థలో గల గ్రహాలు:
+  <ol>
+   <li><strong>బుధుడు (Mercury)</strong></li><li><strong>శుక్రుడు (Venus)</strong></li>
+   <li><strong>భూమి (Earth)</strong></li><li><strong>కుజుడు లేదా అంగారకుడు (Mars)</strong></li>
+   <li><strong>గురుడు (Jupiter)</strong></li><li><strong>శని (Saturn)</strong></li>
+   <li><strong>వరుణుడు (Uranus)</strong></li><li><strong>ఇంద్రుడు (Neptune)</strong></li>
+  </ol>
+ </li>
+ <li>సౌర వ్యవస్థలో <strong>ఉపగ్రహాలు</strong>, <strong>తోకచుక్కలు</strong>, <strong>గ్రహశకలాలు</strong>, <strong>ఉల్కలు</strong> ఉన్నాయి.</li>
+ <li>శాస్త్రవేత్తల అంచనాల ప్రకారం <strong>4.6 బిలియన్ సంవత్సరాల క్రితం</strong> సౌర కుటుంబం ఆవిర్భవించింది.</li>
+</ul>
+
+<h2>సౌరకుటుంబ ఆవిర్భావ సిద్ధాంతాలు</h2>
+<p>సౌర కుటుంబ ఆవిర్భావం గురించి అనేక సిద్ధాంతాలు ఉన్నాయి, వాటిలో ముఖ్యమైనవి:</p>
+<div class="table-responsive"><table>
+<tr><th style="width:50%">భూ కేంద్రక సిద్ధాంతం (Geocentric Theory)</th><th style="width:50%">సూర్యకేంద్రక సిద్ధాంతం (Heliocentric Theory)</th></tr>
+<tr>
+<td><ul>
+ <li><strong>టాలమీ</strong> అనే <strong>ఈజిప్ట్</strong> ఖగోళ శాస్త్రవేత్త ప్రతిపాదించాడు.</li>
+ <li>దీని ప్రకారం <strong>భూమి మధ్యలో</strong> ఉండగా, సూర్యుడు మరియు ఇతర ఖగోళ వస్తువులు దాని చుట్టూ తిరుగుతున్నాయి.</li>
+ <li>ఈ సిద్ధాంతం విశ్వానికి <strong>కేంద్రభూమి</strong> అని ప్రతిపాదించినది.</li>
+</ul></td>
+<td><ul>
+ <li>దీన్ని <strong>పోలాండ్</strong> దేశానికి చెందిన <strong>నికోలస్ కోపర్నికస్</strong> ప్రతిపాదించాడు.</li>
+ <li>దీని ప్రకారం గ్రహాలు, ఉపగ్రహాలు మరియు ఇతర ఖగోళ వస్తువులు అన్నీ <strong>సూర్యుడు చుట్టూ</strong> తిరుగుతున్నాయి. సూర్యుడు కేంద్రస్థానంలో ఉంటాడు.</li>
+</ul></td>
+</tr></table></div>
+
+<h3>నిహారిక పరికల్పన సిద్ధాంతం (Nebular Hypothesis)</h3>
+<ul>
+ <li>ఈ సిద్ధాంతంను <strong>ఇమ్మానువల్ కాంట్</strong> అభివృద్ధి చేశాడు.</li>
+ <li>నిహారిక (నెబ్యులర్) పరికల్పన ప్రకారం సూర్యునికి సంబంధించిన <strong>ధూళి</strong> మరియు <strong>వాయువులతో కూడిన మేఘం</strong> నుండి గ్రహాలు ఏర్పడ్డాయి. మన సౌర కుటుంబంలో ఎనిమిది గ్రహాలున్నాయి. వాటిలో ఒకటి భూమి.</li>
+</ul>
+<div class="question-card">
+ <span class="bit-tag">AP TET - 07-10-2024 (S2)</span><br>
+ <strong>★ ఈ సిద్ధాంతం ప్రకారం సూర్యునితో సంబంధం ఉన్న ధూళి మరియు వాయువులతో కూడిన మేఘం నుండి గ్రహాలు ఏర్పడ్డాయి:</strong>
+ <div class="options"><div>1. భూ కేంద్రక సిద్ధాంతం</div><div>2. నిహారిక పరికల్పన సిద్ధాంతం</div><div>3. సూర్యకేంద్రక సిద్ధాంతం</div><div>4. ఖండచలన సిద్ధాంతం</div></div>
+ <div class="ans-key">జవాబు: 2. నిహారిక పరికల్పన సిద్ధాంతం</div>
+</div>
+
+<h2>EXPECTED QUESTIONS (సౌర కుటుంబం)</h2>
+<div class="question-card"><strong>1. సౌర కుటుంబంలోని గ్రహాల సంఖ్య:</strong><div class="options"><div>1) 7</div><div>2) 8</div><div>3) 9</div><div>4) 10</div></div><div class="ans-key">జవాబు: ( 2 )</div></div>
+<div class="question-card"><strong>2. భూకేంద్రక సిద్ధాంతంను ప్రతిపాదించినది:</strong><div class="options"><div>1) పోలిష్ దేశానికి చెందిన కోపర్నికస్</div><div>2) ఈజిప్ట్ దేశానికి చెందిన టాలమీ</div><div>3) బెల్జియం దేశానికి చెందిన జార్జెస్ లిమైటర్</div><div>4) ఇటలీ దేశానికి చెందిన గెలీలియో</div></div><div class="ans-key">జవాబు: ( 2 )</div></div>
+<div class="question-card"><strong>3. సూర్య కేంద్రక సిద్ధాంతంను ప్రతిపాదించినది:</strong><div class="options"><div>1) పోలిష్ దేశానికి చెందిన కోపర్నికస్</div><div>2) ఈజిప్ట్ దేశానికి చెందిన టాలమీ</div><div>3) బెల్జియం దేశానికి చెందిన జార్జెస్ లిమైటర్</div><div>4) ఇటలీ దేశానికి చెందిన గెలీలియో</div></div><div class="ans-key">జవాబు: ( 1 )</div></div>
+<div class="question-card"><strong>4. నిహారిక పరికల్పన ప్రకారం ప్రస్తుత గ్రహాలు దీని నుండి ఏర్పడినవి:</strong><div class="options"><div>1) భూమికి సంబంధించిన ధూళి, వాయువులు</div><div>2) సూర్యునికి సంబంధించిన ధూళి, వాయువులు</div><div>3) తోకచుక్కకు సంబంధించిన ధూళి వాయువులు</div><div>4) ధ్రువ నక్షత్రంకు సంబంధించిన ధూళి వాయువులు</div></div><div class="ans-key">జవాబు: ( 2 )</div></div>
+<div class="question-card"><strong>5. సౌర కుటుంబం ఆవిర్భవించిన కాలం:</strong><div class="options"><div>1) 3.6 మిలియన్ సం॥ క్రితం</div><div>2) 4.6 మిలియన్ సం॥ క్రితం</div><div>3) 3.6 బిలియన్ సం॥ క్రితం</div><div>4) 4.6 బిలియన్ సం॥ క్రితం</div></div><div class="ans-key">జవాబు: ( 4 )</div></div>
+</div>
+
+<!-- Modern Glassmorphism Audio Player UI -->
+<div class="audio-player-bar">
+ <audio id="lessonAudio">
+  <source src="https://raw.githubusercontent.com/Rajatalluri91/AP-DSC-2026/main/SOCIAL/1.UNIVERSE/Soc%201.1.wav" type="audio/wav" type="audio/mpeg">
+ </audio>
+ 
+ <div class="player-main">
+  <button class="play-btn" id="playPauseBtn" onclick="togglePlay()">▶</button>
+  
+  <div class="progress-container">
+   <div class="progress-bar-wrapper">
+    <span class="time-text" id="currentTime">0:00</span>
+    <input type="range" class="timeline" id="seekSlider" value="0" max="100" oninput="seekAudio()">
+    <span class="time-text" id="durationTime">0:00</span>
+   </div>
+  </div>
+  
+  <div class="player-right-controls">
+   <select class="speed-dropdown" id="speedSelect" onchange="changeSpeed(this.value)">
+    <option value="0.5">0.5x</option>
+    <option value="0.75">0.75x</option>
+    <option value="1" selected>1.0x</option>
+    <option value="1.25">1.25x</option>
+    <option value="1.5">1.5x</option>
+    <option value="2">2.0x</option>
+   </select>
+  </div>
+ </div>
+</div>
+
+<script>
+// Theme Switcher
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+ document.documentElement.setAttribute('data-theme', currentTheme);
+ toggleSwitch.checked = currentTheme === 'dark';
+}
+function switchTheme(event) {
+ const theme = event.target.checked ? 'dark' : 'light';
+ document.documentElement.setAttribute('data-theme', theme);
+ localStorage.setItem('theme', theme);
+}
+toggleSwitch.addEventListener('change', switchTheme);
+
+// Custom Modern Audio Player Control logic
+const audio = document.getElementById('lessonAudio');
+const playBtn = document.getElementById('playPauseBtn');
+const seekSlider = document.getElementById('seekSlider');
+const currentTimeEl = document.getElementById('currentTime');
+const durationTimeEl = document.getElementById('durationTime');
+
+function togglePlay() {
+ if (audio.paused) {
+  audio.play();
+  playBtn.innerHTML = '❚❚';
+ } else {
+  audio.pause();
+  playBtn.innerHTML = '▶';
+ }
+}
+
+audio.addEventListener('timeupdate', () => {
+ if (audio.duration) {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  seekSlider.value = progress;
+  currentTimeEl.innerText = formatTime(audio.currentTime);
+  durationTimeEl.innerText = formatTime(audio.duration);
+ }
+});
+
+function seekAudio() {
+ if (audio.duration) {
+  audio.currentTime = (seekSlider.value / 100) * audio.duration;
+ }
+}
+
+function changeSpeed(speed) {
+ audio.playbackRate = parseFloat(speed);
+}
+
+function formatTime(seconds) {
+ const min = Math.floor(seconds / 60);
+ const sec = Math.floor(seconds % 60);
+ return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+}
+</script>
+</body>
+</html>
