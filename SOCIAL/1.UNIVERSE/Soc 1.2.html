@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7వ తరగతి సోషల్ స్టడీస్ - 2. సౌర కుటుంబంలోని మన భూమి</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7f6;--card:#fff;--text:#2c3e50;--head:#1a5276;--sub:#117a65;--accent:#e67e22;--border:#d6dbdf;--th:#2980b9;--thtext:#fff;--box:#ebf5fb;--strong:#c0392b;--shadow:0 4px 15px rgba(0,0,0,.1);--player-bg:rgba(255,255,255,0.95)}
+[data-theme=dark]{--bg:#1a1a2e;--card:#16213e;--text:#e0e0e0;--head:#4ee1a0;--sub:#5dade2;--accent:#f39c12;--border:#0f3460;--th:#0f3460;--thtext:#fff;--box:#0f3460;--strong:#ff7675;--shadow:0 4px 15px rgba(0,0,0,.5);--player-bg:rgba(22,33,62,0.95)}
+*{box-sizing:border-box}body{font-family:'Mandali',sans-serif;background:var(--bg);color:var(--text);margin:0;padding:10px;line-height:1.75;font-size:17px;transition:.3s;padding-bottom:110px}
+.container{max-width:950px;margin:auto;background:var(--card);padding:10px;border-radius:9px;box-shadow:var(--shadow);overflow:hidden}
+.header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:3px solid var(--head);padding:5px 5px 12px;margin-bottom:14px}
+.main-title{font-size:23px;color:var(--head);margin:4px 0}.eyebrow{color:var(--accent);font-weight:bold;font-size:14px}
+h2{font-size:21px;color:var(--head);border-left:4px solid var(--accent);padding-left:9px;margin:22px 0 10px}
+h3{font-size:19px;color:var(--sub);margin:17px 0 8px}strong{color:var(--strong)}
+ul,ol{padding-left:23px;margin:8px 0}li{margin-bottom:7px}
+.flowchart,.info-box{background:var(--box);border:1px dashed var(--head);border-radius:8px;padding:12px;margin:12px 0}
+.flow-node{display:inline-block;background:var(--card);border:1px solid var(--border);padding:4px 9px;border-radius:5px;margin:3px;font-weight:bold}
+.table-wrap{width:100%;overflow-x:auto;margin:12px 0}table{width:100%;border-collapse:collapse;min-width:560px}th,td{border:1px solid var(--border);padding:8px;text-align:left;vertical-align:top}th{background:var(--th);color:var(--thtext)}td{font-size:15px}
+.question{background:var(--box);border-left:4px solid var(--accent);padding:10px;margin:10px 0;border-radius:0 8px 8px 0}
+.tag{display:inline-block;background:var(--accent);color:white;border-radius:4px;padding:1px 7px;font-size:12px;margin-bottom:5px}
+.options{display:grid;grid-template-columns:1fr;gap:3px;margin-top:6px}
+.answer{color:var(--sub);font-weight:bold;margin-top:5px}
+@media(min-width:520px){.options{grid-template-columns:1fr 1fr}}
+.theme-switch{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:bold}
+.switch{position:relative;display:inline-block;width:50px;height:26px}.switch input{display:none}
+.slider{position:absolute;inset:0;background:#bbb;border-radius:30px;cursor:pointer;transition:.3s}
+.slider:before{content:"";position:absolute;width:20px;height:20px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.3s}
+input:checked+.slider{background:var(--accent)}input:checked+.slider:before{transform:translateX(24px)}
+.note{font-size:14px;color:var(--sub)}
+
+/* Modern Sticky Audio Player UI */
+.audio-player-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:950px;background:var(--player-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:2px solid var(--accent);box-shadow:0 -5px 25px rgba(0,0,0,0.2);padding:10px 15px;z-index:1000;display:flex;flex-direction:column;gap:8px;border-radius:12px 12px 0 0}
+.player-main{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.play-btn{background:var(--accent);border:none;color:#fff;width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform 0.2s,background-color 0.2s;flex-shrink:0;box-shadow:0 3px 8px rgba(0,0,0,0.3)}
+.play-btn:hover{transform:scale(1.05)}
+.progress-container{flex:1;display:flex;flex-direction:column;gap:4px}
+.progress-bar-wrapper{display:flex;align-items:center;gap:8px}
+.timeline{width:100%;height:6px;background:var(--border);border-radius:4px;outline:none;cursor:pointer;accent-color:var(--accent)}
+.time-text{font-size:12px;color:var(--text);font-weight:bold;font-family:sans-serif;min-width:35px;text-align:center}
+.player-right-controls{display:flex;align-items:center;gap:8px}
+.speed-dropdown{background:var(--box);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:4px 6px;font-size:13px;font-weight:bold;cursor:pointer;outline:none;font-family:'Mandali',sans-serif}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="header">
+ <div><div class="eyebrow">7వ తరగతి - సోషల్ స్టడీస్ | 2వ పాఠం</div><h1 class="main-title">2. సౌర కుటుంబంలోని మన భూమి</h1></div>
+ <label class="theme-switch">🌙 / ☀️ <span class="switch"><input type="checkbox" id="themeToggle"><span class="slider"></span></span></label>
+</header>
+
+<h2>పాఠ్యాంశాల విభజన</h2>
+<div class="flowchart">
+ <span class="flow-node">ఖగోళ వస్తువులు</span> ➜ <span class="flow-node">సౌర కుటుంబం</span> ➜ <span class="flow-node">సూర్యుడు</span> ➜ <span class="flow-node">గ్రహాలు</span> ➜ <span class="flow-node">భూమి</span><br>
+ <span class="flow-node">నక్షత్రాలు</span> <span class="flow-node">ఉపగ్రహాలు</span> <span class="flow-node">గ్రహశకలాలు</span> <span class="flow-node">ఉల్కలు</span> <span class="flow-node">తోకచుక్కలు</span><br>
+ <span class="flow-node">గెలాక్సీ / పాలపుంత</span> ➜ <span class="flow-node">విశ్వం</span>
+</div>
+
+<h2>1. ఖగోళ వస్తువులు (Celestial Bodies)</h2>
+<ul>
+<li>రాత్రి పూట ఆకాశంలో అనేక ఖగోళ వస్తువులు మెరుస్తూ ఉంటాయి. వీటితో పాటు చంద్రుడిని కూడా చూడవచ్చు.</li>
+<li>పగటిపూట సూర్యుని ప్రకాశవంతమైన కాంతి కారణంగా రాత్రి ఆకాశంలో కనిపించే అనేక వస్తువులను మనం చూడలేము.</li>
+<li>సూర్యుడు, భూమి, చంద్రుడు, రాత్రి ఆకాశంలో మెరుస్తున్న వస్తువులను కలిపి <strong>ఖగోళ వస్తువులు</strong> అంటారు.</li>
+<li>కొన్ని ఖగోళ వస్తువులు చాలా పెద్దవిగా, వేడిగా ఉండి వాయువులతో నిర్మితమై ఉంటాయి. అవి స్వయంగా వేడి, కాంతిని విడుదల చేస్తాయి. వీటిని <strong>నక్షత్రాలు (Stars)</strong> అంటారు.</li>
+<li><strong>సూర్యుడు ఒక నక్షత్రం.</strong> రాత్రి ఆకాశంలో కనిపించే లెక్కలేనన్ని నక్షత్రాలు కూడా సూర్యుని వంటివే. అవి చాలా దూరంలో ఉండటం వల్ల చిన్నగా కనిపిస్తాయి.</li>
+<li>కొన్ని ఖగోళ వస్తువులకు స్వంతంగా వేడి, కాంతి ఉండవు. అవి నక్షత్రాల కాంతిని ప్రతిబింబిస్తూ కనిపిస్తాయి. ఉదాహరణలు: <strong>గ్రహాలు, ఉపగ్రహాలు, గ్రహశకలాలు, ఉల్కలు, తోకచుక్కలు.</strong></li>
+<li>భూమి ఒక గ్రహం. మనకు దగ్గరగా ఉన్న నక్షత్రం సూర్యుడు. భూమి సూర్యుని నుండి వేడి, కాంతిని పొందుతుంది.</li>
+<li>చంద్రుడు భూమికి సహజ ఉపగ్రహం. ఇది భూమి చుట్టూ తిరుగుతుంది.</li>
+</ul>
+
+<h2>2. భూమి (Earth)</h2>
+<ul>
+<li>భూమి సూర్యుని నుండి <strong>మూడవ గ్రహం</strong>. పరిమాణంలో సౌర కుటుంబంలో <strong>ఐదవ పెద్ద గ్రహం</strong>.</li>
+<li>భూమి ధ్రువాల వద్ద కొద్దిగా చదునుగా, భూమధ్యరేఖ వద్ద ఉబ్బెత్తుగా ఉంటుంది. భూమి ఆకారాన్ని <strong>జియోయిడ్ (Geoid)</strong> అంటారు. అంటే భూమి వంటి ఆకారం.</li>
+<li>భూమికి ఉన్న ఏకైక సహజ ఉపగ్రహం <strong>చంద్రుడు</strong>.</li>
+<li>బాహ్య అంతరిక్షం నుండి భూమి నీలం రంగులో కనిపిస్తుంది. ఎందుకంటే భూమి ఉపరితలంలో మూడింట రెండు వంతులకుపైగా నీటితో కప్పబడి ఉంటుంది. అందువల్ల భూమిని <strong>నీలిగ్రహం (Blue Planet)</strong> అంటారు.</li>
+<li>జీవులు జీవించడానికి అత్యంత అనుకూలమైన గ్రహం భూమి. భూమిపై నాలుగు ప్రధాన ఆవరణాలు ఉన్నాయి.</li>
+</ul>
+<div class="table-wrap"><table>
+<tr><th>ఆవరణం</th><th>అర్థం / వివరణ</th></tr>
+<tr><td><strong>శిలావరణం (Lithosphere)</strong></td><td>రాళ్లు, నేలలతో కూడిన భూమి యొక్క ఘన బాహ్య పొర.</td></tr>
+<tr><td><strong>జలావరణం (Hydrosphere)</strong></td><td>మహాసముద్రాలు, నదులు, సరస్సులు, చెరువులు, మంచు పొరలు మొదలైన భూమిపై ఉన్న నీటి భాగాలన్నీ.</td></tr>
+<tr><td><strong>వాతావరణం (Atmosphere)</strong></td><td>భూమి చుట్టూ విస్తరించి ఉన్న గాలి పొర. ఇందులో వివిధ వాయువులు ఉంటాయి.</td></tr>
+<tr><td><strong>జీవావరణం (Biosphere)</strong></td><td>భూమిపై, నీటిలో, గాలిలో నివసించే మొక్కలు, జంతువులు, బ్యాక్టీరియా, సూక్ష్మజీవులు మొదలైన సమస్త జీవరాశులు.</td></tr>
+</table></div>
+<div class="info-box"><strong>వాతావరణంలోని ప్రధాన వాయువులు:</strong> నత్రజని - 78%, ఆక్సిజన్ - 21%, ఇతర వాయువులు - సుమారు 1% (ఆర్గాన్, కార్బన్ డయాక్సైడ్, హైడ్రోజన్, హీలియం, ఓజోన్ మొదలైనవి).</div>
+<p>శిలావరణం, జలావరణం, వాతావరణం కలిసి జీవులు నివసించడానికి అవసరమైన పరిస్థితులను కల్పిస్తాయి. ఈ మూడు ఆవరణాలతో సంబంధం కలిగి జీవులు నివసించే ప్రాంతాన్ని జీవావరణం అంటారు.</p>
+
+<h2>3. నక్షత్రాలు మరియు నక్షత్రరాశులు</h2>
+<ul>
+<li>అనేక నక్షత్రాల సమూహాలను <strong>నక్షత్రరాశులు (Constellations)</strong> అంటారు. అవి కనిపించే ఆకారాన్ని బట్టి జంతువులు, వస్తువులు, జీవుల పేర్లను పెట్టారు.</li>
+<li><strong>ఉర్సా మేజర్ (Ursa Major) / బిగ్ బేర్</strong> ఒక నక్షత్రరాశి. దీనిని సప్తర్షి మండలం అని కూడా పిలుస్తారు. ఇది ఏడు నక్షత్రాల సమూహం.</li>
+<li>ప్రాచీన కాలంలో ప్రజలు రాత్రి సమయంలో నక్షత్రాల సహాయంతో దిక్కులను గుర్తించేవారు.</li>
+<li>ఉత్తరార్ధ గోళంలోని ప్రజలు ఉత్తర దిక్కును గుర్తించడానికి <strong>ధృవ నక్షత్రం (Pole Star)</strong> ను ఉపయోగించేవారు.</li>
+<li>ధృవ నక్షత్రం ఆకాశంలో దాదాపు ఒకే స్థానంలో కనిపిస్తుంది. ఉర్సా మేజర్ / సప్తర్షి మండలం సహాయంతో ధృవ నక్షత్రాన్ని గుర్తించవచ్చు.</li>
+</ul>
+<div class="question"><strong>గుర్తుంచుకోండి:</strong> సప్తర్షి మండలం - ఏడు నక్షత్రాలు; ధృవ నక్షత్రం - ఉత్తర దిశను సూచిస్తుంది.</div>
+
+<h2>4. సూర్యుడు (The Sun)</h2>
+<ul>
+<li>సూర్యుడు మనకు అత్యంత దగ్గరగా ఉన్న నక్షత్రం. సూర్యుడు వేడి వాయువులతో కూడిన పెద్ద గోళం.</li>
+<li>సౌర కుటుంబానికి అవసరమైన వేడి, కాంతిని సూర్యుడు అందిస్తాడు.</li>
+<li>సూర్యుని గురుత్వాకర్షణ శక్తి సౌర కుటుంబంలోని గ్రహాలు మరియు ఇతర వస్తువులను వాటి కక్ష్యల్లో ఉంచుతుంది.</li>
+<li>సూర్యుని ఉపరితల ఉష్ణోగ్రత సుమారు <strong>6,000°C</strong>.</li>
+<li>భూమి నుండి సూర్యుని సగటు దూరం సుమారు <strong>15 కోట్ల కిలోమీటర్లు</strong>.</li>
+<li>సూర్యునిలో సుమారు 13 లక్షల భూములు ఇమిడేంత స్థలం ఉంటుంది.</li>
+<li>కాంతి వేగం సెకనుకు సుమారు <strong>3,00,000 కి.మీ.</strong> సూర్యుని కాంతి భూమిని చేరడానికి సుమారు <strong>8 నిమిషాల 20 సెకన్లు</strong> పడుతుంది.</li>
+</ul>
+<div class="question"><strong>Expected Question:</strong> సూర్యుని ఉపరితలంపై ఉండే ఉష్ణోగ్రత ఎంత?<div class="options"><div>1) 600°C</div><div>2) 6000°C</div><div>3) 10000°C</div><div>4) 100000°C</div></div><div class="answer">జవాబు: 2) 6000°C</div></div>
+
+<h2>5. సౌర కుటుంబం (Solar System)</h2>
+<ul>
+<li>సూర్యుడు మరియు దాని గురుత్వాకర్షణ ప్రభావంలో ఉండి దాని చుట్టూ తిరిగే గ్రహాలు, ఉపగ్రహాలు, గ్రహశకలాలు, తోకచుక్కలు, ఉల్కలు మొదలైన ఖగోళ వస్తువుల సమూహాన్ని <strong>సౌర కుటుంబం</strong> అంటారు.</li>
+<li>సౌర కుటుంబానికి సూర్యుడు కేంద్రంగా ఉంటాడు. సౌర కుటుంబంలోని ప్రతి సభ్యుడు సూర్యుని చుట్టూ తిరుగుతాడు.</li>
+<li>గ్రహాలు సూర్యుని చుట్టూ తిరిగే స్థిరమైన మార్గాలను <strong>కక్ష్యలు (Orbits)</strong> అంటారు.</li>
+</ul>
+<h3>సూర్యుని నుండి గ్రహాల వరుస క్రమం</h3>
+<div class="flowchart">
+ <span class="flow-node">1. బుధుడు (Mercury)</span> ➜ <span class="flow-node">2. శుక్రుడు (Venus)</span> ➜
+ <span class="flow-node">3. భూమి (Earth)</span> ➜ <span class="flow-node">4. అంగారకుడు (Mars)</span><br>
+ <span class="flow-node">5. బృహస్పతి (Jupiter)</span> ➜ <span class="flow-node">6. శని (Saturn)</span> ➜
+ <span class="flow-node">7. యురేనస్ (Uranus)</span> ➜ <span class="flow-node">8. నెప్ట్యూన్ (Neptune)</span>
+</div>
+<div class="info-box"><strong>గ్రహాల క్రమాన్ని గుర్తుంచుకునే ఇంగ్లీష్ వాక్యం:</strong><br>
+My Very Educated Mother Just Served Us Noodles<br>
+<span class="note">Mercury – Venus – Earth – Mars – Jupiter – Saturn – Uranus – Neptune</span></div>
+<ul>
+<li>సౌర కుటుంబంలో మొత్తం <strong>8 గ్రహాలు</strong> ఉన్నాయి.</li>
+<li>2006 వరకు ప్లూటోను తొమ్మిదవ గ్రహంగా పరిగణించేవారు. 2006లో దానిని <strong>మరుగుజ్జు గ్రహం (Dwarf Planet)</strong> గా వర్గీకరించారు.</li>
+<li>గ్రహాలలో పెద్దది <strong>బృహస్పతి</strong>; చిన్నది <strong>బుధుడు</strong>.</li>
+<li>సూర్యునికి దగ్గరగా ఉన్న గ్రహం బుధుడు. భూమికి పరిమాణం, ఆకారంలో దగ్గరగా ఉండటం వల్ల శుక్రుడిని <strong>భూమికి కవల గ్రహం (Earth's Twin)</strong> అంటారు.</li>
+<li>శుక్రుడు, యురేనస్ గ్రహాలు మినహా మిగిలిన గ్రహాలు సాధారణంగా అపసవ్య దిశలో భ్రమణం చేస్తాయి. శుక్రుడు, యురేనస్ భిన్న దిశలో భ్రమణం చేస్తాయి.</li>
+</ul>
+<h3>గ్రహాలకు సంబంధించిన ముఖ్యమైన కాలాలు</h3>
+<div class="table-wrap"><table>
+<tr><th>గ్రహం</th><th>సూర్యుని చుట్టూ పరిభ్రమణ కాలం (సుమారు)</th><th>తన చుట్టూ తాను భ్రమణ కాలం (సుమారు)</th></tr>
+<tr><td>బుధుడు</td><td>88 రోజులు</td><td>59 రోజులు</td></tr>
+<tr><td>శుక్రుడు</td><td>225 రోజులు</td><td>243 రోజులు</td></tr>
+<tr><td>భూమి</td><td>365¼ రోజులు</td><td>1 రోజు</td></tr>
+<tr><td>అంగారకుడు</td><td>687 రోజులు</td><td>సుమారు 24 గంటల 37 నిమిషాలు</td></tr>
+<tr><td>బృహస్పతి</td><td>సుమారు 12 సంవత్సరాలు</td><td>సుమారు 10 గంటలు</td></tr>
+<tr><td>శని</td><td>సుమారు 29½ సంవత్సరాలు</td><td>సుమారు 10½ గంటలు</td></tr>
+<tr><td>యురేనస్</td><td>సుమారు 84 సంవత్సరాలు</td><td>సుమారు 17 గంటలు</td></tr>
+<tr><td>నెప్ట్యూన్</td><td>సుమారు 165 సంవత్సరాలు</td><td>సుమారు 16 గంటలు</td></tr>
+</table></div>
+
+<h2>6. ఉపగ్రహాలు (Satellites)</h2>
+<ul>
+<li>గ్రహాల చుట్టూ తిరిగే ఖగోళ వస్తువులను <strong>ఉపగ్రహాలు</strong> అంటారు.</li>
+<li>బుధుడు, శుక్రుడు గ్రహాలకు సహజ ఉపగ్రహాలు లేవు. మిగిలిన గ్రహాలకు ఒకటి లేదా అంతకంటే ఎక్కువ ఉపగ్రహాలు ఉన్నాయి.</li>
+<li>భూమికి ఉన్న ఏకైక సహజ ఉపగ్రహం <strong>చంద్రుడు</strong>.</li>
+<li>చంద్రుని వ్యాసం భూమి వ్యాసంలో సుమారు నాలుగవ వంతు.</li>
+<li>చంద్రుడు భూమికి సగటున సుమారు <strong>3,84,000 కి.మీ.</strong> దూరంలో ఉంటాడు.</li>
+<li>చంద్రుడు భూమి చుట్టూ ఒకసారి పరిభ్రమించడానికి సుమారు 27.3 రోజులు పడుతుంది. తన చుట్టూ తాను భ్రమణం చేయడానికి కూడా దాదాపు అదే సమయం పడుతుంది. అందువల్ల భూమి నుండి చంద్రుని ఒకవైపు మాత్రమే మనకు కనిపిస్తుంది.</li>
+<li>చంద్రునిపై పర్వతాలు, మైదానాలు, గుంతలు (క్రేటర్లు) ఉన్నాయి. అక్కడ జీవించడానికి అనుకూలమైన వాతావరణం లేదు.</li>
+<li>చంద్రునిపై అడుగుపెట్టిన మొదటి వ్యక్తి <strong>నీల్ ఆర్మ్‌స్ట్రాంగ్</strong>. ఆయన 1969 జూలై 21న చంద్రునిపై అడుగుపెట్టాడు.</li>
+<li>అంతరిక్షంలోకి వెళ్లిన మొదటి భారతీయ వ్యోమగామి <strong>రాకేష్ శర్మ</strong>.</li>
+</ul>
+
+<h3>భారతదేశ చంద్రయాన్ ప్రయోగాలు</h3>
+<ul>
+<li><strong>చంద్రయాన్-1:</strong> 2008 అక్టోబర్ 22న శ్రీహరికోట నుండి PSLV-C11 రాకెట్ ద్వారా ప్రయోగించారు. ఇందులో భారతదేశానికి చెందినవి, ఇతర దేశాలకు చెందినవి కలిపి 11 పరికరాలు ఉన్నాయి.</li>
+<li><strong>చంద్రయాన్-2:</strong> 2019 జూలై 22న GSLV Mk III-M1 వాహక నౌక ద్వారా ప్రయోగించారు. ఇందులో ఆర్బిటర్, విక్రమ్ ల్యాండర్, ప్రజ్ఞాన్ రోవర్ ఉన్నాయి.</li>
+<li><strong>విక్రమ్ ల్యాండర్:</strong> చంద్రుని ఉపరితలంపై నౌకను సురక్షితంగా దింపే పరికరం.</li>
+<li><strong>ప్రజ్ఞాన్ రోవర్:</strong> చంద్రుని ఉపరితలంపై పరిశోధనలు చేసే వాహనం.</li>
+<li><strong>చంద్రయాన్-3:</strong> 2023 జూలై 14న ప్రయోగించారు. 2023 ఆగస్టు 23న చంద్రుని దక్షిణ ధ్రువ ప్రాంతానికి సమీపంలో విక్రమ్ ల్యాండర్ సాఫ్ట్ ల్యాండింగ్ చేసింది.</li>
+</ul>
+
+<h3>కృత్రిమ ఉపగ్రహాలు</h3>
+<ul>
+<li>సమాచార సేకరణ, సమాచార ప్రసారం, వాతావరణ అంచనాలు, భూమి పరిశీలన వంటి అవసరాల కోసం శాస్త్రవేత్తలు తయారు చేసి కక్ష్యలో ప్రవేశపెట్టే ఉపగ్రహాలను <strong>కృత్రిమ ఉపగ్రహాలు</strong> అంటారు.</li>
+<li>భారతదేశానికి చెందిన కొన్ని ఉపగ్రహాలు: <strong>ఇన్సాట్ (INSAT), ఐ.ఆర్.ఎస్. (IRS), ఎడ్యుశాట్ (EDUSAT)</strong>.</li>
+<li>భారత అంతరిక్ష పరిశోధనా సంస్థ <strong>ఇస్రో (ISRO)</strong> శ్రీహరికోటలోని సతీష్ ధావన్ స్పేస్ సెంటర్ నుండి ఉపగ్రహాలను ప్రయోగిస్తుంది.</li>
+<li><strong>మంగళయాన్ (Mars Orbiter Mission - MOM):</strong> అంగారక గ్రహ వాతావరణం, స్థలాకృతిని అధ్యయనం చేయడానికి ఇస్రో చేపట్టిన ప్రయోగం. ఇది 2014 సెప్టెంబర్ 24న అంగారక కక్ష్యలోకి చేరింది.</li>
+</ul>
+
+<h2>7. గ్రహశకలాలు, ఉల్కలు, తోకచుక్కలు</h2>
+<h3>గ్రహశకలాలు (Asteroids)</h3>
+<ul><li>గ్రహాలు, ఉపగ్రహాలు కాకుండా సూర్యుని చుట్టూ తిరిగే చిన్న చిన్న రాతి వస్తువులను <strong>గ్రహశకలాలు</strong> అంటారు.</li><li>ఇవి ఎక్కువగా అంగారకుడు, బృహస్పతి గ్రహాల కక్ష్యల మధ్య ఉన్న <strong>గ్రహశకలాల వలయం (Asteroid Belt)</strong> లో కనిపిస్తాయి.</li></ul>
+<h3>ఉల్కలు / ఉల్కాపాతాలు (Meteors / Meteorites)</h3>
+<ul><li>అంతరిక్షంలో సూర్యుని చుట్టూ తిరిగే చిన్న రాతి ముక్కలను ఉల్కా పదార్థాలు అంటారు.</li><li>అవి భూమి వాతావరణంలోకి ప్రవేశించినప్పుడు గాలితో ఘర్షణ వల్ల వేడెక్కి వెలుగుతూ కనిపిస్తాయి. ఈ కాంతి రేఖను సాధారణంగా <strong>ఉల్క (Meteor)</strong> అంటారు.</li><li>పూర్తిగా కాలిపోకుండా భూమి ఉపరితలంపై పడే ముక్కను <strong>ఉల్కాశిల (Meteorite)</strong> అంటారు. ఇవి నేలపై గుంతలను సృష్టించవచ్చు.</li></ul>
+<h3>తోకచుక్కలు (Comets)</h3>
+<ul><li>తల, తోక కలిగి కనిపించే ఖగోళ వస్తువులను <strong>తోకచుక్కలు</strong> అంటారు.</li><li>తోకచుక్క తల మంచు, ధూళి, ఘన కణాలతో కూడి ఉంటుంది. సూర్యునికి దగ్గరగా వచ్చినప్పుడు వేడి కారణంగా వాయువులు, ధూళి విడుదలై తోక ఏర్పడుతుంది.</li><li><strong>హేలీ తోకచుక్క</strong> సుమారు ప్రతి 76 సంవత్సరాలకు ఒకసారి కనిపిస్తుంది. చివరిసారిగా 1986లో కనిపించింది; తదుపరి 2061లో కనిపించనుంది.</li></ul>
+
+<h2>8. గెలాక్సీ మరియు విశ్వం</h2>
+<ul>
+<li>నిర్మలమైన రాత్రి ఆకాశంలో తెల్లటి కాంతి మార్గంలా కనిపించే నక్షత్రాల సమూహాన్ని మనం చూడవచ్చు. అనేక నక్షత్రాలతో కూడిన భారీ సమూహాన్ని <strong>గెలాక్సీ (Galaxy)</strong> అంటారు.</li>
+<li>మన సౌర కుటుంబం <strong>పాలపుంత (Milky Way)</strong> అనే గెలాక్సీలో ఒక భాగం.</li>
+<li>ప్రాచీన భారతీయులు దీనిని ఆకాశంలో ప్రవహించే కాంతి నదిగా భావించి <strong>ఆకాశగంగ</strong> అని పిలిచారు.</li>
+<li>అనేక గెలాక్సీల సమాహారాన్ని <strong>విశ్వం (Universe)</strong> అంటారు. విశ్వం పరిమాణం చాలా విస్తారమైనది.</li>
+</ul>
+<div class="flowchart">
+ <span class="flow-node">భూమి</span> ➜ <span class="flow-node">సౌర కుటుంబం</span> ➜ <span class="flow-node">పాలపుంత / గెలాక్సీ</span> ➜ <span class="flow-node">విశ్వం</span>
+</div>
+
+<h2>9. పదకోశం (Glossary)</h2>
+<div class="table-wrap"><table>
+<tr><th>పదం</th><th>అర్థం</th></tr>
+<tr><td>ఖగోళ వస్తువులు</td><td>అంతరిక్షంలో ఉండే సహజ వస్తువులు.</td></tr>
+<tr><td>నక్షత్రం</td><td>స్వయంగా వేడి, కాంతిని విడుదల చేసే ఖగోళ వస్తువు.</td></tr>
+<tr><td>గ్రహం</td><td>నక్షత్రం చుట్టూ పరిభ్రమించే పెద్ద ఖగోళ వస్తువు.</td></tr>
+<tr><td>ఉపగ్రహం</td><td>గ్రహం చుట్టూ తిరిగే ఖగోళ వస్తువు.</td></tr>
+<tr><td>కక్ష్య</td><td>గ్రహం సూర్యుని చుట్టూ తిరిగే మార్గం.</td></tr>
+<tr><td>జియోయిడ్</td><td>భూమిని పోలిన ఆకారం.</td></tr>
+<tr><td>శిలావరణం</td><td>రాళ్లు, నేలలతో కూడిన భూమి ఘన బాహ్య పొర.</td></tr>
+<tr><td>జలావరణం</td><td>భూమిపై ఉన్న నీటి భాగాల సముదాయం.</td></tr>
+<tr><td>వాతావరణం</td><td>భూమిని ఆవరించి ఉన్న గాలి పొర.</td></tr>
+<tr><td>జీవావరణం</td><td>జీవులు నివసించే భూమి, నీరు, గాలి ప్రాంతాల సముదాయం.</td></tr>
+<tr><td>గ్రహశకలాలు</td><td>సూర్యుని చుట్టూ తిరిగే చిన్న రాతి వస్తువులు.</td></tr>
+<tr><td>గెలాక్సీ</td><td>అనేక నక్షత్రాలు, వాయువులు, ధూళితో కూడిన భారీ సమూహం.</td></tr>
+</table></div>
+
+<h2>10. EXPECTED QUESTIONS – బహుళైచ్ఛిక ప్రశ్నలు</h2>
+<div class="question"><strong>1. సూర్యుడు, చంద్రుడు, రాత్రిపూట ఆకాశంలో కనిపించే వస్తువులు మరియు భూమిని కలిపి ఏమంటారు?</strong><div class="options"><div>1) సౌర కుటుంబం</div><div>2) ఖగోళ వస్తువులు</div><div>3) గ్రహ ఉపగ్రహ కూటమి</div><div>4) నక్షత్ర సముదాయం</div></div><div class="answer">జవాబు: 2) ఖగోళ వస్తువులు</div></div>
+<div class="question"><strong>2. భూమి యొక్క కవల గ్రహంగా పేరుగాంచినది ఏది?</strong><div class="options"><div>1) బుధుడు</div><div>2) శుక్రుడు</div><div>3) అంగారకుడు</div><div>4) బృహస్పతి</div></div><div class="answer">జవాబు: 2) శుక్రుడు</div></div>
+<div class="question"><strong>3. భూమి సూర్యుని నుండి ఎన్నవ గ్రహం?</strong><div class="options"><div>1) మొదటి</div><div>2) రెండవ</div><div>3) మూడవ</div><div>4) నాలుగవ</div></div><div class="answer">జవాబు: 3) మూడవది</div></div>
+<div class="question"><strong>4. భూమి ఆకారాన్ని ఏమని పిలుస్తారు?</strong><div class="options"><div>1) వృత్తం</div><div>2) జియోయిడ్</div><div>3) బంతి</div><div>4) స్థూపం</div></div><div class="answer">జవాబు: 2) జియోయిడ్</div></div>
+<div class="question"><strong>5. భూమి ఉపరితలంలో సుమారు ఎంత భాగం నీటితో కప్పబడి ఉంది?</strong><div class="options"><div>1) మూడింట ఒక వంతు</div><div>2) మూడింట రెండు వంతులు</div><div>3) నాలుగింట ఒక వంతు</div><div>4) మొత్తం</div></div><div class="answer">జవాబు: 2) మూడింట రెండు వంతులు</div></div>
+<div class="question"><strong>6. వాతావరణంలో నత్రజని శాతం ఎంత?</strong><div class="options"><div>1) 21%</div><div>2) 25%</div><div>3) 27%</div><div>4) 78%</div></div><div class="answer">జవాబు: 4) 78%</div></div>
+<div class="question"><strong>7. వాతావరణంలో ఆక్సిజన్ శాతం ఎంత?</strong><div class="options"><div>1) 21%</div><div>2) 25%</div><div>3) 27%</div><div>4) 78%</div></div><div class="answer">జవాబు: 1) 21%</div></div>
+<div class="question"><strong>8. ఉత్తర దిశను సూచించే నక్షత్రం ఏది?</strong><div class="options"><div>1) సూర్యుడు</div><div>2) ధృవ నక్షత్రం</div><div>3) సప్తర్షి</div><div>4) అరుంధతి</div></div><div class="answer">జవాబు: 2) ధృవ నక్షత్రం</div></div>
+<div class="question"><strong>9. ఏడు నక్షత్రాలను కలిగి ఉండే నక్షత్రరాశి ఏది?</strong><div class="options"><div>1) సప్తర్షి మండలం</div><div>2) వృషభరాశి</div><div>3) ధనుస్సు</div><div>4) మకరం</div></div><div class="answer">జవాబు: 1) సప్తర్షి మండలం</div></div>
+<div class="question"><strong>10. సూర్యుని ఉపరితల ఉష్ణోగ్రత సుమారు ఎంత?</strong><div class="options"><div>1) 600°C</div><div>2) 6000°C</div><div>3) 10000°C</div><div>4) 100000°C</div></div><div class="answer">జవాబు: 2) 6000°C</div></div>
+<div class="question"><strong>11. సౌర కుటుంబంలో గ్రహాల సంఖ్య ఎంత?</strong><div class="options"><div>1) 7</div><div>2) 8</div><div>3) 9</div><div>4) 10</div></div><div class="answer">జవాబు: 2) 8</div></div>
+<div class="question"><strong>12. గ్రహాలలో అతి పెద్దది ఏది?</strong><div class="options"><div>1) భూమి</div><div>2) శని</div><div>3) బృహస్పతి</div><div>4) అంగారకుడు</div></div><div class="answer">జవాబు: 3) బృహస్పతి</div></div>
+<div class="question"><strong>13. గ్రహాలలో అతి చిన్నది ఏది?</strong><div class="options"><div>1) బుధుడు</div><div>2) శుక్రుడు</div><div>3) భూమి</div><div>4) అంగారకుడు</div></div><div class="answer">జవాబు: 1) బుధుడు</div></div>
+<div class="question"><strong>14. సూర్యునికి అత్యంత దగ్గరగా ఉన్న గ్రహం ఏది?</strong><div class="options"><div>1) భూమి</div><div>2) శుక్రుడు</div><div>3) బుధుడు</div><div>4) అంగారకుడు</div></div><div class="answer">జవాబు: 3) బుధుడు</div></div>
+<div class="question"><strong>15. సూర్యుని చుట్టూ తిరిగే గ్రహాల మార్గాలను ఏమంటారు?</strong><div class="options"><div>1) కక్ష్యలు</div><div>2) గెలాక్సీలు</div><div>3) నక్షత్రరాశులు</div><div>4) ఆవరణాలు</div></div><div class="answer">జవాబు: 1) కక్ష్యలు</div></div>
+<div class="question"><strong>16. సహజ ఉపగ్రహాలు లేని గ్రహాల జత ఏది?</strong><div class="options"><div>1) బుధుడు, కుజుడు</div><div>2) బుధుడు, శుక్రుడు</div><div>3) శుక్రుడు, భూమి</div><div>4) వరుణుడు, అంగారకుడు</div></div><div class="answer">జవాబు: 2) బుధుడు, శుక్రుడు</div></div>
+<div class="question"><strong>17. చంద్రుడు భూమి చుట్టూ ఒకసారి తిరగడానికి సుమారు ఎన్ని రోజులు పడుతుంది?</strong><div class="options"><div>1) 7 రోజులు</div><div>2) 14 రోజులు</div><div>3) 27 రోజులు</div><div>4) 30 రోజులు</div></div><div class="answer">జవాబు: 3) సుమారు 27 రోజులు</div></div>
+<div class="question"><strong>18. చంద్రునిపై మొదట అడుగుపెట్టిన వ్యక్తి ఎవరు?</strong><div class="options"><div>1) యూరీ గగారిన్</div><div>2) నీల్ ఆర్మ్‌స్ట్రాంగ్</div><div>3) రాకేష్ శర్మ</div><div>4) కల్పనా చావ్లా</div></div><div class="answer">జవాబు: 2) నీల్ ఆర్మ్‌స్ట్రాంగ్</div></div>
+<div class="question"><strong>19. భారతదేశ ఉపగ్రహ ప్రయోగ కేంద్రం ఎక్కడ ఉంది?</strong><div class="options"><div>1) తుంబా</div><div>2) బెంగళూరు</div><div>3) వీలర్ దీవి</div><div>4) శ్రీహరికోట</div></div><div class="answer">జవాబు: 4) శ్రీహరికోట</div></div>
+<div class="question"><strong>20. మంగళయాన్ ప్రయోగం యొక్క ప్రధాన ఉద్దేశ్యం ఏమిటి?</strong><div class="options"><div>1) చంద్రునిపై పరిశోధనలు</div><div>2) అంగారక గ్రహంపై పరిశోధనలు</div><div>3) శుక్రగ్రహంపై పరిశోధనలు</div><div>4) బుధగ్రహంపై పరిశోధనలు</div></div><div class="answer">జవాబు: 2) అంగారక గ్రహంపై పరిశోధనలు</div></div>
+<div class="question"><strong>21. గ్రహశకలాలు ఎక్కువగా ఏ రెండు గ్రహాల మధ్య కనిపిస్తాయి?</strong><div class="options"><div>1) భూమి - అంగారకుడు</div><div>2) అంగారకుడు - బృహస్పతి</div><div>3) బృహస్పతి - శని</div><div>4) శని - యురేనస్</div></div><div class="answer">జవాబు: 2) అంగారకుడు - బృహస్పతి</div></div>
+<div class="question"><strong>22. హేలీ తోకచుక్క సుమారు ఎన్ని సంవత్సరాలకు ఒకసారి కనిపిస్తుంది?</strong><div class="options"><div>1) 36</div><div>2) 56</div><div>3) 76</div><div>4) 96</div></div><div class="answer">జవాబు: 3) 76 సంవత్సరాలు</div></div>
+<div class="question"><strong>23. మన సౌర కుటుంబం ఏ గెలాక్సీలో ఉంది?</strong><div class="options"><div>1) ఆండ్రోమెడా</div><div>2) పాలపుంత</div><div>3) సన్‌ఫ్లవర్</div><div>4) బ్లాక్ ఐ</div></div><div class="answer">జవాబు: 2) పాలపుంత</div></div>
+
+<h2>11. త్వరిత పునశ్చరణ (Quick Revision)</h2>
+<ul>
+<li>సూర్యుడు - నక్షత్రం.</li><li>భూమి - సూర్యుని నుండి మూడవ గ్రహం.</li>
+<li>చంద్రుడు - భూమి యొక్క సహజ ఉపగ్రహం.</li>
+<li>శుక్రుడు - భూమికి కవల గ్రహం.</li>
+<li>బృహస్పతి - అతి పెద్ద గ్రహం.</li>
+<li>బుధుడు - అతి చిన్న గ్రహం, సూర్యునికి దగ్గరగా ఉన్న గ్రహం.</li>
+<li>ధృవ నక్షత్రం - ఉత్తర దిశను సూచిస్తుంది.</li>
+<li>సప్తర్షి మండలం - ఏడు నక్షత్రాల సమూహం.</li>
+<li>శ్రీహరికోట - భారత ఉపగ్రహ ప్రయోగ కేంద్రం.</li>
+<li>పాలపుంత - మన సౌర కుటుంబం ఉన్న గెలాక్సీ.</li>
+<li>హేలీ తోకచుక్క - సుమారు 76 సంవత్సరాలకు ఒకసారి.</li>
+</ul>
+<p class="note">గమనిక: పాఠ్యపుస్తకంలోని పేజీలు 8–16 ఆధారంగా పాఠ్యాంశాలను క్రమబద్ధీకరించి HTML రూపంలో రూపొందించాం. కొన్ని చోట్ల OCR/ముద్రణలో కనిపించిన అక్షరదోషాలను సరిచేసి, సాధారణంగా అంగీకరించిన శాస్త్రీయ విలువలను ఉపయోగించాం.</p>
+</div>
+
+<!-- Modern Glassmorphism Audio Player UI -->
+<div class="audio-player-bar">
+ <audio id="lessonAudio">
+  <source src="https://rajatalluri91.github.io/AP-DSC-2026/SOCIAL/1.UNIVERSE/Soc%201.2.wav" type="audio/mpeg">
+ </audio>
+ 
+ <div class="player-main">
+  <button class="play-btn" id="playPauseBtn" onclick="togglePlay()">▶</button>
+  
+  <div class="progress-container">
+   <div class="progress-bar-wrapper">
+    <span class="time-text" id="currentTime">0:00</span>
+    <input type="range" class="timeline" id="seekSlider" value="0" max="100" oninput="seekAudio()">
+    <span class="time-text" id="durationTime">0:00</span>
+   </div>
+  </div>
+  
+  <div class="player-right-controls">
+   <select class="speed-dropdown" id="speedSelect" onchange="changeSpeed(this.value)">
+    <option value="0.5">0.5x</option>
+    <option value="0.75">0.75x</option>
+    <option value="1" selected>1.0x</option>
+    <option value="1.25">1.25x</option>
+    <option value="1.5">1.5x</option>
+    <option value="2">2.0x</option>
+   </select>
+  </div>
+ </div>
+</div>
+
+<script>
+const toggle=document.getElementById('themeToggle');
+const saved=localStorage.getItem('theme');
+if(saved){document.documentElement.setAttribute('data-theme',saved);toggle.checked=saved==='dark';}
+toggle.addEventListener('change',()=>{const theme=toggle.checked?'dark':'light';document.documentElement.setAttribute('data-theme',theme);localStorage.setItem('theme',theme);});
+
+// Audio Player Logic
+const audio = document.getElementById('lessonAudio');
+const playBtn = document.getElementById('playPauseBtn');
+const seekSlider = document.getElementById('seekSlider');
+const currentTimeEl = document.getElementById('currentTime');
+const durationTimeEl = document.getElementById('durationTime');
+
+function togglePlay() {
+ if (audio.paused) {
+  audio.play();
+  playBtn.innerHTML = '❚❚';
+ } else {
+  audio.pause();
+  playBtn.innerHTML = '▶';
+ }
+}
+
+audio.addEventListener('timeupdate', () => {
+ if (audio.duration) {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  seekSlider.value = progress;
+  currentTimeEl.innerText = formatTime(audio.currentTime);
+  durationTimeEl.innerText = formatTime(audio.duration);
+ }
+});
+
+function seekAudio() {
+ if (audio.duration) {
+  audio.currentTime = (seekSlider.value / 100) * audio.duration;
+ }
+}
+
+function changeSpeed(speed) {
+ audio.playbackRate = parseFloat(speed);
+}
+
+function formatTime(seconds) {
+ const min = Math.floor(seconds / 60);
+ const sec = Math.floor(seconds % 60);
+ return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+}
+</script>
+</body>
+</html>
