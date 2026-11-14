@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6వ తరగతి సోషల్ - 3. గ్లోబు - భూమికి నమూనా</title>
+    <!-- Google Fonts: Mandali -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --heading-color: #1a5276;
+            --sub-heading: #117a65;
+            --accent-color: #e67e22;
+            --border-color: #d6dbdf;
+            --table-header: #2980b9;
+            --table-header-text: #ffffff;
+            --box-bg: #ebf5fb;
+            --strong-color: #c0392b;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+            --player-bg: rgba(255,255,255,0.95);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a2e;
+            --card-bg: #16213e;
+            --text-color: #e0e0e0;
+            --heading-color: #4ee1a0;
+            --sub-heading: #5dade2;
+            --accent-color: #f39c12;
+            --border-color: #0f3460;
+            --table-header: #0f3460;
+            --table-header-text: #ffffff;
+            --box-bg: #0f3460;
+            --strong-color: #ff7675;
+            --shadow: 0 4px 15px rgba(0,0,0,0.5);
+            --player-bg: rgba(22,33,62,0.95);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Mandali', 'Noto Sans Telugu', 'Nirmala UI', 'Noto Sans', 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 10px;
+            transition: all 0.3s ease;
+            line-height: 1.7;
+            font-size: 17px;
+            padding-bottom: 110px;
+        }
+
+        /* Clear rendering for mathematical symbols and degree/fraction glyphs */
+        .math-symbol { font-family: 'Noto Sans', 'Segoe UI Symbol', 'Arial Unicode MS', sans-serif; white-space: nowrap; }
+        sup, sub { line-height: 0; }
+
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Header & Toggle Switch */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--heading-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .main-title {
+            color: var(--heading-color);
+            margin: 5px 0 0 0;
+            font-size: 22px;
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 26px;
+            position: relative;
+            width: 50px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            background-color: white;
+            bottom: 3px;
+            content: "";
+            height: 20px;
+            left: 3px;
+            position: absolute;
+            transition: .4s;
+            width: 20px;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--accent-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        h1, h2, h3 {
+            color: var(--heading-color);
+        }
+
+        h2 {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 8px;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        strong {
+            color: var(--strong-color);
+            font-weight: bold;
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 18px;
+            margin: 10px 0;
+        }
+
+        ol {
+            padding-left: 18px;
+            margin: 10px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Flowchart Container */
+        .flowchart {
+            background-color: var(--box-bg);
+            border: 2px dashed var(--heading-color);
+            padding: 10px 5px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .flowchart-node { font-family: "Mandali", "Noto Sans Telugu", "Noto Sans", "Segoe UI Symbol", sans-serif;
+            display: inline-block;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 4px 8px;
+            margin: 3px 2px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* Responsive Table Wrapper */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--table-header);
+            color: var(--table-header-text);
+            padding: 8px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 8px;
+            font-size: 15px;
+        }
+
+        /* Question Box */
+        .question-card {
+            background: var(--box-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 10px 8px;
+            margin-bottom: 12px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .bit-tag {
+            background: var(--accent-color);
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 5px;
+            margin-top: 8px;
+            font-size: 16px;
+        }
+
+        @media (min-width: 480px) {
+            .options {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .ans-key {
+            font-weight: bold;
+            color: var(--sub-heading);
+            margin-top: 6px;
+            font-size: 16px;
+        }
+
+        /* Modern Glassmorphism Audio Player UI */
+        .audio-player-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:900px;background:var(--player-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:2px solid var(--accent-color);box-shadow:0 -5px 25px rgba(0,0,0,0.2);padding:10px 15px;z-index:1000;display:flex;flex-direction:column;gap:8px;border-radius:12px 12px 0 0}
+        .player-main{display:flex;align-items:center;justify-content:space-between;gap:12px}
+        .play-btn{background:var(--accent-color);border:none;color:#fff;width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform 0.2s,background-color 0.2s;flex-shrink:0;box-shadow:0 3px 8px rgba(0,0,0,0.3)}
+        .play-btn:hover{transform:scale(1.05)}
+        .progress-container{flex:1;display:flex;flex-direction:column;gap:4px}
+        .progress-bar-wrapper{display:flex;align-items:center;gap:8px}
+        .timeline{width:100%;height:6px;background:var(--border-color);border-radius:4px;outline:none;cursor:pointer;accent-color:var(--accent-color)}
+        .time-text{font-size:12px;color:var(--text-color);font-weight:bold;font-family:sans-serif;min-width:35px;text-align:center}
+        .player-right-controls{display:flex;align-items:center;gap:8px}
+        .speed-dropdown{background:var(--box-bg);color:var(--text-color);border:1px solid var(--border-color);border-radius:6px;padding:4px 6px;font-size:13px;font-weight:bold;cursor:pointer;outline:none;font-family:'Mandali',sans-serif}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div>
+            <div style="color: var(--accent-color); font-weight: bold; font-size: 14px;">6వ తరగతి - సోషల్ స్టడీస్</div>
+            <h1 class="main-title">3. గ్లోబు - భూమికి నమూనా</h1>
+        </div>
+        <div class="theme-switch-wrapper">
+            <div style="margin-right: 8px; font-weight: bold; font-size: 14px;">🌙 / ☀️</div>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" aria-label="డార్క్ థీమ్ మార్చండి" />
+                <div class="slider"></div>
+            </label>
+        </div>
+    </div>
+
+    <!-- Flowchart Representation -->
+    <h2>పాఠం ముఖ్యాంశాల వర్గీకరణ (Flowchart)</h2>
+    <div class="flowchart">
+        <div class="flowchart-node">గ్లోబు</div> ➔ 
+        <div class="flowchart-node">అక్షాంశాలు (0°–90° N/S)</div> ➔ 
+        <div class="flowchart-node">రేఖాంశాలు (0°–180° E/W)</div> ➔ 
+        <div class="flowchart-node">భూమి & చలనాలు (భ్రమణం, పరిభ్రమణం)</div>
+    </div>
+
+    <!-- Section 1 -->
+    <h2>భూమి ఆకారం & గ్లోబు పరిచయం</h2>
+    <ul>
+        <li>భూమి గుండ్రంగా ఉంది. <strong>15వ శతాబ్దంలో నావికులు</strong> దీన్ని ధృవీకరించారు. ఉపగ్రహ ఛాయాచిత్రాలు కూడా దీనిని స్పష్టంగా నిరూపిస్తున్నాయి.</li>
+        <li>భూగ్రహం పూర్తి గోళాకారంగా ఉండదు. అది ఉత్తర, దక్షిణ ధృవాల వద్ద కొద్దిగా చదునుగా ఉండి, మధ్యలో ఉబ్బినట్లు <strong>(జియోయిడ్)</strong> ఉంటుంది.</li>
+        <li><strong>గ్లోబు</strong> భూమికి ఖచ్చితమైన నమూనా. గ్లోబు స్థిరంగా ఉండదు. బొంగరం వలె లేదా కుమ్మరి చక్రం వలె తిరుగుతుంది. గ్లోబుపై దేశాలు, ఖండాలు, మహాసముద్రాలు దామాషా పరిమాణంలో చూపవచ్చు. గ్లోబు నమూనాగా <strong>యాపిల్ పండ్లను</strong> పోల్చవచ్చు.</li>
+        <li><strong>'గ్లోబల్'</strong> అనే పదం <strong>'గ్లోబస్'</strong> అనే లాటిన్ పదం నుంచి వచ్చింది. గోళం అని దాని అర్థం.</li>
+        <li>భూమిపై ఏదైనా ప్రదేశం నుండి ఏదైనా దిక్కుకు ప్రయాణించుట ప్రారంభిస్తే తిరిగి అదే ప్రాంతానికి తిరిగి వస్తాం. భూమి గోళాకారంగా ఉండుట వలన ఎంత దూరం ప్రయాణించినా భూమిపై నుండి క్రిందికి పడిపోము.</li>
+        <li><strong>ఫెర్డినాండ్ మాజిల్లాన్</strong> అనే పోర్చుగీసు నావికుడు బృందంతో సముద్ర ప్రయాణం ప్రారంభించాడు. కొన్ని సంవత్సరాల తర్వాత ఆశ్చర్యంగా వారు ప్రయాణం మొదలు పెట్టిన ప్రాంతాలకు చేరారు. భూమి గోళాకారంగా ఉన్నప్పుడు మాత్రమే ఇది సాధ్యమౌతుంది.</li>
+        <li>మొత్తం కుండ గుండ్రని ఆకారంలో ఉన్నప్పటికి ఆ కుండ యొక్క పెంకు ముక్క బల్లపరుపుగా ఏ విధంగా కనిపిస్తుందో అదే విధంగా భూమి గోళాకారంలో ఉన్నప్పటికి బల్లపరుపుగా కనిపిస్తుంది.</li>
+        <li>అంతరిక్షం నుండి ఉపగ్రహాలు తీసిన చిత్రాలు కూడా భూమి గోళాకారంగా ఉన్న విషయంను నిర్ధారించాయి.</li>
+    </ul>
+
+    <h3>వివిధ రకాల గ్లోబులను తయారు చేసినవారు:</h3>
+    <ul>
+        <li><strong>పురాతన గ్లోబు:</strong> పురాతన గ్లోబును <strong>1492లో మార్టిన్ బెహైమ్</strong> రూపొందించాడు.</li>
+        <li><strong>ఆధునిక ఖగోళ గ్లోబు:</strong> ఆధునిక ఖగోళ గ్లోబును కాన్స్టాంట్ నోపిల్ అబ్జర్వేటరీ నందు <strong>1570లో టకి-ఆల్-దిన్</strong> రూపొందించాడు.</li>
+        <li><strong>మొదటి అతుకులు లేని గ్లోబు:</strong> ప్రపంచంలో మొదటి అతుకులు లేని గ్లోబును జహంగీర్ సామ్రాజ్యంలోని <strong>మొఘల్ శాస్త్రవేత్తలు</strong> రూపొందించారు.</li>
+    </ul>
+
+    <div class="question-card">
+        <div><div class="bit-tag">Previous Bit (14-10-2024 TET S2)</div></div>
+        <strong>★ ప్రపంచంలో మొట్ట మొదటి అతుకులు లేని ఖగోళ గ్లోబును ఈ రాజ్యపు శాస్త్రవేత్తలు రూపొందించారు:</strong>
+        <div class="options">
+            <div>1. గుప్త</div>
+            <div>2. ఢిల్లీ సుల్తానులు</div>
+            <div>3. మౌర్య</div>
+            <div>4. మొఘల్</div>
+        </div>
+        <div class="ans-key">జవాబు: 4. మొఘల్</div>
+    </div>
+
+    <h2>భూమి యొక్క అక్షం & ధృవాలు</h2>
+    <ul>
+        <li>ప్రక్కకు వాలి ఉన్న గ్లోబులో ఉత్తర, దక్షిణ ధృవాలను కలుపుతూ ఒక సూది స్థిరంగా ఉంది. దానిని <strong>అక్షం</strong> అని అంటారు.</li>
+        <li>గ్లోబులో సూది ప్రయాణించే రెండు చివరి బిందువులు - <strong>ఉత్తర ధృవం, దక్షిణ ధృవం</strong>.</li>
+        <li>భూమిలా గ్లోబు పడమర నుండి తూర్పునకు తన అక్షం (సూది)పై తిరుగుతుంది. కాని నిజమైన భూమికి గ్లోబునకు ఉన్నట్లు సూది లేదు.</li>
+        <li>భూమి యొక్క భ్రమణ <strong>'అక్షం'</strong> ఉత్తర, దక్షిణ ధృవాల గుండా పోయే ఊహారేఖ అని గుర్తుంచుకోవాలి.</li>
+    </ul>
+
+    <!-- Expected Questions Section 1 -->
+    <h2>EXPECTED QUESTIONS (గ్లోబు పరిచయం & అక్షం)</h2>
+    
+    <div class="question-card">
+        <strong>1. పురాతన ఖగోళ గ్లోబును రూపొందించినది:</strong>
+        <div class="options">
+            <div>1) మార్టిన్ బెహైమ్</div>
+            <div>2) టకి-ఆల్-దిన్</div>
+            <div>3) మొఘల్ శాస్త్రవేత్తలు</div>
+            <div>4) టోలమీ</div>
+        </div>
+        <div class="ans-key">జవాబు: ( 1 )</div>
+    </div>
+
+    <div class="question-card">
+        <strong>2. భూమి తన అక్షంపై తిరుగు దిశను గుర్తించుము:</strong>
+        <div class="options">
+            <div>1) ఉత్తరం నుండి దక్షిణం</div>
+            <div>2) దక్షిణం నుండి ఉత్తరం</div>
+            <div>3) తూర్పు నుండి పడమర</div>
+            <div>4) పడమర నుండి తూర్పు</div>
+        </div>
+        <div class="ans-key">జవాబు: ( 4 )</div>
+    </div>
+
+    <!-- Section 2 -->
+    <h2>ఉత్తర - దక్షిణార్ధ గోళాలు & ఖండాల విస్తరణ</h2>
+    <ul>
+        <li>గ్లోబుకు మధ్య భాగంలో అడ్డంగా గ్లోబును రెండు సమభాగాలుగా చేస్తూ ఒక ఊహారేఖ పోతుంది. దీనిని <strong>భూమధ్యరేఖ (0º అక్షాంశం)</strong> అంటారు.</li>
+        <li>భూమధ్యరేఖకు ఉత్తరంగా ఉన్న అర్ధభాగాన్ని <strong>ఉత్తరార్ధ గోళమనీ</strong>, దక్షిణంగా ఉన్న అర్ధభాగాన్ని <strong>దక్షిణార్ధ గోళమని</strong> అంటారు.</li>
+        <li>భారతదేశం <strong>ఉత్తరార్ధ గోళంలో</strong> ఉంది. ఉత్తరార్ధ గోళంలో గరిష్టంగా ఖండాలున్నాయి. అంటార్కిటికా ఖండం దక్షిణార్ధ గోళంలో ఉంది.</li>
+    </ul>
+
+    <div class="table-responsive">
+        <table>
+            <tr>
+                <th>భూగోళ భాగాలు</th>
+                <th>విస్తరించి ఉన్న ఖండాలు & మహాసముద్రాలు</th>
+            </tr>
+            <tr>
+                <td><strong>ఉత్తరార్ధ గోళంలో ఖండాలు</strong></td>
+                <td>ఉత్తర అమెరికా, ఐరోపా</td>
+            </tr>
+            <tr>
+                <td><strong>దక్షిణార్ధ గోళంలో ఖండాలు</strong></td>
+                <td>ఆస్ట్రేలియా, అంటార్కిటికా</td>
+            </tr>
+            <tr>
+                <td><strong>ఉత్తర - దక్షిణార్ధ గోళాలలో విస్తరించిన ఖండాలు</strong></td>
+                <td>దక్షిణ అమెరికా, ఆఫ్రికా, ఆసియా</td>
+            </tr>
+            <tr>
+                <td><strong>ఉత్తరార్ధగోళంలో మహాసముద్రం</strong></td>
+                <td>ఆర్కిటిక్ మహాసముద్రం</td>
+            </tr>
+            <tr>
+                <td><strong>దక్షిణార్ధగోళంలో మహాసముద్రం</strong></td>
+                <td>దక్షిణ మహాసముద్రం</td>
+            </tr>
+            <tr>
+                <td><strong>ఉత్తర-దక్షిణార్ధగోళాలలో మహాసముద్రాలు</strong></td>
+                <td>పసిఫిక్, అట్లాంటిక్, హిందూ మహాసముద్రం</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="question-card">
+        <div><div class="bit-tag">Previous Bit (AP-TET-20-10-2024 S2)</div></div>
+        <strong>★ పూర్తిగా పశ్చిమార్ధగోళంలో ఉన్న ఖండం / ఉత్తర, దక్షిణార్ధగోళాలలో విస్తరించియున్న ఖండాన్ని గుర్తించండి:</strong>
+        <div class="options">
+            <div>1. ఆఫ్రికా</div>
+            <div>2. ఉత్తర అమెరికా</div>
+            <div>3. యూరప్</div>
+            <div>4. ఆస్ట్రేలియా</div>
+        </div>
+        <div class="ans-key">జవాబు: 1. ఆఫ్రికా</div>
+    </div>
+
+    <!-- Section 3 -->
+    <h2>అక్షాంశాలు (Latitudes)</h2>
+    <ul>
+        <li>గ్లోబును పరిశీలించినట్లయితే భూమధ్యరేఖకు సమాంతరంగా గీసిన కొన్ని రేఖలు (ఊహారేఖలు) గమనించవచ్చును. వీటినే <strong>'అక్షాంశాలు'</strong> అంటారు.</li>
+        <li>అక్షాంశాలు ఒకదానికొకటి సమాంతరంగా ఉంటూ ఒకదానికొకటి ఎప్పటికీ కలవవు.</li>
+        <li>అక్షాంశాలు భూమధ్యరేఖకు ఉత్తరంగా <strong>0° నుండి 90° వరకు</strong>, దక్షిణంగా <strong>0° నుండి 90° వరకు</strong> విస్తరించి ఉంటాయి.</li>
+        <li>ధృవాలు తప్ప అన్ని అక్షాంశాలు వృత్తాలు.</li>
+        <li><strong>అక్షాంశం (Latitude)</strong> అను పదం <strong>లాటిట్యూడో (Latitudo)</strong> అనే లాటిన్ పదానికి చెందినది. దీని అర్థం <strong>వెడల్పు, మందం, పరిధి, పరిమాణం</strong>. అన్నింటి కంటే అతి పెద్ద అక్షాంశం - <strong>భూమధ్యరేఖ</strong>.</li>
+        <li>అక్షాంశాలు ధృవాల వైపుకు వెళ్ళే కొలదీ చిన్నవిగా ఉండి ధృవాల వద్ద బిందువులుగా మారతాయి. భూమి యొక్క వాతావరణ విభజనను అక్షాంశాల సహాయంతో అధ్యయనం చేయవచ్చు.</li>
+    </ul>
+
+    <h3>ముఖ్యమైన అక్షాంశాలు:</h3>
+    <div class="table-responsive">
+        <table>
+            <tr>
+                <th>ఉత్తరార్ధగోళం</th>
+                <th>దక్షిణార్ధ గోళం</th>
+            </tr>
+            <tr>
+                <td>ఉత్తర ధృవం - 90° N</td>
+                <td>దక్షిణ ధృవం - 90° S</td>
+            </tr>
+            <tr>
+                <td>ఆర్కిటిక్ వలయం - 66½° N</td>
+                <td>అంటార్కిటిక్ వలయం - 66½° S</td>
+            </tr>
+            <tr>
+                <td>కర్కటరేఖ - 23½° N</td>
+                <td>మకరరేఖ - 23½° S</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><strong>భూమధ్యరేఖ - 0°</strong></td>
+            </tr>
+        </table>
+    </div>
+
+    <ul>
+        <li>ఉత్తర అక్షాంశం (కర్కటరేఖ) భారతదేశంలోని <strong>8 రాష్ట్రాల</strong> గుండా ప్రయాణిస్తుంది: <strong>గుజరాత్, రాజస్థాన్, మధ్యప్రదేశ్, ఛత్తీస్‌గఢ్, జార్ఖండ్, పశ్చిమ బెంగాల్, మిజోరాం, త్రిపుర</strong>.</li>
+    </ul>
+
+    <div class="question-card">
+        <div><div class="bit-tag">Previous Bit (10-10-2024 TET S1)</div></div>
+        <strong>★ భారతదేశంలో ఈ క్రింది రాష్ట్రం గుండా కర్కటరేఖ ప్రయాణించదు:</strong>
+        <div class="options">
+            <div>1. గుజరాత్</div>
+            <div>2. మిజోరం</div>
+            <div>3. ఛత్తీస్‌గఢ్</div>
+            <div>4. అస్సాం</div>
+        </div>
+        <div class="ans-key">జవాబు: 4. అస్సాం</div>
+    </div>
+
+    <!-- Section 4 -->
+    <h2>రేఖాంశాలు (Longitudes)</h2>
+    <ul>
+        <li>గ్లోబు మీద అక్షాంశాలకు లంబంగా గీసినట్లుండే రేఖలు ఉంటాయి. ఇవి ఉత్తర, దక్షిణ ధృవాలను అనుసంధానిస్తాయి. వీటిని <strong>'రేఖాంశాలు'</strong> అంటారు.</li>
+        <li>ఉత్తర దక్షిణ ధృవాలను కలిపే అర్ధ వృత్తాలను రేఖాంశాలంటారు. రేఖాంశాలను <strong>మధ్యాహ్న రేఖలు</strong> అంటారు.</li>
+        <li><strong>లాంగిట్యూడ్</strong> అనే పదం <strong>లాంగిట్యూడో (longitudo)</strong> అనే లాటిన్ పదానికి చెందినది. దీని అర్థం <strong>నిడివి, వ్యవధి, పొడవు</strong>.</li>
+    </ul>
+
+    <h3>ప్రధాన రేఖాంశాలు రెండు ఉన్నాయి:</h3>
+    <ul>
+        <li><strong>0° రేఖాంశం:</strong> దీనినే <strong>గ్రీనిచ్ రేఖ</strong> అని అంటారు. దీనినే ముఖ్య రేఖాంశం, ప్రామాణిక రేఖాంశం <strong>(Prime Meridian)</strong> అని కూడా అంటారు.</li>
+        <li><strong>180° రేఖాంశం:</strong> అంతర్జాతీయ దినరేఖ <strong>(International Date Line)</strong>. గ్రీనిచ్ రేఖాంశంకు వ్యతిరేక దిశలో ఉంటుంది.</li>
+        <li>గ్రీనిచ్ రేఖాంశం నుండి అంతర్జాతీయ దినరేఖ వరకు తూర్పుకు ఉండే రేఖాంశాలను తూర్పు రేఖాంశాలుగానూ, పశ్చిమంగా ఉండే రేఖాంశాలను పశ్చిమ రేఖాంశాలుగానూ పరిగణిస్తారు.</li>
+        <li>వాస్తవానికి 180° తూర్పు రేఖాంశం, 180° పశ్చిమ రేఖాంశం ఒకటే. దానినే 180° అంతర్జాతీయ దినరేఖ అని అంటారు. గ్రీనిచ్ రేఖకు తూర్పున 180° తూర్పు రేఖాంశాలు, పడమరన 180° పశ్చిమ రేఖాంశాలు, అంతర్జాతీయ దినరేఖను కలుపుకుని మొత్తం <strong>360° రేఖాంశాలు</strong> ఉన్నాయి.</li>
+    </ul>
+
+    <h3>అక్షాంశాలు - రేఖాంశాలు పోలికలు:</h3>
+    <div class="table-responsive">
+        <table>
+            <tr>
+                <th>అక్షాంశాల గురించి వాస్తవాలు</th>
+                <th>రేఖాంశాల గురించి వాస్తవాలు</th>
+            </tr>
+            <tr>
+                <td>అక్షాంశాలు ఒకదానికొకటి ఎప్పటికీ కలవవు, సమాంతరంగా ఉంటాయి.</td>
+                <td>రేఖాంశాలే మధ్యాహ్న రేఖలు. ఇవి భూమధ్యరేఖ వద్ద దూరంగా ఉండి ధృవాల వద్ద కలుస్తాయి.</td>
+            </tr>
+            <tr>
+                <td>భూమధ్యరేఖ నుండి ఉత్తర, దక్షిణాలకి దూరాన్ని కొలవడానికి ఉపయోగపడతాయి.</td>
+                <td>ప్రామాణిక రేఖాంశం నుండి తూర్పు పడమరలకు దూరాన్ని కొలుస్తాయి.</td>
+            </tr>
+            <tr>
+                <td>భూమధ్యరేఖ నుండి ధృవాల వైపుకు వెళ్ళే కొలది అక్షాంశ రేఖలు చిన్నవిగా మారతాయి.</td>
+                <td>రేఖాంశాల పొడవు సమానంగా ఉంటుంది.</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>భారతదేశం, ఆంధ్రప్రదేశ్ అక్షాంశాలు, రేఖాంశాల విస్తరణ</h2>
+    <ul>
+        <li><strong>భారతదేశం విస్తరణ:</strong> 
+            <ul>
+                <li>అక్షాంశాల పరంగా: <strong>8°4' ఉత్తరం నుండి 37°6' ఉత్తర అక్షాంశాల మధ్య</strong></li>
+                <li>రేఖాంశాల పరంగా: <strong>68°7' తూర్పు నుండి 97°25' తూర్పు రేఖాంశాల మధ్య</strong></li>
+            </ul>
+        </li>
+        <li><strong>ఆంధ్రప్రదేశ్ విస్తరణ:</strong>
+            <ul>
+                <li>అక్షాంశాల పరంగా: <strong>12°41' ఉత్తరం నుండి 19°6' ఉత్తర అక్షాంశాల మధ్య</strong></li>
+                <li>రేఖాంశాల పరంగా: <strong>77° తూర్పు నుండి 84°4' తూర్పు రేఖాంశాల మధ్య</strong></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="question-card">
+        <div><div class="bit-tag">Previous Bit (10-10-2024 TET S1)</div></div>
+        <strong>★ భారతదేశం పూర్వార్ధగోళంలో ఈ రేఖాంశాల మధ్య విస్తరించి ఉంది:</strong>
+        <div class="options">
+            <div>1. 14° 27′ - 19° 07′</div>
+            <div>2. 68° 7′ - 97° 25′ తూర్పు</div>
+            <div>3. 8° 4′ - 37° 6′ ఉత్తరం</div>
+            <div>4. పైవేవీ కావు</div>
+        </div>
+        <div class="ans-key">జవాబు: 2. 68° 7′ - 97° 25′ తూర్పు</div>
+    </div>
+
+    <!-- Section 5 -->
+    <h2>భూమి యొక్క చలనాలు (భ్రమణం - పరిభ్రమణం)</h2>
+    <ul>
+        <li>మిగిలిన గ్రహాల వలె భూమికి కూడా రెండు రకాల చలనాలున్నాయి: <strong>1. భ్రమణం, 2. పరిభ్రమణం</strong>.</li>
+    </ul>
+
+    <div class="table-responsive">
+        <table>
+            <tr>
+                <th>భూభ్రమణం (Rotation)</th>
+                <th>భూపరిభ్రమణం (Revolution)</th>
+            </tr>
+            <tr>
+                <td>భూమి తన అక్షంపై తాను పడమర నుండి తూర్పునకు గంటకు <strong>1610 కి.మీ. వేగంతో</strong> తిరుగుతుంది.</td>
+                <td>భూమి తన అక్షంపై తాను తిరుగుతూ సూర్యుని చుట్టూ తిరిగి రావడాన్ని భూపరిభ్రమణం అంటారు.</td>
+            </tr>
+            <tr>
+                <td>ఒకసారి తన చుట్టూ తాను తిరుగుటకు <strong>23 గంటల 56 నిమిషాల 4.09 సెకండ్లు</strong> (సుమారు 24 గంటలు అనగా ఒక రోజు) సమయం పడుతుంది.</td>
+                <td>ఒక పరిభ్రమణంకు ఒక సంవత్సర కాలం పడుతుంది. ఖచ్చితంగా చెప్పాలంటే 365¼ రోజుల సమయం పడుతుంది.</td>
+            </tr>
+            <tr>
+                <td><strong>ఫలితం:</strong> భూభ్రమణం వలన <strong>రాత్రి, పగలు</strong> ఏర్పడుతున్నాయి.</td>
+                <td><strong>ఫలితం:</strong> భూపరిభ్రమణం వలన <strong>ఋతువులు</strong> ఏర్పడుతున్నాయి.</td>
+            </tr>
+        </table>
+    </div>
+
+    <ul>
+        <li>సాధారణ సంవత్సరంలో 365 రోజులు ఉంటాయి. మిగిలిన ¼ రోజును నాలుగు సంవత్సరాలకు ఒకసారి కలిపి ఆ సంవత్సరాన్ని <strong>లీపు సంవత్సరం</strong> అని అంటారు. లీపు సంవత్సరంలో ఫిబ్రవరి నెలలో 29 రోజులుండగా, సాధారణ సంవత్సరంలో 28 రోజులుంటాయి.</li>
+        <li>భూమి సూర్యుని చుట్టూ తిరిగే నిర్ణీత మార్గాన్ని <strong>కక్ష్య</strong> అని అంటారు. ఈ కక్ష్య <strong>దీర్ఘ వృత్తాకారంలో</strong> ఉంటుంది. కక్ష్య పొడవు 965 మిలియన్ కి.మీ.</li>
+        <li>దీర్ఘ వృత్తాకార కక్ష్య అంతటా భూమి ఒకే దిశలో వంగి ఉంటుంది. దీనివలన సూర్యునికి ఎదురుగా ఉండే భూమి యొక్క స్థానాలు మారుతుంటాయి. ఫలితంగా ఋతువులు ఏర్పడతాయి.</li>
+    </ul>
+
+    <h3>ఋతువుల ఆవిర్భావం & అయనాంతాలు:</h3>
+    <ul>
+        <li><strong>వేసవికాల అయనాంతం (జూన్ 21):</strong> కర్కటరేఖపైకి సూర్యుడు నిట్టనిలువుగా వస్తాడు. జూన్ 21న ఉత్తరార్ధగోళంలో సూర్యుని వైపు వంగినట్లుండి ఎక్కువ వేడిని పొందుతుంది. ఉత్తర ధృవం సూర్యుని వైపు వంగి ఉండుట వలన ఆర్కిటిక్ వలయం నుండి ఉత్తర ధృవం వరకు పగటి కాలం నిరంతరంగా 6 నెలలు ఉంటుంది. ఉత్తరార్ధ గోళంలో పగటికాలం అత్యధికంగా, రాత్రికాలం అతి తక్కువగా ఉంటుంది. ఇదే సమయంలో దక్షిణార్ధ గోళంలో చలికాలం ఉంటుంది.</li>
+        <li><strong>శీతాకాల అయనాంతం (డిసెంబర్ 22):</strong> మకరరేఖపైకి సూర్యుడు నిట్టనిలువుగా వస్తాడు. దక్షిణ ధృవం సూర్యుని వైపు వాలి ఉండటం వలన దక్షిణార్ధ గోళంలో వేసవికాలం తీవ్రంగా ఉండి పగటికాలం ఎక్కువగానూ, రాత్రి సమయం తక్కువగానూ ఉంటుంది. దీనికి భిన్నంగా ఉత్తరార్ధ గోళంలో శీతాకాలం ఏర్పడుతుంది.</li>
+        <li><strong>విషవత్తులు (March 21 & September 23):</strong> మార్చి 21 మరియు సెప్టెంబర్ 23 రోజులలో సూర్య కిరణాలు భూమధ్యరేఖపై నిట్టనిలువుగా పడతాయి. ఈ రోజులలో ప్రపంచమంతటా పగలు, రాత్రుళ్ళ పరిమాణం సమానంగా ఉంటుంది. వీటిని <strong>విషవత్తులు</strong> అంటారు.
+            <ul>
+                <li><strong>మార్చి 21:</strong> ఉత్తరార్ధ గోళంలో వసంత ఋతువు, దక్షిణార్ధ గోళంలో శరదృతువు ఉంటాయి.</li>
+                <li><strong>సెప్టెంబర్ 23:</strong> ఉత్తరార్ధ గోళంలో శరదృతువు, దక్షిణార్ధ గోళంలో వసంత ఋతువు ఉంటాయి.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="question-card">
+        <div><div class="bit-tag">Previous Bit (AP-TET-20-10-2024 S1)</div></div>
+        <strong>★ సూర్యుని నిట్టనిలువు కిరణాలు 'మకర రేఖ'పై పడేరోజు / ఉత్తరార్ధగోళంలో పగటి కాలం అత్యధికంగా ఉండు రోజు:</strong>
+        <div class="options">
+            <div>1. జూన్ 21</div>
+            <div>2. డిసెంబర్ 22</div>
+            <div>3. మార్చి 21</div>
+            <div>4. సెప్టెంబర్ 23</div>
+        </div>
+        <div class="ans-key">జవాబు: 2. డిసెంబర్ 22 (మకరరేఖపై) / జూన్ 21 (ఉత్తరార్ధగోళంలో పగలు ఎక్కువ)</div>
+    </div>
+
+    <!-- Section 6 -->
+    <h2>గ్రహణాలు (Suryagrahanam & Chandragrahanam)</h2>
+    <div class="table-responsive">
+        <table>
+            <tr>
+                <th>సూర్యగ్రహణం (Solar Eclipse)</th>
+                <th>చంద్రగ్రహణం (Lunar Eclipse)</th>
+            </tr>
+            <tr>
+                <td>భూమికి, సూర్యునికి మధ్యలో <strong>చంద్రుడు</strong> అడ్డు వస్తే సూర్యగ్రహణం ఏర్పడుతుంది.</td>
+                <td>చంద్రుడు భూమి యొక్క వెనుకభాగంలోనికి లేదా నీడలోకి వెళ్ళినప్పుడు చంద్రగ్రహణం ఏర్పడుతుంది.</td>
+            </tr>
+            <tr>
+                <td>సూర్యుని కాంతి భూమి మీద పడకుండా అడ్డుకోవటంతో పాటు చంద్రుని నీడ భూమి ఉపరితలంపై ప్రయాణిస్తుంది.</td>
+                <td>సూర్యుడు, భూమి, చంద్రుడు చాలా దగ్గరగా మరియు సూర్యునికి చంద్రునికి మధ్య <strong>భూమి</strong> ఖచ్చితంగా వచ్చినప్పుడే చంద్రగ్రహణం ఏర్పడుతుంది.</td>
+            </tr>
+            <tr>
+                <td>సూర్యగ్రహణం <strong>అమావాస్య</strong> రోజున మాత్రమే సంభవిస్తుంది. (అయితే అన్ని అమావాస్యలలో రాదు)</td>
+                <td><strong>పౌర్ణమి</strong> రోజులలో మాత్రమే చంద్రగ్రహణం సంభవిస్తుంది. (అయితే అన్ని పౌర్ణమిలలో రాదు)</td>
+            </tr>
+        </table>
+    </div>
+
+    <ul>
+        <li>భూమి సగభాగం మాత్రమే సూర్యునికి ఎదురుగా ఉంటుంది. మిగిలిన సగభాగం ఎల్లప్పుడూ నీడలో లేదా చీకటిలో ఉంటుంది.</li>
+        <li>క్రిస్మస్ వేడుకలు ఆస్ట్రేలియాలో వేసవికాలంలో జరుపుకుంటారు. భారతదేశంలో శీతాకాలంలో జరుపుకుంటారు.</li>
+        <li>అమెరికాలోని కాలిఫోర్నియా, భారతదేశంలోని గుంటూరు భూమిపై రెండు వ్యతిరేక దిశలలో ఒకదానికొకటి ఎదురెదురుగా ఉన్నాయి. గుంటూరులో ఉదయం అయితే కాలిఫోర్నియాలో రాత్రి అవుతుంది.</li>
+    </ul>
+
+    <!-- Section 7 -->
+    <h2>పదకోశం (Glossary)</h2>
+    <ul>
+        <li><strong>అక్షం:</strong> ఒక వస్తువు తన చుట్టూ తాను తిరగడానికి ఉండే ఒక ఊహారేఖ.</li>
+        <li><strong>భూమధ్యరేఖ:</strong> 0° అక్షాంశం.</li>
+        <li><strong>కర్కటరేఖ:</strong> 23½° ఉత్తర అక్షాంశం.</li>
+        <li><strong>మకరరేఖ:</strong> 23½° దక్షిణ అక్షాంశం.</li>
+        <li><strong>ఆర్కిటిక్ వలయం:</strong> 66½° ఉత్తర అక్షాంశం.</li>
+        <li><strong>అంటార్కిటిక్ వలయం:</strong> 66½° దక్షిణ అక్షాంశం.</li>
+        <li><strong>ఉత్తర ధృవం:</strong> 90° భూమికి ఉత్తర భాగాన ఉన్న చివరి ప్రాంతం.</li>
+        <li><strong>దక్షిణ ధృవం:</strong> 90° భూమికి దక్షిణ భాగాన ఉన్న చివరి ప్రాంతం.</li>
+        <li><strong>మధ్యాహ్న రేఖలు:</strong> ఉత్తర దక్షిణ ధృవాలను కలుపుతూ ఉండే రేఖాంశాలు. ఇవి మధ్యాహ్నాన్ని సూచిస్తాయి.</li>
+        <li><strong>గ్రీనిచ్ / ప్రామాణిక రేఖాంశం:</strong> 0° రేఖాంశం.</li>
+        <li><strong>అంతర్జాతీయ దినరేఖ:</strong> 180° తూర్పు మరియు పశ్చిమ రేఖాంశం.</li>
+        <li><strong>అక్షాంశాలు:</strong> భూమధ్యరేఖకు సమాంతరంగా గీయబడిన ఊహారేఖలు.</li>
+        <li><strong>రేఖాంశాలు:</strong> ఉత్తర, దక్షిణ ధృవాలను కలుపుతూ గీయబడిన ఊహారేఖలు.</li>
+        <li><strong>ఉత్తరార్ధగోళం:</strong> భూమధ్యరేఖకు ఉత్తరంగా ఉన్న భూమి యొక్క అర్ధభాగం.</li>
+        <li><strong>దక్షిణార్ధగోళం:</strong> భూమధ్యరేఖకు దక్షిణంగా ఉన్న భూమి యొక్క అర్ధభాగం.</li>
+        <li><strong>తూర్పు అర్ధగోళం:</strong> ప్రామాణిక రేఖాంశానికి తూర్పుగా ఉన్న భూమి యొక్క అర్ధభాగం.</li>
+        <li><strong>పశ్చిమార్ధగోళం:</strong> ప్రామాణిక రేఖాంశానికి పశ్చిమంగా ఉన్న భూమి యొక్క అర్ధభాగం.</li>
+        <li><strong>ఋతువులు:</strong> వాతావరణంలో మార్పుల ఆధారంగా సంవత్సరాన్ని ఋతువులుగా విభజించారు.</li>
+        <li><strong>సూర్యగ్రహణం:</strong> సూర్యునికి భూమికి మధ్యగా చంద్రుడు వెళుతూ ఇవి మూడూ ఒక సరళరేఖ మీదకు వచ్చినప్పుడు సూర్యగ్రహణం సంభవిస్తుంది.</li>
+        <li><strong>చంద్రగ్రహణం:</strong> సూర్యునికి చంద్రునికి మధ్యగా భూమి వెళుతూ ఇవి మూడూ ఒకే సరళరేఖ మీదకు వచ్చినప్పుడు చంద్రగ్రహణం సంభవిస్తుంది.</li>
+    </ul>
+
+</div>
+
+<!-- Modern Glassmorphism Audio Player UI -->
+<div class="audio-player-bar">
+ <audio id="lessonAudio">
+  <source src="https://rajatalluri91.github.io/AP-DSC-2026/SOCIAL/1.UNIVERSE/Soc%201.3.wav" type="audio/wav">
+ </audio>
+ 
+ <div class="player-main">
+  <button class="play-btn" id="playPauseBtn" onclick="togglePlay()">▶</button>
+  
+  <div class="progress-container">
+   <div class="progress-bar-wrapper">
+    <span class="time-text" id="currentTime">0:00</span>
+    <input type="range" class="timeline" id="seekSlider" value="0" max="100" oninput="seekAudio()">
+    <span class="time-text" id="durationTime">0:00</span>
+   </div>
+  </div>
+  
+  <div class="player-right-controls">
+   <select class="speed-dropdown" id="speedSelect" onchange="changeSpeed(this.value)">
+    <option value="0.5">0.5x</option>
+    <option value="0.75">0.75x</option>
+    <option value="1" selected>1.0x</option>
+    <option value="1.25">1.25x</option>
+    <option value="1.5">1.5x</option>
+    <option value="2">2.0x</option>
+   </select>
+  </div>
+ </div>
+</div>
+
+<script>
+    // Theme Toggle Functionality
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+        }
+    }
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }    
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+
+    // Audio Player Logic
+    const audio = document.getElementById('lessonAudio');
+    const playBtn = document.getElementById('playPauseBtn');
+    const seekSlider = document.getElementById('seekSlider');
+    const currentTimeEl = document.getElementById('currentTime');
+    const durationTimeEl = document.getElementById('durationTime');
+
+    function togglePlay() {
+     if (audio.paused) {
+      audio.play();
+      playBtn.innerHTML = '❚❚';
+     } else {
+      audio.pause();
+      playBtn.innerHTML = '▶';
+     }
+    }
+
+    audio.addEventListener('timeupdate', () => {
+     if (audio.duration) {
+      const progress = (audio.currentTime / audio.duration) * 100;
+      seekSlider.value = progress;
+      currentTimeEl.innerText = formatTime(audio.currentTime);
+      durationTimeEl.innerText = formatTime(audio.duration);
+     }
+    });
+
+    function seekAudio() {
+     if (audio.duration) {
+      audio.currentTime = (seekSlider.value / 100) * audio.duration;
+     }
+    }
+
+    function changeSpeed(speed) {
+     audio.playbackRate = parseFloat(speed);
+    }
+
+    function formatTime(seconds) {
+     const min = Math.floor(seconds / 60);
+     const sec = Math.floor(seconds % 60);
+     return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+    }
+</script>
+
+</body>
+</html>
