@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3వ తరగతి సోషల్ స్టడీస్ - 4. దిక్కులు - మూలలు</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7f6;--card:#fff;--text:#2c3e50;--head:#1a5276;--sub:#117a65;--accent:#e67e22;--border:#d6dbdf;--th:#2980b9;--thtext:#fff;--box:#ebf5fb;--strong:#c0392b;--shadow:0 4px 15px rgba(0,0,0,.1);--player-bg:rgba(255,255,255,0.95)}
+[data-theme=dark]{--bg:#1a1a2e;--card:#16213e;--text:#e0e0e0;--head:#4ee1a0;--sub:#5dade2;--accent:#f39c12;--border:#0f3460;--th:#0f3460;--thtext:#fff;--box:#0f3460;--strong:#ff7675;--shadow:0 4px 15px rgba(0,0,0,.5);--player-bg:rgba(22,33,62,0.95)}
+*{box-sizing:border-box}body{font-family:'Mandali',sans-serif;background:var(--bg);color:var(--text);margin:0;padding:10px;line-height:1.75;font-size:17px;transition:.3s;padding-bottom:110px}
+.container{max-width:950px;margin:auto;background:var(--card);padding:5px;border-radius:9px;box-shadow:var(--shadow);overflow:hidden}
+.header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:3px solid var(--head);padding:5px 5px 12px;margin-bottom:14px}
+.main-title{font-size:23px;color:var(--head);margin:4px 0}.eyebrow{color:var(--accent);font-weight:bold;font-size:14px}
+h2{font-size:21px;color:var(--head);border-left:4px solid var(--accent);padding-left:9px;margin:22px 0 10px}
+h3{font-size:19px;color:var(--sub);margin:17px 0 8px}strong{color:var(--strong)}
+ul,ol{padding-left:23px;margin:8px 0}li{margin-bottom:7px}
+.flowchart,.info-box{background:var(--box);border:1px dashed var(--head);border-radius:8px;padding:12px;margin:12px 0}
+.flow-node{display:inline-block;background:var(--card);border:1px solid var(--border);padding:4px 9px;border-radius:5px;margin:3px;font-weight:bold}
+.table-wrap{width:100%;overflow-x:auto;margin:12px 0}table{width:100%;border-collapse:collapse;min-width:500px}th,td{border:1px solid var(--border);padding:8px;text-align:left;vertical-align:middle}th{background:var(--th);color:var(--thtext)}td{font-size:15px}
+.question{background:var(--box);border-left:4px solid var(--accent);padding:10px;margin:10px 0;border-radius:0 8px 8px 0}
+.options{display:grid;grid-template-columns:1fr;gap:3px;margin-top:6px}
+.answer{color:var(--sub);font-weight:bold;margin-top:5px}
+@media(min-width:520px){.options{grid-template-columns:1fr 1fr}}
+.theme-switch{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:bold}
+.switch{position:relative;display:inline-block;width:50px;height:26px}.switch input{display:none}
+.slider{position:absolute;inset:0;background:#bbb;border-radius:30px;cursor:pointer;transition:.3s}
+.slider:before{content:"";position:absolute;width:20px;height:20px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.3s}
+input:checked+.slider{background:var(--accent)}input:checked+.slider:before{transform:translateX(24px)}
+.note{font-size:14px;color:var(--sub)}
+
+/* Compass Grid Styling */
+.compass-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:8px;max-width:460px;margin:15px auto;text-align:center}
+.compass-cell{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 6px;font-size:14px;font-weight:bold;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
+.compass-main{border:2px solid var(--head);color:var(--head);background:var(--box)}
+.compass-corner{border:1px dashed var(--accent);color:var(--sub)}
+.compass-center{background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px}
+.symbol-icon{font-size:24px;text-align:center;display:inline-block;width:36px;height:36px;line-height:36px;background:var(--card);border:1px solid var(--border);border-radius:6px}
+
+/* Modern Sticky Audio Player UI */
+.audio-player-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:950px;background:var(--player-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:2px solid var(--accent);box-shadow:0 -5px 25px rgba(0,0,0,0.2);padding:10px 15px;z-index:1000;display:flex;flex-direction:column;gap:8px;border-radius:12px 12px 0 0}
+.player-main{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.play-btn{background:var(--accent);border:none;color:#fff;width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform 0.2s,background-color 0.2s;flex-shrink:0;box-shadow:0 3px 8px rgba(0,0,0,0.3)}
+.play-btn:hover{transform:scale(1.05)}
+.progress-container{flex:1;display:flex;flex-direction:column;gap:4px}
+.progress-bar-wrapper{display:flex;align-items:center;gap:8px}
+.timeline{width:100%;height:6px;background:var(--border);border-radius:4px;outline:none;cursor:pointer;accent-color:var(--accent)}
+.time-text{font-size:12px;color:var(--text);font-weight:bold;font-family:sans-serif;min-width:35px;text-align:center}
+.player-right-controls{display:flex;align-items:center;gap:8px}
+.speed-dropdown{background:var(--box);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:4px 6px;font-size:13px;font-weight:bold;cursor:pointer;outline:none;font-family:'Mandali',sans-serif}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="header">
+ <div><div class="eyebrow">3వ తరగతి - సోషల్ స్టడీస్ కంటెంట్ | 4వ పాఠం</div><h1 class="main-title">4. దిక్కులు - మూలలు</h1></div>
+ <label class="theme-switch">🌙 / ☀️ <span class="switch"><input type="checkbox" id="themeToggle"><span class="slider"></span></span></label>
+</header>
+
+<h2>పాఠ్యాంశాల విభజన</h2>
+<div class="flowchart">
+ <span class="flow-node">సమీప ప్రాంతం & సౌకర్యాలు</span> ➜ <span class="flow-node">ప్రక్కలు</span> ➜ <span class="flow-node">నాలుగు దిక్కులు</span> ➜ <span class="flow-node">సరిహద్దులు & నాలుగు మూలలు</span> ➜ <span class="flow-node">దిక్సూచి & GPS</span> ➜ <span class="flow-node">గుర్తింపు చిహ్నాలు & గుర్తులు</span>
+</div>
+
+<h2>1. సమీప ప్రాంతం - సౌకర్యాలు</h2>
+<ul>
+<li>మన ఇంటికి సమీపంగా అనేక ఇళ్లు, భవనాలు ఉంటాయి. ఆ ఇళ్లలో నివసించేవారిని <strong>'ఇరుగు పొరుగు'</strong> వారు అని అంటారు.</li>
+<li>మన ఇంటి చుట్టుప్రక్కల ఉన్న ప్రాంతాన్ని <strong>'సమీప ప్రాంతం'</strong> అని అంటారు.</li>
+<li>సమీప ప్రాంతంలో పార్కు, దేవాలయం, నది, పొలము మొదలైనవి ఉండి ఉండవచ్చు. సమీప ప్రాంతంలో కొన్ని సౌకర్యాలు మన జీవితాలను చాలా సౌకర్యవంతం చేస్తాయి.</li>
+<li><strong>మన సమీప ప్రాంతాలలో ఉండే సౌకర్యాలు:</strong> పాఠశాల, హాస్పిటల్, పార్కు, గ్రామ సచివాలయం, మార్కెట్, పోలీస్ స్టేషన్, బ్యాంక్, పోస్టాఫీసు.</li>
+</ul>
+
+<h2>2. ప్రక్కలు మరియు దిక్కులు (Directions)</h2>
+<ul>
+<li><strong>ముందు, వెనుక, కుడి, ఎడమ</strong> అనేవి ప్రక్కలు. ఒక ప్రాంతం లేక వస్తువు యొక్క ప్రదేశం మరియు దిక్కులను ఇవి తెలుపుతాయి.</li>
+<li><strong>దిక్కులు నాలుగు:</strong> తూర్పు, పడమర, ఉత్తరం, దక్షిణం.</li>
+<li><strong>ఉదయం సూర్యుని ఎదురుగా నిల్చున్నప్పుడు దిక్కులు:</strong></li>
+</ul>
+<div class="table-wrap"><table>
+<tr><th>మనం నిల్చున్న స్థితి (సూర్యునికి ఎదురుగా)</th><th>దిక్కు</th></tr>
+<tr><td><strong>ముందు వైపు</strong> ఉండే దిక్కు</td><td><strong>తూర్పు (East)</strong></td></tr>
+<tr><td><strong>వెనుక వైపు</strong> ఉండే దిక్కు</td><td><strong>పడమర (West)</strong></td></tr>
+<tr><td><strong>కుడిచేతి వైపు</strong> ఉండే దిక్కు</td><td><strong>దక్షిణం (South)</strong></td></tr>
+<tr><td><strong>ఎడమచేతి వైపు</strong> ఉండే దిక్కు</td><td><strong>ఉత్తరం (North)</strong></td></tr>
+</table></div>
+<div class="info-box"><strong>ముఖ్యమైన అంశం:</strong> అన్ని దిక్కులు స్థిరంగా ఉంటాయి. ఇవి <strong>ఉత్తరం</strong> నుండి లెక్కించబడతాయి.</div>
+
+<h2>3. సరిహద్దులు మరియు మూలలు (Corners)</h2>
+<ul>
+<li>ఒక ప్రాంతం, భవనం లేదా ఊరి యొక్క హద్దులను <strong>సరిహద్దులు</strong> అని అంటారు.</li>
+<li>ఈ సరిహద్దులను తెలుసుకోవడానికి దిక్కులతో పాటు <strong>మూలలు</strong> కూడా తెలుసుకోవాలి.</li>
+<li><strong>మూల:</strong> రెండు దిక్కుల మధ్య ప్రాంతాన్ని <strong>మూల</strong> అని అంటారు.</li>
+</ul>
+
+<div class="table-wrap"><table>
+<tr><th>రెండు దిక్కుల మధ్య ప్రాంతం</th><th>మూల పేరు</th></tr>
+<tr><td>తూర్పు మరియు ఉత్తరం</td><td><strong>ఈశాన్యం (North-East)</strong></td></tr>
+<tr><td>దక్షిణం మరియు పడమర</td><td><strong>నైరుతి (South-West)</strong></td></tr>
+<tr><td>పడమర మరియు ఉత్తరం</td><td><strong>వాయువ్యం (North-West)</strong></td></tr>
+<tr><td>దక్షిణం మరియు తూర్పు</td><td><strong>ఆగ్నేయం (South-East)</strong></td></tr>
+</table></div>
+
+<h3>దిక్కులు - మూలల అమరిక చిత్రం</h3>
+<div class="compass-grid">
+ <div class="compass-cell compass-corner">↖ వాయువ్యం<br><span class="note">(ఉత్తరం - పడమర)</span></div>
+ <div class="compass-cell compass-main">⬆ ఉత్తరం</div>
+ <div class="compass-cell compass-corner">↗ ఈశాన్యం<br><span class="note">(ఉత్తరం - తూర్పు)</span></div>
+ 
+ <div class="compass-cell compass-main">⬅ పడమర</div>
+ <div class="compass-cell compass-center">🧭<br>దిక్కులు</div>
+ <div class="compass-cell compass-main">➡ తూర్పు</div>
+ 
+ <div class="compass-cell compass-corner">↙ నైరుతి<br><span class="note">(దక్షిణం - పడమర)</span></div>
+ <div class="compass-cell compass-main">⬇ దక్షిణం</div>
+ <div class="compass-cell compass-corner">↘ ఆగ్నేయం<br><span class="note">(దక్షిణం - తూర్పు)</span></div>
+</div>
+
+<h2>4. దిక్కులను కనుగొనే సాధనాలు</h2>
+<ul>
+<li>పురాతన కాలంలో నావికులు <strong>సూర్యుడు, నక్షత్రాలు, పవనాల దిశను</strong> బట్టి దిక్కులను కనుగొనేవారు.</li>
+<li>నేటి కాలంలో మనం <strong>దిక్సూచి (Compass), GPS (Global Positioning System)</strong> లను ఉపయోగించి దిక్కులను కనుగొంటున్నాం.</li>
+</ul>
+
+<h2>5. గుర్తింపు చిహ్నాలు మరియు గుర్తులు (Landmarks & Symbols)</h2>
+<ul>
+<li>ఏదైనా బాగా తెలిసిన ప్రాంతం సమీపంలోని చిరునామాను సులువుగా కనుక్కోవచ్చు. ఈ తెలిసిన ప్రదేశాలను <strong>గుర్తింపు చిహ్నాలు (Landmarks)</strong> అని అంటారు. ఉదాహరణకు: పాఠశాల, వైద్యశాల, పంచాయితీ కార్యాలయం.</li>
+<li>పటంలోని <strong>గుర్తులు (Symbols)</strong> అనేవి గుర్తింపు చిహ్నాల ప్రదేశాలను తెలుపుతాయి.</li>
+<li>గుర్తులు అనేవి మైలురాళ్ళను తెలుపుతాయి.</li>
+<li><strong>మైలు రాయి</strong> అనేది ఒక ప్రాంతంలో బాగా తెలిసిన ప్రదేశం.</li>
+</ul>
+
+<div class="table-wrap"><table>
+<tr><th>గుర్తింపు చిహ్నం (Landmark)</th><th>పటంలోని గుర్తు (Symbol)</th><th>వివరణ</th></tr>
+<tr><td><strong>ఇల్లు (House)</strong></td><td><span class="symbol-icon">🏠</span></td><td>నివాస గృహాన్ని సూచించే గుర్తు</td></tr>
+<tr><td><strong>పోస్టాఫీసు (Post Office)</strong></td><td><span class="symbol-icon">✉️</span></td><td>తపాలా కార్యాలయాన్ని సూచించే గుర్తు</td></tr>
+<tr><td><strong>పాఠశాల (School)</strong></td><td><span class="symbol-icon">🚩</span></td><td>జెండా / పాఠశాల భవనాన్ని సూచించే గుర్తు</td></tr>
+<tr><td><strong>వైద్యశాల (Hospital)</strong></td><td><span class="symbol-icon">⊕</span></td><td>ప్లస్ (+) గుర్తు ఆసుపత్రిని సూచిస్తుంది</td></tr>
+<tr><td><strong>వాటర్ ట్యాంక్ (Water Tank)</strong></td><td><span class="symbol-icon">🗼</span></td><td>మంచినీటి ట్యాంక్ ప్రదేశాన్ని సూచించే గుర్తు</td></tr>
+<tr><td><strong>చేతిపంపు (Hand Pump)</strong></td><td><span class="symbol-icon">🚰</span></td><td>నీటి పంపు ప్రదేశాన్ని సూచించే గుర్తు</td></tr>
+</table></div>
+
+<h2>6. EXPECTED QUESTIONS – బహుళైచ్ఛిక ప్రశ్నలు</h2>
+
+<div class="question"><strong>1. ఉదయం సూర్యునికి ఎదురుగా నిల్చున్నప్పుడు మన ఎడమచేతి వైపు ఉండే దిక్కు ఏది?</strong>
+<div class="options"><div>1) తూర్పు</div><div>2) పడమర</div><div>3) ఉత్తరం</div><div>4) దక్షిణం</div></div>
+<div class="answer">జవాబు: 3) ఉత్తరం</div></div>
+
+<div class="question"><strong>2. అన్ని దిక్కులు స్థిరంగా ఉంటాయి. అయితే అవి ఏ దిక్కు నుండి లెక్కించబడతాయి?</strong>
+<div class="options"><div>1) తూర్పు</div><div>2) పడమర</div><div>3) ఉత్తరం</div><div>4) దక్షిణం</div></div>
+<div class="answer">జవాబు: 3) ఉత్తరం</div></div>
+
+<div class="question"><strong>3. దక్షిణం మరియు పడమర దిక్కుల మధ్య ఉండే మూల ఏది?</strong>
+<div class="options"><div>1) ఈశాన్యం</div><div>2) ఆగ్నేయం</div><div>3) వాయువ్యం</div><div>4) నైరుతి</div></div>
+<div class="answer">జవాబు: 4) నైరుతి</div></div>
+
+<div class="question"><strong>4. తూర్పు మరియు ఉత్తరం దిక్కుల మధ్య ఉండే మూల ఏది?</strong>
+<div class="options"><div>1) ఈశాన్యం</div><div>2) నైరుతి</div><div>3) వాయువ్యం</div><div>4) ఆగ్నేయం</div></div>
+<div class="answer">జవాబు: 1) ఈశాన్యం</div></div>
+
+<div class="question"><strong>5. GPS అనగా పూర్తి రూపం ఏమిటి?</strong>
+<div class="options"><div>1) General Positioning System</div><div>2) Global Positioning System</div><div>3) Global Pointing System</div><div>4) Geographic Place System</div></div>
+<div class="answer">జవాబు: 2) Global Positioning System</div></div>
+
+<div class="question"><strong>6. ఒక ప్రాంతంలో బాగా తెలిసిన ప్రదేశాలను ఏమని అంటారు?</strong>
+<div class="options"><div>1) సరిహద్దులు</div><div>2) గుర్తింపు చిహ్నాలు</div><div>3) ప్రక్కలు</div><div>4) మూలలు</div></div>
+<div class="answer">జవాబు: 2) గుర్తింపు చిహ్నాలు</div></div>
+
+<div class="question"><strong>7. దక్షిణం మరియు తూర్పు దిక్కుల మధ్య గల మూల ఏది?</strong>
+<div class="options"><div>1) ఈశాన్యం</div><div>2) వాయువ్యం</div><div>3) ఆగ్నేయం</div><div>4) నైరుతి</div></div>
+<div class="answer">జవాబు: 3) ఆగ్నేయం</div></div>
+
+<h2>7. త్వరిత పునశ్చరణ (Quick Revision)</h2>
+<ul>
+<li><strong>ఇరుగు పొరుగు:</strong> మన ఇంటికి సమీప ఇళ్లలో నివసించేవారు.</li>
+<li><strong>దిక్కులు (4):</strong> తూర్పు, పడమర, ఉత్తరం, దక్షిణం.</li>
+<li><strong>మూలలు (4):</strong> ఈశాన్యం (ఉత్తరం-తూర్పు), ఆగ్నేయం (తూర్పు-దక్షిణం), నైరుతి (దక్షిణం-పడమర), వాయువ్యం (పడమర-ఉత్తరం).</li>
+<li><strong>దిక్కులు లెక్కించే ఆధారం:</strong> ఉత్తరం దిక్కు నుండి లెక్కించబడతాయి.</li>
+<li><strong>దిక్కులు కనుగొనే పరికరాలు:</strong> దిక్సూచి (Compass), GPS.</li>
+</ul>
+<p class="note">గమనిక: 3వ తరగతి సోషల్ స్టడీస్ కంటెంట్ (పేజీ నం. 27) ఆధారంగా పాఠ్యాంశాలను, దిక్కులు-మూలల చార్ట్ మరియు గుర్తింపు చిహ్నాలను సులభంగా చదువుకోవడానికి వీలుగా రూపొందించాము.</p>
+</div>
+
+<!-- Modern Glassmorphism Audio Player UI -->
+<div class="audio-player-bar">
+ <audio id="lessonAudio">
+  <source src="https://rajatalluri91.github.io/AP-DSC-2026/SOCIAL/1.UNIVERSE/Soc%201.4.wav" type="audio/wav">
+ </audio>
+ 
+ <div class="player-main">
+  <button class="play-btn" id="playPauseBtn" onclick="togglePlay()">▶</button>
+  
+  <div class="progress-container">
+   <div class="progress-bar-wrapper">
+    <span class="time-text" id="currentTime">0:00</span>
+    <input type="range" class="timeline" id="seekSlider" value="0" max="100" oninput="seekAudio()">
+    <span class="time-text" id="durationTime">0:00</span>
+   </div>
+  </div>
+  
+  <div class="player-right-controls">
+   <select class="speed-dropdown" id="speedSelect" onchange="changeSpeed(this.value)">
+    <option value="0.5">0.5x</option>
+    <option value="0.75">0.75x</option>
+    <option value="1" selected>1.0x</option>
+    <option value="1.25">1.25x</option>
+    <option value="1.5">1.5x</option>
+    <option value="2">2.0x</option>
+   </select>
+  </div>
+ </div>
+</div>
+
+<script>
+const toggle=document.getElementById('themeToggle');
+const saved=localStorage.getItem('theme');
+if(saved){document.documentElement.setAttribute('data-theme',saved);toggle.checked=saved==='dark';}
+toggle.addEventListener('change',()=>{const theme=toggle.checked?'dark':'light';document.documentElement.setAttribute('data-theme',theme);localStorage.setItem('theme',theme);});
+
+// Audio Player Logic
+const audio = document.getElementById('lessonAudio');
+const playBtn = document.getElementById('playPauseBtn');
+const seekSlider = document.getElementById('seekSlider');
+const currentTimeEl = document.getElementById('currentTime');
+const durationTimeEl = document.getElementById('durationTime');
+
+function togglePlay() {
+ if (audio.paused) {
+  audio.play();
+  playBtn.innerHTML = '❚❚';
+ } else {
+  audio.pause();
+  playBtn.innerHTML = '▶';
+ }
+}
+
+audio.addEventListener('timeupdate', () => {
+ if (audio.duration) {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  seekSlider.value = progress;
+  currentTimeEl.innerText = formatTime(audio.currentTime);
+  durationTimeEl.innerText = formatTime(audio.duration);
+ }
+});
+
+function seekAudio() {
+ if (audio.duration) {
+  audio.currentTime = (seekSlider.value / 100) * audio.duration;
+ }
+}
+
+function changeSpeed(speed) {
+ audio.playbackRate = parseFloat(speed);
+}
+
+function formatTime(seconds) {
+ const min = Math.floor(seconds / 60);
+ const sec = Math.floor(seconds % 60);
+ return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+}
+</script>
+</body>
+</html>
