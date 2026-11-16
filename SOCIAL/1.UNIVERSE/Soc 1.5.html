@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4వ తరగతి సోషల్ స్టడీస్ - 5. మనమెక్కడ ఉన్నాం</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mandali&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7f6;--card:#fff;--text:#2c3e50;--head:#1a5276;--sub:#117a65;--accent:#e67e22;--border:#d6dbdf;--th:#2980b9;--thtext:#fff;--box:#ebf5fb;--strong:#c0392b;--shadow:0 4px 15px rgba(0,0,0,.1);--player-bg:rgba(255,255,255,0.95)}
+[data-theme=dark]{--bg:#1a1a2e;--card:#16213e;--text:#e0e0e0;--head:#4ee1a0;--sub:#5dade2;--accent:#f39c12;--border:#0f3460;--th:#0f3460;--thtext:#fff;--box:#0f3460;--strong:#ff7675;--shadow:0 4px 15px rgba(0,0,0,.5);--player-bg:rgba(22,33,62,0.95)}
+*{box-sizing:border-box}body{font-family:'Mandali',sans-serif;background:var(--bg);color:var(--text);margin:0;padding:10px;line-height:1.75;font-size:17px;transition:.3s;padding-bottom:110px}
+.container{max-width:950px;margin:auto;background:var(--card);padding:10px;border-radius:9px;box-shadow:var(--shadow);overflow:hidden}
+.header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:3px solid var(--head);padding:5px 5px 12px;margin-bottom:14px}
+.main-title{font-size:23px;color:var(--head);margin:4px 0}.eyebrow{color:var(--accent);font-weight:bold;font-size:14px}
+h2{font-size:21px;color:var(--head);border-left:4px solid var(--accent);padding-left:9px;margin:22px 0 10px}
+h3{font-size:19px;color:var(--sub);margin:17px 0 8px}strong{color:var(--strong)}
+ul,ol{padding-left:23px;margin:8px 0}li{margin-bottom:7px}
+.flowchart,.info-box{background:var(--box);border:1px dashed var(--head);border-radius:8px;padding:12px;margin:12px 0}
+.flow-node{display:inline-block;background:var(--card);border:1px solid var(--border);padding:4px 9px;border-radius:5px;margin:3px;font-weight:bold}
+.table-wrap{width:100%;overflow-x:auto;margin:12px 0}table{width:100%;border-collapse:collapse;min-width:500px}th,td{border:1px solid var(--border);padding:8px;text-align:left;vertical-align:middle}th{background:var(--th);color:var(--thtext)}td{font-size:15px}
+.question{background:var(--box);border-left:4px solid var(--accent);padding:10px;margin:10px 0;border-radius:0 8px 8px 0}
+.tag{display:inline-block;background:var(--accent);color:white;border-radius:4px;padding:1px 7px;font-size:12px;margin-bottom:5px}
+.options{display:grid;grid-template-columns:1fr;gap:3px;margin-top:6px}
+.answer{color:var(--sub);font-weight:bold;margin-top:5px}
+@media(min-width:520px){.options{grid-template-columns:1fr 1fr}}
+.theme-switch{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:bold}
+.switch{position:relative;display:inline-block;width:50px;height:26px}.switch input{display:none}
+.slider{position:absolute;inset:0;background:#bbb;border-radius:30px;cursor:pointer;transition:.3s}
+.slider:before{content:"";position:absolute;width:20px;height:20px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.3s}
+input:checked+.slider{background:var(--accent)}input:checked+.slider:before{transform:translateX(24px)}
+.note{font-size:14px;color:var(--sub)}
+
+/* Modern Sticky Audio Player UI */
+.audio-player-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:950px;background:var(--player-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:2px solid var(--accent);box-shadow:0 -5px 25px rgba(0,0,0,0.2);padding:10px 15px;z-index:1000;display:flex;flex-direction:column;gap:8px;border-radius:12px 12px 0 0}
+.player-main{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.play-btn{background:var(--accent);border:none;color:#fff;width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform 0.2s,background-color 0.2s;flex-shrink:0;box-shadow:0 3px 8px rgba(0,0,0,0.3)}
+.play-btn:hover{transform:scale(1.05)}
+.progress-container{flex:1;display:flex;flex-direction:column;gap:4px}
+.progress-bar-wrapper{display:flex;align-items:center;gap:8px}
+.timeline{width:100%;height:6px;background:var(--border);border-radius:4px;outline:none;cursor:pointer;accent-color:var(--accent)}
+.time-text{font-size:12px;color:var(--text);font-weight:bold;font-family:sans-serif;min-width:35px;text-align:center}
+.player-right-controls{display:flex;align-items:center;gap:8px}
+.speed-dropdown{background:var(--box);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:4px 6px;font-size:13px;font-weight:bold;cursor:pointer;outline:none;font-family:'Mandali',sans-serif}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="header">
+ <div><div class="eyebrow">4వ తరగతి - సోషల్ స్టడీస్ | 5వ పాఠం</div><h1 class="main-title">5. మనమెక్కడ ఉన్నాం</h1></div>
+ <label class="theme-switch">🌙 / ☀️ <span class="switch"><input type="checkbox" id="themeToggle"><span class="slider"></span></span></label>
+</header>
+
+<h2>పాఠ్యాంశాల విభజన</h2>
+<div class="flowchart">
+ <span class="flow-node">గ్రామం</span> ➜ <span class="flow-node">మండలం</span> ➜ <span class="flow-node">జిల్లా</span> ➜ <span class="flow-node">రాష్ట్రం (ఆంధ్రప్రదేశ్)</span> ➜ <span class="flow-node">దేశం (భారతదేశం)</span> ➜ <span class="flow-node">ప్రపంచం (ఖండాలు & మహాసముద్రాలు)</span>
+</div>
+
+<h2>1. గ్రామం, మండలం, జిల్లా పరిచయం (దోసుబాయి ఉదాహరణ)</h2>
+<ul>
+<li>ప్రజలు తమ అవసరాల నిమిత్తం వేర్వేరు ప్రదేశాలలో నివసిస్తూ ఉంటారు. ప్రజలు కలిసి నివసించే చిన్న ప్రదేశాన్ని <strong>గ్రామం</strong> అని అంటారు.</li>
+<li>గ్రామం అనగా కొన్ని ఇళ్ల సముదాయం.</li>
+<li><strong>దోసుబాయి గ్రామం</strong> పార్వతీపురం మన్యం జిల్లా సీతంపేట మండలంలో ఉంది. ఈ గ్రామం పిన్‌కోడ్ <strong>532460</strong>.</li>
+</ul>
+
+<h3>దోసుబాయి గ్రామ సరిహద్దులు లేదా ఎల్లలు:</h3>
+<div class="table-wrap"><table>
+<tr><th>దిక్కు</th><th>సరిహద్దు</th></tr>
+<tr><td><strong>తూర్పు</strong></td><td>కొండలు, పైనాపిల్ తోటలు</td></tr>
+<tr><td><strong>పశ్చిమ</strong></td><td>మల్లి గ్రామం</td></tr>
+<tr><td><strong>దక్షిణం</strong></td><td>సంథం గ్రామం</td></tr>
+<tr><td><strong>ఉత్తరం</strong></td><td>ముత్యాలు గ్రామం</td></tr>
+</table></div>
+
+<ul>
+<li>సీతంపేట మండలంలో ఇంకా అనేక గ్రామాలు ఉన్నాయి.</li>
+</ul>
+
+<h3>సీతంపేట మండలానికి సరిహద్దులు:</h3>
+<div class="table-wrap"><table>
+<tr><th>దిక్కు</th><th>మండలం సరిహద్దు</th></tr>
+<tr><td><strong>తూర్పు</strong></td><td>కొత్తూరు మండలం</td></tr>
+<tr><td><strong>పశ్చిమ</strong></td><td>పాలకొండ మండలం</td></tr>
+<tr><td><strong>ఉత్తరం</strong></td><td>భూమిని మండలం</td></tr>
+<tr><td><strong>దక్షిణం</strong></td><td>బుర్జా మండలం</td></tr>
+</table></div>
+
+<ul>
+<li>కొన్ని మండలాలు కలిసి ఒక <strong>జిల్లా</strong> ఏర్పడతాయి.</li>
+</ul>
+
+<h3>పార్వతీపురం మన్యం జిల్లా యొక్క సరిహద్దులు:</h3>
+<div class="table-wrap"><table>
+<tr><th>దిక్కు</th><th>సరిహద్దు</th></tr>
+<tr><td><strong>తూర్పున</strong></td><td>శ్రీకాకుళం, ఒడిశా</td></tr>
+<tr><td><strong>పడమరన</strong></td><td>ఒడిశా</td></tr>
+<tr><td><strong>ఉత్తరాన</strong></td><td>ఒడిశా రాష్ట్రం</td></tr>
+<tr><td><strong>దక్షిణాన</strong></td><td>అల్లూరి సీతారామరాజు, విజయనగరం, శ్రీకాకుళం జిల్లాలు</td></tr>
+</table></div>
+
+<ul>
+<li>పూర్వపు ఉమ్మడి శ్రీకాకుళం జిల్లా సరిహద్దులు - తూర్పున బంగాళాఖాతం, పడమర మరియు దక్షిణాన విజయనగరం జిల్లా, ఉత్తరాన ఒడిశా రాష్ట్రం.</li>
+</ul>
+
+<div class="question">
+ <div class="tag">Expected Question</div>
+ <strong>1. సీతంపేట మండలం ఏ జిల్లాలో ఉంది?</strong>
+ <div class="options"><div>1) విజయనగరం</div><div>2) విశాఖపట్నం</div><div>3) పార్వతీపురం మన్యం</div><div>4) తూర్పు గోదావరి</div></div>
+ <div class="answer">జవాబు: 3) పార్వతీపురం మన్యం</div>
+</div>
+
+<div class="question">
+ <div class="tag">Expected Question</div>
+ <strong>2. ఈ క్రింది వానిలో పార్వతీపురం మన్యం జిల్లాకు సరిహద్దుగా లేని ప్రాంతం ఏది?</strong>
+ <div class="options"><div>1) విజయనగరం</div><div>2) విశాఖపట్నం</div><div>3) ఒడిశా</div><div>4) అల్లూరి సీతారామరాజు జిల్లా</div></div>
+ <div class="answer">జవాబు: 2) విశాఖపట్నం</div>
+</div>
+
+<h2>2. ఆంధ్రప్రదేశ్ రాష్ట్రం & జిల్లాలు - పాలనా కేంద్రాలు</h2>
+<ul>
+<li><strong>ఆంధ్రప్రదేశ్ సరిహద్దులు:</strong>
+  <ul>
+    <li>తూర్పు - బంగాళాఖాతం</li>
+    <li>పడమర - కర్ణాటక</li>
+    <li>ఉత్తరం - ఒడిశా, తెలంగాణ, ఛత్తీస్‌గఢ్</li>
+    <li>దక్షిణం - తమిళనాడు</li>
+  </ul>
+</li>
+<li><strong>వివిధ రాష్ట్రాలతో సరిహద్దు పంచుకుంటున్న జిల్లాలు:</strong>
+  <ul>
+    <li><strong>ఒడిశా:</strong> శ్రీకాకుళం, పార్వతీపురం మన్యం, అల్లూరి సీతారామరాజు</li>
+    <li><strong>ఛత్తీస్‌గఢ్:</strong> అల్లూరి సీతారామరాజు</li>
+    <li><strong>తెలంగాణ:</strong> అల్లూరి సీతారామరాజు, ఏలూరు, యన్.టి.ఆర్., పల్నాడు, ప్రకాశం, కర్నూలు, నంద్యాల</li>
+    <li><strong>కర్ణాటక:</strong> కర్నూలు, అనంతపురం, చిత్తూరు, అన్నమయ్య, సత్యసాయి</li>
+    <li><strong>తమిళనాడు:</strong> చిత్తూరు, తిరుపతి</li>
+  </ul>
+</li>
+<li>బంగాళాఖాత తీర రేఖ కలిగిన ఆంధ్రప్రదేశ్ జిల్లాలు (12): శ్రీకాకుళం, విజయనగరం, విశాఖపట్నం, అనకాపల్లి, కాకినాడ, బి.ఆర్. అంబేద్కర్ కోనసీమ, పశ్చిమ గోదావరి, కృష్ణా, బాపట్ల, ప్రకాశం, SPSR నెల్లూరు, తిరుపతి.</li>
+<li>ఆంధ్రప్రదేశ్ లో గల మొత్తం జిల్లాలు - <strong>26</strong>. ఆంధ్రప్రదేశ్ రాష్ట్ర రాజధాని - <strong>అమరావతి</strong>.</li>
+<li>దేశంలో విస్తీర్ణ పరంగా ఆంధ్రప్రదేశ్ రాష్ట్రం <strong>ఏడవ స్థానంలో</strong> ఉంది.</li>
+<li>ఆంధ్రప్రదేశ్ నైసర్గికంగా మూడు ప్రాంతాలుగా విభజించబడి ఉంది. అవి: 1. ఉత్తరాంధ్ర, 2. రాయలసీమ, 3. దక్షిణాంధ్ర.</li>
+</ul>
+
+<div class="question">
+ <div class="tag">Previous Bit</div>
+ <strong>★ కృష్ణాజిల్లాతో సరిహద్దును పంచుకోని జిల్లాను గుర్తించండి (13-10-2024 TET S1):</strong>
+ <div class="options"><div>1. పల్నాడు</div><div>2. ఏలూరు</div><div>3. గుంటూరు</div><div>4. బాపట్ల</div></div>
+ <div class="answer">జవాబు: 1. పల్నాడు</div>
+</div>
+
+<h3>ఆంధ్రప్రదేశ్ లో గల 26 జిల్లాలు - వాటి పరిపాలనా కేంద్రాలు (Headquarters):</h3>
+<div class="table-wrap"><table>
+<tr><th>క్రమ సంఖ్య</th><th>జిల్లా పేరు</th><th>పరిపాలనా కేంద్రం</th></tr>
+<tr><td>1</td><td>శ్రీకాకుళం</td><td>శ్రీకాకుళం</td></tr>
+<tr><td>2</td><td>పార్వతీపురం మన్యం</td><td>పార్వతీపురం</td></tr>
+<tr><td>3</td><td>విజయనగరం</td><td>విజయనగరం</td></tr>
+<tr><td>4</td><td>విశాఖపట్నం</td><td>విశాఖపట్నం</td></tr>
+<tr><td>5</td><td>అనకాపల్లి</td><td>అనకాపల్లి</td></tr>
+<tr><td>6</td><td>అల్లూరి సీతారామరాజు</td><td>పాడేరు</td></tr>
+<tr><td>7</td><td>కాకినాడ</td><td>కాకినాడ</td></tr>
+<tr><td>8</td><td>డా.బి.ఆర్. అంబేద్కర్ కోనసీమ</td><td>అమలాపురం</td></tr>
+<tr><td>9</td><td>తూర్పు గోదావరి</td><td>రాజమహేంద్రవరం</td></tr>
+<tr><td>10</td><td>పశ్చిమ గోదావరి</td><td>భీమవరం</td></tr>
+<tr><td>11</td><td>ఏలూరు</td><td>ఏలూరు</td></tr>
+<tr><td>12</td><td>కృష్ణా</td><td>మచిలీపట్నం</td></tr>
+<tr><td>13</td><td>యన్.టి.ఆర్ జిల్లా</td><td>విజయవాడ</td></tr>
+<tr><td>14</td><td>గుంటూరు</td><td>గుంటూరు</td></tr>
+<tr><td>15</td><td>పల్నాడు</td><td>నరసరావుపేట</td></tr>
+<tr><td>16</td><td>బాపట్ల</td><td>బాపట్ల</td></tr>
+<tr><td>17</td><td>ప్రకాశం జిల్లా</td><td>ఒంగోలు</td></tr>
+<tr><td>18</td><td>శ్రీ పొట్టి శ్రీరాములు నెల్లూరు</td><td>నెల్లూరు</td></tr>
+<tr><td>19</td><td>తిరుపతి</td><td>తిరుపతి</td></tr>
+<tr><td>20</td><td>చిత్తూరు</td><td>చిత్తూరు</td></tr>
+<tr><td>21</td><td>అన్నమయ్య</td><td>రాయచోటి</td></tr>
+<tr><td>22</td><td>వైయస్ఆర్ (కడప)</td><td>కడప</td></tr>
+<tr><td>23</td><td>శ్రీసత్యసాయి</td><td>పుట్టపర్తి</td></tr>
+<tr><td>24</td><td>అనంతపురం</td><td>అనంతపురం</td></tr>
+<tr><td>25</td><td>కర్నూలు</td><td>కర్నూలు</td></tr>
+<tr><td>26</td><td>నంద్యాల</td><td>నంద్యాల</td></tr>
+</table></div>
+
+<div class="question">
+ <div class="tag">Previous Bit</div>
+ <strong>★ అల్లూరి సీతారామరాజు జిల్లా ప్రధాన కేంద్రం (06-10-2024 TET S1):</strong>
+ <div class="options"><div>1. అరకు</div><div>2. పార్వతీపురం</div><div>3. పాడేరు</div><div>4. నర్సీపట్నం</div></div>
+ <div class="answer">జవాబు: 3. పాడేరు</div>
+</div>
+
+<div class="question">
+ <div class="tag">Previous Bit</div>
+ <strong>★ అన్నమయ్య జిల్లా ప్రధాన కేంద్రం (08-10-2024 TET S2):</strong>
+ <div class="options"><div>1. మదనపల్లె</div><div>2. రాయచోటి</div><div>3. పుట్టపర్తి</div><div>4. రాజంపేట</div></div>
+ <div class="answer">జవాబు: 2. రాయచోటి</div>
+</div>
+
+<div class="question">
+ <div class="tag">Previous Bit</div>
+ <strong>★ ఆంధ్రప్రదేశ్లోని జిల్లాలు వాటి ప్రధాన కేంద్రాలకు సంబంధించిన సరికాని జతను గుర్తించండి (09-10-2024 TET S2):</strong>
+ <div class="options"><div>1. అల్లూరి సీతారామరాజు - పాడేరు</div><div>2. బి.ఆర్. అంబేద్కర్ కోనసీమ - అమలాపురం</div><div>3. పల్నాడు - మాచర్ల</div><div>4. పశ్చిమ గోదావరి - భీమవరం</div></div>
+ <div class="answer">జవాబు: 3. పల్నాడు - మాచర్ల (సరికానిది)</div>
+</div>
+
+<div class="question">
+ <div class="tag">Previous Bit</div>
+ <strong>★ జిల్లాలు మరియు వాటి ప్రధాన కేంద్రాలకు సంబంధించి సరియైన జతను గుర్తించండి (10-10-2024 TET S2):</strong>
+ <div class="options"><div>1. శ్రీసత్యసాయి - పుట్టపర్తి</div><div>2. పల్నాడు - నరసరావుపేట</div><div>3. కృష్ణా - మచిలీపట్నం</div><div>4. కోనసీమ - భీమవరం (అన్ని సరైనవే / ప్రశ్న ప్రకారం సరియైన జత)</div></div>
+ <div class="answer">జవాబు: 4 (లేదా సరైన జతలు గుర్తించుట)</div>
+</div>
+
+<div class="question">
+ <div class="tag">Expected Question</div>
+ <strong>1. ఆంధ్రప్రదేశ్ రాష్ట్ర ఉత్తర సరిహద్దుగా గల రాష్ట్రం ఏది?</strong>
+ <div class="options"><div>1) ఒడిశా</div><div>2) ఒడిశా, తెలంగాణ</div><div>3) ఒడిశా, ఛత్తీస్‌గఢ్</div><div>4) ఒడిశా, తెలంగాణ, ఛత్తీస్‌గఢ్</div></div>
+ <div class="answer">జవాబు: 4) ఒడిశా, తెలంగాణ, ఛత్తీస్‌గఢ్</div>
+</div>
+
+<div class="question">
+ <div class="tag">Expected Question</div>
+ <strong>2. ఈ క్రింది జిల్లాలు వాటి పాలనా ప్రధాన కార్యాలయాలను తెలుపు జతలలో సరియానిది ఏది?</strong>
+ <div class="options"><div>1) శ్రీకాకుళం జిల్లా - శ్రీకాకుళం</div><div>2) గుంటూరు - గుంటూరు</div><div>3) కృష్ణా - విజయవాడ</div><div>4) ప్రకాశం - ఒంగోలు</div></div>
+ <div class="answer">జవాబు: 3) కృష్ణా - విజయవాడ</div>
+</div>
+
+<h2>3. భారతదేశం - రాష్ట్రాలు, కేంద్రపాలిత ప్రాంతాలు & సరిహద్దులు</h2>
+<ul>
+<li>కొన్ని రాష్ట్రాలు కలిసి దేశంగా ఏర్పడతాయి. మన దేశం భారతదేశం. భారతదేశ రాజధాని <strong>న్యూఢిల్లీ</strong>.</li>
+<li>భారతదేశం ప్రపంచంలో విస్తీర్ణ పరంగా <strong>ఏడవ స్థానంలో</strong>, జనాభా పరంగా <strong>రెండవ స్థానంలో</strong> ఉంది.</li>
+<li>భారతదేశంలో ప్రస్తుతం <strong>28 రాష్ట్రాలు, 8 కేంద్రపాలిత ప్రాంతాలు (UTs)</strong> ఉన్నాయి.</li>
+<li><strong>భారతదేశపు సరిహద్దులు:</strong>
+  <ul>
+    <li>తూర్పు - బంగాళాఖాతం, మయన్మార్, బంగ్లాదేశ్</li>
+    <li>పశ్చిమ - అరేబియా సముద్రం, పాకిస్తాన్</li>
+    <li>ఉత్తరం - చైనా, నేపాల్, భూటాన్</li>
+    <li>దక్షిణం - హిందూ మహాసముద్రం</li>
+  </ul>
+</li>
+<li>శ్రీలంక - భారతదేశం మధ్య <strong>పాక్ జలసంధి</strong> ఉంది.</li>
+<li><strong>భారతదేశంతో సరిహద్దు పంచుకుంటున్న దేశాలు - సరిహద్దు రాష్ట్రాలు/యూటీలు:</strong>
+  <ul>
+    <li><strong>పాకిస్తాన్:</strong> గుజరాత్, రాజస్థాన్, పంజాబ్, జమ్మూ మరియు కాశ్మీర్ (UT), లడఖ్ (UT)</li>
+    <li><strong>చైనా:</strong> లడఖ్ (UT), హిమాచల్ ప్రదేశ్, ఉత్తరాఖండ్, సిక్కిం, అరుణాచల్ ప్రదేశ్</li>
+    <li><strong>నేపాల్:</strong> ఉత్తరాఖండ్, ఉత్తరప్రదేశ్, బీహార్, పశ్చిమ బెంగాల్, సిక్కిం</li>
+    <li><strong>భూటాన్:</strong> అరుణాచల్ ప్రదేశ్, అస్సాం, పశ్చిమ బెంగాల్, సిక్కిం</li>
+    <li><strong>మయన్మార్:</strong> అరుణాచల్ ప్రదేశ్, నాగాలాండ్, మణిపూర్, మిజోరం</li>
+    <li><strong>బంగ్లాదేశ్:</strong> పశ్చిమ బెంగాల్, మేఘాలయ, అస్సాం, త్రిపుర, మిజోరం</li>
+  </ul>
+</li>
+</ul>
+
+<div class="question">
+ <div class="tag">Previous Bit</div>
+ <strong>★ మధ్యప్రదేశ్‌తో సరిహద్దు లేని రాష్ట్రం (13-10-2024 TET S2):</strong>
+ <div class="options"><div>1. మహారాష్ట్ర</div><div>2. గుజరాత్</div><div>3. జార్ఖండ్</div><div>4. ఛత్తీస్‌గఢ్</div></div>
+ <div class="answer">జవాబు: 3. జార్ఖండ్</div>
+</div>
+
+<div class="question">
+ <div class="tag">Previous Bit</div>
+ <strong>★ రాష్ట్రాల సరిహద్దులకు సంబంధించి సరైన అంశాన్ని గుర్తించండి (09-10-2024 TET S2):</strong>
+ <div class="options"><div>1. తెలంగాణతో సరిహద్దులు పంచుకుంటున్న రాష్ట్రాలు...</div><div>2. ఒడిశాతో సరిహద్దులు పంచుకుంటున్న రాష్ట్రాలు...</div><div>3. బీహార్‌తో సరిహద్దులు పంచుకుంటున్న రాష్ట్రాలు...</div><div>4. జార్ఖండ్‌తో సరిహద్దులు పంచుకుంటున్న రాష్ట్రాలు - బీహార్, పశ్చిమబెంగాల్, ఒడిశా, ఛత్తీస్‌గఢ్, ఉత్తరప్రదేశ్</div></div>
+ <div class="answer">జవాబు: 4</div>
+</div>
+
+<div class="question">
+ <div class="tag">Previous Bit</div>
+ <strong>★ పశ్చిమ బెంగాల్‌తో సరిహద్దు పంచుకోని రాష్ట్రాన్ని గుర్తించండి (10-10-2024 TET S2):</strong>
+ <div class="options"><div>1. అస్సాం</div><div>2. ఒడిశా</div><div>3. మేఘాలయ</div><div>4. సిక్కిం</div></div>
+ <div class="answer">జవాబు: 3. మేఘాలయ (మరియు సరిహద్దు పంచుకోనిది గుర్తించుట)</div>
+</div>
+
+<div class="question">
+ <div class="tag">Previous Bit</div>
+ <strong>★ బంగ్లాదేశ్‌తో సరిహద్దు పంచుకోని భారతీయ రాష్ట్రం (08-10-2024 TET S3):</strong>
+ <div class="options"><div>1. మిజోరం</div><div>2. త్రిపుర</div><div>3. సిక్కిం</div><div>4. పశ్చిమబెంగాల్</div></div>
+ <div class="answer">జవాబు: 3. సిక్కిం</div>
+</div>
+
+<h3>భారతదేశంలోని 28 రాష్ట్రాలు మరియు వాటి రాజధానులు:</h3>
+<div class="table-wrap"><table>
+<tr><th>క్రమ సంఖ్య</th><th>రాష్ట్రం</th><th>రాజధాని</th><th>క్రమ సంఖ్య</th><th>రాష్ట్రం</th><th>రాజధాని</th></tr>
+<tr><td>1</td><td>ఆంధ్రప్రదేశ్</td><td>అమరావతి</td><td>15</td><td>మణిపూర్</td><td>ఇంఫాల్</td></tr>
+<tr><td>2</td><td>అరుణాచల్ ప్రదేశ్</td><td>ఈటానగర్</td><td>16</td><td>మేఘాలయ</td><td>షిల్లాంగ్</td></tr>
+<tr><td>3</td><td>అస్సాం</td><td>దిస్పూర్</td><td>17</td><td>మిజోరం</td><td>ఐజ్వాల్</td></tr>
+<tr><td>4</td><td>బీహార్</td><td>పాట్నా</td><td>18</td><td>నాగాలాండ్</td><td>కొహిమా</td></tr>
+<tr><td>5</td><td>ఛత్తీస్‌గఢ్</td><td>రాయ్‌పూర్</td><td>19</td><td>ఒడిశా</td><td>భువనేశ్వర్</td></tr>
+<tr><td>6</td><td>గోవా</td><td>పనాజీ</td><td>20</td><td>పంజాబ్</td><td>చండీగఢ్</td></tr>
+<tr><td>7</td><td>గుజరాత్</td><td>గాంధీనగర్</td><td>21</td><td>రాజస్థాన్</td><td>జైపూర్</td></tr>
+<tr><td>8</td><td>హర్యానా</td><td>చండీగఢ్</td><td>22</td><td>సిక్కిం</td><td>గ్యాంగ్‌టక్</td></tr>
+<tr><td>9</td><td>హిమాచల్ ప్రదేశ్</td><td>సిమ్లా</td><td>23</td><td>తమిళనాడు</td><td>చెన్నై</td></tr>
+<tr><td>10</td><td>జార్ఖండ్</td><td>రాంచీ</td><td>24</td><td>తెలంగాణ</td><td>హైదరాబాద్</td></tr>
+<tr><td>11</td><td>కర్ణాటక</td><td>బెంగళూరు</td><td>25</td><td>త్రిపుర</td><td>అగర్తల</td></tr>
+<tr><td>12</td><td>కేరళ</td><td>తిరువనంతపురం</td><td>26</td><td>ఉత్తరప్రదేశ్</td><td>లక్నో</td></tr>
+<tr><td>13</td><td>మధ్యప్రదేశ్</td><td>భోపాల్</td><td>27</td><td>ఉత్తరాఖండ్</td><td>డెహ్రాడూన్</td></tr>
+<tr><td>14</td><td>మహారాష్ట్ర</td><td>ముంబై</td><td>28</td><td>పశ్చిమ బెంగాల్</td><td>కోల్‌కతా</td></tr>
+</table></div>
+
+<h2>4. ప్రపంచం - ఖండాలు మరియు మహాసముద్రాలు</h2>
+<ul>
+<li>కొన్ని దేశాలను కలిపి ఖండము అని అంటారు. మొత్తం భూగోళం మూడు వంతులు నీటితోనూ, ఒక వంతు భూభాగంతోనూ ఉంది.</li>
+<li>భూగోళంపై గల మొత్తం భూభాగాన్ని <strong>7 భాగాలుగా</strong> విభజించారు. వీటిని <strong>ఖండాలు</strong> అంటారు.</li>
+<li>ఖండాలన్నింటినీ కలిపిన భూభాగాన్ని ప్రపంచం అంటారు. భూమిపై గల ఏడు ఖండాలు:
+  <ol>
+    <li>ఆసియా</li>
+    <li>ఆఫ్రికా</li>
+    <li>ఆస్ట్రేలియా</li>
+    <li>ఐరోపా</li>
+    <li>ఉత్తర అమెరికా</li>
+    <li>దక్షిణ అమెరికా</li>
+    <li>అంటార్కిటికా</li>
+  </ol>
+</li>
+<li><strong>అక్షాంశాల పరంగా అర్ధగోళాలు:</strong>
+  <ul>
+    <li>పూర్తిగా ఉత్తరార్ధగోళంలో విస్తరించిన ఖండాలు - ఐరోపా, ఉత్తర అమెరికా.</li>
+    <li>పూర్తిగా దక్షిణార్ధగోళంలో విస్తరించిన ఖండాలు - ఆస్ట్రేలియా, అంటార్కిటికా.</li>
+    <li>ఉత్తర, దక్షిణార్ధగోళాలలో విస్తరించి ఉన్న ఖండాలు - ఆసియా, ఆఫ్రికా, దక్షిణ అమెరికా.</li>
+  </ul>
+</li>
+<li><strong>రేఖాంశాల పరంగా అర్ధగోళాలు:</strong>
+  <ul>
+    <li>పూర్తిగా తూర్పు అర్ధగోళంలో ఉన్న ఖండాలు - ఆసియా, ఆస్ట్రేలియా.</li>
+    <li>పూర్తిగా పశ్చిమ అర్ధగోళంలో ఉన్న ఖండాలు - ఉత్తర అమెరికా, దక్షిణ అమెరికా.</li>
+  </ul>
+</li>
+<li>అతి పెద్ద ఖండం - <strong>ఆసియా</strong>, అతి చిన్న ఖండం - <strong>ఆస్ట్రేలియా</strong>.</li>
+<li>'పక్షి ఖండం'గా పేరుగాంచినది - <strong>దక్షిణ అమెరికా</strong>.</li>
+<li>ఉత్తర అమెరికా, దక్షిణ అమెరికాలకు తూర్పున అట్లాంటిక్ మహాసముద్రం, పశ్చిమాన పసిఫిక్ మహాసముద్రం ఉన్నాయి.</li>
+<li>భూగోళంపై గల జల భాగాన్ని 5 భాగాలుగా విభజించారు. అవే <strong>మహాసముద్రాలు</strong>:
+  <ol>
+    <li>పసిఫిక్ మహాసముద్రం</li>
+    <li>అట్లాంటిక్ మహాసముద్రం</li>
+    <li>హిందూ మహాసముద్రం</li>
+    <li>ఆర్కిటిక్ మహాసముద్రం</li>
+    <li>దక్షిణ (అంటార్కిటిక్) మహాసముద్రం</li>
+  </ol>
+</li>
+<li>మహాసముద్రాలలో అత్యంత లోతైనది - <strong>పసిఫిక్ మహాసముద్రం</strong>.</li>
+</ul>
+
+<div class="question">
+ <div class="tag">Previous Bit</div>
+ <strong>★ 'పక్షి ఖండం' అని దేనిని పిలుస్తారు? (06-10-2024 TET S2):</strong>
+ <div class="options"><div>1. దక్షిణ అమెరికా</div><div>2. ఆస్ట్రేలియా</div><div>3. ఉత్తర అమెరికా</div><div>4. అంటార్కిటికా</div></div>
+ <div class="answer">జవాబు: 1. దక్షిణ అమెరికా</div>
+</div>
+
+<div class="question">
+ <div class="tag">Previous Bit</div>
+ <strong>★ ఉత్తర అమెరికా ఖండానికి పశ్చిమ దిక్కులో గల మహాసముద్రం (10-10-2024 TET S2):</strong>
+ <div class="options"><div>1. అట్లాంటిక్ మహాసముద్రం</div><div>2. పసిఫిక్ మహాసముద్రం</div><div>3. ఆర్కిటిక్ మహాసముద్రం</div><div>4. అంటార్కిటికా మహాసముద్రం</div></div>
+ <div class="answer">జవాబు: 2. పసిఫిక్ మహాసముద్రం</div>
+</div>
+
+<div class="question">
+ <div class="tag">Previous Bit</div>
+ <strong>★ పూర్తిగా పశ్చిమార్ధగోళంలో ఉన్న ఖండం (13-10-2024 TET S2):</strong>
+ <div class="options"><div>1. ఆస్ట్రేలియా</div><div>2. దక్షిణ అమెరికా</div><div>3. ఆఫ్రికా</div><div>4. యూరప్</div></div>
+ <div class="answer">జవాబు: 2. దక్షిణ అమెరికా</div>
+</div>
+
+<h2>5. EXPECTED QUESTIONS (ప్రశ్నలు - జవాబులు)</h2>
+
+<div class="question">
+ <strong>1. ప్రపంచంలో విస్తీర్ణ దృష్ట్యా భారతదేశ స్థానం:</strong>
+ <div class="options"><div>1) 6వ స్థానం</div><div>2) 7వ స్థానం</div><div>3) 8వ స్థానం</div><div>4) 9వ స్థానం</div></div>
+ <div class="answer">జవాబు: 2) 7వ స్థానం</div>
+</div>
+
+<div class="question">
+ <strong>2. భారతదేశంలో ప్రస్తుతం రాష్ట్రాలు, కేంద్రపాలిత ప్రాంతాల సంఖ్య:</strong>
+ <div class="options"><div>1) 29 రాష్ట్రాలు, 9 యూటీలు</div><div>2) 29 రాష్ట్రాలు, 8 యూటీలు</div><div>3) 28 రాష్ట్రాలు, 9 యూటీలు</div><div>4) 28 రాష్ట్రాలు, 8 కేంద్రపాలిత ప్రాంతాలు</div></div>
+ <div class="answer">జవాబు: 4) 28 రాష్ట్రాలు, 8 కేంద్రపాలిత ప్రాంతాలు</div>
+</div>
+
+<div class="question">
+ <strong>3. నీటితో కూడిన భూభాగం ఎంత శాతం / భాగాలుగా ఉంది?</strong>
+ <div class="options"><div>1) ఒక వంతు నీరు</div><div>2) రెండు వంతుల నీరు</div><div>3) మూడు వంతుల నీరు</div><div>4) నాలుగు వంతుల నీరు</div></div>
+ <div class="answer">జవాబు: 3) మూడు వంతుల నీరు</div>
+</div>
+
+<div class="question">
+ <strong>4. భూగోళంలో పూర్తిగా ఉత్తరార్ధగోళంలో కలగని / విస్తరించిన ఖండం:</strong>
+ <div class="options"><div>1) ఐరోపా ఖండం</div><div>2) దక్షిణ అమెరికా ఖండం</div><div>3) ఉత్తర అమెరికా ఖండం</div><div>4) పైవేవీ కావు</div></div>
+ <div class="answer">జవాబు: 2) దక్షిణ అమెరికా ఖండం (ఉత్తర దక్షిణార్ధగోళాలలో విస్తరించి ఉన్నది)</div>
+</div>
+
+<h2>6. త్వరిత పునశ్చరణ (Quick Revision)</h2>
+<ul>
+<li><strong>గ్రామం:</strong> కొన్ని ఇళ్ల సముదాయం.</li>
+<li><strong>ఆంధ్రప్రదేశ్ జిల్లాలు:</strong> 26; రాజధాని: అమరావతి.</li>
+<li><strong>భారతదేశం:</strong> 28 రాష్ట్రాలు, 8 కేంద్రపాలిత ప్రాంతాలు; రాజధాని: న్యూఢిల్లీ.</li>
+<li><strong>అతి పెద్ద ఖండం:</strong> ఆసియా | <strong>అతి చిన్న ఖండం:</strong> ఆస్ట్రేలియా.</li>
+<li><strong>అత్యంత లోతైన మహాసముద్రం:</strong> పసిఫిక్ మహాసముద్రం.</li>
+</ul>
+
+</div>
+
+<!-- Modern Glassmorphism Audio Player UI -->
+<div class="audio-player-bar">
+ <audio id="lessonAudio">
+  <source src="https://rajatalluri91.github.io/AP-DSC-2026/SOCIAL/1.UNIVERSE/Soc.1.5.wav" type="audio/wav">
+ </audio>
+ 
+ <div class="player-main">
+  <button class="play-btn" id="playPauseBtn" onclick="togglePlay()">▶</button>
+  
+  <div class="progress-container">
+   <div class="progress-bar-wrapper">
+    <span class="time-text" id="currentTime">0:00</span>
+    <input type="range" class="timeline" id="seekSlider" value="0" max="100" oninput="seekAudio()">
+    <span class="time-text" id="durationTime">0:00</span>
+   </div>
+  </div>
+  
+  <div class="player-right-controls">
+   <select class="speed-dropdown" id="speedSelect" onchange="changeSpeed(this.value)">
+    <option value="0.5">0.5x</option>
+    <option value="0.75">0.75x</option>
+    <option value="1" selected>1.0x</option>
+    <option value="1.25">1.25x</option>
+    <option value="1.5">1.5x</option>
+    <option value="2">2.0x</option>
+   </select>
+  </div>
+ </div>
+</div>
+
+<script>
+const toggle=document.getElementById('themeToggle');
+const saved=localStorage.getItem('theme');
+if(saved){document.documentElement.setAttribute('data-theme',saved);toggle.checked=saved==='dark';}
+toggle.addEventListener('change',()=>{const theme=toggle.checked?'dark':'light';document.documentElement.setAttribute('data-theme',theme);localStorage.setItem('theme',theme);});
+
+// Audio Player Logic
+const audio = document.getElementById('lessonAudio');
+const playBtn = document.getElementById('playPauseBtn');
+const seekSlider = document.getElementById('seekSlider');
+const currentTimeEl = document.getElementById('currentTime');
+const durationTimeEl = document.getElementById('durationTime');
+
+function togglePlay() {
+ if (audio.paused) {
+  audio.play();
+  playBtn.innerHTML = '❚❚';
+ } else {
+  audio.pause();
+  playBtn.innerHTML = '▶';
+ }
+}
+
+audio.addEventListener('timeupdate', () => {
+ if (audio.duration) {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  seekSlider.value = progress;
+  currentTimeEl.innerText = formatTime(audio.currentTime);
+  durationTimeEl.innerText = formatTime(audio.duration);
+ }
+});
+
+function seekAudio() {
+ if (audio.duration) {
+  audio.currentTime = (seekSlider.value / 100) * audio.duration;
+ }
+}
+
+function changeSpeed(speed) {
+ audio.playbackRate = parseFloat(speed);
+}
+
+function formatTime(seconds) {
+ const min = Math.floor(seconds / 60);
+ const sec = Math.floor(seconds % 60);
+ return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+}
+</script>
+</body>
+</html>
